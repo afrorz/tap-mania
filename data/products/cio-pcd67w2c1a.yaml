@@ -1,0 +1,60 @@
+id: cio-pcd67w2c1a      # 型番の「CIO-」とメーカー名が重なるので、メーカー名を1回だけにした
+maker: CIO
+model: CIO-PCD67W2C1A
+name: "Polaris CUBE DESK"
+category: usb-tap
+image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/01_DESK_LP_BK.jpg"
+image_credit: "CIO 公式サイト"
+official_url: "https://connectinternationalone.co.jp/cioproduct/adapter/powerstrip/cio-pcd67w2c1a/"
+manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/240628_Polaris_CUBE_DESK_UM_ol.pdf"
+checked: 2026-11-12
+
+pse:
+  status: unconfirmed
+  how: "公式ページと取説(日本語・英語)に PSE の表示なし。公式画像 06_DESK_LP_BK.jpg の付属 AC ケーブルにひし形のマークらしきものが写るが小さくて読めず、本体ではなくケーブルの表示。本体の銘板は公式画像に写っていない"
+  date: 2026-11-12
+
+rating:              # コンセントだけ使うとき。USB と併用するときは 6A・750W Max(note)
+  volt: "100-125"
+  amp: 7
+  watt_max: 875
+cord:
+  length_m: 1.5
+  type: "着脱式のメガネ型ソケットケーブル(本体の AC 入力ポートに挿す)"
+outlets:
+  ac: 3
+  shutter: true
+  three_pin: false
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 67}
+    - {name: C2, type: C, max_w: 67}
+    - {name: A1, type: A, max_w: 18}
+  total_w: 67
+  sharing:
+    - {use: "C1+C2", out: "合計65W(機器に合わせて自動で振り分け。例 45W+20W / 30W+30W / 20W+20W)"}
+    - {use: "C1+A1", out: "45W+18W"}
+    - {use: "C2+A1", out: "合計15W(5V⎓3A)"}
+    - {use: "C1+C2+A1", out: "45W+15W(C2とA1の合計)"}
+  sharing_source: "取扱説明書 p.5「4.仕様」と p.8「8.Nova Intelligence」、公式ページの急速充電早見表の画像(08_DESK_LP.jpg)"
+  pd: true
+  pps: true
+  gan: true
+colors: [ブラック, ホワイト]
+warranty: "1年(取説 p.10 の保証書)"
+seller_jp: "株式会社CIO(大阪)。問い合わせ窓口は取説 p.10 に記載"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [rakuten, amazon]
+q: "CIO-PCD67W2C1A"
+price: "6,580円(税込・メーカー希望小売価格)"
+note: |
+  定格は、コンセントだけ使うとき 100-125VAC・7A・875W Max、コンセントと USB を併用するとき 100-125VAC・6A・750W Max(公式ページの仕様・取説 p.5)。
+  USB を1ポートだけ使うとき、C1/C2 は 5V⎓3A / 9V⎓3A / 12V⎓3A / 15V⎓3A / 20V⎓3.35A(Max 67W)・PPS 3.3-11V⎓5A。A は 5V⎓3A / 9V⎓2A / 12V⎓1.5A(Max 18W)。
+  公式の資料どうしで同時出力の書き方がずれている。仕様表の画像(09_DESK_LP-1.jpg)は「※複数ポート接続時USB-Aは15W Max」、早見表と取説は「C1+A: 45W+18W(計63W)」。
+  20W 時の 9V の電流は、公式ページの仕様で 9V=2.25A、取説 p.5 で 9V⎓2.22A。
+  C1+C2 の振り分けは「Nova Intelligence」による自動で、手動では決められない(取説 p.8)。
+  急速充電の規格は PD3.0 / PPS / QC4.0+(取説 p.6)。公式ページに「次世代半導体GaNを採用」。液晶でポートごとの給電 W 数が見える。過電流保護機能あり(取説 p.7)。
+  トラッキング対策・スイッチ・雷サージは記載なし。本体 約76.5×66.8×49mm・約228g(ケーブル約100g は別)。
+  Yahoo!ショッピングにはメーカー公式の店が見当たらないので stores から外した。

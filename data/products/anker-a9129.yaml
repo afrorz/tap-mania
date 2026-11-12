@@ -1,0 +1,62 @@
+id: anker-a9129
+maker: Anker
+model: A9129
+name: "Anker Nano Charging Station (6-in-1, 67W)"
+category: usb-tap
+image: "https://www.ankerjapan.com/cdn/shop/files/A9129-BLACK.jpg"
+image_credit: "Anker 公式サイト"
+official_url: "https://www.ankerjapan.com/products/a9129"
+manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A9129Manual.pdf"
+checked: 2026-11-12
+
+pse:
+  status: unconfirmed
+  how: "公式ページは「PSE技術基準適合」の文字だけ。公式画像 A9129-hosho.jpg の PSE マークは Anker グループ全体の説明で、届出事業者名・登録検査機関名は無い。取説(PDF 2ページ)にも PSE の表示なし。本体の銘板は公式画像に写っていない"
+  date: 2026-11-12
+
+rating:
+  volt: "100-125"
+  amp: 11
+  watt_max: 1000
+cord:
+  length_m: 1.5
+outlets:
+  ac: 2
+  three_pin: false
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 67}
+    - {name: C2, type: C, max_w: 67}
+    - {name: A1, type: A, max_w: 12}
+    - {name: A2, type: A, max_w: 12}
+  total_w: 65
+  sharing:
+    - {use: "C1+C2", out: "20W+45W"}
+    - {use: "C1+A1", out: "45W+12W"}
+    - {use: "C1+A2", out: "45W+12W"}
+    - {use: "C2+A1", out: "45W+12W"}
+    - {use: "C2+A2", out: "45W+12W"}
+    - {use: "A1+A2", out: "合計15W"}
+    - {use: "C1+C2+A1", out: "20W+30W+12W"}
+    - {use: "C1+C2+A2", out: "20W+30W+12W"}
+    - {use: "C1+A1+A2", out: "45W+15W(A1とA2の合計)"}
+    - {use: "C2+A1+A2", out: "45W+15W(A1とA2の合計)"}
+    - {use: "C1+C2+A1+A2", out: "20W+30W+15W(A1とA2の合計)"}
+  sharing_source: "取扱説明書 PDF p.2「製品の仕様」の表(2〜4ポート同時使用時)。公式ページの出力表の画像で照合"
+  pd: true
+colors: [ブラック, ホワイト, グレイッシュブルー]
+warranty: "24ヶ月(Anker Japan 公式サイトの会員は30ヶ月)"
+seller_jp: "アンカー・ジャパン株式会社(公式サイトの特定商取引法の表示に住所・電話あり)"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "A9129"
+price: "6,990円(税込・公式オンラインストアの通常価格)"
+note: |
+  1ポートだけ使うとき、C1・C2 は 5V⎓3A / 9V⎓3A / 15V⎓3A / 20V⎓3.35A(最大67W)、A1・A2 は 5V⎓2.4A(各最大12W)。取説 p.2。
+  取説の表は「USB-C1/C2 + USB-A1/A2 = 最大45W+最大12W」のようにまとめて書いてあり、ここでは組み合わせごとに分けて写した。
+  合計の出力は資料で書き方が違う。公式ページの仕様は「合計最大出力 65W (USBポートのみ)」、製品名の 67W は1ポート時の最大。取説の「合計出力 最大1,000W」はコンセントを含めた値。
+  AC の定格は取説 p.2 で「100-125V~ 50/60Hz 11A」。
+  シャッター・トラッキング対策・スイッチ・雷サージ・GaN・PPS は、公式ページ・取説とも記載なし。公式ページには「PowerIQ 3.0搭載」「ActiveShield 2.0」とある。
+  大きさ 約100×93×19mm、約298g(ケーブル込み)。型番は A9129N11(黒)・N21(白)・N31(グレイッシュブルー)。発売は2023年9月。

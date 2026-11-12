@@ -28,7 +28,7 @@ data/products/*.yaml + content/q/*.md → python scripts/build.py → public/ �
 
 - メインのオレンジ `#F88425`(ボタン・帯。上の文字は黒。白はコントラスト 2.52 で読めない)
 - 文字のリンク `#B54E00`(白地 5.18・クリーム地 4.85)、文字の黒 `#1F1F1F`、背景のクリーム `#FFF6EC`
-- 書体は M PLUS Rounded 1c。見出し 800、本文 500
+- 書体: 見出し・ロゴ・ボタンは M PLUS Rounded 1c(800)、本文と表は Noto Sans JP(400・700)。丸ゴシックを本文に使うと読みづらい(2026-11-12 本人)
 
 ## 公開
 
