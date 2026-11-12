@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.13"   # build.py は f 文字列の新しい書き方(3.12〜)を使う。手元は 3.14
           cache: pip
       - run: pip install -r requirements.txt
       - run: python3 scripts/build.py
