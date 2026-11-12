@@ -1,0 +1,53 @@
+id: anker-a1638
+maker: Anker
+model: A1638
+name: "Anker Nano Power Bank (10000mAh, 45W, 巻取り式 USB-Cケーブル)"
+category: battery
+image: "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A1638N11.jpg?v=1773646924"
+image_credit: "Anker 公式サイト"
+official_url: "https://www.ankerjapan.com/products/a1638"
+manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A1638Manual.pdf"
+checked: 2026-11-12
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "製品ページ・取扱説明書・安全に関する注意事項に PSE の記載なし。製品画像のアフターサービス案内に PSE マークと「Ankerグループのすべての対象製品…技術基準に適合」の文があるが、グループ共通の案内で、本機の表示でも届出事業者名でもない"
+  date: 2026-11-12
+
+battery:
+  mah: 10000
+  cell: "リチウムイオン電池"
+  input_w: 30
+  passthrough: true
+  safety: "常時温度管理システム ActiveShield 3.0 搭載 / 温度保護モード / 回路保護 / 非充電モード(公式の書き方)"
+size: "約82 × 51 × 36mm"
+weight_g: 230
+usb:
+  ports:
+    - {name: "C1(巻取り式ケーブル)", type: C, max_w: 45}
+    - {name: "C2(ポート)", type: C, max_w: 45}
+    - {name: "A", type: A, max_w: 22.5}
+  total_w: 24
+  sharing:   # 公式の呼び方は「巻取り式 USB-C ケーブル」「USB-C ポート」「USB-A ポート」。表では C1・C2・A と略した
+    - {use: "C1(ケーブル)+C2(ポート)", out: "15W + 7.5W"}
+    - {use: "C1 または C2 + A", out: "15W + 7.5W"}
+    - {use: "C1+C2+A", out: "7.5W + 7.5W + 7.5W"}
+    - {use: "合計出力", out: "5V 4.8A(最大 24W)"}
+  sharing_source: "取扱説明書「製品の仕様」の「2 ポート使用時」「3 ポート使用時」「合計出力」。同じ取説の「よくある質問」は「2 つのポートを同時に使用する場合の各ポートの最大出力は 15W」「3 つのポート同時…7.5W」"
+colors: [ブラック, ホワイト, ミントブルー, ピンク, ブルー]
+warranty: "18ヶ月(Anker で会員登録すると +6ヶ月)"
+seller_jp: "アンカー・ジャパン株式会社"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "A1638"
+price: "7,990円(税込・Anker Japan 公式オンラインストア)"
+note: |
+  容量の公式の書き方は「容量 10000mAh」(製品ページ)、「セル容量 10,000mAh」(取説)。Wh と定格容量は、製品ページにも取説にも載っていない。
+  1ポートのときの出力(取説): ケーブル・C は 5V 3A / 9V 3A / 10V 2.25A / 15V 3A / 20V 2.25A(最大 45W)、A は 5V 3A / 9V 2A / 10V 2.25A / 12V 1.5A(最大 22.5W)。
+  入力: ケーブル・C で 5V 3A / 9V 3A / 12V 2.5A / 15V 2A(最大 30W)。2つのポートを同時に使って本体を充電することはできない(取説)。
+  パススルー: 「パススルー充電にも対応」。お使いの機器への充電が優先され、充電が終わってから本体への充電が始まる(製品ページの注意)。
+  ケーブルは約7cm〜約70cmで8段階に長さを変えられる。USB-A には低電流モードがある。本体の充電時間・PD・PPS は公式に記載なし。
+  Anker の自主回収の対象(2024年9月・2025年6月・2025年10月の掲載分)に A1638 は入っていない。発売は2025年9月。

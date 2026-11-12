@@ -1,0 +1,57 @@
+id: cio-mb35w2c-ss10k-ex05   # 型番の「CIO-」とメーカー名が重なるので、メーカー名を1回だけにした
+maker: CIO
+model: CIO-MB35W2C-SS10K-EX05
+name: "SMARTCOBY Ex05 Wireless2.2 Pro CABLE SS10K"
+category: battery
+image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/01_BK_amazon.jpg"
+image_credit: "CIO 公式サイト"
+official_url: "https://connectinternationalone.co.jp/cioproduct/mobilebattery/smartcoby/cio-mb35w2c-ss10k-ex05/"
+manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/260319_SC_Ex05_UM.pdf"
+checked: 2026-11-12
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "製品ページ・取扱説明書(全ページ)・製品ページの公式画像23枚のどれにも、PSE マーク・届出事業者名の表示なし"
+  date: 2026-11-12
+
+battery:
+  mah: 10000
+  wh: 37
+  rated_mah: 5800
+  cell: "半固体系バッテリーセル(CIO の独自基準による呼び方)"
+  input_w: 30
+  recharge_time: "約130分(使用環境により異なる場合がある)"
+  passthrough: true
+  safety: "加熱・短絡・圧迫・落下などの試験を実施し、内部温度を監視しながら出力を自動制御する安全機能を搭載(公式の書き方)"
+size: "約103.4 × 69.3 × 22.7mm(リング含む)"
+weight_g: 238
+usb:
+  ports:
+    - {name: "USB-C1/C2(Cable)", type: C, max_w: 35}
+    - {name: "Qi2.2 ワイヤレス", type: wireless, max_w: 25}
+  sharing:
+    - {use: "USB-C1+C2(Cable)", out: "合計15W(5V⎓3A)"}
+    - {use: "USB-C(1つ)+ワイヤレス", out: "15W+5W"}
+    - {use: "USB-C(2つ)+ワイヤレス", out: "(合計15W)+5W"}
+  sharing_source: "製品ページの製品仕様と取扱説明書「4.仕様」(同じ文言)。取説 p.12 にも「同時充電時にはワイヤレス充電は最大5W、有線充電は最大15W(5V⎓3A)」"
+  pd: true
+  pps: true
+colors: [ブラック, ホワイト]
+warranty: "1年"
+seller_jp: "株式会社CIO"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [rakuten, amazon]
+q: "CIO-MB35W2C-SS10K-EX05"
+price: "8,980円(税込・メーカー希望小売価格)"
+note: |
+  容量の公式の書き方: 「バッテリー容量 5000mAh/7.4V/37Wh」「バッテリーセル 5000mAh × 2pcs(Total 10000mAh)」「定格容量：5800mAh(5V⎓3A)」。
+  「半固体系」は、CIO の注記で「半固体/準固体の定義には統一見解がないため、CIOでは独自基準を満たしたバッテリーを「半固体系」と定義」とされている。
+  USB-C は2系統(本体の USB-C ポートと、約22cm の脱着式ケーブル)。公式の表記は「USB-C1/C2(Cable)」で、どちらがケーブル側かは書かれていない。
+  出力: 5V⎓3A/9V⎓3A/12V⎓2.91A/15V⎓2.33A/20V⎓1.75A(Max 35W)/PPS 5-11V⎓3A(Max 33W)。入力: 最大30W。
+  Qi2.2(25W)。Qi2 の機器へは最大15W。ボタン長押しで 7.5W のセーフティモードに切り替えられる。
+  ワイヤレスと有線を同時に使うには、ボタンを5秒長押しして「有線+無線充電切替モード【HY】」にする。HY にしていないと、ワイヤレス充電中にケーブルをつないだ時点でワイヤレスが止まる(取説 p.9・p.12)。
+  パススルーは「完全パススルー充電対応」。サイクル回数は約400回。合計の最大出力は1つの値で書かれていないので total_w は書いていない。
+  CIO の過去の回収は SMARTCOBY Ex01 SLIM Qi2 & CABLE(2025-01-27)で、型番が違う。

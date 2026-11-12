@@ -627,7 +627,8 @@ def build_compare(products: list[dict], view: dict | None = None) -> str:
 def two_c(p: dict) -> str:
     """USB-C を2本挿したときの出力(配り方の表から拾う)"""
     for r in sharing_list(p):
-        if re.fullmatch(r"\s*C\d?\s*\+\s*C\d?\s*", r["use"]):
+        # 「C1+C2」「USB-C1+C2(Cable)」「C1(ケーブル)+C2(ポート)」のような書き方を拾う
+        if re.fullmatch(r"\s*(USB-)?C\d?(\([^)]*\))?\s*\+\s*C\d?(\([^)]*\))?\s*", r["use"]):
             return e(r["out"])
     return NOT_LISTED if len(usb_c_ports(p)) >= 2 else '<span class="nl">C は1ポート</span>'
 
@@ -639,7 +640,7 @@ def build_usbc(products: list[dict]) -> str:
         f'<tr><th><a href="{p["url"]}">{e(p["model"])}</a><small>{e(p["maker"])}</small>{pse_badge(p)}</th>'
         f'<td>{len(usb_c_ports(p))}</td><td>{num(max(x.get("max_w") or 0 for x in usb_c_ports(p)), "W")}</td>'
         f'<td>{two_c(p)}</td><td>{num((p.get("usb") or {}).get("total_w"), "W")}</td>'
-        f'<td>{num((p.get("outlets") or {}).get("ac"), "個")}</td></tr>' for p in items)
+        f'<td>{num((p.get("outlets") or {}).get("ac"), "個") if p["category"] in TAP_CATS else "なし"}</td></tr>' for p in items)
     cards = "".join(
         f'<section class="usbcard" id="{p["id"]}"><h2><a href="{p["url"]}">{e(p["maker"])} {e(p["model"])}</a></h2>'
         f'<p>{pse_badge(p)} ポート: {usb_summary(p)} ・ USB の合計 {num((p.get("usb") or {}).get("total_w"), "W")}</p>'
