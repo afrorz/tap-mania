@@ -29,12 +29,24 @@ outlets:
   three_pin: false
 usb:
   ports:
-    - {type: C, max_w: 65}
-    - {type: C, max_w: 65}
-    - {type: A, max_w: 18}
-    - {type: A, max_w: 18}
+    - {name: C1, type: C, max_w: 65}
+    - {name: C2, type: C, max_w: 65}
+    - {name: A1, type: A, max_w: 18}
+    - {name: A2, type: A, max_w: 18}
   total_w: 65
-  sharing: "C1+C2: 45W+20W / C1+A1: 5V2.4A×2(24W) / C1+A2: 45W+18W / C2+A1: 45W+18W / C2+A2: 5V2.4A×2(24W) / A1+A2: 18W+18W / C1+C2+A1: 5V2.4A+30W+5V2.4A(54W) / C1+C2+A2: 30W+5V2.4A+5V2.4A(54W) / C1+A1+A2: 5V2.4A+5V2.4A+18W(42W) / C2+A1+A2: 5V2.4A+18W+5V2.4A(42W) / 4ポート同時: 5V2.4A×4(48W)(取説 p.4 の早見表)"
+  sharing:
+    - {use: "C1+C2", out: "45W+20W"}
+    - {use: "C1+A1", out: "5V2.4A×2(24W)"}
+    - {use: "C1+A2", out: "45W+18W"}
+    - {use: "C2+A1", out: "45W+18W"}
+    - {use: "C2+A2", out: "5V2.4A×2(24W)"}
+    - {use: "A1+A2", out: "18W+18W"}
+    - {use: "C1+C2+A1", out: "5V2.4A+30W+5V2.4A(54W)"}
+    - {use: "C1+C2+A2", out: "30W+5V2.4A+5V2.4A(54W)"}
+    - {use: "C1+A1+A2", out: "5V2.4A+5V2.4A+18W(42W)"}
+    - {use: "C2+A1+A2", out: "5V2.4A+18W+5V2.4A(42W)"}
+    - {use: "4ポート同時", out: "5V2.4A×4(48W)"}
+  sharing_source: "取扱説明書 p.4 の USB 充電早見表"
   pd: true
   pps: true
 colors: [ブラック, ホワイト]

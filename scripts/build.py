@@ -173,8 +173,8 @@ def bubble(name: str, text: str) -> str:
 
 
 def nav(current: str = "") -> str:
-    items = [("q", "/q/", "疑問に答える"), ("compare", "/compare/", "比べ表"), ("tools", "/tools/watt/", "消費電力の計算機"),
-             ("about", "/about/", "確かめ方")]
+    items = [("usbc", "/usb-c/", "USB-C の配り方"), ("compare", "/compare/", "比べ表"), ("q", "/q/", "疑問に答える"),
+             ("tools", "/tools/watt/", "計算機"), ("about", "/about/", "確かめ方")]
     cur = ' aria-current="page"'
     return '<nav class="gnav" aria-label="サイト内">' + "".join(
         f'<a href="{u}"{cur if k == current else ""}>{n}</a>' for k, u, n in items) + "</nav>"
@@ -294,8 +294,32 @@ def usb_summary(p: dict) -> str:
     if not usb:
         return "なし" if p["category"] in ("tap", "extension") else NOT_LISTED
     ports = usb.get("ports") or []
-    parts = [f"{e(x.get('type'))} 最大{num(x.get('max_w'), 'W')}" for x in ports]
+    parts = [f"{e(x.get('name') or x.get('type'))} 最大{num(x.get('max_w'), 'W')}" for x in ports]
     return " / ".join(parts) or NOT_LISTED
+
+
+def sharing_list(p: dict) -> list[dict]:
+    """同時に使ったときの配り方。[{use, out}] の形にそろえる(古い1行の書き方も読む)"""
+    s = (p.get("usb") or {}).get("sharing")
+    if not s:
+        return []
+    if isinstance(s, str):
+        rows = []
+        for part in s.split(" / "):
+            use, _, out = part.partition(":")
+            rows.append({"use": use.strip(), "out": out.strip()} if out else {"use": "", "out": part.strip()})
+        return rows
+    return [{"use": str(x.get("use", "")), "out": str(x.get("out", ""))} for x in s]
+
+
+def sharing_html(p: dict) -> str:
+    rows = sharing_list(p)
+    if not rows:
+        return NOT_LISTED
+    src = (p.get("usb") or {}).get("sharing_source")
+    trs = "".join(f"<tr><th>{e(r['use'])}</th><td>{e(r['out'])}</td></tr>" for r in rows)
+    return (f'<table class="share"><thead><tr><th>挿すポート</th><th>それぞれの出力</th></tr></thead><tbody>{trs}</tbody></table>'
+            + (f'<small>出典: {e(src)}</small>' if src else ""))
 
 
 def spec_rows(p: dict) -> list[tuple[str, str]]:
@@ -324,10 +348,12 @@ def spec_rows(p: dict) -> list[tuple[str, str]]:
         rows += [
             ("USB ポート", usb_summary(p)),
             ("USB の合計", num(usb.get("total_w"), "W")),
-            ("同時に使ったときの配り方", txt(usb.get("sharing"))),
+            ("同時に使ったときの配り方", sharing_html(p)),
             ("USB PD", yesno(usb.get("pd"))),
             ("PPS", yesno(usb.get("pps"))),
         ]
+        if usb.get("gan") is not None:
+            rows.append(("GaN(窒化ガリウム)", yesno(usb.get("gan"))))
     else:
         rows.append(("USB ポート", usb_summary(p)))
     rows += [
@@ -491,6 +517,44 @@ def build_compare(products: list[dict], view: dict | None = None) -> str:
     return page(title=title, desc=lead, path=path, body=body, current="compare")
 
 
+# ── USB-C の配り方の全機種表(看板。2026-11-12 本人「ガジェット好きに絞る」) ─────────
+
+def two_c(p: dict) -> str:
+    """USB-C を2本挿したときの出力(配り方の表から拾う)"""
+    for r in sharing_list(p):
+        if re.fullmatch(r"\s*C\d?\s*\+\s*C\d?\s*", r["use"]):
+            return e(r["out"])
+    return NOT_LISTED if len(usb_c_ports(p)) >= 2 else '<span class="nl">C は1ポート</span>'
+
+
+def build_usbc(products: list[dict]) -> str:
+    items = sorted([p for p in products if usb_c_ports(p)],
+                   key=lambda p: -max(x.get("max_w") or 0 for x in usb_c_ports(p)))
+    rows = "".join(
+        f'<tr><th><a href="{p["url"]}">{e(p["model"])}</a><small>{e(p["maker"])}</small>{pse_badge(p)}</th>'
+        f'<td>{len(usb_c_ports(p))}</td><td>{num(max(x.get("max_w") or 0 for x in usb_c_ports(p)), "W")}</td>'
+        f'<td>{two_c(p)}</td><td>{num((p.get("usb") or {}).get("total_w"), "W")}</td>'
+        f'<td>{num((p.get("outlets") or {}).get("ac"), "個")}</td></tr>' for p in items)
+    cards = "".join(
+        f'<section class="usbcard" id="{p["id"]}"><h2><a href="{p["url"]}">{e(p["maker"])} {e(p["model"])}</a></h2>'
+        f'<p>{pse_badge(p)} ポート: {usb_summary(p)} ・ USB の合計 {num((p.get("usb") or {}).get("total_w"), "W")}</p>'
+        f'{sharing_html(p)}{store_buttons(p, "usbc")}</section>' for p in items)
+    body = f"""<main class="article"><div class="wrap">
+<p class="crumb"><a href="/">トップ</a> › USB-C の配り方</p>
+<h1>USB-C 付き電源タップ、2台目を挿すと何Wになるか 全機種表</h1>
+{bubble("odoroki", "箱に「65W」って書いてあっても、2台挿すと 45W と 20W に分かれたりするんだよね。取説の表を、載せてる機種ぶん全部並べてみた。")}
+<p>USB-C 付きの電源タップは、1ポートだけ使ったときの最大の出力が大きく書かれます。ノートPCとスマホを同時に挿すと、出力はポートに分けて配られます。どう配られるかは機種ごとに違い、取扱説明書の表にしか載っていないことがあります。このページは、メーカー公式ページと取扱説明書に書かれた配り方を、そのまま並べたものです。</p>
+<div class="tscroll"><table class="ctable usbc">
+<thead><tr><th>製品</th><th>USB-C の数</th><th>1ポートの最大</th><th>USB-C を2本挿したとき</th><th>USB の合計</th><th>AC 口数</th></tr></thead>
+<tbody>{rows}</tbody></table></div>
+<p class="small">「記載なし」は、公式ページと取扱説明書に書かれていなかった組み合わせです。ポートの名前(C1・C2 など)はメーカーの呼び方です。</p>
+{cards}
+</div></main>"""
+    return page(title="USB-C 付き電源タップの出力の配り方 全機種表",
+                desc="USB-C 付き電源タップに2台・3台を同時に挿したとき、出力がどう配られるかを、メーカー公式ページと取扱説明書から全機種ぶん並べました。",
+                path="/usb-c/", body=body, current="usbc", pr=any(p["pse"]["status"] != "unconfirmed" for p in items))
+
+
 # ── 疑問記事 ────────────────────────────────────────────────
 
 def appliances() -> list[dict]:
@@ -614,6 +678,10 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
                 if asset_exists("chara/tapuo-futsu.png") else face("futsu", 160))
     qs = "".join(f'<li><a href="{a["url"]}"><b>{e(a["title"])}</b><span>{e(a["summary"])}</span></a></li>' for a in arts[:8])
     newest = sorted(products, key=lambda p: p["checked"], reverse=True)[:6]
+    usbs = [p for p in products if usb_c_ports(p)]
+    usb_rows = "".join(f'<li><a href="/usb-c/#{p["id"]}"><b>{e(p["maker"])} {e(p["model"])}</b>'
+                       f'<span>1ポート最大 {num(max(x.get("max_w") or 0 for x in usb_c_ports(p)), "W")} → USB-C 2本なら {two_c(p)}</span></a></li>'
+                       for p in usbs[:6])
     body = f"""<main>
 <section class="hero"><div class="wrap">
   {hero_img}
@@ -622,6 +690,12 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
     <p>{e(SITE['description'])}</p>
     <p class="hero-q">「取説、最後まで読んだ？」 ── タプ夫</p>
   </div>
+</div></section>
+<section class="band"><div class="wrap">
+  <h2>2台目を挿すと何Wになるか</h2>
+  <p>USB-C 付きタップの「最大◯W」は、1ポートだけ使ったときの数字です。同時に挿したときの配り方を、取扱説明書の表から全機種ぶん並べています。</p>
+  <ul class="qlist">{usb_rows}</ul>
+  <p><a class="btn buy" href="/usb-c/">USB-C の配り方の全機種表を見る</a></p>
 </div></section>
 {f'''<section class="band"><div class="wrap">
   <h2>疑問に答える</h2>
@@ -681,6 +755,8 @@ def main() -> None:
     for p in products:
         write(f"t/{p['id']}/index.html", build_product(p, products, arts))
         urls.append(p["url"])
+    write("usb-c/index.html", build_usbc(products))
+    urls.append("/usb-c/")
     write("compare/index.html", build_compare(products))
     for v in CFG.get("compare_views") or []:
         if not any(match(p, v["where"]) for p in products):
