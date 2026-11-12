@@ -1,0 +1,56 @@
+id: elecom-ect-34wh
+maker: エレコム
+model: ECT-34WH
+name: "球体USB電源タップ(AC3個口/スイングプラグ)"
+category: usb-tap
+image: "https://www.elecom.co.jp/photo/p01/ECT-34WH_01.jpg"   # プログラムからは 403。ブラウザでは開ける
+image_credit: "エレコム 公式サイト"
+official_url: "https://www.elecom.co.jp/products/ECT-34WH.html"
+checked: 2026-11-12
+
+pse:
+  status: unconfirmed
+  how: "製品ページの仕様表は「法規 ◇PSE 特定電気用品」の文字だけ。公式画像 ECT-34WH_38.jpg(本体のプラグ面の表示)で、ひし形 PSE マークと届出事業者名「エレコム株式会社」は読めたが、登録検査機関名は画像が 600px で読めない。取扱説明書は公開されていない"
+  notifier: "エレコム株式会社"
+  date: 2026-11-12
+
+rating:
+  volt: 125
+  amp: 14
+  watt_max: 1400
+outlets:
+  ac: 3
+  shutter: true      # 「AC差込口のみ」
+  tracking_plug: true
+  switch: none
+  three_pin: false
+surge:
+  has: false
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 20}
+    - {name: A1, type: A, max_w: 12}
+    - {name: A2, type: A, max_w: 12}
+  sharing:
+    - {use: "C1+A1", out: "合計最大15W(C: 最大15W(5V/3A)、A1: 最大12W(5V/2.4A))"}
+    - {use: "C1+A2", out: "合計最大15W(C: 最大15W(5V/3A)、A2: 最大12W(5V/2.4A))"}
+    - {use: "A1+A2", out: "合計最大15W(A1・A2: それぞれ最大12W(5V/2.4A))"}
+    - {use: "C1+A1+A2", out: "合計最大15W(C: 最大15W(5V/3A)、A1・A2: それぞれ最大12W(5V/2.4A))"}
+  sharing_source: "エレコム公式製品ページの仕様表「USB側定格出力(2ポート使用時)」「(3ポート使用時)」"
+  pd: true
+colors: [ホワイト]
+warranty: "1年間"
+seller_jp: "エレコム株式会社"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "ECT-34WH"
+price: "3,839円(税込・標準価格)"
+note: |
+  コードの無い直挿し型。プラグは折りたためる(スイングプラグ)。大きさは約59mm角、重さは約130g。日本国内専用。
+  1ポートだけ使うと、C は USB PD 20W(5V/3A・9V/2.22A)、A はそれぞれ12W(5V/2.4A)。2ポート以上を同時に使うと、どの組み合わせでも合計最大15Wになり、C も最大15W(5V/3A)になる。PD の 9V は C を1つだけ使うときに限られる。
+  USB の合計は、公式に「1ポート時20W」と「同時使用時の合計最大15W」の2つが書かれているので、total_w は書いていない。
+  トラッキング対策は、仕様に「耐トラッキング性の要求事項(PSE：電気用品安全法)を満たしたコンセントプラグを採用」とある。AC 差込口は熱硬化性樹脂、刃受け金具は0.8mm厚の板。
+  極性対応・雷ガード・スイッチ・抜け止め・通電ランプは、仕様表でどれも「×」。
+  取扱説明書は公開されていない(エレコムのマニアル一覧に ECT の型番なし)。

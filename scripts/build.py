@@ -29,13 +29,22 @@ CATS = CFG["categories"]
 CAT = {c["slug"]: c for c in CATS}
 TODAY = dt.date.today()
 CSS_VER = int((ROOT / "assets" / "tap.css").stat().st_mtime)  # 直したら古い見た目が残らないように
-FONTS = "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;800&display=swap"
+# 見出しは丸ゴシック、本文と表は読みやすさ優先で Noto Sans JP(2026-11-12 本人「フォントが読みづらい」)
+FONTS = "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&family=Noto+Sans+JP:wght@400;700&display=swap"
 
 PSE = {  # 仕様書 第3章の3段階
-    "confirmed": ("確認済", "メーカー公式ページか取扱説明書で、PSE マーク・届出事業者名・登録検査機関名を確認しました"),
-    "image": ("公式画像で確認", "公式の製品画像で、本体の表示の3点が読めました"),
-    "unconfirmed": ("未確認", "PSE の3点を公式の情報で確かめられていません。このため買うボタンを出していません"),
+    "confirmed": ("確認済", "メーカー公式ページか取扱説明書で、PSE の表示を確認しました"),
+    "image": ("公式画像で確認", "公式の製品画像で、本体の PSE の表示が読めました"),
+    "unconfirmed": ("未確認", "PSE の表示を公式の情報で確かめられていません。このため買うボタンを出していません"),
 }
+# PSE マークの形。ひし形(特定電気用品: タップ・充電器)は登録検査機関名まで要る。丸形(モバイルバッテリー)は要らない
+# (法律の説明なので、サイトに書く前に経産省の原文で確かめる。docs/WRITING.md)
+PSE_MARK = {"diamond": "ひし形", "round": "丸形"}
+TAP_CATS = ("tap", "extension", "usb-tap")
+
+
+def pse_mark(p: dict) -> str:
+    return (p.get("pse") or {}).get("mark") or ("round" if p.get("category") == "battery" else "diamond")
 FACES = ["futsu", "shinpai", "odoroki", "majime", "ureshii"]
 
 
@@ -66,8 +75,11 @@ def load_products() -> list[dict]:
         st = (p["pse"] or {}).get("status")
         if st not in PSE:
             die(f"{where}: pse.status は confirmed / image / unconfirmed のどれかです")
+        if pse_mark(p) not in PSE_MARK:
+            die(f"{where}: pse.mark は diamond / round のどちらかです")
         if st != "unconfirmed":
-            for k in ("how", "notifier", "inspector", "date"):
+            need = ("how", "notifier", "date") + (("inspector",) if pse_mark(p) == "diamond" else ())
+            for k in need:
                 if not p["pse"].get(k):
                     die(f"{where}: pse.status が {st} なのに pse.{k} がありません(確かめた方法と日付を残す決まり)")
         usb = p.get("usb") or {}
@@ -323,6 +335,8 @@ def sharing_html(p: dict) -> str:
 
 
 def spec_rows(p: dict) -> list[tuple[str, str]]:
+    if p["category"] not in TAP_CATS:
+        return gadget_rows(p)
     r = p.get("rating") or {}
     cord = p.get("cord") or {}
     o = p.get("outlets") or {}
@@ -366,6 +380,49 @@ def spec_rows(p: dict) -> list[tuple[str, str]]:
     return rows
 
 
+def usb_rows(p: dict) -> list[tuple[str, str]]:
+    usb = p.get("usb") or {}
+    rows = [
+        ("USB ポート", usb_summary(p)),
+        ("USB の合計", num(usb.get("total_w"), "W")),
+        ("同時に使ったときの配り方", sharing_html(p)),
+        ("USB PD", yesno(usb.get("pd"))),
+        ("PPS", yesno(usb.get("pps"))),
+    ]
+    if usb.get("gan") is not None:
+        rows.append(("GaN(窒化ガリウム)", yesno(usb.get("gan"))))
+    return rows
+
+
+def gadget_rows(p: dict) -> list[tuple[str, str]]:
+    """充電器・モバイルバッテリーの表"""
+    rows: list[tuple[str, str]] = []
+    if p["category"] == "battery":
+        b = p.get("battery") or {}
+        rows += [
+            ("容量", num(b.get("mah"), "mAh")),
+            ("電力量", num(b.get("wh"), "Wh")),
+            ("定格容量", num(b.get("rated_mah"), "mAh")),
+            ("電池の種類", txt(b.get("cell"))),
+            ("本体への充電(入力)", num(b.get("input_w"), "W")),
+            ("本体の充電時間", txt(b.get("recharge_time"))),
+            ("パススルー充電", yesno(b.get("passthrough"))),
+            ("安全の機能(公式の記載)", txt(b.get("safety"))),
+        ]
+    else:
+        rows += [("入力", txt(p.get("input"))), ("折りたたみプラグ", yesno(p.get("foldable_plug")))]
+    rows += usb_rows(p)
+    rows += [
+        ("大きさ", txt(p.get("size"))),
+        ("重さ", num(p.get("weight_g"), "g")),
+        ("色", txt("・".join(p.get("colors") or []))),
+        ("保証", txt(p.get("warranty"))),
+        ("国内の販売者", txt(p.get("seller_jp"))),
+        ("値段(掲載時点)", txt(p.get("price"))),
+    ]
+    return rows
+
+
 def pse_badge(p: dict) -> str:
     st = p["pse"]["status"]
     return f'<span class="pse pse-{st}" title="{e(PSE[st][1])}">PSE {e(PSE[st][0])}</span>'
@@ -381,8 +438,15 @@ def img(p: dict, cls: str = "pimg") -> str:
 def pcard(p: dict) -> str:
     r = p.get("rating") or {}
     o = p.get("outlets") or {}
-    bits = [f"{o['ac']}個口" if o.get("ac") else "", f"{r['watt_max']:,}W" if r.get("watt_max") else "",
-            "USB-C" if usb_c_ports(p) else "", "雷サージ" if (p.get("surge") or {}).get("has") else ""]
+    b = p.get("battery") or {}
+    usb = p.get("usb") or {}
+    cmax = max([x.get("max_w") or 0 for x in usb_c_ports(p)] or [0])
+    if p["category"] in TAP_CATS:
+        bits = [f"{o['ac']}個口" if o.get("ac") else "", f"{r['watt_max']:,}W" if r.get("watt_max") else "",
+                f"USB-C {cmax}W" if cmax else "", "雷サージ" if (p.get("surge") or {}).get("has") else ""]
+    else:
+        bits = [f"{b['mah']:,}mAh" if b.get("mah") else "", f"USB-C {cmax}W" if cmax else "",
+                f"合計 {usb['total_w']}W" if usb.get("total_w") else "", "GaN" if usb.get("gan") else ""]
     return (f'<a class="pcard" href="{p["url"]}">{img(p, "pthumb")}'
             f'<span class="maker">{e(p["maker"])}</span><b>{e(p["model"])}</b>'
             f'<span class="tags">{" ".join(f"<i>{b}</i>" for b in bits if b)}</span>{pse_badge(p)}</a>')
@@ -392,9 +456,9 @@ def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
     st = p["pse"]["status"]
     rows = "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in spec_rows(p))
     pse = p["pse"]
-    pse_html = (f'<p>{pse_badge(p)} {e(PSE[st][1])}。</p>'
-                + (f'<table class="spec"><tr><th>届出事業者名</th><td>{e(pse["notifier"])}</td></tr>'
-                   f'<tr><th>登録検査機関名</th><td>{e(pse["inspector"])}</td></tr>'
+    insp = (f'<tr><th>登録検査機関名</th><td>{e(pse.get("inspector"))}</td></tr>' if pse_mark(p) == "diamond" else "")
+    pse_html = (f'<p>{pse_badge(p)} {e(PSE[st][1])}。この製品で確かめる PSE マークの形: {PSE_MARK[pse_mark(p)]}。</p>'
+                + (f'<table class="spec"><tr><th>届出事業者名</th><td>{e(pse["notifier"])}</td></tr>{insp}'
                    f'<tr><th>確かめた方法</th><td>{e(pse["how"])}</td></tr>'
                    f'<tr><th>確かめた日</th><td>{e(pse["date"])}</td></tr></table>' if st != "unconfirmed" else ""))
     rc = p.get("recall")
@@ -501,16 +565,57 @@ def ctable(products: list[dict]) -> str:
 <script src="/assets/filter.js" defer></script>"""
 
 
-def build_compare(products: list[dict], view: dict | None = None) -> str:
-    items = [p for p in products if match(p, view["where"])] if view else products
-    title = f"{view['name']}の電源タップ 比べ表" if view else "電源タップ 比べ表(全機種)"
-    lead = view["lead"] if view else "載せている全機種の、公式の数字の比べ表です。条件で絞り込めます。"
+def gtable(products: list[dict], kind: str) -> str:
+    """充電器・モバイルバッテリーの比べ表(絞り込みは機種が増えてから)"""
+    trs = []
+    for p in products:
+        usb = p.get("usb") or {}
+        b = p.get("battery") or {}
+        cmax = max([x.get("max_w") or 0 for x in usb_c_ports(p)] or [0])
+        first = (f'<td>{num(b.get("mah"), "mAh")}</td><td>{num(b.get("wh"), "Wh")}</td>' if kind == "battery"
+                 else f'<td>{yesno(usb.get("gan"))}</td><td>{yesno(p.get("foldable_plug"))}</td>')
+        trs.append(f'<tr><th><a href="{p["url"]}">{e(p["model"])}</a><small>{e(p["maker"])}</small>{pse_badge(p)}</th>'
+                   f'{first}<td>{num(cmax or None, "W")}</td><td>{two_c(p)}</td><td>{num(usb.get("total_w"), "W")}</td>'
+                   f'<td>{num(p.get("weight_g"), "g")}</td></tr>')
+    head = "<th>容量</th><th>電力量</th>" if kind == "battery" else "<th>GaN</th><th>折りたたみプラグ</th>"
+    return (f'<div class="tscroll"><table class="ctable"><thead><tr><th>製品</th>{head}<th>USB-C 1ポートの最大</th>'
+            f'<th>USB-C を2本挿したとき</th><th>USB の合計</th><th>重さ</th></tr></thead><tbody>{"".join(trs)}</tbody></table></div>'
+            '<p class="small">公式に記載のある項目だけを埋めています。</p>')
+
+
+GADGET_COMPARE = {"chargers": ("charger", "USB-C 充電器 比べ表", "USB-C・GaN 充電器の、ポートごとの最大と同時に挿したときの出力を、公式の数字で並べました。"),
+                  "batteries": ("battery", "モバイルバッテリー 比べ表", "モバイルバッテリーの容量・電力量・出力を、公式の数字で並べました。")}
+
+
+def compare_nav() -> str:
     views = "".join(f'<a href="/compare/{v["slug"]}/">{e(v["name"])}</a>' for v in CFG.get("compare_views") or [])
+    g = "".join(f'<a href="/compare/{k}/">{e(t.split(" 比べ表")[0])}</a>' for k, (_, t, _) in GADGET_COMPARE.items())
+    return f'<nav class="views" aria-label="種類・用途で絞る"><a href="/compare/">電源タップ</a>{views}{g}</nav>'
+
+
+def build_gadget_compare(products: list[dict], key: str) -> str:
+    cat, title, lead = GADGET_COMPARE[key]
+    items = [p for p in products if p["category"] == cat]
     body = f"""<main class="article wide"><div class="wrap">
 <p class="crumb"><a href="/">トップ</a> › <a href="/compare/">比べ表</a></p>
 <h1>{e(title)}</h1>
 <p>{e(lead)}</p>
-<nav class="views" aria-label="用途で絞る"><a href="/compare/">全機種</a>{views}</nav>
+{compare_nav()}
+{gtable(items, cat)}
+</div></main>"""
+    return page(title=title, desc=lead, path=f"/compare/{key}/", body=body, current="compare")
+
+
+def build_compare(products: list[dict], view: dict | None = None) -> str:
+    taps = [p for p in products if p["category"] in TAP_CATS]
+    items = [p for p in taps if match(p, view["where"])] if view else taps
+    title = f"{view['name']}の電源タップ 比べ表" if view else "電源タップ 比べ表(全機種)"
+    lead = view["lead"] if view else "載せている電源タップ全機種の、公式の数字の比べ表です。条件で絞り込めます。"
+    body = f"""<main class="article wide"><div class="wrap">
+<p class="crumb"><a href="/">トップ</a> › <a href="/compare/">比べ表</a></p>
+<h1>{e(title)}</h1>
+<p>{e(lead)}</p>
+{compare_nav()}
 {ctable(items)}
 </div></main>"""
     path = f"/compare/{view['slug']}/" if view else "/compare/"
@@ -541,17 +646,17 @@ def build_usbc(products: list[dict]) -> str:
         f'{sharing_html(p)}{store_buttons(p, "usbc")}</section>' for p in items)
     body = f"""<main class="article"><div class="wrap">
 <p class="crumb"><a href="/">トップ</a> › USB-C の配り方</p>
-<h1>USB-C 付き電源タップ、2台目を挿すと何Wになるか 全機種表</h1>
+<h1>USB-C の充電器・タップ・モバイルバッテリー、2台目を挿すと何Wになるか 全機種表</h1>
 {bubble("odoroki", "箱に「65W」って書いてあっても、2台挿すと 45W と 20W に分かれたりするんだよね。取説の表を、載せてる機種ぶん全部並べてみた。")}
-<p>USB-C 付きの電源タップは、1ポートだけ使ったときの最大の出力が大きく書かれます。ノートPCとスマホを同時に挿すと、出力はポートに分けて配られます。どう配られるかは機種ごとに違い、取扱説明書の表にしか載っていないことがあります。このページは、メーカー公式ページと取扱説明書に書かれた配り方を、そのまま並べたものです。</p>
+<p>USB-C の充電器・電源タップ・モバイルバッテリーは、1ポートだけ使ったときの最大の出力が大きく書かれます。ノートPCとスマホを同時に挿すと、出力はポートに分けて配られます。どう配られるかは機種ごとに違い、取扱説明書の表にしか載っていないことがあります。このページは、メーカー公式ページと取扱説明書に書かれた配り方を、そのまま並べたものです。</p>
 <div class="tscroll"><table class="ctable usbc">
 <thead><tr><th>製品</th><th>USB-C の数</th><th>1ポートの最大</th><th>USB-C を2本挿したとき</th><th>USB の合計</th><th>AC 口数</th></tr></thead>
 <tbody>{rows}</tbody></table></div>
 <p class="small">「記載なし」は、公式ページと取扱説明書に書かれていなかった組み合わせです。ポートの名前(C1・C2 など)はメーカーの呼び方です。</p>
 {cards}
 </div></main>"""
-    return page(title="USB-C 付き電源タップの出力の配り方 全機種表",
-                desc="USB-C 付き電源タップに2台・3台を同時に挿したとき、出力がどう配られるかを、メーカー公式ページと取扱説明書から全機種ぶん並べました。",
+    return page(title="USB-C の出力の配り方 全機種表(充電器・タップ・モバイルバッテリー)",
+                desc="USB-C の充電器・電源タップ・モバイルバッテリーに2台・3台を同時に挿したとき、出力がどう配られるかを、メーカー公式ページと取扱説明書から全機種ぶん並べました。",
                 path="/usb-c/", body=body, current="usbc", pr=any(p["pse"]["status"] != "unconfirmed" for p in items))
 
 
@@ -644,8 +749,8 @@ def build_q_index(arts: list[dict]) -> str:
 
 def build_watt_tool(products: list[dict], arts: list[dict]) -> str:
     rows = appliances()
-    taps = [p for p in products if (p.get("rating") or {}).get("watt_max")]
-    art = next((a for a in arts if a["slug"] == "1500w"), None)  # 下書きのあいだはリンクしない
+    taps = [p for p in products if p["category"] in TAP_CATS and (p.get("rating") or {}).get("watt_max")]
+    art =next((a for a in arts if a["slug"] == "1500w"), None)  # 下書きのあいだはリンクしない
     see = (f'(出典は<a href="{art["url"]}">何Wまで使えるかの記事</a>の表)' if art else
            "(出典: NITE「無頓着は火事の元！」別紙3、2024-01-25)")
     data = {
@@ -744,6 +849,7 @@ def write(rel: str, text: str) -> None:
 
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")  # 止まったときの文が Windows で化けないように
     products = load_products()
     by_id = {p["id"]: p for p in products}
     arts = load_articles(products)
@@ -758,8 +864,12 @@ def main() -> None:
     write("usb-c/index.html", build_usbc(products))
     urls.append("/usb-c/")
     write("compare/index.html", build_compare(products))
+    for key, (cat, _, _) in GADGET_COMPARE.items():
+        if any(p["category"] == cat for p in products):
+            write(f"compare/{key}/index.html", build_gadget_compare(products, key))
+            urls.append(f"/compare/{key}/")
     for v in CFG.get("compare_views") or []:
-        if not any(match(p, v["where"]) for p in products):
+        if not any(match(p, v["where"]) for p in products if p["category"] in TAP_CATS):
             continue  # 当てはまる機種が無い用途のページは作らない(中身の無いページを検索に出さない)
         write(f"compare/{v['slug']}/index.html", build_compare(products, v))
         urls.append(f"/compare/{v['slug']}/")

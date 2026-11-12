@@ -10,11 +10,15 @@
   --ok: #1E6B3A;
   --warn: #8A5A00;
   --bad: #A61B1B;
-  --font: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+  /* 本文と表は Noto Sans JP、見出し・ロゴ・ボタンだけ丸ゴシック(2026-11-12 本人「フォントが読みづらい」) */
+  --font: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+  --round: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", var(--font);
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--font); font-weight: 500; line-height: 1.85; font-size: 16px; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--font); font-weight: 400; line-height: 1.85; font-size: 16px; font-feature-settings: "palt" 0; }
+h1, h2, h3, .logo b, .gnav, .btn, .pse, .toolcard b, .qlist b, .hero-q { font-family: var(--round); }
+b, strong, th { font-weight: 700; }
 a { color: var(--link); }
 a:hover { text-decoration-thickness: 2px; }
 img { max-width: 100%; height: auto; }
@@ -59,9 +63,10 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .article { padding: 12px 0 48px; }
 .crumb { font-size: 13px; color: var(--sub); margin: 12px 0 0; }
 .meta { font-size: 13px; color: var(--sub); margin: 0; }
-.prose table, .spec { border-collapse: collapse; width: 100%; background: var(--paper); font-size: 15px; }
-.prose th, .prose td, .spec th, .spec td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
-.spec th { width: 38%; background: #FFF1E2; font-weight: 800; }
+.prose table, .spec { border-collapse: collapse; width: 100%; background: var(--paper); font-size: 16px; }
+.prose th, .prose td, .spec th, .spec td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; line-height: 1.6; }
+.spec th { width: 38%; background: #FFF1E2; font-weight: 700; }
+.spec td { font-variant-numeric: tabular-nums; }
 .wtable th { width: auto; }
 .nl { color: var(--sub); font-size: 14px; }
 .tscroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -108,7 +113,8 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 /* USB-C の配り方 */
 .share { border-collapse: collapse; width: 100%; margin: 4px 0; font-size: 14px; }
 .share th, .share td { border: 1px solid var(--line); padding: 4px 8px; text-align: left; background: var(--paper); width: auto; }
-.share thead th { background: #FFF1E2; }
+.share thead th { background: #FFF1E2; white-space: nowrap; }
+.share { font-size: 15px; }
 .share tbody th { font-family: ui-monospace, Consolas, monospace; white-space: nowrap; }
 .usbc { min-width: 640px; }
 .usbcard { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 4px 16px 8px; margin: 20px 0; }

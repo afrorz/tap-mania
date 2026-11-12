@@ -26,7 +26,8 @@ affiliate:
 # 製品の区分。並び順がそのまま表示の順
 categories:
   - {slug: usb-tap,       name: USB 付きタップ}
-  - {slug: charger,       name: USB 充電器}
+  - {slug: charger,       name: USB-C 充電器}
+  - {slug: battery,       name: モバイルバッテリー}   # 2026-11-12 本人「モバイルバッテリーと USB-C・GaN 充電器も対象に」
   - {slug: tap,           name: 電源タップ}
   - {slug: extension,     name: 延長コード}
   - {slug: ups,           name: UPS}
