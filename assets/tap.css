@@ -1,4 +1,4 @@
-/* タップマニア。色はタプ夫のパーカーのオレンジとクリーム(仕様書 第4章) */
+/* 充電沼。色はタプ夫のパーカーのオレンジとクリーム(仕様書 第4章) */
 :root {
   --orange: #F88425;      /* ボタン・帯・強調。上に載せる文字は黒(白だとコントラスト 2.52) */
   --link: #B54E00;        /* 文字のリンク。白地 5.18・クリーム地 4.85(WCAG 4.5 以上) */
@@ -34,10 +34,12 @@ h2 { font-size: 21px; margin: 40px 0 12px; padding: 4px 0 4px 12px; border-left:
 /* 頭 */
 header.top { background: var(--paper); border-bottom: 4px solid var(--orange); }
 header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; padding-top: 10px; padding-bottom: 10px; max-width: 1120px; }
-.logo { display: flex; flex-direction: column; text-decoration: none; color: var(--ink); line-height: 1.3; }
+.logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); line-height: 1.3; }
+.logo-text { display: flex; flex-direction: column; }
 .logo b { font-size: 24px; font-weight: 800; }
-.logo span { font-size: 12px; color: var(--sub); }
+.logo-text span { font-size: 12px; color: var(--sub); }
 .logo img { display: block; height: 44px; width: auto; }
+.logo img.logo-face { width: 40px; height: 40px; }
 .gnav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 15px; font-weight: 700; }
 .gnav a { color: var(--ink); text-decoration: none; padding: 4px 0; border-bottom: 3px solid transparent; }
 .gnav a[aria-current] { border-color: var(--orange); }

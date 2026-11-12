@@ -1,11 +1,11 @@
-"""タップマニアのサイトを作る。data/products/*.yaml + content/**/*.md → public/
+"""充電沼のサイトを作る。data/products/*.yaml + content/**/*.md → public/
 
 python scripts/build.py           # public/ を作り直す
 python scripts/build.py --serve   # 作ったあと http://localhost:8791 で確認
 python scripts/build.py --drafts  # draft: true の記事も作る(手元で見るとき。push 前は付けずに作り直す)
 
 仕組みは Cozy Desk(afrorz/cozy-desk)の build.py を借りている(紹介リンク・ページの枠・GA4・sitemap・CNAME)。
-ページの中身はタップマニア用に書き直した。製品は記事ではなくデータとして持ち、図鑑・比べ表・計算機はそこから作る。
+ページの中身は充電沼用に書き直した。製品は記事ではなくデータとして持ち、図鑑・比べ表・計算機はそこから作る。
 """
 from __future__ import annotations
 
@@ -197,7 +197,8 @@ def page(*, title: str, desc: str, path: str, body: str, current: str = "", imag
     full = f"{title}｜{SITE['title']}" if title else f"{SITE['title']}｜{SITE['tagline']}"
     base = SITE["base_url"].rstrip("/")
     url = base + path
-    og = image or (base + "/assets/ogp-1200x630.png" if asset_exists("ogp-1200x630.png") else "")
+    ogp = SITE.get("ogp_image") or ""  # 名前入りの画像は site.yaml で指定したときだけ使う(改名で古い名前が出ないように)
+    og = image or (f"{base}/assets/{ogp}" if ogp and asset_exists(ogp) else "")
     extra = ""
     if noindex:
         extra += '<meta name="robots" content="noindex">\n'
@@ -227,10 +228,13 @@ def page(*, title: str, desc: str, path: str, body: str, current: str = "", imag
     years = f"{SITE['copyright_from']}" + (f"–{year}" if year > SITE["copyright_from"] else "")
     ad_line = f"このサイトはアフィリエイト広告({AFF_SHOPS})を含みます" if HAS_AFF else "Gadget Terminal の姉妹サイト"
     top_ad = f'<div class="wrap">{AD_NOTE}</div>' if (pr and HAS_AFF) else ""
-    if asset_exists("logo.png"):
-        logo = f'<img src="/assets/logo.png" alt="{e(SITE["title"])}" height="44">'
-    else:
-        logo = f'<b>{e(SITE["title"])}</b><span>{e(SITE["tagline"])}</span>'
+    logo_img = SITE.get("logo_image") or ""
+    if logo_img and asset_exists(logo_img):
+        logo = f'<img src="/assets/{e(logo_img)}" alt="{e(SITE["title"])}" height="44">'
+    else:  # 名前の入っていないタプ夫の顔と、文字のサイト名
+        icon = ('<img class="logo-face" src="/assets/chara/face-futsu.png" alt="" width="40" height="40">'
+                if asset_exists("chara/face-futsu.png") else "")
+        logo = f'{icon}<span class="logo-text"><b>{e(SITE["title"])}</b><span>{e(SITE["tagline"])}</span></span>'
     x = (f' ・ <a href="https://x.com/{e(SITE["x_account"])}">X @{e(SITE["x_account"])}</a>' if SITE.get("x_account") else "")
     return f"""<!doctype html>
 <html lang="ja">
@@ -799,7 +803,7 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
 </div></section>
 <section class="band"><div class="wrap">
   <h2>2台目を挿すと何Wになるか</h2>
-  <p>USB-C 付きタップの「最大◯W」は、1ポートだけ使ったときの数字です。同時に挿したときの配り方を、取扱説明書の表から全機種ぶん並べています。</p>
+  <p>充電器・タップ・モバイルバッテリーの「最大◯W」は、1ポートだけ使ったときの数字です。同時に挿したときの配り方を、取扱説明書の表から全機種ぶん並べています。</p>
   <ul class="qlist">{usb_rows}</ul>
   <p><a class="btn buy" href="/usb-c/">USB-C の配り方の全機種表を見る</a></p>
 </div></section>
@@ -879,7 +883,7 @@ def main() -> None:
         write(f"q/{a['slug']}/index.html", build_article(a, by_id))
         urls.append(a["url"])
     write("tools/watt/index.html", build_watt_tool(products, arts))
-    write("about/index.html", build_static("about", "このサイトの確かめ方", "タップマニアの確かめ方"))
+    write("about/index.html", build_static("about", "このサイトの確かめ方", "充電沼の確かめ方"))
     write("privacy/index.html", build_static("privacy", "プライバシー", "プライバシーと広告について"))
     write("fixes/index.html", build_static("fixes", "直した履歴", "誤りを直した履歴"))
     write("404.html", page(title="ページが見つかりません", desc="", path="/404.html", noindex=True,

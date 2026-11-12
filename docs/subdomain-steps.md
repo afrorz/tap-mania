@@ -1,11 +1,11 @@
-# tap.gadgetterminal.com を使えるようにする手順
+# juden.gadgetterminal.com を使えるようにする手順
 
-サイトは GitHub Pages(Cozy Desk と同じ仕組み)に置き、アドレスを tap.gadgetterminal.com にする。
+サイトは GitHub Pages(Cozy Desk と同じ仕組み)に置き、アドレスを juden.gadgetterminal.com にする。
 
 ## 1. Claude がやること
 
 - 公開リポジトリ `afrorz/tap-mania` にサイト一式を置く
-- GitHub Pages を「GitHub Actions で公開」にして、独自ドメインに `tap.gadgetterminal.com` を入れる
+- GitHub Pages を「GitHub Actions で公開」にして、独自ドメインに `juden.gadgetterminal.com` を入れる
 
 ## 2. 本人がやること(Cloudflare、5分)
 
@@ -16,7 +16,7 @@
    | 項目 | 入れる値 |
    |---|---|
    | タイプ | CNAME |
-   | 名前 | tap |
+   | 名前 | juden |
    | ターゲット | afrorz.github.io |
    | プロキシ ステータス | **オフ**(雲が灰色の「DNS のみ」) |
 
@@ -26,7 +26,7 @@
 
 ## 3. Claude がやること(DNS のあと)
 
-- 数分〜1時間で GitHub が https の鍵を発行する。発行されたら「HTTPS を強制」をオンにして、https://tap.gadgetterminal.com/ が開くか確かめる
+- 数分〜1時間で GitHub が https の鍵を発行する。発行されたら「HTTPS を強制」をオンにして、https://juden.gadgetterminal.com/ が開くか確かめる
 
 ## 4. 本人がやること(公開のあと)
 
