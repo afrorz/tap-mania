@@ -17,14 +17,16 @@
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--font); font-weight: 400; line-height: 1.85; font-size: 16px; font-feature-settings: "palt" 0; }
-h1, h2, h3, .logo b, .gnav, .btn, .pse, .toolcard b, .qlist b, .hero-q { font-family: var(--round); }
+/* 丸ゴシックの極太は小さい文字だと Windows でギザギザになる(2026-11-12 本人)。大きな見出しとロゴだけに使う */
+h1, h2, .logo b { font-family: var(--round); }
 b, strong, th { font-weight: 700; }
 a { color: var(--link); }
 a:hover { text-decoration-thickness: 2px; }
 img { max-width: 100%; height: auto; }
 .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
 .wide .wrap { max-width: 1120px; }
-h1, h2, h3 { font-weight: 800; line-height: 1.4; }
+h1, h2 { font-weight: 800; line-height: 1.4; }
+h3 { font-weight: 700; line-height: 1.4; }
 h1 { font-size: clamp(24px, 5vw, 32px); margin: 8px 0 12px; }
 h2 { font-size: 21px; margin: 40px 0 12px; padding: 4px 0 4px 12px; border-left: 8px solid var(--orange); }
 .small, small { font-size: 13px; color: var(--sub); }
@@ -36,7 +38,7 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .logo b { font-size: 24px; font-weight: 800; }
 .logo span { font-size: 12px; color: var(--sub); }
 .logo img { display: block; height: 44px; width: auto; }
-.gnav { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; font-weight: 800; }
+.gnav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 15px; font-weight: 700; }
 .gnav a { color: var(--ink); text-decoration: none; padding: 4px 0; border-bottom: 3px solid transparent; }
 .gnav a[aria-current] { border-color: var(--orange); }
 .adnote { display: inline-block; margin: 10px 0 0; font-size: 12px; color: var(--sub); border: 1px solid var(--line); border-radius: 4px; padding: 0 8px; background: var(--paper); }
@@ -46,7 +48,7 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .hero .wrap { display: flex; align-items: center; gap: 24px; padding-top: 28px; padding-bottom: 28px; }
 .hero-chara { width: 180px; flex: none; }
 .hero h1 { font-size: clamp(26px, 6vw, 40px); margin: 0 0 8px; }
-.hero-q { font-weight: 800; color: var(--link); }
+.hero-q { font-weight: 700; color: var(--link); }
 .band { padding: 8px 0 24px; }
 .band.alt { background: #FFEBD6; }
 @media (max-width: 600px) { .hero .wrap { flex-direction: column; text-align: center; } .hero-chara { width: 140px; } }
@@ -85,12 +87,12 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .pimg figcaption, .pthumb figcaption { font-size: 11px; color: var(--sub); padding: 2px 8px; }
 .pthumb img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; }
 .noimg { display: grid; place-items: center; aspect-ratio: 1; color: var(--sub); }
-.pse { display: inline-block; font-size: 12px; font-weight: 800; border-radius: 999px; padding: 1px 10px; border: 2px solid; }
+.pse { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 1px 10px; border: 2px solid; }
 .pse-confirmed { color: var(--ok); border-color: var(--ok); }
 .pse-image { color: var(--warn); border-color: var(--warn); }
 .pse-unconfirmed { color: var(--bad); border-color: var(--bad); }
 .btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-.btn { display: inline-block; padding: 10px 16px; border-radius: 10px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); text-decoration: none; font-weight: 800; font-size: 14px; }
+.btn { display: inline-block; padding: 10px 16px; border-radius: 10px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); text-decoration: none; font-weight: 700; font-size: 14px; }
 .btn.buy { background: var(--orange); }
 .nobuy { font-size: 14px; color: var(--bad); }
 .pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 12px 0; }
@@ -104,7 +106,7 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .views a { background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; font-size: 14px; text-decoration: none; }
 .filters { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px; font-size: 14px; margin: 12px 0; }
 .filters select { font: inherit; font-size: 14px; padding: 2px 4px; }
-.filters output { font-weight: 800; margin-left: auto; }
+.filters output { font-weight: 700; margin-left: auto; }
 .ctable { border-collapse: collapse; width: 100%; min-width: 860px; background: var(--paper); font-size: 14px; }
 .ctable th, .ctable td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
 .ctable thead th { background: var(--orange); color: var(--ink); white-space: nowrap; }
@@ -140,8 +142,8 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .alist .own { grid-column: 1 / -1; }
 .alist .own input { font: inherit; width: 8em; margin-left: 8px; }
 .qty { display: flex; align-items: center; gap: 4px; }
-.qty button { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--ink); background: var(--paper); font: inherit; font-weight: 800; cursor: pointer; }
-.qty output { min-width: 1.2em; text-align: center; font-weight: 800; }
+.qty button { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--ink); background: var(--paper); font: inherit; font-weight: 700; cursor: pointer; }
+.qty output { min-width: 1.2em; text-align: center; font-weight: 700; }
 .result { position: sticky; bottom: 0; background: var(--paper); border-top: 2px solid var(--line); padding: 8px 0 4px; }
 .result .sum { margin: 0; font-size: 18px; }
 .result .sum b { font-size: 28px; }
@@ -149,7 +151,7 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .bar i { display: block; height: 100%; background: var(--ok); }
 .result.near .bar i { background: var(--warn); }
 .result.over .bar i { background: var(--bad); }
-.result.over p:nth-of-type(2) { color: var(--bad); font-weight: 800; }
+.result.over p:nth-of-type(2) { color: var(--bad); font-weight: 700; }
 
 footer { background: var(--ink); color: #EEE; font-size: 13px; padding: 20px 0; }
 footer .wrap { display: flex; flex-direction: column; gap: 4px; max-width: 1120px; }
