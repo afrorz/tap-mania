@@ -1,0 +1,48 @@
+id: anker-a2688
+maker: Anker
+model: A2688
+name: "Anker Prime Charger (100W, 3 Ports, GaN)"
+category: charger
+image: "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A2688-SILVER.jpg?width=900"
+image_credit: "Anker 公式サイト"
+official_url: "https://www.ankerjapan.com/products/a2688"
+manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A2688QSG.pdf"
+checked: 2026-11-12
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "公式ページ・クイックスタートガイド(PDF)・公式の製品画像7枚に、PSE マーク・届出事業者名・登録検査機関名のどれも見当たらない。本体の表示を写した公式画像も無い"
+  date: 2026-11-12
+
+input: "100-240V~, 2.1A, 50-60Hz(クイックスタートガイド)"
+size: "約68 × 45 × 29mm"
+weight_g: 168
+foldable_plug: true
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 100}
+    - {name: C2, type: C, max_w: 100}
+    - {name: A, type: A, max_w: 22.5}
+  total_w: 100
+  sharing:
+    - {use: "C1+C2", out: "65W+35W"}
+    - {use: "C1+A", out: "65W+22.5W"}
+    - {use: "C2+A", out: "24W(C2とAの合計)"}
+    - {use: "C1+C2+A", out: "65W+24W(C2とAの合計で24W)"}
+  sharing_source: "公式ページ「出力表」の画像(2ポート・3ポート利用時)。ポート名はクイックスタートガイド p.2 の「USB-C1 (Top Port / 一番上のポート)」に合わせた。同ページの「3 ポート利用時 最大 89.0W」は 65W+24W と合う"
+  gan: true
+colors: [シルバー]
+warranty: "24ヶ月(Anker で会員登録すると +6ヶ月)"
+seller_jp: "アンカー・ジャパン株式会社"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "A2688"
+price: "8,990円(税込・Anker Japan 公式オンラインストア)"
+note: |
+  公式ページの注意書き:「高電力デバイスを充電するには、上部の USB-C ポート (USB-A ポートから最も遠い位置) を使用」。
+  公式ページ・取説に「PD」「PPS」の文字が無いので、書いていない(電圧表 5/9/15/20V はある)。
+  公式ページは型番 A2688N42 をシルバーと表示し、比較表ではグレーと書いていて、表記がそろっていない。
+  入力は公式ページの仕様欄に無く、クイックスタートガイドの表記。

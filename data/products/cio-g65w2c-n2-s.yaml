@@ -1,0 +1,49 @@
+id: cio-g65w2c-n2-s      # 型番の「CIO-」とメーカー名が重なるので、メーカー名を1回だけにした
+maker: CIO
+model: CIO-G65W2C-N2-S
+name: "NovaPort SLIM DUOⅡ 65W2C"
+category: charger
+image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/05/65W-B-1536x1536.png"
+image_credit: "CIO 公式サイト"
+official_url: "https://connectinternationalone.co.jp/cioproduct/adapter/novaport/cio-g65w2c-n2-s/"
+manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/7e9d20ea93c255304b30d1b8edbcf3b6.pdf"
+checked: 2026-11-12
+
+pse:
+  status: image
+  mark: diamond
+  how: "公式画像 NovaPort-SLIM-DUOII-65W2C_v2_PSE.jpg の本体の刻印で、ひし形 PSE マーク・「株式会社CIO」・TÜV SÜD のロゴが読めた(2026-11-12 に画像を開いて確認)。取説と公式ページの文章には PSE の記載なし"
+  notifier: "株式会社CIO"
+  inspector: "TÜV SÜD(本体刻印のロゴ。日本の正式名は公式資料に無い。要確認)"
+  date: 2026-11-12
+
+input: "100-240V~50/60Hz, 1.6A Max"
+size: "約46.4×87.4×12.5mm(プラグ部除く)"
+weight_g: 90
+foldable_plug: true
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 65}
+    - {name: C2, type: C, max_w: 65}
+  total_w: 65
+  sharing:
+    - {use: "C1+C2", out: "45W+20W / 20W+45W / 30W+30W(65W Max)"}
+  sharing_source: "公式ページの製品仕様「出力（USB-C1＋C2）」、取説 p.5「4. 仕様」、本体の刻印(公式画像)。どれも同じ文言"
+  pd: true
+  pps: true
+  gan: true
+colors: [ブラック, ホワイト]
+warranty: "1年"
+seller_jp: "株式会社CIO"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [amazon]
+q: "CIO-G65W2C-N2-S"
+price: "5,980円(税込・メーカー希望小売価格)"
+note: |
+  プラグは 180°スイング式で、持ち運ぶときは折りたためる(公式ページ)。
+  GaN は取説の表紙「GaN 65W2ポート対応 薄型充電器」から。PD・PPS は取説 p.5「USB Power Delivery 3.0 / PPS」から。
+  1ポートのときは C1/C2 とも 5V⎓3A/9V⎓3A/12V⎓3A/15V⎓3A/20V⎓3.25A(65W Max)、PPS 5-11V⎓5A(本体の刻印)。
+  取説 p.6 は振り分けを「45W+20W / 30W+30W など」と「など」付きで書いている。
+  楽天は公式ページのリンクが店のトップに飛び、型番の検索で正規店を確かめきれなかったので stores に入れていない。Amazon は販売元「株式会社CIO」。
