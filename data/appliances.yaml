@@ -1,0 +1,32 @@
+# 家電の消費電力の目安(計算機と、1500W の記事の表で使う)
+# watt は計算に使う値。範囲で書かれているものは上の値を使う(少なめに見積もらないため)
+# label は出典の書き方そのまま。出典を足すときは sources に1行足し、source で指す
+sources:
+  - id: nite-2024
+    name: NITE「無頓着は火事の元！」別紙3(2024-01-25)
+    url: https://www.nite.go.jp/data/000152833.pdf
+    date: 2026-11-12
+
+items:
+  - {name: 電子レンジ(30Lクラス), watt: 1500, label: "1,500W", source: nite-2024}
+  - {name: 電気ケトル, watt: 1400, label: "1,200〜1,400W", source: nite-2024}
+  - {name: アイロン, watt: 1400, label: "1,200〜1,400W", source: nite-2024}
+  - {name: オイルヒーター, watt: 1500, label: "500〜1,500W", source: nite-2024}
+  - {name: ホットプレート, watt: 1300, label: "1,300W", source: nite-2024}
+  - {name: オーブントースター, watt: 1300, label: "1,300W", source: nite-2024}
+  - {name: 食器洗乾燥機, watt: 1300, label: "1,200〜1,300W", source: nite-2024}
+  - {name: ヘアドライヤー, watt: 1200, label: "600〜1,200W", source: nite-2024}
+  - {name: 炊飯器, watt: 1200, label: "350〜1,200W", source: nite-2024}
+  - {name: 電気温風暖房機, watt: 1200, label: "600〜1,200W", source: nite-2024}
+  - {name: 掃除機, watt: 1100, label: "1,000〜1,100W", source: nite-2024}
+  - {name: エアコン(100V), watt: 1040, label: "440〜1,040W", source: nite-2024}
+  - {name: 電気ポット(沸騰時), watt: 1000, label: "700〜1,000W", source: nite-2024}
+  - {name: 電気ストーブ, watt: 800, label: "200〜800W", source: nite-2024}
+  - {name: 電気カーペット, watt: 750, label: "250〜750W", source: nite-2024}
+  - {name: 除湿機, watt: 600, label: "300〜600W", source: nite-2024}
+  - {name: 電気こたつ, watt: 500, label: "500W", source: nite-2024}
+  - {name: 冷蔵庫, watt: 500, label: "150〜500W", source: nite-2024}
+  - {name: 加湿器, watt: 300, label: "200〜300W", source: nite-2024}
+  - {name: 液晶テレビ(50インチ), watt: 160, label: "120〜160W", source: nite-2024}
+  - {name: 空気清浄機, watt: 100, label: "100W", source: nite-2024}
+  - {name: 電気あんか・電気毛布, watt: 30, label: "30W", source: nite-2024}

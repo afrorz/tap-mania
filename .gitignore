@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+# ビルド結果。GitHub Actions が毎回作り直す
+public/
+# 手元の確認用の設定
+.claude/

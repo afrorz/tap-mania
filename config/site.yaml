@@ -1,0 +1,48 @@
+site:
+  title: タップマニア
+  tagline: 電源タップを、取説まで読む。
+  description: 電源タップと延長コードを、取扱説明書の数字まで読んで並べるサイト。定格・コードの太さ・USB-C の出力の配り方・雷サージの耐量・PSE 表示を、メーカー公式の情報で確かめて載せています。
+  base_url: https://tap.gadgetterminal.com
+  author: Star Platinum LLC
+  contact_email: info@gadgetterminal.com
+  x_account: ""          # X のアカウント名(未取得)。決まったら入れる。空なら出さない
+  copyright_from: 2026
+  cf_analytics_token: ""  # Cloudflare Web Analytics。空なら出さない
+  # GA4。本人がプロパティを新しく作って入れる(GT・Cozy Desk の ID を流用しない)。空ならタグも説明も出ない
+  analytics_id: ""
+  search_console_verification: ""
+  stale_days: 180         # checked がこれより古い製品は、ビルド時に警告を出す
+
+# 紹介リンク(もしも)。{url} に楽天・Amazon・Yahoo の検索ページの URL(エンコード済み)が入る。Cozy Desk と同じ書き方
+# もしもでこのサイトを新しいサイトとして登録し、提携が通るまでは空のままにする
+# (Gadget Terminal・Cozy Desk 用の a_id をこのサイトに貼らない。もしもの規約でサイトごとの登録が要る)。
+# 空のあいだは、ふつうの検索ページへのリンクを出し、「広告を含みます」の表示も出さない。
+affiliate:
+  rakuten: ""
+  amazon: ""
+  yahoo: ""
+
+# 製品の区分。並び順がそのまま表示の順
+categories:
+  - {slug: tap,           name: 電源タップ}
+  - {slug: extension,     name: 延長コード}
+  - {slug: usb-tap,       name: USB 付きタップ}
+  - {slug: charger,       name: USB 充電器}
+  - {slug: ups,           name: UPS}
+  - {slug: power-station, name: ポータブル電源}
+
+# 比べ表の用途別ページ(/compare/<slug>/)。where は製品データでの絞り込み
+#   usb_c: USB-C ポートがある / surge: 雷サージあり / min_ac: 口数がこれ以上 / category: 区分
+compare_views:
+  - slug: usb-c
+    name: USB-C 付き
+    lead: USB-C ポートのあるタップ。ポートごとの最大と、同時に挿したときの配り方を並べています。
+    where: {usb_c: true}
+  - slug: desk
+    name: 机の上・パソコンまわり
+    lead: USB-C ポートがあり、口数が3個以上のタップ。パソコンとスマホをまとめて挿す机の上向け。
+    where: {usb_c: true, min_ac: 3}
+  - slug: tv
+    name: テレビまわり
+    lead: テレビ・レコーダー・ゲーム機をまとめて挿す場所向けに、雷サージの記載があり口数が4個以上のタップ。
+    where: {surge: true, min_ac: 4}

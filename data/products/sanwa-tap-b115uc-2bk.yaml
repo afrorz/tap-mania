@@ -1,0 +1,56 @@
+id: sanwa-tap-b115uc-2bk
+maker: サンワサプライ
+model: TAP-B115UC-2BK
+name: "クランプ固定式タップ（簡単脱着・4方向向き変更・卓上使用対応・PD65W）"
+category: usb-tap
+image: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2BK_MX.jpg"
+image_credit: "サンワサプライ 公式サイト"
+official_url: "https://www.sanwa.co.jp/product/syohin?code=TAP-B115UC-2BK"
+manual_url: "https://cdn.sanwa.co.jp/support/setsumeisyo/pdf/T/TAP-B115UC-2series_ver1-0.pdf"
+checked: 2026-11-12
+
+pse:
+  status: unconfirmed
+  how: "公式ページの仕様表は「PSE適合規格 あり」の文字だけで、ひし形マーク・届出事業者名・登録検査機関名は無い。取説(全8ページ)にも PSE の表示なし。公式の5面図(FT8L)に底面は写るが、表示は読めない"
+  date: 2026-11-12
+
+rating:            # コンセントと USB を併用するときの定格。コンセントだけなら 100V・15A・1500W 以下(note)
+  volt: 100
+  amp: 13.5
+  watt_max: 1350
+cord:
+  length_m: 2
+  type: "VCTFK 2.0sq×2芯（二重被ふくコード）"
+outlets:
+  ac: 3
+  shutter: true
+  tracking_plug: true
+  switch: none
+  three_pin: false
+usb:
+  ports:
+    - {type: C, max_w: 65}
+    - {type: C, max_w: 65}
+    - {type: A, max_w: 18}
+    - {type: A, max_w: 18}
+  total_w: 65
+  sharing: "C1+C2: 45W+20W / C1+A1: 5V2.4A×2(24W) / C1+A2: 45W+18W / C2+A1: 45W+18W / C2+A2: 5V2.4A×2(24W) / A1+A2: 18W+18W / C1+C2+A1: 5V2.4A+30W+5V2.4A(54W) / C1+C2+A2: 30W+5V2.4A+5V2.4A(54W) / C1+A1+A2: 5V2.4A+5V2.4A+18W(42W) / C2+A1+A2: 5V2.4A+18W+5V2.4A(42W) / 4ポート同時: 5V2.4A×4(48W)(取説 p.4 の早見表)"
+  pd: true
+  pps: true
+colors: [ブラック, ホワイト]
+warranty: "6ヶ月(取説 p.8 の保証書)"
+seller_jp: "サンワサプライ株式会社(岡山・東京のサプライセンターの住所と電話が取説 p.8 に記載)"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "TAP-B115UC-2BK"
+price: "15,180円(税込・標準価格)"
+note: |
+  定格容量は、コンセントと USB を併用するとき 100V・13.5A(1,350W 以下)、コンセントだけを使うとき 100V・15A(1,500W 以下)。公式ページ・取説 p.4。
+  USB-C1/C2 の電圧: 5V/3A、9V/3A、12V/3A、15V/3A、20V/3.25A(最大65W)。USB-A1/A2: 5V/3A、9V/2A、12V/1.5A(最大18W)。
+  PPS(取説 p.4): C1/C2 が65Wのとき 3.3-21V 5.0A(63W MAX)、45Wのとき 3.3-11V 3.0A(33W MAX)、30Wのとき 3.3-11V 3.0A(30W MAX)。
+  4ポート同時の出力は、公式の仕様文が「5V/2.4A×4 最大65Wまで」、取説 p.4 の早見表の合計欄が 48W で、書き方がずれている。
+  プラグは「2P(平行型・絶縁キャップ付き)」。差込口は両側面と上面に1口ずつで、全口にシャッター。過電流保護機能あり。日本国内専用。
+  本体 約W70×D70×H72.5mm(クランプを除く)、約690g。取り付けられる天板の厚さは最大4cm(公式画像)。白は TAP-B115UC-2W。
+  雷サージ・難燃性・マグネットは、公式ページにも取説にも記載なし。

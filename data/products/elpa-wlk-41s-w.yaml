@@ -1,0 +1,49 @@
+id: elpa-wlk-41s-w
+maker: ELPA(朝日電器)
+model: WLK-41S(W)
+name: "耐雷スイッチ付タップ 4個口 1m"
+category: tap
+image: "https://www.elpa.co.jp/product/img/wlk-41s-w_l.jpg"
+image_credit: "ELPA(朝日電器) 公式サイト"
+official_url: "https://www.elpa.co.jp/product/el01/elpa1510.html"
+manual_url: "https://www.elpa.co.jp/product/pdf/tairai-tap_manual.pdf"
+checked: 2026-11-12
+
+pse:
+  status: unconfirmed
+  how: "公式製品ページ・取扱説明書(230825A)・公式カタログ(2024 p.14)・公式画像のどれにも、ひし形 PSE マーク・届出事業者名・登録検査機関名の記載なし。背面の写真は小さく銘板が読めない"
+  date: 2026-11-12
+
+rating:
+  volt: 125
+  amp: 15
+  watt_max: 1500
+cord:
+  length_m: 1
+  type: "断線に強い保護被ふく(公式表記)"
+outlets:
+  ac: 4
+  shutter: true        # 公式の呼び方は「ホコリ・ゴミの侵入を防ぐ扉付」
+  tracking_plug: true
+  switch: individual
+  three_pin: false
+  magnet: false        # 本体には付いていない。別売の WXP-MG01 を背面の溝に付けられる(note)
+surge:
+  has: true
+  spec: "最大サージ電圧 3,000V(IEC61000-4-5 規格に基づく数値と公式に記載)。プラグに雷ガード表示 LED 付き"
+colors: [ホワイト]
+seller_jp: "朝日電器株式会社"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [rakuten, amazon]
+q: "WLK-41S(W)"
+price: "2,153円(税込・朝日電器の直販サイト エルパ・ダイレクト)"
+note: |
+  差し込み口は公式の呼び方で「ホコリ・ゴミの侵入を防ぐ扉付」。熱や衝撃に強い PBT 樹脂。難燃の規格は公式に記載なし。
+  プラグは耐トラッキングカバー付きの L 型プラグ(回転するとは書かれていない)。差し込み口とプラグは 2P(公式画像)。
+  取扱説明書には、雷ガード表示 LED が消えている場合はサージ低減効果がなくなっているので新しい製品と交換するよう、また、電話や FAX の通信線がある機器などの雷サージ保護を保証するものではない、と書かれている。
+  独立スイッチ(LED ランプ付き)。AC アダプターが2つ差せる。置き方で差し込み口を上向きにも横向きにもできる。
+  使用温度範囲 -10℃〜40℃。屋内専用・国内専用。同じシリーズに 2m・3m・5m(WLK-42S・43S・45S)がある。
+  マグネットは別売(WXP-MG01)。
+  出典: 公式カタログ https://www.elpa.co.jp/webooks/2024/pdf/14.pdf ・ 値段 https://www.elpadirect.jp/products/4901087225743/ (11/12 時点で「欠品のため入荷まち」)

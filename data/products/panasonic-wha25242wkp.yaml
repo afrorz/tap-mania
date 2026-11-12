@@ -1,0 +1,42 @@
+id: panasonic-wha25242wkp
+maker: パナソニック
+model: WHA25242WKP
+name: "ザ・タップＸ（4コ口）（2m）"
+category: tap
+image: "https://panasonicjp.scene7.com/is/image/panasonicjp/WHA25242WKP_340824"
+image_credit: "パナソニック 公式サイト"
+official_url: "https://panasonic.jp/tap/products/WHA25242WKP.html"
+checked: 2026-11-12
+
+pse:
+  status: unconfirmed
+  how: "公式の製品ページ・仕様ページ・ザ・タップX紹介ページに、PSE マーク・届出事業者名・登録検査機関名の記載なし。取扱説明書の PDF は公式サポートに掲載なし。公式画像(733×755px)では刻印が読めない"
+  date: 2026-11-12
+
+rating:
+  volt: 125
+  amp: 15
+  watt_max: 1500     # 仕様表は定格 15A 125V のみ。1500W は公式画像の本体の印字「合計1500ワットまで」(note)
+cord:
+  length_m: 2
+outlets:
+  ac: 4
+  shutter: true      # 公式の呼び方は「安全設計扉・パッキン付コンセント」
+  tracking_plug: true
+  switch: all
+  three_pin: false
+flame: "外ボディに燃え広がりにくい樹脂、内ボディはトラッキングに強いユリア樹脂の二重ボディ(公式の製品ページ)"
+recall_checked: 2026-11-12
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "WHA25242WKP"
+note: |
+  一括防水スイッチ付き。差し込み口は公式の呼び方で「安全設計扉・パッキン付コンセント」(扉とパッキンで一時的な水しぶき・ほこりの侵入をガード。防水の性能は同社独自の試験条件: 水量10L/分・距離50cm・30秒)。
+  トラッキング防止は、ザ・タップX紹介ページの「プラグの栓刃間にユリア樹脂」というシリーズ共通の記述による。
+  高電導材の採用で発熱量を約24%下げた「新接続コンセント」(公式)。
+  合計1500W は、仕様表(定格 15A 125V)ではなく、公式の製品画像に写る本体の印字「合計1500ワットまで」による。
+  プラグ形状は「スナップキャップ」(仕様)。2極プラグ(公式画像)。
+  メーカー希望小売価格はオープン価格。取扱説明書の PDF は公式で公開されていない。
+  雷サージ・色・保証は、公式ページに記載なし。
+  出典: 仕様 https://panasonic.jp/tap/products/WHA25242WKP/spec.html ・ シリーズ紹介 https://panasonic.jp/tap/feature/tap-x.html
