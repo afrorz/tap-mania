@@ -1,0 +1,68 @@
+id: elecom-ec-c68lbk
+maker: エレコム
+model: EC-C68LBK
+name: "Qi2対応・AC充電器・ケーブル一体型4in1モバイルバッテリー 10000mAh/22.5W"
+category: battery
+image: "https://www.elecom.co.jp/photo/p01/EC-C68LBK_01.jpg"
+images:
+  - "https://www.elecom.co.jp/photo/p01/EC-C68LBK_01.jpg"   # 白背景の本体(プラグ・ケーブルを出した状態)
+  - "https://www.elecom.co.jp/photo/p31/EC-C68LBK_31.jpg"   # 正面とケーブル
+  - "https://www.elecom.co.jp/photo/p33/EC-C68LBK_33.jpg"   # 側面(残量表示・ポート)
+  - "https://www.elecom.co.jp/photo/p32/EC-C68LBK_32.jpg"   # 裏面の印字
+image_credit: "エレコム 公式サイト"
+official_url: "https://www.elecom.co.jp/products/EC-C68LBK.html"
+manual_url: ""
+checked: 2026-11-14
+released: ""
+cable_note: "本体一体型 USB Type-C ケーブル 約0.15m(一体型)。モバイルバッテリーとして使うときは単独で最大22.5W(PD 最大20W・PPS 最大20W。22.5W は HUAWEI 機器のみ)、AC充電器として使うときは最大10.5W。本体への入力(最大20W)にも使える"
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "【未確認にした理由】AC 充電器の部分があり、ひし形(特定電気用品)の表示も要る。そのひし形の登録検査機関が、三角形のロゴだけで社名が読めない。届出事業者名の文字も小さくぼやけている。以下は調べた内容: 公式画像 EC-C68LBK_32.jpg(600px・裏面)を拡大すると、丸形の PSE マークの下と、ひし形の PSE マーク(左に三角形の登録検査機関のロゴ)の下に、どちらも「エレコム株式会社」と読める(2026-11-14 にブラウザで画像を開いて確認。文字は小さく、少しぼやけている)。仕様欄は「○PSE 特定以外の電気用品、◇PSE 特定電気用品」。AC充電器の部分があるため、ひし形の表示もある"
+  date: 2026-11-14
+
+battery:
+  mah: 10000
+  wh: 36.5
+  cell: "充電式リチウムイオン電池(3.65V/5000mAh×2)"
+  input_w: 20
+  recharge_time: "コンセントから直接充電: 約3時間40分 / AC充電器(別売)から充電: 約2時間20分"
+  passthrough: true
+  safety: "Thermal Protection、過充電・過放電・過電流防止機能および短絡保護機能と温度検知機能の5つの保護機能、JIS C 62133-2:2020 および JIS C 8715-2:2024 に準拠した安全設計、くり返し使用回数 1,000回(公式の書き方)"
+input: "AC100V-240V～50/60Hz 0.4A Max(AC充電器として使うとき)"
+size: "幅約86.6mm × 奥行約36.9mm × 高さ約90mm"
+weight_g: 335
+foldable_plug: true
+usb:
+  ports:
+    - {name: "本体一体型USB Type-Cケーブル", type: C, max_w: 22.5}   # バッテリー時 5V/3A・9V/2.22A・10V/2.25A、PPS 最大20W。AC時 最大10.5W
+    - {name: "USB Type-C1ポート", type: C, max_w: 22.5}
+    - {name: "USB-A1ポート", type: A, max_w: 22.5}                   # 5V/3A・9V/2A・10V/2.25A・12V/1.5A
+  total_w: 15
+  sharing:
+    - {use: "モバイルバッテリーとして・複数同時(ワイヤレス充電を含む)", out: "合計最大15W(5V/3A)"}
+    - {use: "モバイルバッテリーとして・ポートかケーブルを2つ以上", out: "ワイヤレス出力は停止"}
+    - {use: "AC充電器として・複数同時", out: "合計最大10.5W(5V/2.1A)"}
+    - {use: "AC充電器として・ワイヤレスとポートかケーブルを同時", out: "ワイヤレス出力は停止"}
+  sharing_source: "製品ページの仕様欄「出力1」「出力3」と特長欄、2026-10-21 のニュースリリース"
+  pd: true
+  pps: true
+colors: [ブラック]
+warranty: "1年間"
+seller_jp: "エレコム株式会社"
+recall_checked: 2026-11-14
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "EC-C68LBK"
+price: "9,890円(税込・エレコムダイレクトショップ楽天市場店。メーカーはオープン価格)"
+note: |
+  バッテリー・AC充電器・一体型ケーブル・Qi2 ワイヤレス充電器の「4in1」。スイングプラグを回して本体に収納でき、底面のスタンドでスマホを横向きに立てられる。
+  ワイヤレスは Qi2 正規認証品で最大15W(バッテリーとしてワイヤレスだけを使うとき)。AC充電器として使うときのワイヤレスは最大5W。
+  AC充電器として使っているとき、電力に余裕があれば機器への給電と本体への充電を同時に行う(まとめて充電=パススルー)。
+  使える温度は、AC充電器として 0〜25℃、モバイルバッテリーとして 0〜35℃。残量は LED パネルに1%単位。USB-A は低電流モードとおまかせ充電。
+  発売はリリース(2026-10-21)の「10月下旬より新発売」で、日付は無い。製品ページは 11/14 時点でまだ「近日発売」の表示だが、エレコムダイレクトショップ(楽天 9,890円)と Amazon(販売元 Amazon.co.jp、8,990円、B0HLDR3FYN)で買える状態。
+  定格容量(5V 換算)は製品ページに無く、裏面の印字も小さくて読めない。
+  エレコムのサイトは自動取得をはじく(403)。画像はブラウザでは開ける。取扱説明書の PDF は製品ページから直接は見つからない。
+  消費者庁リコール情報サイトと NITE SAFE-Lite で「EC-C68LBK」を引いて該当なし(2026-11-14)。

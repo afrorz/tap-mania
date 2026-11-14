@@ -1,0 +1,62 @@
+id: anker-a1117
+maker: Anker
+model: A1117
+name: "Anker Nano Power Bank (25000mAh, Built-In & 巻取り式USB-Cケーブル)"
+category: battery
+image: "https://www.ankerjapan.com/cdn/shop/files/A1117H11.jpg"
+images:
+  - "https://www.ankerjapan.com/cdn/shop/files/A1117H11.jpg"            # 白背景の本体(2本のケーブルを出した状態)
+  - "https://www.ankerjapan.com/cdn/shop/files/A1117002.jpg"            # 巻取り式 約70cm・ストラップ式 約30cm
+  - "https://www.ankerjapan.com/cdn/shop/files/A1117_PA_PC_2-2.png"     # 2ポート時の合計 165W / 133W
+  - "https://www.ankerjapan.com/cdn/shop/files/A1117_PA_SP_2-3.jpg"     # 3ポート時 合計130W の内訳
+image_credit: "Anker 公式サイト"
+official_url: "https://www.ankerjapan.com/products/a1117"
+manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A1117Manual.pdf"
+checked: 2026-11-14
+released: ""
+cable_note: "本体に USB-C ケーブルを2本内蔵。巻取り式(USB-C1、約70cm、長さ調節可)と、ストラップ式の非巻取りケーブル(USB-C2、約30cm)。どちらも単ポート時 最大100W(5V=3A / 9V=3A / 12V=3A / 15V=3A / 20V=5A)で、入力(最大100W)にも使える。巻取り・折り曲げテスト各 約20,000回(Anker調べ)"
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "製品ページ・取扱説明書(A1117Manual.pdf)に PSE の記載なし。公式画像16枚(A1117H11・A1117001〜005・A1117_PA_*)にも本体の銘板(丸形 PSE・届出事業者名)が写ったものは無い(2026-11-14 に画像を開いて確認)"
+  date: 2026-11-14
+
+battery:
+  mah: 25000
+  input_w: 100
+  passthrough: true
+  safety: "常時温度管理システム ActiveShield 2.0 搭載(公式画像)/ アクティブ冷却モード / 温度保護モード / 回路保護 / バッテリー状態の確認(最大容量が60%を下回ると画面に表示)(取説の書き方)"
+size: "約158 × 54 × 50mm"
+weight_g: 595
+usb:
+  ports:
+    - {name: "USB-C1(巻き取り式内蔵ケーブル)", type: C, max_w: 100}   # 5V=3A / 9V=3A / 12V=3A / 15V=3A / 20V=5A
+    - {name: "USB-C2(非巻き取り式内蔵ケーブル)", type: C, max_w: 100}
+    - {name: "USB-C3(ポート)", type: C, max_w: 100}
+    - {name: "USB-A", type: A, max_w: 33}                              # 5-11V=3A / 5V=3A / 9V=2A / 10V=2.25A / 12V=1.5A
+  total_w: 165
+  sharing:
+    - {use: "USB-C+USB-C", out: "合計165W"}
+    - {use: "USB-C+USB-A", out: "合計133W"}
+    - {use: "3ポート同時", out: "100W+15W+15W(100W は C1。C1 を使わないときは C2)"}
+  sharing_source: "製品ページの公式画像 A1117_PA_PC_2-2.png(2ポート)と A1117_PA_SP_2-3.jpg・A1117_PA_SP_2-4.jpg(合計130W の内訳と注記)。製品ページの仕様欄・取説は「合計最大出力 165W」だけ。4ポート同時の数字は見つからなかった"
+  pd: true
+colors: [ブラック]
+warranty: "18ヶ月 + 6ヶ月(Ankerで会員登録後)"
+seller_jp: "アンカー・ジャパン株式会社"
+recall_checked: 2026-11-14
+recall: none
+
+stores: []
+q: "A1117"
+price: "19,990円(税込・Anker Japan 公式オンラインストア)"
+note: |
+  製品ページの見出しに「販路限定」の札。2026-11-14 時点で、楽天・Amazon・Yahoo! を製品名と型番で探しても A1117 は出てこない(出てくるのは前の型の Anker Power Bank (25000mAh, Built-In & 巻取り式USB-Cケーブル) 17,990円)。買える所は公式オンラインストアだけなので stores は空。
+  前の型は 2025-05-08 発売の「Anker Power Bank (25000mAh, Built-In & 巻取り式 USB-C ケーブル)」(Anker Japan のお知らせ corp.ankerjapan.com/posts/538、製品ページ URL は a1695)。出力の仕様の書き方は同じ(単ポート 100W・合計 165W)。
+  発売は製品ページの「発売月 2026年11月」だけで、日付は無い。
+  合計出力は、仕様欄が「165W」、2ポート時の画像が C+C 165W / C+A 133W、3ポート時の画像が「合計130W」。3台以上つなぐと合計が下がる。
+  画面(公式の呼び方は液晶画面)に、残量・本体を満充電するまでの時間・各ポートの入出力W・電池の温度・充電回数・最大容量(Battery Health)が出る。最大容量が60%を下回ると「バッテリー状態の確認」が表示される(取説)。
+  入力は USB-C1・C2・C3 のどれでも最大100W。3つ同時につなぐと、一番入力の大きいポートで充電する(取説)。
+  USB-A は低電流モードあり。容量は「セル容量 25,000mAh」(取説)だけで、Wh・定格容量・電池の種類は製品ページにも取説にも無い。重さは仕様欄・画像とも 約595g。
+  消費者庁リコール情報サイトと NITE SAFE-Lite(事故情報・リコール情報)で「A1117」を引いて該当なし(2026-11-14)。

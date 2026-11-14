@@ -1,0 +1,51 @@
+id: sanwa-aca-pd115bk
+maker: サンワサプライ
+model: ACA-PD115BK
+name: "USB PD対応AC充電器（PD100W・電源コード型）"
+category: charger
+image: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MX.jpg"
+images:
+  - "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MX.jpg"     # 白背景の本体・AC電源コード・Type-Cケーブル
+  - "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MO8X.jpg"   # Type-Cケーブル一体型
+  - "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MO6X.jpg"   # 合計3mのケーブル
+  - "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MO10X.jpg"  # 本体ラベルと PSE マーク
+image_credit: "サンワサプライ 公式サイト"
+official_url: "https://www.sanwa.co.jp/product/syohin?code=ACA-PD115BK"
+manual_url: ""
+checked: 2026-11-14
+released: 2026-09-17
+cable_note: "USB Type-C ケーブル(オス)が本体と一体の「ケーブル一体型」。Type-C ケーブル 約1.5m + AC電源コード 約1.5m で合計3m。出力は一体型ケーブルからだけで、最大100W(DC5V/3A、9V/3A、12V/3A、15V/3A、20V/5A)"
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "【未確認にした理由】登録検査機関が三角形のロゴだけで、社名が読めない(3点がそろわない)。以下は調べた内容: 公式の製品画像 ACA-PD115BK_MO10X.jpg(500px)と同じ画像の大きい版 ACA-PD115BK_MO10L.jpg(1600px)の本体ラベルに、ひし形の PSE マーク・その左の登録検査機関のロゴ(三角形)・マークの下の「サンワサプライ」が読める形で写っている(2026-11-14 に画像を開いて拡大して確認)。ラベルの MODEL は FJ-GN2140T100D。仕様欄・リリースにも「電気用品安全法（PSE）適合」"
+  date: 2026-11-14
+
+input: "AC100-240V 50/60Hz(ラベルは 2.0A Max)"
+size: "約W109 × D58 × H29mm"
+weight_g: 320
+usb:
+  ports:
+    - {name: "Type-Cケーブル(一体型)", type: C, max_w: 100}   # DC5V/3A、DC9V/3A、DC12V/3A、DC15V/3A、DC20V/5A
+  total_w: 100
+  sharing: []
+  sharing_source: "出力は一体型ケーブル1本だけ(製品ページの特長「本製品は一体型ケーブルからの出力のみの仕様」)"
+  pd: true
+colors: [ブラック]
+seller_jp: "サンワサプライ株式会社"
+recall_checked: 2026-11-14
+recall: none
+
+stores: [rakuten, yahoo]
+q: "ACA-PD115BK"
+price: "11,440円(税込・標準価格)"
+note: |
+  ノートPC用の「電源コード型」AC アダプタ。本体と USB-C ケーブルが一体で、コンセント側は着脱式の AC 電源コード(2P)。タップに挿してもほかの差込口とぶつからない、とメーカーは書いている。
+  サンワは「複数ポートの充電器をドッキングステーションにつなぎ、空きポートに別の機器を挿すと、映像・通信が一時的に切れることがあるが、本製品は一体型ケーブルからの出力だけなので切れる心配がない」と説明している。
+  重さ 約320g は AC 電源コードを含まない値。使える温度 5〜35℃。通電確認 LED あり。PD は USB PD 3.0。PPS・GaN の記載は無い。
+  発売日は製品ページに無い。2026-09-17 はニュースリリース(https://www.sanwa.co.jp/info/news/202609/aca-pd115bk/index.html)の日付。
+  同じシリーズに PD65W の ACA-PD110BK、PD100W のケーブル一体型 ACA-PD94BK(15,180円)がある。
+  取扱説明書の PDF と保証期間は製品ページで見つけられなかった(付属品に「取扱説明書・保証書」とだけある)。
+  楽天・Yahoo! は公式店 サンワダイレクト(楽天 9,480円)。Amazon(B0HBWLLKDB)は 11/14 時点の販売元が「やるCAN」で公式・Amazon.co.jp ではないため stores に入れていない。
+  消費者庁リコール情報サイトと NITE SAFE-Lite で「ACA-PD115BK」を引いて該当なし(2026-11-14)。

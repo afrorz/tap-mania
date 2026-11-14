@@ -1,0 +1,63 @@
+id: buffalo-bmpbsa5000
+maker: バッファロー
+model: BMPBSA5000
+name: "半固体モバイルバッテリー 5000mAh(18.5Wh)/20W"
+category: battery
+image: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0100.jpg"
+images:
+  - "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0100.jpg"   # 白背景の本体とストラップ式ケーブル
+  - "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0104.jpg"   # 横から見た薄さ
+  - "https://www.buffalo.jp/system/pimw048_product/__icsFiles/afieldfile/2026/10/07/BMPBSA5000_06-side-500-350.png"   # ケーブルホルダー・ネックガード・スリムコネクター
+  - "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0105.jpg"   # 裏面の印字(PSE・株式会社バッファロー)
+image_credit: "バッファロー 公式サイト"
+official_url: "https://www.buffalo.jp/product/detail/bmpbsa5000bk.html"
+manual_url: ""
+checked: 2026-11-14
+released: 2026-11-05
+cable_note: "ストラップ式 Type-C ケーブル 約23cm を本体に一体化(公式の言葉)。丈夫なナイロン生地と根元のネックガード、厚いケースのままでも挿せるスリムコネクター。ケーブル(本体の印字では USB-C Line)は最大20W の出力と、本体への入力(最大13.5W)の両方に使える"
+
+pse:
+  status: image
+  mark: round
+  how: "公式の製品画像 BMPBSA5000BK__0105.jpg(800px・裏面)に、丸形の PSE マークとその下の「株式会社バッファロー」が読める大きさで写っている(2026-11-14 に画像を開いて拡大して確認)。仕様欄にも「PSE適合」"
+  notifier: "株式会社バッファロー"
+  date: 2026-11-14
+
+battery:
+  mah: 5000
+  wh: 18.5
+  rated_mah: "5.0V/2700mAh(裏面の印字)"
+  cell: "半固体リチウムイオン電池(ゲル状の電解質)"
+  input_w: 13.5
+  passthrough: true
+  safety: "過電圧保護・過電流遮断・温度検知・ショート防止の多重保護回路。釘刺し試験・圧壊試験、外部機関と連携したガス試験を実施(公式の書き方)"
+size: "約74 × 9.2 × 114mm(突起部除く)"
+weight_g: 122
+usb:
+  ports:
+    - {name: "USB-C Line(ストラップ式ケーブル)", type: C, max_w: 20}   # USB PD 5V/3A, 9V/2.22A, PPS 5-11V/2A。入力兼用
+    - {name: "USB-C", type: C, max_w: 20}                             # 入力兼用
+  total_w: 15
+  sharing:
+    - {use: "USB-C + USB-C Line", out: "合計15W(5V/3A)"}
+  sharing_source: "裏面の印字(BMPBSA5000BK__0105.jpg)の「Dual Ports」と、製品ページの仕様欄「2ポート使用時は合計15Wまで」"
+  pd: true
+  pps: true
+colors: [アイスブルー, サテンベージュ, シルキーホワイト, メタリックブラック]
+warranty: "1年"
+seller_jp: "株式会社バッファロー"
+recall_checked: 2026-11-14
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "BMPBSA5000"
+price: "オープン価格。バッファロー公式ストア(楽天)で 4,190円(税込・掲載時点)"
+note: |
+  2026-11-05 のプレスリリースで「出荷を開始いたしました」。日付はこの出荷開始の日。製品ページの発売時期は「2026年10月」と書かれている。
+  色違い4色(BL・BE・WH・BK)。製品ページは色ごとに分かれていて、ここでは BMPBSA5000BK のページを使った。
+  入力は USB PD 5V/2.7A・9V/1.5A(最大13.5W)。パススルーは「対応。スマホを優先して充電し、終わってから本体を充電。合計15W以下・5Vのみ」(仕様欄)。
+  使える温度は、放電時 -15〜45℃、充電時 5〜40℃。機内持ち込みは手元で保管する場合に限り可。iPhone 17 へ約0.8回(当社試験)。
+  Amazon で売っているのは型番の末尾に X が付いた BMPBSA5000BKX(販売元 バッファローダイレクト、3,380円)。楽天・Yahoo! は公式店(バッファロー公式ストア / buffalodirect)。
+  取扱説明書は PDF でなく説明ページ(https://www.buffalo.jp/product/detail/manual/bmpbsa5000bk.html)なので manual_url は空。
+  同じシリーズに先行の 10000mAh モデル BMPBSA10000 がある。
+  消費者庁リコール情報サイトと NITE SAFE-Lite で「BMPBSA5000」を引いて該当なし(2026-11-14)。

@@ -1,0 +1,56 @@
+id: ugreen-55897
+maker: UGREEN
+model: "55897"
+name: "UGREEN Nexode 巻き取り式 USB-Cケーブル内蔵 充電器 65W"
+category: charger
+image: "https://ugreen.jp/cdn/shop/files/55897-1.png"
+images:
+  - "https://ugreen.jp/cdn/shop/files/55897-1.png"   # 白背景の本体(正面・ケーブル収納時)
+  - "https://ugreen.jp/cdn/shop/files/55897-3.png"   # ケーブルを引き出した状態
+  - "https://ugreen.jp/cdn/shop/files/9_8e9b2e53-dce7-49ec-a592-3d2be6ef1e77.jpg"   # 8段階のケーブル長さ調整
+  - "https://ugreen.jp/cdn/shop/files/9e55368e-8c42-453b-bb3c-08fa0bf51648.__CR0_0_1464_600_PT0_SX1464_V1.jpg"   # 最大出力65W・巻き取り式ケーブル使用時 最大60W
+image_credit: "UGREEN 公式サイト"
+official_url: "https://ugreen.jp/products/ugreen-nexode-65w-charger-with-retractable-usb-c-cable"
+manual_url: ""
+checked: 2026-11-14
+released: ""
+cable_note: "巻き取り式(伸縮式)の USB-C ケーブルを内蔵。本文は「最大0.69M」、仕様欄は「ケーブル長 0.7m」。長さは8段階で調節。25,000回の伸縮・10,000回の折り曲げテスト(公式の書き方)。内蔵ケーブルの出力は最大60W(5V/3A、9V/3A、12V/3A、15V/3A、20V/3A、PPS 5～21V/3A)"
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページ(本文・製品仕様)に PSE の記載なし。公式画像8枚(55897-1〜4 ほか)にも本体の銘板(ひし形 PSE・届出事業者名・登録検査機関名)は写っていない(2026-11-14 に画像を開いて確認)。取扱説明書は公式サイトに見当たらない"
+  date: 2026-11-14
+
+size: "5.94 × 5.3 × 5.04 cm"
+weight_g: 290
+usb:
+  ports:
+    - {name: "USB-C 巻き取り式ケーブル", type: C, max_w: 60}
+    - {name: "USB-C ポート", type: C, max_w: 65}   # 5V/3A、9V/3A、12V/3A、15V/3A、20V/3.25A、PPS 5～11V/4.5A
+    - {name: "USB-A ポート", type: A}             # 出力の数字は公式に記載なし
+  total_w: 65
+  sharing:
+    - {use: "2ポート / 3ポート同時", out: "合計65W(自動で配分。ポートごとの数字は記載なし)"}
+  sharing_source: "製品ページの本文「1ポートなら最大65Wのフルパワー集中、2ポート/3ポート同時使用時は自動で最適分配」と製品仕様「合計出力 65W」。ポートごとの配り方は公式に書かれていない"
+  pd: true
+  pps: true
+  gan: true
+seller_jp: "Ugreen Japan Co., Ltd(Amazon の販売元の表記。ugreen.jp で国内の会社情報は確かめていない)"
+recall_checked: 2026-11-14
+recall: none
+
+stores: [rakuten, amazon]
+q: "UGREEN 巻き取り式 充電器 65W"
+price: "5,680円(税込・UGREEN 公式サイトの通常価格)"
+note: |
+  ケーブルの長さは、本文が「最大0.69M」、仕様欄が「0.7m」で食い違う(どちらも公式)。
+  出力: 単一ポートで 65W Max。ただし巻き取り式ケーブルは最大60W(仕様欄と公式画像「巻き取り式ケーブル使用時 最大60W」)。USB-A の出力は仕様欄に無い。
+  GaN の呼び方が本文の中で2つある: 「GaNInfinity テクノロジー」「GaNFast チップ」。仕様欄のチップは「GaNインフィニティ™」。電力変換効率は「最大95%」(公式)。8層の安全保護機能、独自の Thermal Guard 温度制御。
+  プロトコル: PD3.0/2.0、QC4.0/3.0、PPS、AFC、FCP、APPLE 5V2.4A、BC1.2、SCP。入力電圧・プラグの折りたたみ・保証は公式ページに記載なし。
+  重さは仕様欄が 290g。Amazon の商品名(B0DNSQCRJB)には「200g」「78cm」とあり公式と食い違うが、Amazon は出典にしない。
+  値段は、公式サイトの通常価格 5,680円、Amazon 6,280円、UGREEN 公式楽天市場店 6,480円(いずれも 11/14 時点・税込)。
+  公式ページの「Amazonで購入」は B0DNSQCRJB(販売元 Ugreen Japan Co., Ltd)、「楽天で購入」は UGREEN 公式楽天市場店(ugreen-gear)。Yahoo! では公式店が見つからなかった。
+  発売日は公式ページに無い(2025年夏ごろから日本で売られているという報道はある)。
+  上位に Nexode Pro 160W 巻き取りケーブル内蔵充電器(17,980円・画面付き)もあるが、ugreen.jp の製品ページに仕様の文字が無いため今回は外した。
+  消費者庁リコール情報サイトと NITE SAFE-Lite で「UGREEN」「55897」を引いて該当なし(2026-11-14)。

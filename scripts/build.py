@@ -185,7 +185,7 @@ def bubble(name: str, text: str) -> str:
 
 
 def nav(current: str = "") -> str:
-    items = [("posts", "/p/", "新製品"), ("usbc", "/usb-c/", "USB-C の配り方"), ("compare", "/compare/", "比べ表"),
+    items = [("posts", "/p/", "新製品"), ("features", "/f/", "特集"), ("usbc", "/usb-c/", "USB-C の配り方"), ("compare", "/compare/", "比べ表"),
              ("about", "/about/", "確かめ方")]
     cur = ' aria-current="page"'
     return '<nav class="gnav" aria-label="サイト内">' + "".join(
@@ -959,6 +959,126 @@ def build_post_index() -> str:
     return page(title="新製品", desc="USB-C の充電器・電源タップ・モバイルバッテリーの新製品の紹介", path="/p/", body=body, current="posts")
 
 
+# ── 特集(2026-11-14 本人「GTみたいに特集記事も」) ──────────────────────
+# content/f/<名前>.md → /f/<名前>/。テーマを1つ決め、製品データの機種をカードで並べる。
+# 各カードに、ひとこと(hook)・本文(note)・ポートの札・同時出力の帯グラフ・買うボタンが付く
+
+FEATURES: list[dict] = []
+
+
+def load_features(products: dict[str, dict]) -> list[dict]:
+    feats = []
+    for path in sorted((ROOT / "content" / "f").glob("*.md")):
+        if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", path.stem):
+            die(f"{path.name}: ファイル名は英小文字・数字・ハイフンにしてください")
+        fm, body = split_fm(path)
+        for k in ("title", "date", "summary", "items"):
+            if not fm.get(k):
+                die(f"{path.name}: {k} がありません")
+        if fm.get("draft") and "--drafts" not in sys.argv:
+            continue
+        for it in fm["items"]:
+            if it.get("product") not in products:
+                die(f"{path.name}: items の {it.get('product')} が data/products にありません")
+            if not it.get("hook") or not it.get("note"):
+                die(f"{path.name}: {it['product']} の hook か note がありません")
+            it["p"] = products[it["product"]]
+        fm["slug"] = path.stem
+        fm["url"] = f"/f/{path.stem}/"
+        fm["body"] = body
+        feats.append(fm)
+    feats.sort(key=lambda a: str(a.get("updated") or a["date"]), reverse=True)
+    return feats
+
+
+def feature_card(f: dict) -> str:
+    p = f["items"][0]["p"]
+    pic = (f'<figure class="pc-img"><img src="{e(p["image"])}" alt="{e(p["name"])}" loading="lazy" referrerpolicy="no-referrer"></figure>'
+           if p.get("image") else '<figure class="pc-img noimg"></figure>')
+    return (f'<a class="postcard feat" href="{f["url"]}">{pic}<div class="pc-body">'
+            f'<p class="pc-meta"><span>特集</span><time>{e(f.get("updated") or f["date"])}</time></p>'
+            f'<b>{e(f["title"])}</b><span class="small">{e(f["summary"])}</span>'
+            f'<span class="tags"><i>{len(f["items"])}機種</i></span></div></a>')
+
+
+def feature_item(i: int, it: dict) -> str:
+    p = it["p"]
+    post = next((a for a in POSTS if a["product"] == p["id"]), None)
+    links = f'<a href="{p["url"]}">仕様をすべて見る</a>' + (f' ・ <a href="{post["url"]}">紹介記事</a>' if post else "")
+    share = f'<h4>同時に挿したときの配り方</h4>{sharing_html(p)}' if (p.get("usb") or {}).get("sharing") else ""
+    price = f'<p class="small">値段: {e(p["price"])}</p>' if p.get("price") else ""
+    return f"""<article class="fitem" id="{p['id']}">
+<div class="fitem-head">{img(p, "fimg")}<div>
+<p class="pc-meta"><span>{i:02d}</span><span>{e(CAT[p['category']]['name'])}</span></p>
+<h3><span class="maker">{e(p['maker'])}</span> {e(p['model'])}</h3>
+<p class="hook">{e(it['hook'])}</p>
+<div class="post-head"><span class="tags">{key_chips(p)}</span>{pse_badge(p)}</div>
+<p class="meta-line">{usb_summary(p)}</p>
+</div></div>
+<div class="prose">{markdown.markdown(it['note'])}</div>
+{share}
+{price}
+{store_buttons(p, 'feature')}
+<p class="small">{links}</p>
+</article>"""
+
+
+def feature_table(f: dict) -> str:
+    """特集ごとの比べる項目。今はケーブル(items の cable: {kind, length, max_w})"""
+    rows = [it for it in f["items"] if it.get("cable")]
+    if not rows:
+        return ""
+    trs = "".join(
+        f'<tr><th><a href="#{it["p"]["id"]}">{e(it["p"]["maker"])} {e(it["p"]["model"])}</a></th>'
+        f'<td>{e(CAT[it["p"]["category"]]["name"])}</td><td>{e(it["cable"].get("kind", ""))}</td>'
+        f'<td>{e(it["cable"].get("length", ""))}</td><td class="num">{e(it["cable"].get("max_w", ""))}</td>'
+        f'<td class="num">{num(it["p"].get("weight_g"), "g")}</td></tr>' for it in rows)
+    return (f'<h2>ひと目で比べる</h2><div class="tscroll"><table class="ctable ftable"><thead><tr><th>機種</th><th>種類</th><th>ケーブルの形</th>'
+            f'<th>長さ</th><th>ケーブルの最大</th><th>重さ</th></tr></thead><tbody>{trs}</tbody></table></div>')
+
+
+def build_feature(f: dict) -> str:
+    items = "".join(feature_item(i + 1, it) for i, it in enumerate(f["items"]))
+    toc = "".join(f'<li><a href="#{it["p"]["id"]}">{e(it["p"]["maker"])} {e(it["p"]["model"])}</a> ── {e(it["hook"])}</li>'
+                  for it in f["items"])
+    intro = bubble(f.get("face", "futsu"), f["intro"]) if f.get("intro") else ""
+    srcs = f.get("sources") or []
+    src_html = ("<h2>出典</h2><ol class=\"src\">" + "".join(
+        f'<li><a href="{e(s["url"])}">{e(s["name"])}</a>(取得 {e(s.get("date", ""))})</li>' for s in srcs) + "</ol>") if srcs else ""
+    upd = f' ・ 更新 {e(f["updated"])}' if f.get("updated") and str(f["updated"]) != str(f["date"]) else ""
+    body = f"""<main class="article post feature"><div class="wrap">
+<p class="crumb"><a href="/">トップ</a> › <a href="/f/">特集</a></p>
+<p class="pc-meta"><span>特集</span><time>{e(f['date'])}</time>{upd}</p>
+<h1>{e(f['title'])}</h1>
+<p class="lead">{e(f['summary'])}</p>
+{intro}
+<div class="prose">{markdown.markdown(f['body'], extensions=['tables'])}</div>
+<ol class="ftoc">{toc}</ol>
+{feature_table(f)}
+<h2>{len(f['items'])}機種</h2>
+{items}
+<p class="small">数字はメーカー公式ページと取扱説明書のものです(各機種の仕様のページに出典があります)。値段は掲載時点の公式の価格です。</p>
+{src_html}
+</div></main>"""
+    imgs = [it["p"]["image"] for it in f["items"] if it["p"].get("image")]
+    ld = [{"@context": "https://schema.org", "@type": "Article", "headline": f["title"], "datePublished": str(f["date"]),
+           "dateModified": str(f.get("updated") or f["date"]), "image": imgs[:4],
+           "author": {"@type": "Organization", "name": SITE["title"]},
+           "publisher": {"@type": "Organization", "name": SITE["author"]}}]
+    return page(title=f["title"], desc=f["summary"], path=f["url"], body=body, current="features",
+                image=imgs[0] if imgs else "", pr=any(it["p"]["pse"]["status"] != "unconfirmed" for it in f["items"]), ld=ld)
+
+
+def build_feature_index() -> str:
+    body = f"""<main class="article wide"><div class="wrap">
+<p class="crumb"><a href="/">トップ</a> › 特集</p>
+<h1>特集</h1>
+<p>テーマを1つ決めて、日本で買える充電器・タップ・モバイルバッテリーを並べています。数字はメーカー公式ページと取扱説明書で確かめたものです。</p>
+<div class="postgrid">{''.join(feature_card(f) for f in FEATURES)}</div>
+</div></main>"""
+    return page(title="特集", desc="充電器・電源タップ・モバイルバッテリーの特集", path="/f/", body=body, current="features")
+
+
 # ── トップ・固定ページ ───────────────────────────────────────
 
 def build_index(products: list[dict], arts: list[dict]) -> str:
@@ -976,6 +1096,11 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
         news = (f'<section class="band"><div class="wrap"><h2>新製品</h2>'
                 f'<div class="postgrid lead-grid">{post_card(posts[0], big=True)}{"".join(post_card(a) for a in posts[1:])}</div>'
                 + ('<p><a href="/p/">新製品をすべて見る</a></p>' if len(POSTS) > 7 else "") + "</div></section>")
+    feats = ""
+    if FEATURES:
+        feats = (f'<section class="band alt"><div class="wrap"><h2>特集</h2>'
+                 f'<div class="postgrid">{"".join(feature_card(f) for f in FEATURES[:3])}</div>'
+                 + ('<p><a href="/f/">特集をすべて見る</a></p>' if len(FEATURES) > 3 else "") + "</div></section>")
     body = f"""<main>
 <section class="hero"><div class="wrap">
   {hero_img}
@@ -987,7 +1112,8 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
   </div>
 </div></section>
 {news}
-<section class="band alt"><div class="wrap">
+{feats}
+<section class="band"><div class="wrap">
   <h2>2台目を挿すと何Wになるか</h2>
   <p>「最大◯W」は1ポートだけ使ったときの数字です。同時に挿したときの配り方を、取扱説明書の表から全機種ぶん並べています。</p>
   <ul class="qlist">{usb_rows}</ul>
@@ -1036,6 +1162,7 @@ def main() -> None:
     by_id = {p["id"]: p for p in products}
     arts = load_articles(products)
     POSTS[:] = load_posts(by_id)
+    FEATURES[:] = load_features(by_id)
     if OUT.exists():
         shutil.rmtree(OUT)
     shutil.copytree(ROOT / "assets", OUT / "assets")
@@ -1046,6 +1173,12 @@ def main() -> None:
     for a in POSTS:
         write(f"p/{a['slug']}/index.html", build_post(a))
         urls.append(a["url"])
+    if FEATURES:
+        write("f/index.html", build_feature_index())
+        urls.append("/f/")
+    for f in FEATURES:
+        write(f"f/{f['slug']}/index.html", build_feature(f))
+        urls.append(f["url"])
     for p in products:
         write(f"t/{p['id']}/index.html", build_product(p, products, arts))
         urls.append(p["url"])
@@ -1089,7 +1222,7 @@ def main() -> None:
     missing = [f for f in FACES if not asset_exists(f"chara/face-{f}.png")]
     if missing:
         print(f"注意: タプ夫の顔の画像がまだありません({', '.join(missing)})。オレンジの丸で代わりにしています")
-    print(f"新製品記事 {len(POSTS)} 本・製品 {len(products)} 件・疑問記事 {len(arts)} 本・ページ {len(urls)} 枚(sitemap)・ public/ に書き出した")
+    print(f"新製品記事 {len(POSTS)} 本・特集 {len(FEATURES)} 本・製品 {len(products)} 件・疑問記事 {len(arts)} 本・ページ {len(urls)} 枚(sitemap)・ public/ に書き出した")
 
     if "--serve" in sys.argv:
         import functools

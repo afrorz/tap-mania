@@ -1,0 +1,57 @@
+id: cio-g45w2c-cr-n2
+maker: CIO
+model: CIO-G45W2C-CR-N2
+name: "NovaPort DUOⅡ 45W2C Built in CORD REEL"
+category: charger
+image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_01.jpg"
+images:
+  - "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_01.jpg"   # 白背景の本体(USB-C 端子が飛び出した状態)
+  - "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_02.jpg"   # シャッター
+  - "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_10.jpg"   # 65cm ケーブル
+  - "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_08.jpg"   # 急速充電早見表
+image_credit: "CIO 公式サイト"
+official_url: "https://connectinternationalone.co.jp/cioproduct/adapter/novaport/cio-g45w2c-cr-n2/"
+manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/10/250521_NovaPortDUO2_G45W2C_UM_text.pdf"
+checked: 2026-11-14
+released: ""
+cable_note: "巻取り式(コードリール)の USB-C ケーブル 約65cm を内蔵。本体上部のボタンを押すと USB-C 端子が飛び出し、使わないときは巻き取ってシャッターで本体内に収納。必要な長さだけ引き出せる。内蔵ケーブルの単独出力は最大45W(5V⎓3A / 9V⎓3A / 12V⎓3A / 15V⎓3A / 20V⎓2.25A、PPS 5-11V⎓4.05A)"
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページの本文・仕様欄、取扱説明書 PDF の「4.仕様」「5.対応急速充電規格」「6.各部名称」に PSE の記載なし。公式画像15枚にも本体の銘板(ひし形 PSE・届出事業者名・登録検査機関名)が写ったものは無い(2026-11-14 に画像と取説を開いて確認。取説の全ページは読み切れていない)"
+  date: 2026-11-14
+
+input: "100-240VAC 50-60Hz 1.2A Max"
+size: "約52 × 56 × 31mm"
+weight_g: 125
+foldable_plug: true
+usb:
+  ports:
+    - {name: "USB-C(コードリール)", type: C, max_w: 45}
+    - {name: "USB-C", type: C, max_w: 45}
+  total_w: 45
+  sharing:
+    - {use: "USB-C + コードリール", out: "20W+20W or 30W+15W or 15W+30W"}
+  sharing_source: "製品ページの製品仕様「(USB-C+コードリール)」と取説「4.仕様」。公式画像の急速充電早見表(BK_NovaPort_DUO2_45W2C_08.jpg)は「最大45W内で最適に振り分け 30W+15W/20W+20W」"
+  pd: true
+  pps: true
+  gan: true
+colors: [ブラック, ホワイト]
+seller_jp: "株式会社CIO"
+recall_checked: 2026-11-14
+recall: none
+
+stores: [rakuten, amazon]
+q: "CIO-G45W2C-CR-N2"
+price: "4,780円(税込・メーカー希望小売価格)"
+note: |
+  重さは、製品ページの仕様欄と公式画像が「約125g」、取扱説明書 PDF の仕様が「約145g」で食い違う。どちらかに決めず、ここでは製品ページの値を入れた。
+  プラグはスイングコンセントプラグ(取説の各部名称)。壁にすき間なく挿さるフルフラットデザイン、表面は傷がつきにくいシボ加工(製品ページ)。
+  対応規格は PD3.0 / QC4.0+ / PPS。GaN は製品ページ「次世代半導体のGaNチップ」と取説の表紙「GaN 45W 2ポート巻き取り式充電器」。
+  2台同時のときは、つないだ機器に合わせて自動で振り分ける(Nova Intelligence)。手動では振り分けられない(取説)。
+  公式の注意: 内蔵ケーブルは強く引き出さない、伸びた状態で手を離すと危険、長時間使うとケーブルが熱を帯びることがある。
+  販売の経緯: Makuake(https://www.makuake.com/project/novaport_duo2_45w_cordreel)で先行販売のあと一般販売。一般販売の開始日は公式ページで見つけられず、released は空。画像は 2025年11月のアップロード。
+  楽天は CIO 楽天市場店、Amazon は販売元 株式会社CIO(B0GLGC5YFK ブラック / B0GLG24LNJ ホワイト)。Yahoo! では見つからなかった。
+  保証期間は取説 PDF にあるが、文字が取り出せず読み切れなかったので空。
+  消費者庁リコール情報サイトと NITE SAFE-Lite で「CIO-G45W2C」「NovaPort」を引いて該当なし(2026-11-14)。

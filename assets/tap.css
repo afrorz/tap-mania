@@ -253,3 +253,23 @@ footer { background: #16191E; color: #B7C0CA; font-size: 13px; padding: 24px 0; 
 footer .wrap { display: flex; flex-direction: column; gap: 4px; max-width: 1160px; }
 footer a { color: #D5DBE2; }
 footer a:hover { color: #FFFFFF; }
+
+/* 特集(/f/) */
+.postcard.feat .small { color: var(--sub); font-size: 13px; line-height: 1.6; }
+.ftoc { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px 14px 40px; margin: 20px 0; }
+.ftoc li { margin: 4px 0; font-size: 14px; }
+.ftoc a { font-weight: 700; }
+.fitem { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; margin: 20px 0; scroll-margin-top: 80px; }
+.fitem-head { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 18px; align-items: start; }
+.fitem .fimg { margin: 0; background: #FFFFFF; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.fitem .fimg img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: contain; padding: 8px; }
+.fitem .fimg figcaption { font-size: 10px; color: var(--sub); padding: 2px 8px; border-top: 1px solid var(--line); }
+.fitem .fimg.noimg { aspect-ratio: 1 / 1; display: grid; place-items: center; color: var(--sub); }
+.fitem h3 { font-size: 20px; margin: 4px 0 6px; line-height: 1.35; overflow-wrap: anywhere; }
+.fitem h3 .maker { display: block; font-size: 13px; color: var(--sub); }
+.fitem .hook { font-weight: 700; color: var(--otext); margin: 0 0 8px; }
+.fitem h4 { font-size: 14px; margin: 16px 0 4px; }
+@media (max-width: 640px) { .fitem { padding: 14px; } .fitem-head { grid-template-columns: 1fr; } .fitem .fimg { max-width: 240px; } }
+.ctable.ftable { min-width: 620px; } .ctable.ftable td { font-family: var(--font); } .ctable.ftable td.num { font-family: var(--mono); }
+.share tbody th { white-space: normal; min-width: 4.5em; } .spec td .tscroll { max-width: calc(100vw - 48px); }
+@media (max-width: 640px) { .gnav { flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; max-width: 100%; scrollbar-width: none; -webkit-overflow-scrolling: touch; } .gnav::-webkit-scrollbar { display: none; } }
