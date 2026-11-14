@@ -1,8 +1,8 @@
-"""充電沼のロゴ(assets/logo-juden-dark.png)と共有用の画像(assets/ogp-juden-1200x630.png)を作る。
+"""充電沼のロゴ(assets/logo-juden.png)と共有用の画像(assets/ogp-juden-1200x630.png)を作る。
 
 タプ夫の画像(assets/chara/)に文字を重ねるだけ。名前やキャッチコピーを変えたら作り直す:
 python scripts/make_brand_images.py
-2026-11-14 サイトを暗い「仕様書」風にしたので、暗い地用にした。「充電沼」の右に英語の「Charge Mania」(本人)。
+2026-11-14 サイトを白地の「仕様書」風にしたので、白地用(本人「黒背景より白背景がいい」)。「充電沼」の右に英語の「Charge Mania」(本人)。
 書体は Cozy Desk の Zen Maru Gothic(OFL)を借りる(media\\CozyDesk\\scripts\\fonts)。英字は Windows の Consolas。
 """
 import sys
@@ -17,8 +17,8 @@ BOLD = FONTS / "ZenMaruGothic-Bold.ttf"
 MONO = Path(r"C:\Windows\Fonts\consolab.ttf")
 if not MONO.exists():
     MONO = BOLD
-ORANGE, INK, SUB = (248, 132, 37, 255), (233, 236, 239, 255), (155, 165, 177, 255)
-BG, TILE, GRID = (14, 16, 19, 255), (243, 238, 231, 255), (255, 255, 255, 10)
+ORANGE, INK, SUB = (248, 132, 37, 255), (22, 25, 30, 255), (89, 99, 111, 255)
+BG, TILE, GRID = (245, 246, 248, 255), (243, 238, 231, 255), (20, 30, 45, 16)
 NAME = [("充電", ORANGE), ("沼", INK)]
 EN = "Charge Mania"
 TAG = "充電まわりを、取説まで読む。"
@@ -34,7 +34,7 @@ def trim(im):
 
 
 def tile(im, pad):
-    """線画のタプ夫を、暗い地でも見えるよう明るい角丸の台に載せる"""
+    """線画のタプ夫を、角丸のクリームの台に載せる"""
     w, h = im.width + pad * 2, im.height + pad * 2
     t = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     ImageDraw.Draw(t).rounded_rectangle((0, 0, w - 1, h - 1), radius=pad * 2, fill=TILE)
@@ -84,9 +84,9 @@ def main() -> None:
     d.text((x0, 6 + nh + 14 - ttop), TAG, font=tf, fill=SUB)
     end2 = x0 + d.textlength(TAG, font=tf)
     logo = logo.crop((0, 0, int(max(end, end2)) + 6, 120))
-    logo.save(ROOT / "assets/logo-juden-dark.png")
+    logo.save(ROOT / "assets/logo-juden.png")
 
-    # 共有用(1200x630、暗い方眼の地、下にオレンジの線)
+    # 共有用(1200x630、白い方眼の地、下にオレンジの線)
     og = Image.new("RGBA", (1200, 630), BG)
     grid(og, 30)
     body = trim(Image.open(ROOT / "assets/chara/tapuo-futsu.png").convert("RGBA"))
@@ -94,7 +94,7 @@ def main() -> None:
     card = tile(body, 26)
     og.alpha_composite(card, (1200 - card.width - 56, (630 - card.height) // 2 - 6))
     d = ImageDraw.Draw(og)
-    d.text((76, 150), "CHARGE MANIA · SPEC SHEET", font=font(MONO, 22), fill=ORANGE)
+    d.text((76, 150), "CHARGE MANIA · SPEC SHEET", font=font(MONO, 22), fill=(181, 78, 0, 255))
     draw_name(d, 72, 200, 120, 32)
     d.text((76, 380), TAG, font=font(BOLD, 38), fill=INK)
     d.text((76, 440), SUB_TEXT, font=font(BOLD, 30), fill=SUB)
