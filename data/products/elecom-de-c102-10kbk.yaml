@@ -1,0 +1,57 @@
+id: elecom-de-c102-10kbk
+maker: エレコム
+model: DE-C102-10KBK
+name: "ケーブル一体型 半固体モバイルバッテリー(10000mAh/22.5W)"
+category: battery
+image: "https://www.elecom.co.jp/photo/p01/DE-C102-10KBK_01.jpg"
+image_credit: "エレコム 公式サイト"
+official_url: "https://www.elecom.co.jp/products/DE-C102-10KBK.html"
+manual_url: ""
+checked: 2026-11-14
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "仕様欄に「○PSE 特定以外の電気用品」と文字がある。公式画像 p41(底面の印字)は 600px で、丸形マークらしき形と2行の文字は写っているが、届出事業者名は読めない(2026-11-14 に画像を開いて確認)。取説はまだ公開されていない"
+  date: 2026-11-14
+
+battery:
+  mah: 10000
+  wh: 38.5
+  rated_mah: ""
+  cell: "充電式半固体リチウムイオン電池"
+  input_w: 18
+  recharge_time: "約2時間50分"
+  passthrough: true
+  safety: "Thermal Protection、多重保護、Health Monitor(充放電の回数で LED の色が変わる)、くり返し使用回数 2,000回(公式の書き方)"
+size: "幅約68×奥行約19×高さ約108mm"
+weight_g: 190
+usb:
+  ports:
+    - {name: ケーブル, type: C, max_w: 22.5}   # 一体型ケーブル 約0.1m。22.5W は HUAWEI 機器だけ。PD 最大20W・PPS 最大22W
+    - {name: C1, type: C, max_w: 22.5}         # 入力兼用
+    - {name: A1, type: A, max_w: 22.5}         # 仕様欄は 5V/3A・10V/2.25A。本文には「単独使用時で最大15W」
+  total_w: 21
+  sharing:
+    - {use: "2つ以上を同時に使う", out: "合計21W(5V/4.2A)"}
+  sharing_source: "製品ページの仕様欄【同時接続時】と、本文「複数のポート・ケーブルを同時に使用する場合は、合計最大21Wを分配」"
+  pd: true
+  pps: true
+colors: [ブラック, しろちゃん(ホワイト×ブラック), ホワイト]
+warranty: "1年間"
+seller_jp: "エレコム株式会社"
+recall_checked: 2026-11-14
+recall: none
+
+stores: [yahoo]
+q: "DE-C102-10KBK"
+price: "7,480円(税込・店頭実勢価格。メーカーはオープン価格)"
+note: |
+  発表は 2026-11-11、発売は「11月中旬」(日付は公式に無い)。11/14 時点で、楽天と Amazon には出ていない。Yahoo! の公式店(エレコムダイレクトショップ)で 7,480円。
+  22.5W が出るのは HUAWEI 機器だけ。iPhone などは PD 最大20W、PPS 最大22W。
+  USB-A の最大は、仕様欄が 22.5W、本文が「単独使用時で最大15W」で食い違う。
+  入力は一体型ケーブルか C1 のどちらか(同時は不可)、5V/9V/12V・最大18W。
+  使える温度は、給電時 -15〜45℃、充電時 0〜35℃。38.5Wh で機内に持ち込める(公式)。
+  残量は LED パネルに 1% 単位。低電流モードと「おまかせ充電」は USB-A だけ。Switch 2 の充電に対応(ドックとの併用は不可)。
+  定格容量は、底面印字の画像が読めないので空欄。同じシリーズに既存の 30W 版がある。
+  エレコムのサイトは自動取得をはじく(403)。ブラウザでは画像が開ける。

@@ -1,0 +1,52 @@
+id: adtec-apd-v100lacrc-dg
+maker: アドテック
+model: APD-V100LACRC-DG
+name: "PD3.0 100W対応 充電器 LED搭載・巻き取り式"
+category: charger
+image: "https://www.adtec.co.jp/wp-content/uploads/2026/08/APD-V100LACRC-DG-1.jpg"
+image_credit: "アドテック 公式サイト"
+official_url: "https://www.adtec.co.jp/product/charger/apd-v100lacrc-dg/"
+manual_url: "https://www.adtec.co.jp/wp-content/uploads/2026/08/APD-V100LACRC-DG__manual.pdf"
+checked: 2026-11-14
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページの仕様欄に「準拠規格 RoHS指令対応, PSE」、リリースに「電気用品安全法（PSE）適合」と文字だけある。ページのひし形マークの画像は他の機種と共用の汎用画像(2025/01 アップロード)で、届出事業者名・検査機関名は無い。取説 PDF にも製品画像にも本体の銘板は無い"
+  date: 2026-11-14
+
+input: "100-240Vac 50/60Hz 2A"
+size: "W37×D71.02×H63.29mm(製品ページ・取説。リリースは W39mm)"
+weight_g: 190
+foldable_plug: true
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 100}   # 巻き取りケーブル。5V/3A,9V/3A,12V/3A,15V/3A,20V/5A, AVS 9-20V/3A
+    - {name: C2, type: C, max_w: 100}   # 5V/3A,9V/3A,12V/3A,15V/3A,20V/5A, PPS 3.3-21V/5A
+    - {name: A, type: A, max_w: 30}     # 5V/3A,9V/3A,12V/2.5A,20V/1.5A
+  total_w: 100
+  sharing:
+    - {use: "C1+C2", out: "65W+35W"}
+    - {use: "C1+A", out: "65W+30W(取説は A 側を最大18Wと表記)"}
+    - {use: "C2+A", out: "合計15W(5V/3A)"}
+    - {use: "C1+C2+A", out: "65W+15W(C2 と A で 15W)"}
+  sharing_source: "製品ページ【製品仕様】と 2026-10-15 のリリースの「複数ポート同時使用時」、取説 PDF「④製品仕様」"
+  pd: true
+  pps: true
+  gan: true
+colors: [ダークグレー]
+warranty: "1年間"
+seller_jp: "株式会社アドテック"
+recall_checked: 2026-11-14
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "APD-V100LACRC-DG"
+price: "5,990円(税込・参考価格)"
+note: |
+  C1 は本体に内蔵した巻き取り式の USB-C ケーブル。長さは本文が「最長68cm」、公式画像が「約65cm」で食い違う。
+  本体の側面に 1.33 インチの TFT 画面。合計W→ポートごとのW→温度→充電時間をスイッチで切り替える。長押しで表示が90度回る(取説)。
+  対応規格の公式表記は「PD3.0、QC3.0、PPS等」。C1 は AVS 9-20V にも対応。
+  C1+A の配り方は、製品ページ・リリースが 65W+30W、取説が A 側最大18W で食い違う。
+  発売は 2026-10-15。発売記念で 10/15〜10/25 は参考価格から15%オフだった(終了)。
+  Amazon は B0H6MFBVRX(販売元 ADTEC DIRECT)、楽天・Yahoo! は公式店 adtecdirect。PSE が未確認のため、買うボタンは出ない。

@@ -135,6 +135,38 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .pcard .tags i { font-style: normal; font-size: 12px; background: var(--panel2); border: 1px solid var(--line2); border-radius: 4px; padding: 0 6px; white-space: nowrap; font-family: var(--mono); color: var(--sub); }
 .pcard .pse { align-self: flex-start; }
 
+/* 新製品のカード(トップ・一覧) */
+.postgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 12px 0; }
+.lead-grid .postcard.big { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.2fr) 1fr; }
+.lead-grid .postcard.big .pc-img img { aspect-ratio: 16 / 10; }
+.lead-grid .postcard.big b { font-size: 24px; }
+@media (max-width: 720px) { .lead-grid .postcard.big { grid-template-columns: 1fr; } .lead-grid .postcard.big b { font-size: 19px; } }
+.postcard { display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; text-decoration: none; color: var(--ink); transition: border-color .15s, transform .15s, box-shadow .15s; }
+.postcard:hover { border-color: var(--orange); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(20,30,45,.10); }
+.pc-img { margin: 0; background: #FFFFFF; border-bottom: 1px solid var(--line); }
+.pc-img img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 10px; }
+.pc-body { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px 14px; }
+.pc-body b { font-size: 17px; line-height: 1.5; }
+.pc-meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; font-family: var(--mono); font-size: 12px; color: var(--sub); }
+.pc-meta span { color: var(--otext); font-weight: 700; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tags i { font-style: normal; font-size: 12px; background: var(--panel2); border: 1px solid var(--line2); border-radius: 4px; padding: 0 6px; white-space: nowrap; font-family: var(--mono); color: var(--ink); }
+
+/* 新製品の記事 */
+.post h1 { font-size: clamp(24px, 4.6vw, 34px); margin-top: 6px; }
+.post .lead { font-size: 17px; color: var(--sub); margin-top: 0; }
+.gallery { margin: 18px 0 12px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.gallery .main { display: block; width: 100%; max-height: 520px; object-fit: contain; padding: 16px; }
+.gallery .thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1px; background: var(--line); border-top: 1px solid var(--line); }
+.gallery .thumbs img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #FFFFFF; padding: 8px; }
+.gallery figcaption { font-size: 11px; color: var(--sub); padding: 4px 12px; border-top: 1px solid var(--line); }
+.post-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.post .prose { font-size: 17px; }
+.post .prose h2 { font-size: 22px; }
+.numbers { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 4px 20px 16px; margin: 32px 0; }
+.numbers h2 { margin-top: 16px; }
+.numbers h3 { font-size: 15px; margin: 16px 0 4px; }
+
 /* ポートの札(差し込み口の形) */
 .ports { display: inline-flex; flex-wrap: wrap; gap: 6px; vertical-align: middle; }
 .port { display: inline-flex; align-items: stretch; border-radius: 999px; overflow: hidden; border: 1px solid var(--c); font-family: var(--mono); font-size: 13px; line-height: 1.6; white-space: nowrap; }

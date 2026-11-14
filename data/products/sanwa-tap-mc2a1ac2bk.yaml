@@ -1,0 +1,64 @@
+id: sanwa-tap-mc2a1ac2bk
+maker: サンワサプライ
+model: TAP-MC2A1AC2BK
+name: "巻き取りコード式モバイルタップ（AC2個口・C×2・A×1・PD65W）"
+category: usb-tap
+image: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_MX.jpg"
+image_credit: "サンワサプライ 公式サイト"
+official_url: "https://www.sanwa.co.jp/product/syohin?code=TAP-MC2A1AC2BK"
+manual_url: ""
+checked: 2026-11-14
+
+pse:
+  status: image
+  mark: diamond
+  how: "公式の製品画像(底面ラベル) TAP-MC2A1AC2BK_FT20L.jpg に、ひし形の PSE マーク・登録検査機関の CQC マーク・マーク下の「サンワサプライ」が読める形で写っている(2026-11-14)。仕様欄にも「PSE適合規格 あり」"
+  notifier: "サンワサプライ株式会社"
+  inspector: "CQC(底面ラベルのロゴ)"
+  date: 2026-11-14
+
+rating:            # 底面ラベルの値。仕様欄は 14A・1400W で食い違う(note)
+  volt: 100
+  amp: 13.5
+  watt_max: 1350
+cord:
+  length_m: 0.8
+  type: "VFF 1.8sq×2心(二重絶縁)、L型の薄型斜めプラグ(厚さ1cm)"
+outlets:
+  ac: 2
+  shutter: true
+  switch: none
+  three_pin: false
+size: "約W99×D54×H53mm"
+weight_g: 217
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 65}   # 5V/3A,9V/3A,12V/3A,15V/3A,20V/3.25A
+    - {name: C2, type: C, max_w: 65}
+    - {name: A, type: A, max_w: 18}    # 5V/3A,9V/2A,12V/1.5A
+  total_w: 65
+  sharing:
+    - {use: "C1+C2", out: "45W+20W"}
+    - {use: "C1+A", out: "45W+18W"}
+    - {use: "C2+A", out: "合計15W(5V/3A)"}
+    - {use: "C1+C2+A", out: "45W+15W(C2 と A で 15W)"}
+  sharing_source: "公式画像の USB 出力早見表(TAP-MC2A1AC2BK_MO7X.jpg)と底面ラベル(FT20L)。製品ページの仕様欄「USBポート定格出力」も見たが、C1+A だけ食い違うので早見表とラベルの数字を載せた"
+  pd: true
+  pps: true
+colors: [ブラック]
+warranty: ""
+seller_jp: "サンワサプライ株式会社"
+recall_checked: 2026-11-14
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "TAP-MC2A1AC2BK"
+price: "7,920円(税込・標準価格)"
+note: |
+  コードを本体に巻き付けて持ち歩けるモバイルタップ。AC 2個口(シャッター付き・差込口の間隔50mm)、USB-C×2、USB-A×1。
+  C1+A は、仕様欄が「65W+18W（合計63W）」で足し算が合わない。底面ラベルと早見表はどちらも 45W+18W なので、そちらを載せた。
+  AC の定格も、仕様欄が 14A・1400W、底面ラベルが 13.5A・1350W で食い違う。ラベルの値を載せた。
+  PPS は仕様欄に無く、底面ラベルに PPS1:DC5-11V 3A / PPS2:DC5-20V 3.25A とある。GaN の記載は無い。
+  USB の入力は AC100〜240V(主な対応国は日本)。過電流保護と自動識別 IC。差込口は耐熱のユリア樹脂。
+  発売は 2026-10-16(リリースの日付)。取扱説明書の PDF と保証期間は製品ページに見当たらない。
+  楽天・Yahoo! は公式店 sanwadirect、Amazon は B0H6M7V2DF(販売元 Amazon.co.jp)。
