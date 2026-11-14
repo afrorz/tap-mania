@@ -30,7 +30,7 @@ CAT = {c["slug"]: c for c in CATS}
 TODAY = dt.date.today()
 CSS_VER = int((ROOT / "assets" / "tap.css").stat().st_mtime)  # 直したら古い見た目が残らないように
 # 見出しは丸ゴシック、本文と表は読みやすさ優先で Noto Sans JP(2026-11-12 本人「フォントが読みづらい」)
-FONTS = "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&family=Noto+Sans+JP:wght@400;700&display=swap"
+FONTS = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
 
 PSE = {  # 仕様書 第3章の3段階
     "confirmed": ("確認済", "メーカー公式ページか取扱説明書で、PSE の表示を確認しました"),
@@ -310,8 +310,69 @@ def usb_summary(p: dict) -> str:
     if not usb:
         return "なし" if p["category"] in ("tap", "extension") else NOT_LISTED
     ports = usb.get("ports") or []
-    parts = [f"{e(x.get('name') or x.get('type'))} 最大{num(x.get('max_w'), 'W')}" for x in ports]
-    return " / ".join(parts) or NOT_LISTED
+    if not ports:
+        return NOT_LISTED
+    return '<span class="ports">' + "".join(port_chip(x) for x in ports) + "</span>"
+
+
+def port_kind(t: str) -> str:
+    t = str(t or "").upper()
+    return "wireless" if ("WIRELESS" in t or "ワイヤレス" in t) else ("a" if t == "A" else "c")
+
+
+def port_chip(x: dict) -> str:
+    """差し込み口の形をした札。左にポート名、右に最大W"""
+    w = x.get("max_w")
+    wtxt = f"{w:g}W" if isinstance(w, (int, float)) else "記載なし"
+    return f'<span class="port {port_kind(x.get("type"))}"><i>{e(x.get("name") or x.get("type"))}</i><b>{wtxt}</b></span>'
+
+
+def _watts(token: str) -> list[float] | None:
+    """「45W」「5V2.4A」「5V2.4A×2(24W)」から、ポートごとの W を取り出す"""
+    n = 1
+    m = re.search(r"[×x]\s*(\d+)", token)
+    if m:
+        n = int(m.group(1))
+    va = re.search(r"(\d+(?:\.\d+)?)\s*V\s*(\d+(?:\.\d+)?)\s*A", token)
+    if va:
+        w = float(va.group(1)) * float(va.group(2))
+    else:
+        mw = re.search(r"(\d+(?:\.\d+)?)\s*W", token)
+        if not mw:
+            return None
+        w = float(mw.group(1))
+    return [w] * n
+
+
+def split_bar(p: dict, use: str, out: str) -> str:
+    """配り方を帯グラフにする。帯の全幅はその機種の1ポートの最大(か USB の合計)。
+    「合計」「or」など、ポートごとの値に分けられない書き方は文字だけ出す"""
+    text = f'<span class="txt">{e(out)}</span>'
+    if "合計" not in out and re.search(r"\s(/|or)\s", out):
+        # 「45W+20W / 20W+45W / 30W+30W(65W Max)」のような選択肢は、帯を選択肢の数だけ並べる
+        opts = [o for o in re.split(r"\s+(?:/|or)\s+", re.sub(r"\([^)]*\)$", "", out.strip())) if o]
+        bars = [split_bar(p, use, o) for o in opts]
+        if all('class="bars"' in b for b in bars):
+            inner = "".join(re.search(r'<div class="bars".*?</div>', b).group(0) for b in bars)
+            return f'<div class="split">{inner}{text}</div>'
+    if re.search(r"合計|or|/", out):
+        return f'<div class="split">{text}</div>'
+    vals: list[float] = []
+    for tok in re.split(r"\s*\+\s*", re.sub(r"\([^)]*\)$", "", out.strip())):
+        got = _watts(tok)
+        if got is None:
+            return f'<div class="split">{text}</div>'
+        vals += got
+    if not vals:
+        return f'<div class="split">{text}</div>'
+    usb = p.get("usb") or {}
+    full = max([x.get("max_w") or 0 for x in usb.get("ports") or []] + [usb.get("total_w") or 0, sum(vals)])
+    names = [t for t in re.split(r"\s*\+\s*", use) if t]
+    kinds = [("wireless" if "ワイヤレス" in t else "a" if re.search(r"(^|[^-])A\d?", t) and "C" not in t else "c") for t in names]
+    if len(kinds) != len(vals):
+        kinds = ["c"] * len(vals)
+    segs = "".join(f'<span class="seg-{k}" style="width:{v / full * 100:.1f}%" title="{v:g}W">{v:g}W</span>' for v, k in zip(vals, kinds))
+    return f'<div class="split"><div class="bars" aria-hidden="true">{segs}</div>{text}</div>'
 
 
 def sharing_list(p: dict) -> list[dict]:
@@ -333,8 +394,8 @@ def sharing_html(p: dict) -> str:
     if not rows:
         return NOT_LISTED
     src = (p.get("usb") or {}).get("sharing_source")
-    trs = "".join(f"<tr><th>{e(r['use'])}</th><td>{e(r['out'])}</td></tr>" for r in rows)
-    return (f'<table class="share"><thead><tr><th>挿すポート</th><th>それぞれの出力</th></tr></thead><tbody>{trs}</tbody></table>'
+    trs = "".join(f"<tr><th>{e(r['use'])}</th><td>{split_bar(p, r['use'], r['out'])}</td></tr>" for r in rows)
+    return (f'<div class="tscroll"><table class="share"><thead><tr><th>挿すポート</th><th>それぞれの出力(帯の全幅 = 1ポートの最大)</th></tr></thead><tbody>{trs}</tbody></table></div>'
             + (f'<small>出典: {e(src)}</small>' if src else ""))
 
 
@@ -633,7 +694,7 @@ def two_c(p: dict) -> str:
     for r in sharing_list(p):
         # 「C1+C2」「USB-C1+C2(Cable)」「C1(ケーブル)+C2(ポート)」のような書き方を拾う
         if re.fullmatch(r"\s*(USB-)?C\d?(\([^)]*\))?\s*\+\s*C\d?(\([^)]*\))?\s*", r["use"]):
-            return e(r["out"])
+            return split_bar(p, r["use"], r["out"])
     return NOT_LISTED if len(usb_c_ports(p)) >= 2 else '<span class="nl">C は1ポート</span>'
 
 
@@ -647,7 +708,7 @@ def build_usbc(products: list[dict]) -> str:
         f'<td>{num((p.get("outlets") or {}).get("ac"), "個") if p["category"] in TAP_CATS else "なし"}</td></tr>' for p in items)
     cards = "".join(
         f'<section class="usbcard" id="{p["id"]}"><h2><a href="{p["url"]}">{e(p["maker"])} {e(p["model"])}</a></h2>'
-        f'<p>{pse_badge(p)} ポート: {usb_summary(p)} ・ USB の合計 {num((p.get("usb") or {}).get("total_w"), "W")}</p>'
+        f'<p class="meta-line">{pse_badge(p)} {usb_summary(p)} <span class="small mono">USB 合計 {num((p.get("usb") or {}).get("total_w"), "W")}</span></p>'
         f'{sharing_html(p)}{store_buttons(p, "usbc")}</section>' for p in items)
     body = f"""<main class="article"><div class="wrap">
 <p class="crumb"><a href="/">トップ</a> › USB-C の配り方</p>
@@ -796,6 +857,7 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
 <section class="hero"><div class="wrap">
   {hero_img}
   <div>
+    <p class="label">{e(SITE.get('title_en') or '')} · spec sheet</p>
     <h1>{e(SITE['tagline'])}</h1>
     <p>{e(SITE['description'])}</p>
     <p class="hero-q">「取説、最後まで読んだ？」 ── タプ夫</p>

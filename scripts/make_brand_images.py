@@ -1,9 +1,11 @@
-"""充電沼のロゴ(assets/logo-juden.png)と共有用の画像(assets/ogp-juden-1200x630.png)を作る。
+"""充電沼のロゴ(assets/logo-juden-dark.png)と共有用の画像(assets/ogp-juden-1200x630.png)を作る。
 
 タプ夫の画像(assets/chara/)に文字を重ねるだけ。名前やキャッチコピーを変えたら作り直す:
 python scripts/make_brand_images.py
-書体は Cozy Desk の Zen Maru Gothic(OFL)を借りる(media\\CozyDesk\\scripts\\fonts)。
+2026-11-14 サイトを暗い「仕様書」風にしたので、暗い地用にした。「充電沼」の右に英語の「Charge Mania」(本人)。
+書体は Cozy Desk の Zen Maru Gothic(OFL)を借りる(media\\CozyDesk\\scripts\\fonts)。英字は Windows の Consolas。
 """
+import sys
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -11,57 +13,92 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT.parent / "CozyDesk" / "scripts" / "fonts"
 BLACK = FONTS / "ZenMaruGothic-Black.ttf"
-MED = FONTS / "ZenMaruGothic-Bold.ttf"
-ORANGE, INK, CREAM = (248, 132, 37, 255), (31, 31, 31, 255), (255, 246, 236, 255)
+BOLD = FONTS / "ZenMaruGothic-Bold.ttf"
+MONO = Path(r"C:\Windows\Fonts\consolab.ttf")
+if not MONO.exists():
+    MONO = BOLD
+ORANGE, INK, SUB = (248, 132, 37, 255), (233, 236, 239, 255), (155, 165, 177, 255)
+BG, TILE, GRID = (14, 16, 19, 255), (243, 238, 231, 255), (255, 255, 255, 10)
 NAME = [("充電", ORANGE), ("沼", INK)]
+EN = "Charge Mania"
 TAG = "充電まわりを、取説まで読む。"
-SUB = "2台目を挿すと何Wになるか、全機種で。"
+SUB_TEXT = "2台目を挿すと何Wになるか、全機種で。"
 
 
-def draw_name(d, x, y, size):
-    f = ImageFont.truetype(str(BLACK), size)
-    for text, color in NAME:
-        d.text((x, y), text, font=f, fill=color)
-        x += d.textlength(text, font=f)
-    return x
+def font(path, size):
+    return ImageFont.truetype(str(path), size)
 
 
 def trim(im):
     return im.crop(im.getbbox())
 
 
-def main() -> None:
-    import sys
-    sys.stdout.reconfigure(encoding="utf-8")
-    # ロゴ(背景透明、高さ170)
-    face = trim(Image.open(ROOT / "assets/chara/face-futsu.png").convert("RGBA"))
-    fh = 160
-    face = face.resize((round(face.width * fh / face.height), fh), Image.LANCZOS)
-    logo = Image.new("RGBA", (900, 170), (0, 0, 0, 0))
-    logo.alpha_composite(face, (5, 5))
-    d = ImageDraw.Draw(logo)
-    x0 = face.width + 30
-    nf = ImageFont.truetype(str(BLACK), 104)
-    top, bottom = d.textbbox((0, 0), "".join(t for t, _ in NAME), font=nf)[1::2]
-    end = draw_name(d, x0, 8 - top, 104)  # 文字の上端を 8px に
-    tf = ImageFont.truetype(str(MED), 30)
-    ttop = d.textbbox((0, 0), TAG, font=tf)[1]
-    end2 = x0 + d.textlength(TAG, font=tf)
-    d.text((x0, 8 + (bottom - top) + 14 - ttop), TAG, font=tf, fill=INK)  # 名前の下に 14px あけて置く
-    logo = logo.crop((0, 0, int(max(end, end2)) + 10, 170))
-    logo.save(ROOT / "assets/logo-juden.png")
+def tile(im, pad):
+    """線画のタプ夫を、暗い地でも見えるよう明るい角丸の台に載せる"""
+    w, h = im.width + pad * 2, im.height + pad * 2
+    t = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(t).rounded_rectangle((0, 0, w - 1, h - 1), radius=pad * 2, fill=TILE)
+    t.alpha_composite(im, (pad, pad))
+    return t
 
-    # 共有用(1200x630、クリーム地、下にオレンジの帯)
-    og = Image.new("RGBA", (1200, 630), CREAM)
+
+def draw_name(d, x, y, size, en_size):
+    """「充電沼」を描き、その右に英語名を下そろえで置く。右端の x を返す"""
+    f = font(BLACK, size)
+    top, bottom = d.textbbox((0, 0), "充電沼", font=f)[1::2]
+    for text, color in NAME:
+        d.text((x, y - top), text, font=f, fill=color)
+        x += d.textlength(text, font=f)
+    ef = font(MONO, en_size)
+    etop, ebottom = d.textbbox((0, 0), EN, font=ef)[1::2]
+    x += en_size * 0.5
+    d.text((x, y + (bottom - top) - ebottom), EN, font=ef, fill=SUB)
+    return x + d.textlength(EN, font=ef), bottom - top
+
+
+def grid(im, step):
+    """方眼を薄く重ねる(別の層に描いて重ねないと、線が透けずに真っ白になる)"""
+    layer = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    for x in range(0, im.width, step):
+        d.line((x, 0, x, im.height), fill=GRID)
+    for y in range(0, im.height, step):
+        d.line((0, y, im.width, y), fill=GRID)
+    im.alpha_composite(layer)
+
+
+def main() -> None:
+    sys.stdout.reconfigure(encoding="utf-8")
+
+    # ロゴ(背景透明、高さ120。サイトの頭では 40px で出る)
+    face = trim(Image.open(ROOT / "assets/chara/face-futsu.png").convert("RGBA"))
+    face = face.resize((round(face.width * 96 / face.height), 96), Image.LANCZOS)
+    face = tile(face, 12)
+    logo = Image.new("RGBA", (1000, 120), (0, 0, 0, 0))
+    logo.alpha_composite(face, (0, 0))
+    d = ImageDraw.Draw(logo)
+    x0 = face.width + 22
+    end, nh = draw_name(d, x0, 6, 74, 30)
+    tf = font(BOLD, 24)
+    ttop = d.textbbox((0, 0), TAG, font=tf)[1]
+    d.text((x0, 6 + nh + 14 - ttop), TAG, font=tf, fill=SUB)
+    end2 = x0 + d.textlength(TAG, font=tf)
+    logo = logo.crop((0, 0, int(max(end, end2)) + 6, 120))
+    logo.save(ROOT / "assets/logo-juden-dark.png")
+
+    # 共有用(1200x630、暗い方眼の地、下にオレンジの線)
+    og = Image.new("RGBA", (1200, 630), BG)
+    grid(og, 30)
     body = trim(Image.open(ROOT / "assets/chara/tapuo-futsu.png").convert("RGBA"))
-    bh = 500
-    body = body.resize((round(body.width * bh / body.height), bh), Image.LANCZOS)
-    og.alpha_composite(body, (1200 - body.width - 50, 630 - 24 - bh))
+    body = body.resize((round(body.width * 430 / body.height), 430), Image.LANCZOS)
+    card = tile(body, 26)
+    og.alpha_composite(card, (1200 - card.width - 56, (630 - card.height) // 2 - 6))
     d = ImageDraw.Draw(og)
-    draw_name(d, 72, 170, 150)
-    d.text((76, 360), TAG, font=ImageFont.truetype(str(MED), 40), fill=INK)
-    d.text((76, 425), SUB, font=ImageFont.truetype(str(MED), 32), fill=(92, 82, 72, 255))
-    d.rectangle((0, 606, 1200, 630), fill=ORANGE)
+    d.text((76, 150), "CHARGE MANIA · SPEC SHEET", font=font(MONO, 22), fill=ORANGE)
+    draw_name(d, 72, 200, 120, 32)
+    d.text((76, 380), TAG, font=font(BOLD, 38), fill=INK)
+    d.text((76, 440), SUB_TEXT, font=font(BOLD, 30), fill=SUB)
+    d.rectangle((0, 622, 1200, 630), fill=ORANGE)
     og.convert("RGB").save(ROOT / "assets/ogp-juden-1200x630.png")
     print("作った:", logo.size, og.size)
 

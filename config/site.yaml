@@ -1,9 +1,10 @@
 site:
   title: 充電沼          # 2026-11-12 本人がタップマニアから改名(充電器・バッテリーも扱うため)
+  title_en: Charge Mania   # 2026-11-14 本人「充電沼の右に英語で Charge Mania」
   tagline: 充電まわりを、取説まで読む。
   # 名前入りの画像(assets/ の中)。空なら文字のロゴ・共有用の画像なし
   # 2026-11-12 改名に合わせて scripts/make_brand_images.py で作った。旧名の logo.png・ogp-1200x630.png は使わない
-  logo_image: "logo-juden.png"
+  logo_image: "logo-juden-dark.png"   # 暗い地用(2026-11-14)
   ogp_image: "ogp-juden-1200x630.png"
   # 読者はガジェット好き(2026-11-12 本人「ガジェット好きに絞る」)。USB-C・GaN タップでデスクの電源を組む人
   description: USB-C の充電器・電源タップ・モバイルバッテリーを、取扱説明書の数字まで読んで並べています。2台目を挿したときの出力の配り方、定格容量、PSE の表示まで、メーカー公式の情報で確かめて載せています。
