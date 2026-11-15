@@ -918,6 +918,18 @@ def post_card(a: dict, big: bool = False) -> str:
             f'<b>{e(a["title"])}</b><span class="tags">{key_chips(p)}</span></div></a>')
 
 
+def post_h1(a: dict) -> str:
+    """新製品記事の大見出し。1行目に特徴(キャッチコピー)、2行目にメーカーと型番(2026-11-15 本人)。
+    題名は「<特徴> <メーカー> <型番>」の形で書く。形が違えば題名をそのまま1行で出す"""
+    p = a["p"]
+    tail = f'{p["maker"]} {p["model"]}'
+    t = str(a["title"]).strip()
+    if t.endswith(tail) and t[:-len(tail)].strip():
+        return (f'<h1 class="ph1"><span class="catch">{e(t[:-len(tail)].strip())}</span>'
+                f'<span class="pname">{e(p["maker"])} <b>{e(p["model"])}</b></span></h1>')
+    return f'<h1>{e(t)}</h1>'
+
+
 def build_post(a: dict) -> str:
     p = a["p"]
     im = post_images(a)
@@ -941,7 +953,7 @@ def build_post(a: dict) -> str:
     body = f"""<main class="article post"><div class="wrap">
 <p class="crumb"><a href="/">トップ</a> › <a href="/p/">新製品</a> › {e(CAT[p['category']]['name'])}</p>
 <p class="pc-meta"><span>{e(p['maker'])}</span><time>{e(a['date'])}</time>{released}</p>
-<h1>{e(a['title'])}</h1>
+{post_h1(a)}
 <p class="lead">{e(a['summary'])}</p>
 {gallery}
 {'<script src="/assets/gallery.js" defer></script>' if gallery else ''}

@@ -289,3 +289,7 @@ footer a:hover { color: #FFFFFF; }
 .gallery .thumbs button:hover img { opacity: .8; }
 .lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(10, 12, 16, .88); display: grid; place-items: center; padding: 16px; cursor: zoom-out; }
 .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; background: #FFFFFF; border-radius: 8px; }
+/* 新製品記事の見出し: 1行目が特徴、2行目がメーカーと型番(2026-11-15 本人) */
+.ph1 .catch { display: block; }
+.ph1 .pname { display: block; margin-top: 4px; font-size: .62em; font-weight: 700; color: var(--sub); letter-spacing: .02em; }
+.ph1 .pname b { font-family: var(--mono); color: var(--ink); overflow-wrap: anywhere; }
