@@ -279,3 +279,6 @@ footer a:hover { color: #FFFFFF; }
 .ftable .fthumb { display: flex; align-items: center; gap: 10px; }
 .ftable .fthumb img, .ftable .fthumb i { flex: none; width: 48px; height: 48px; object-fit: contain; background: #FFFFFF; border: 1px solid var(--line); border-radius: 8px; padding: 3px; }
 .ctable.ftable { min-width: 680px; }
+/* 本文は白い紙に載せる。方眼の上に長い文が乗ると読みづらい(2026-11-15 本人) */
+.article .wrap > .prose { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 6px 28px; margin: 20px 0; }
+@media (max-width: 640px) { .article .wrap > .prose { padding: 2px 16px; border-radius: 12px; } }
