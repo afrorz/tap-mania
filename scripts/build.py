@@ -958,6 +958,7 @@ def build_post(a: dict) -> str:
 {gallery}
 {'<script src="/assets/gallery.js" defer></script>' if gallery else ''}
 <div class="post-head"><span class="tags">{key_chips(p)}</span>{pse_badge(p)}</div>
+{('<p class="small">値段: ' + e(p['price']) + '</p>') if p.get('price') else ''}
 {store_buttons(p, 'post-top')}
 {intro}
 <div class="prose">{markdown.markdown(a['body'], extensions=['tables'])}</div>
