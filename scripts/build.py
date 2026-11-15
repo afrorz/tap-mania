@@ -1042,7 +1042,9 @@ def feature_table(f: dict) -> str:
     if not rows:
         return ""
     trs = "".join(
-        f'<tr><th><a href="#{it["p"]["id"]}">{e(it["p"]["maker"])} {e(it["p"]["model"])}</a></th>'
+        f'<tr><th><a class="fthumb" href="#{it["p"]["id"]}">'
+        f'{(chr(60) + "img src=" + chr(34) + e(it["p"]["image"]) + chr(34) + " alt=" + chr(34) + chr(34) + " loading=lazy referrerpolicy=no-referrer>") if it["p"].get("image") else "<i></i>"}'
+        f'<span>{e(it["p"]["maker"])} {e(it["p"]["model"])}</span></a></th>'
         f'<td>{e(CAT[it["p"]["category"]]["name"])}</td><td>{e(it["cable"].get("kind", ""))}</td>'
         f'<td>{e(it["cable"].get("length", ""))}</td><td class="num">{e(it["cable"].get("max_w", ""))}</td>'
         f'<td class="num">{num(it["p"].get("weight_g"), "g")}</td></tr>' for it in rows)

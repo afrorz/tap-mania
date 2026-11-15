@@ -275,3 +275,7 @@ footer a:hover { color: #FFFFFF; }
 @media (max-width: 640px) { .gnav { flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; max-width: 100%; scrollbar-width: none; -webkit-overflow-scrolling: touch; } .gnav::-webkit-scrollbar { display: none; } }
 /* 特集のカードの文は少し小さく(2026-11-15 本人「ちょっと文字が大きい」) */
 .fitem .prose { font-size: 15px; line-height: 1.8; }
+/* 比べる表の小さな写真(2026-11-15 本人「ちいさくサムネイルを入れたい」) */
+.ftable .fthumb { display: flex; align-items: center; gap: 10px; }
+.ftable .fthumb img, .ftable .fthumb i { flex: none; width: 48px; height: 48px; object-fit: contain; background: #FFFFFF; border: 1px solid var(--line); border-radius: 8px; padding: 3px; }
+.ctable.ftable { min-width: 680px; }
