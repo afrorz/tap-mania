@@ -35,7 +35,7 @@ FONTS = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&
 PSE = {  # 仕様書 第3章の3段階
     "confirmed": ("確認済", "メーカー公式ページか取扱説明書で、PSE の表示を確認しました"),
     "image": ("公式画像で確認", "公式の製品画像で、本体の PSE の表示が読めました"),
-    "unconfirmed": ("未確認", "PSE の表示を公式の情報で確かめられていません。このため買うボタンを出していません"),
+    "unconfirmed": ("未確認", "PSE の表示を、公式の情報ではまだ確かめられていません"),
 }
 # PSE マークの形。ひし形(特定電気用品: タップ・充電器)は登録検査機関名まで要る。丸形(モバイルバッテリー)は要らない
 # (法律の説明なので、サイトに書く前に経産省の原文で確かめる。docs/WRITING.md)
@@ -142,11 +142,24 @@ AFF_SHOPS = "・".join(n for k, n in (("amazon", "Amazon"), ("rakuten", "楽天"
 AD_NOTE = '<p class="adnote">広告を含みます</p>'
 
 
+def shop_list(p: dict) -> list:
+    """買うボタンを出す店。stores が無ければ全部、空 [] なら無し(大手の通販で売っていない物)。
+    PSE の確認の有無では止めない(2026-11-15 本人「売っていてアフィできるなら絶対にボタンをつける」)"""
+    if "stores" not in p:
+        return [k for k, _, _ in STORES]
+    return list(p.get("stores") or [])
+
+
+def has_buy(p: dict) -> bool:
+    return bool(shop_list(p))
+
+
 def store_buttons(p: dict, where: str) -> str:
-    """買うボタン。PSE 未確認の物には出さない(仕様書 第3章)"""
-    if p["pse"]["status"] == "unconfirmed":
-        return '<p class="nobuy">PSE の表示を公式の情報で確かめられていないため、買うボタンを出していません。</p>'
-    only = p.get("stores") or [k for k, _, _ in STORES]
+    """買うボタン"""
+    only = shop_list(p)
+    if not only:
+        return '<p class="nobuy">楽天・Amazon・Yahoo!ショッピングでは、まだ売っていません。</p>'
+
     bad = [s for s in only if s not in {k for k, _, _ in STORES}]
     if bad:
         die(f"{p['id']}: stores の名前が違います {bad}(rakuten / amazon / yahoo)")
@@ -574,7 +587,7 @@ def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
 {('<h2>同じ区分のほかの機種</h2><div class="pgrid">' + ''.join(pcard(x) for x in same) + '</div>') if same else ''}
 </div></main>"""
     return page(title=f'{p["maker"]} {p["model"]} の仕様', desc=desc, path=p["url"], body=body, current="compare",
-                image=p.get("image") or "", pr=st != "unconfirmed", ld=ld)
+                image=p.get("image") or "", pr=has_buy(p), ld=ld)
 
 
 # ── 比べ表 ──────────────────────────────────────────────────
@@ -724,7 +737,7 @@ def build_usbc(products: list[dict]) -> str:
 </div></main>"""
     return page(title="USB-C の出力の配り方 全機種表(充電器・タップ・モバイルバッテリー)",
                 desc="USB-C の充電器・電源タップ・モバイルバッテリーに2台・3台を同時に挿したとき、出力がどう配られるかを、メーカー公式ページと取扱説明書から全機種ぶん並べました。",
-                path="/usb-c/", body=body, current="usbc", pr=any(p["pse"]["status"] != "unconfirmed" for p in items))
+                path="/usb-c/", body=body, current="usbc", pr=any(has_buy(p) for p in items))
 
 
 # ── 疑問記事 ────────────────────────────────────────────────
@@ -786,7 +799,7 @@ def build_article(a: dict, products: dict[str, dict]) -> str:
         f'<li><a href="{e(s["url"])}">{e(s["name"])}</a>(取得 {e(s.get("date", ""))})</li>' for s in srcs) + "</ol>") if srcs else ""
     upd = f' ・ 更新 {e(a["updated"])}' if a.get("updated") else ""
     intro = bubble(a.get("face", "futsu"), a["intro"]) if a.get("intro") else ""
-    has_buy = any(products[i]["pse"]["status"] != "unconfirmed" for i in a.get("products") or [])
+    has_buy_ = any(has_buy(products[i]) for i in a.get("products") or [])
     body = f"""<main class="article"><div class="wrap">
 <p class="crumb"><a href="/">トップ</a> › <a href="/q/">疑問に答える</a></p>
 <h1>{e(a['title'])}</h1>
@@ -799,7 +812,7 @@ def build_article(a: dict, products: dict[str, dict]) -> str:
            "dateModified": str(a.get("updated") or a["date"]),
            "author": {"@type": "Organization", "name": SITE["title"]},
            "publisher": {"@type": "Organization", "name": SITE["author"]}}]
-    return page(title=a["title"], desc=a["summary"], path=a["url"], body=body, current="q", pr=has_buy, ld=ld)
+    return page(title=a["title"], desc=a["summary"], path=a["url"], body=body, current="q", pr=has_buy_, ld=ld)
 
 
 def build_q_index(arts: list[dict]) -> str:
@@ -946,7 +959,7 @@ def build_post(a: dict) -> str:
            "author": {"@type": "Organization", "name": SITE["title"]},
            "publisher": {"@type": "Organization", "name": SITE["author"]}}]
     return page(title=a["title"], desc=a["summary"], path=a["url"], body=body, current="posts",
-                image=im[0]["src"] if im else "", pr=p["pse"]["status"] != "unconfirmed", ld=ld)
+                image=im[0]["src"] if im else "", pr=has_buy(p), ld=ld)
 
 
 def build_post_index() -> str:
@@ -1066,7 +1079,7 @@ def build_feature(f: dict) -> str:
            "author": {"@type": "Organization", "name": SITE["title"]},
            "publisher": {"@type": "Organization", "name": SITE["author"]}}]
     return page(title=f["title"], desc=f["summary"], path=f["url"], body=body, current="features",
-                image=imgs[0] if imgs else "", pr=any(it["p"]["pse"]["status"] != "unconfirmed" for it in f["items"]), ld=ld)
+                image=imgs[0] if imgs else "", pr=any(has_buy(it["p"]) for it in f["items"]), ld=ld)
 
 
 def build_feature_index() -> str:
@@ -1216,9 +1229,12 @@ def main() -> None:
         print(f"警告: 公式情報を見てから {SITE.get('stale_days', 180)} 日を過ぎた製品(値段と仕様を見直す)")
         for p in old:
             print(f"  - {p['id']}(checked {p['checked']})")
-    nobuy = [p["id"] for p in products if p["pse"]["status"] == "unconfirmed"]
+    nobuy = [p["id"] for p in products if not has_buy(p)]
     if nobuy:
-        print(f"PSE 未確認のため買うボタンを出していない製品: {', '.join(nobuy)}")
+        print(f"大手の通販で売っていないため買うボタンが無い製品: {', '.join(nobuy)}")
+    unconf = [p["id"] for p in products if p["pse"]["status"] == "unconfirmed"]
+    if unconf:
+        print(f"PSE 未確認(ボタンは出す。表示が読めたら直す): {', '.join(unconf)}")
     missing = [f for f in FACES if not asset_exists(f"chara/face-{f}.png")]
     if missing:
         print(f"注意: タプ夫の顔の画像がまだありません({', '.join(missing)})。オレンジの丸で代わりにしています")
