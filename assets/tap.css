@@ -38,7 +38,7 @@ img { max-width: 100%; height: auto; }
 .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
 .wide .wrap { max-width: 1160px; }
 h1, h2, h3 { line-height: 1.4; font-weight: 700; }
-h1 { font-size: clamp(24px, 5vw, 34px); margin: 8px 0 12px; letter-spacing: .01em; }
+h1 { font-size: clamp(22px, 4.2vw, 29px); margin: 8px 0 12px; letter-spacing: .01em; }
 h2 { font-size: 21px; margin: 44px 0 14px; display: flex; align-items: center; gap: 10px; }
 h2::before { content: ""; width: 10px; height: 10px; background: var(--orange); flex: none; box-shadow: 0 0 12px rgba(248,132,37,.6); }
 .small, small { font-size: 13px; color: var(--sub); }
@@ -153,7 +153,7 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .tags i { font-style: normal; font-size: 12px; background: var(--panel2); border: 1px solid var(--line2); border-radius: 4px; padding: 0 6px; white-space: nowrap; font-family: var(--mono); color: var(--ink); }
 
 /* 新製品の記事 */
-.post h1 { font-size: clamp(24px, 4.6vw, 34px); margin-top: 6px; }
+.post h1 { font-size: clamp(21px, 3.8vw, 27px); line-height: 1.45; margin-top: 6px; }
 .post .lead { font-size: 16px; color: var(--sub); margin-top: 0; }
 .gallery { margin: 18px 0 12px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
 .gallery .main { display: block; width: 100%; max-height: 520px; object-fit: contain; padding: 16px; }
