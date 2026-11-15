@@ -923,8 +923,12 @@ def build_post(a: dict) -> str:
     im = post_images(a)
     gallery = ""
     if im:
-        thumbs = "".join(f'<img src="{e(x["src"])}" alt="{e(x["alt"])}" loading="lazy" referrerpolicy="no-referrer">' for x in im[1:])
-        gallery = (f'<figure class="gallery"><img class="main" src="{e(im[0]["src"])}" alt="{e(im[0]["alt"])}" referrerpolicy="no-referrer">'
+        # 小さい写真を押すと上の大きい写真が入れ替わる。大きい写真を押すと画面いっぱいに出る(2026-11-15 本人)
+        thumbs = "".join(f'<button type="button" class="th{" on" if i == 0 else ""}" aria-label="{i + 1}枚目を大きく表示">'
+                         f'<img src="{e(x["src"])}" alt="{e(x["alt"])}" loading="lazy" referrerpolicy="no-referrer"></button>'
+                         for i, x in enumerate(im)) if len(im) > 1 else ""
+        gallery = (f'<figure class="gallery"><button type="button" class="zoom" aria-label="写真を拡大する">'
+                   f'<img class="main" src="{e(im[0]["src"])}" alt="{e(im[0]["alt"])}" referrerpolicy="no-referrer"></button>'
                    + (f'<div class="thumbs">{thumbs}</div>' if thumbs else "")
                    + f'<figcaption>画像: {e(a.get("image_credit") or p.get("image_credit") or p["maker"] + " 公式サイト")}</figcaption></figure>')
     intro = bubble(a.get("face", "futsu"), a["intro"]) if a.get("intro") else ""
@@ -940,6 +944,7 @@ def build_post(a: dict) -> str:
 <h1>{e(a['title'])}</h1>
 <p class="lead">{e(a['summary'])}</p>
 {gallery}
+{'<script src="/assets/gallery.js" defer></script>' if gallery else ''}
 <div class="post-head"><span class="tags">{key_chips(p)}</span>{pse_badge(p)}</div>
 {store_buttons(p, 'post-top')}
 {intro}

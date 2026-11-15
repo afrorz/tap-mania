@@ -282,3 +282,10 @@ footer a:hover { color: #FFFFFF; }
 /* 本文は白い紙に載せる。方眼の上に長い文が乗ると読みづらい(2026-11-15 本人) */
 .article .wrap > .prose { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 6px 28px; margin: 20px 0; }
 @media (max-width: 640px) { .article .wrap > .prose { padding: 2px 16px; border-radius: 12px; } }
+/* 記事の写真を押して見る(2026-11-15 本人「クリックしたら表示できるのかと思った」) */
+.gallery button { display: block; width: 100%; padding: 0; border: 0; background: #FFFFFF; cursor: zoom-in; }
+.gallery .thumbs button { cursor: pointer; position: relative; }
+.gallery .thumbs button.on::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 3px var(--orange); pointer-events: none; }
+.gallery .thumbs button:hover img { opacity: .8; }
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(10, 12, 16, .88); display: grid; place-items: center; padding: 16px; cursor: zoom-out; }
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; background: #FFFFFF; border-radius: 8px; }
