@@ -228,7 +228,11 @@ def page(*, title: str, desc: str, path: str, body: str, current: str = "", imag
         gid = e(SITE["analytics_id"])
         extra += (f'<script async src="https://www.googletagmanager.com/gtag/js?id={gid}"></script>\n'
                   "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}"
-                  f"gtag('js',new Date());gtag('config','{gid}');</script>\n")
+                  f"gtag('js',new Date());gtag('config','{gid}');"
+                  # 買うボタンが押されたら、どの店・どのページのどの位置かを送る(紹介料につながる動きを数える)
+                  "document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[data-store]');"
+                  "if(a)gtag('event','buy_click',{store:a.dataset.store,where:a.dataset.where,page:location.pathname});});"
+                  "</script>\n")
     for block in ld or []:
         extra += '<script type="application/ld+json">' + json.dumps(block, ensure_ascii=False).replace("</", "<\\/") + "</script>\n"
     if asset_exists("favicon.ico"):

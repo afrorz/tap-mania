@@ -16,7 +16,7 @@ site:
   copyright_from: 2026
   cf_analytics_token: ""  # Cloudflare Web Analytics。空なら出さない
   # GA4。本人がプロパティを新しく作って入れる(GT・Cozy Desk の ID を流用しない)。空ならタグも説明も出ない
-  analytics_id: ""
+  analytics_id: "G-X1VNCB88QJ"  # GA4 プロパティ「充電沼 Charge Mania」(2026-11-16 作成)
   search_console_verification: ""
   stale_days: 180         # checked がこれより古い製品は、ビルド時に警告を出す
 
