@@ -1,0 +1,60 @@
+id: sanwa-tap-tsh32n2-fps
+maker: サンワサプライ
+model: TAP-TSH32N2-FPS
+name: "火災予防タップ（消火シート内蔵・2m）"
+category: tap
+image: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MX.jpg"
+images:
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MX.jpg"     # 白背景の本体(3個口・2m・消火シート付き)
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO1X.jpg"   # 「消火シート内蔵」の看板画像
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO3X.jpg"   # 消火剤入りシートのしくみ(放電→温度上昇→消火剤を散布→酸素遮断)
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO5X.jpg"   # 本体を開けた図。差込口の横に消火シート2枚
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO11X.jpg"  # 底面とプラグの PSE マーク
+image_credit: "サンワサプライ 公式サイト"
+official_url: "https://www.sanwa.co.jp/product/syohin?code=TAP-TSH32N2-FPS"
+manual_url: ""
+checked: 2026-11-16
+released: 2026-09-16
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "公式画像 TAP-TSH32N2-FPS_MO11X.jpg(「電気用品安全法(PSE)適合」)で、底面とプラグにひし形の PSE マークの刻印は見えるが、届出事業者名と登録検査機関名は小さく読めない。しかもこの画像の底面には TAP-TSH31N2-FPS(1m)の型番が写っており、シリーズ共通の画像。ほかの公式画像(MX・FT1〜20・MO1〜11)にも読める銘板は無い。仕様欄は「電気用品安全法（PSE）技術基準適合品」とだけ書く(2026-11-16)"
+  date: 2026-11-16
+
+rating:
+  volt: 125
+  amp: 15
+  watt_max: 1500
+cord:
+  length_m: 2
+  type: "HVFF 1.5平方ミリメートル×2心(二重被ふくコード、仕上がり外形 約4.2×7.6mm)"
+outlets:
+  ac: 3
+  shutter: true          # 公式の呼び方は「ホコリ防止シャッター」
+  tracking_plug: true    # 公式の呼び方は「絶縁キャップ付き」(プラグの刃の根元)
+  switch: none
+  three_pin: false
+  magnet: false
+size: "約W97.5×D40×H21mm"
+weight_g: 230
+colors: [ホワイト]
+warranty: ""
+seller_jp: "サンワサプライ株式会社"
+recall_checked: 2026-11-16
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "TAP-TSH32N2-FPS"
+price: "2,310円(税込・標準価格)"
+note: |
+  タップの中に「消火シート」を入れた火災予防タップ。シートは板状のシリコン材(厚さ約1mm)で、消火剤入りのマイクロカプセルを組み込み、表面は剥離フィルム(75μm PET)。
+  公式の仕様: 作動温度 130℃±10℃、作動範囲「タップ内部の密閉空間」、作動時間「約90秒以内(使用環境により異なります)」、使用寿命 約5年(タップを交換する時期と同じ)。一度でも働いたら使用をやめて交換、と書かれている。
+  公式の説明は「タップ内部で初期火災を抑制」「火を外に出さず、内部で消火」。消火や防火の効果を保証する言葉は書かれていない。記事でも効果を言い切らない。
+  差込口は 2P・3個口(2口が上面、1口が端面。間隔32mm)。プラグは2P のスイングプラグ(公式画像で180°回る)。使用地域は日本国内のみ。
+  一般社団法人防災安全協会の「防災製品等推奨品マーク」取得と書かれている。雷サージ・スイッチの記載は無い。
+  寸法は、仕様欄が W97.5×D40×H21mm、比較表が W40×D21×H97.5mm で、縦横の並びが食い違う(同じ大きさの書き方の違いとみられる)。製品ページの画像の説明文に「1m」とある箇所があるが、仕様欄のコード長は 2m。
+  シリーズ: TAP-TSH31N2-FPS(1m・200g・1,980円)、TAP-TSH32N2-FPS(2m・230g・2,310円)、TAP-TSH33N2-FPS(3m・2,750円)、TAP-TSH35N2-FPS(5m・3,630円)。いずれも税込の標準価格。直挿し型の TAP-AC3WN2-FPS も同じ日に出た。
+  消火シートの無い従来品「火災予防安全タップ TAP-TSH32N」「TAP-TSH32SWN」が Amazon で並んで売られている。型番の末尾「N2-FPS」で区別する。
+  発売日は、ニュースリリース(https://www.sanwa.co.jp/info/news/202609/tap-ac3wn2-fps/index.html)の日付。製品ページに発売日の記載は無い。取扱説明書の PDF は製品ページから直接は見つからない。
+  楽天はサンワダイレクト(item.rakuten.co.jp/sanwadirect/tap-tsh32n2-fps/)、Yahoo! はサンワダイレクトほか、Amazon は「サンワサプライ 火災予防タップ（消火シート内蔵・2m）」(2026-11-16 検索)。

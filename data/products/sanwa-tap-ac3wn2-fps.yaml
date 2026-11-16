@@ -1,0 +1,57 @@
+id: sanwa-tap-ac3wn2-fps
+maker: サンワサプライ
+model: TAP-AC3WN2-FPS
+name: "トリプルタップ（消火シート内蔵）"
+category: tap
+image: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_MX.jpg"
+images:
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_MX.jpg"     # 白背景の本体(直挿し・3個口)
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT1X.jpg"   # 内部の図。上下に消火シート
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT3X.jpg"   # 消火シートの拡大
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT7X.jpg"   # 壁のコンセントに挿した様子
+  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT11X.jpg"  # 底面の刻印(PSE・JET・15A 125V)
+image_credit: "サンワサプライ 公式サイト"
+official_url: "https://www.sanwa.co.jp/product/syohin?code=TAP-AC3WN2-FPS"
+manual_url: ""
+checked: 2026-11-16
+released: 2026-09-16
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "公式画像 TAP-AC3WN2-FPS_FT11X.jpg の底面の刻印で、ひし形の PSE マーク・「JET」・「15A 125V」が読める。ただし届出事業者の欄は「Y(S)D」のような略号で、サンワサプライの名前ではなく、どの事業者の届出かを公式の情報で確かめられない。登録検査機関は「JET」の略称だけ(2026-11-16)"
+  inspector: "JET(底面の刻印。略称のみ)"
+  date: 2026-11-16
+
+rating:
+  volt: 125
+  amp: 15
+  watt_max: 1500
+outlets:
+  ac: 3
+  shutter: false         # 公式「ホコリ防止シャッターは付いていません」
+  tracking_plug: true    # 公式の呼び方は「絶縁キャップ付き」
+  switch: none
+  three_pin: false
+size: "約W48×D39.6×H23.3mm"
+weight_g: 42
+colors: [ホワイト]
+warranty: ""
+seller_jp: "サンワサプライ株式会社"
+recall_checked: 2026-11-16
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "TAP-AC3WN2-FPS"
+price: "968円(税込・標準価格)"
+note: |
+  壁のコンセントに直接挿す 2P・3個口のトリプルタップに、消火シートを入れた物。コードは無い。
+  消火シートの仕様はコード付きの TAP-TSH3 シリーズと同じ: 板状シリコン材・厚さ約1mm・消火剤入りマイクロカプセル・表面は剥離フィルム(75μm PET)、作動温度 130℃±10℃、作動範囲「タップ内部の密閉空間」、作動時間「約90秒以内(使用環境により異なります)」、使用寿命 約5年(タップを交換する時期と同じ)。
+  公式の説明は「タップ内部で初期火災を抑制」。効果を保証する言葉は書かれていない。記事でも言い切らない。
+  公式画像 FT1X では、本体の内側の上下2か所にシートが貼られている。
+  一般社団法人防災安全協会の「防災製品等推奨品マーク」取得と書かれている。使用地域は日本国内のみ。雷サージの記載は無い。
+  底面の刻印の届出事業者は略号「Y(S)D」のように見え、サンワサプライ以外の事業者が届け出た製品の可能性がある(推測なので記事には書かない)。
+  消火シートの無い従来品「トリプルタップ TAP-AC3WN2」が Amazon で売られている。型番の末尾「-FPS」で区別する。
+  パッケージ 73×40×132mm・62g。JAN 4969887792285。
+  発売日は、ニュースリリース(https://www.sanwa.co.jp/info/news/202609/tap-ac3wn2-fps/index.html)の日付。製品ページに発売日の記載は無い。取扱説明書の PDF は製品ページから直接は見つからない。
+  楽天はサンワダイレクト(item.rakuten.co.jp/sanwadirect/tap-ac3wn2-fps/)、Yahoo! はサンワダイレクトほか、Amazon は「サンワサプライ 火災予防トリプルタップ 3個口 消火シート内蔵」(2026-11-16 検索)。
