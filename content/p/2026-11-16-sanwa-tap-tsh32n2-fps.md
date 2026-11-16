@@ -2,7 +2,6 @@
 title: "中に消火シートを貼った3個口タップ サンワサプライ TAP-TSH32N2-FPS"
 date: 2026-11-16
 released: 2026-09-16
-draft: true
 summary: "タップの内側に、熱で消火剤を出すシートを貼った電源タップ。130℃前後でシートが働き、タップの中で火を抑える仕組みです。2m・3個口で2,310円。"
 product: sanwa-tap-tsh32n2-fps
 images:
