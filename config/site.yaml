@@ -24,10 +24,12 @@ site:
 # もしもでこのサイトを新しいサイトとして登録し、提携が通るまでは空のままにする
 # (Gadget Terminal・Cozy Desk 用の a_id をこのサイトに貼らない。もしもの規約でサイトごとの登録が要る)。
 # 空のあいだは、ふつうの検索ページへのリンクを出し、「広告を含みます」の表示も出さない。
+# 2026-11-18 もしもに「充電沼」(shop_site_id 699325)を登録。楽天・Yahoo は提携済み。
+# Amazon は「10記事以上」が条件のため、10本を超えてから申請する(申請時は「Amazonのアソシエイトとして…」の一文を about に足す)
 affiliate:
-  rakuten: ""
+  rakuten: "https://af.moshimo.com/af/c/click?a_id=5908970&p_id=54&pc_id=54&pl_id=616&url={url}"
   amazon: ""
-  yahoo: ""
+  yahoo: "https://af.moshimo.com/af/c/click?a_id=5908971&p_id=1225&pc_id=1925&pl_id=18502&url={url}"
 
 # 製品の区分。並び順がそのまま表示の順
 categories:
