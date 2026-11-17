@@ -49,11 +49,17 @@ def draw_name(d, x, y, size, en_size):
     for text, color in NAME:
         d.text((x, y - top), text, font=f, fill=color)
         x += d.textlength(text, font=f)
+    # 英語名は黒い札にオレンジの文字(2026-11-18 本人「Charge Mania をもっと目立たせたい」→ B 案)
     ef = font(MONO, en_size)
-    etop, ebottom = d.textbbox((0, 0), EN, font=ef)[1::2]
-    x += en_size * 0.5
-    d.text((x, y + (bottom - top) - ebottom), EN, font=ef, fill=SUB)
-    return x + d.textlength(EN, font=ef), bottom - top
+    l, t, r, b = d.textbbox((0, 0), EN, font=ef)
+    pad = round(en_size * 0.32)
+    nh = bottom - top
+    x += en_size * 0.55
+    lift = round(en_size * 0.1)  # 札の下を漢字の下より少しだけ下げる
+    box = (x, y + nh - (b - t) - pad * 2 + lift, x + (r - l) + pad * 2, y + nh + lift)
+    d.rounded_rectangle(box, radius=round(en_size * 0.22), fill=INK)
+    d.text((x + pad - l, box[1] + pad - t), EN, font=ef, fill=ORANGE)
+    return box[2], nh
 
 
 def grid(im, step):
@@ -78,7 +84,7 @@ def main() -> None:
     logo.alpha_composite(face, (0, 0))
     d = ImageDraw.Draw(logo)
     x0 = face.width + 22
-    end, nh = draw_name(d, x0, 6, 74, 30)
+    end, nh = draw_name(d, x0, 6, 74, 38)
     tf = font(BOLD, 24)
     ttop = d.textbbox((0, 0), TAG, font=tf)[1]
     d.text((x0, 6 + nh + 14 - ttop), TAG, font=tf, fill=SUB)
@@ -95,7 +101,7 @@ def main() -> None:
     og.alpha_composite(card, (1200 - card.width - 56, (630 - card.height) // 2 - 6))
     d = ImageDraw.Draw(og)
     d.text((76, 150), "CHARGE MANIA · SPEC SHEET", font=font(MONO, 22), fill=(181, 78, 0, 255))
-    draw_name(d, 72, 200, 120, 32)
+    draw_name(d, 72, 200, 120, 40)
     d.text((76, 380), TAG, font=font(BOLD, 38), fill=INK)
     d.text((76, 440), SUB_TEXT, font=font(BOLD, 30), fill=SUB)
     d.rectangle((0, 622, 1200, 630), fill=ORANGE)
