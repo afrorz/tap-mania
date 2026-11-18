@@ -1,0 +1,63 @@
+id: sanwa-700-btl064bk
+maker: サンワサプライ
+model: 700-BTL064BK
+name: "巻き取りケーブル式 半固体電池モバイルバッテリー(10000mAh・PD30W)"
+category: battery
+image: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MX.JPG"
+images:
+  - "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MX.JPG"     # 白背景の本体と巻き取りケーブル
+  - "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MO5X.JPG"   # ケーブルを10cm〜70cmで止められる
+  - "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MO6X.JPG"   # 厚さ約1.5cm
+  - "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MO13X.JPG"  # 2台同時充電(小さく「複数ポート使用時は合計で5V/3Aまで」)
+image_credit: "サンワダイレクト(サンワサプライ直営)"
+official_url: "https://direct.sanwa.co.jp/ItemPage/700-BTL064BK"
+manual_url: "https://cdn.sanwa.co.jp/support/setsumeisyo/pdf/direct/700-BTL064BK_ver1-0.pdf"
+checked: 2026-11-18
+released: 2026-11-05
+cable_note: "巻き取り式 USB Type-C ケーブル 約70cm を内蔵。引き出して手を放すとその長さで止まり、もう一度軽く引くと巻き戻る。最低約10cm は引き出して使う(取説 p.4)。出力(最大30W)と本体への充電(最大30W)の両方に使える"
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "製品ページに「電気用品安全法(PSE)の技術基準にも適合」と文字がある。公式画像 MO17X(裏面)は 500px で、印字は読めない(2026-11-18 に画像を開いて確認)。取説 PDF に PSE マーク・届出事業者名の記載は無い"
+  date: 2026-11-18
+
+battery:
+  mah: 10000
+  wh: 37
+  rated_mah: ""
+  cell: "半固体リチウムイオン電池"
+  input_w: 30
+  recharge_time: "約3時間(USB PD 30W 以上の充電器)"
+  passthrough: false
+  safety: "過電流・短絡・過充電・過放電の保護と、温度検知センサーによる過熱保護(公式の書き方)"
+size: "約W74 × D15 × H137mm"
+weight_g: 225
+usb:
+  ports:
+    - {name: "巻き取りケーブル", type: C, max_w: 30}   # 5V/3A・9V/3A・12V/2.5A・15V/2A。入力兼用
+    - {name: "USB-C", type: C, max_w: 30}              # 同じ。入力兼用
+  total_w: 15
+  sharing:
+    - {use: "巻き取りケーブル + USB-C", out: "合計 5V/3A(15W)"}
+  sharing_source: "取扱説明書 p.12 の仕様「同時使用時:5V/3A(合計最大)」と、公式画像 MO13X の注記「複数ポート使用時は合計で5V/3Aまで」。製品ページの仕様欄は「USB合計最大出力 30W」で、1ポートだけのときの値"
+  pd: true
+  pps: true
+colors: [ブラック]
+warranty: "6か月"
+seller_jp: "サンワサプライ株式会社"
+recall_checked: 2026-11-18
+recall: none
+
+stores: [rakuten, yahoo]
+q: "700-BTL064BK"
+price: "6,980円(税込・サンワダイレクトの掲載時点。メーカーはオープン価格)"
+note: |
+  サンワダイレクト(直販)の WEB 限定品。2026-11-05 発売(エルミタージュ秋葉原の発売記事による。製品ページに日付は無い)。楽天・Yahoo! はサンワダイレクトの公式店で 6,980円。Amazon は確かめていない。
+  同時出力は、取説 p.12 が「同時使用時:5V/3A(合計最大)」。製品ページの仕様欄「USB合計最大出力 30W」は1ポートのときの値と読める。製品ページの注意書きに「USB Aポートを同時に使用…合計で5V/3Aまで」とあるが、この製品に USB-A は無い(別の製品の文の流用と思われる)。
+  タブレットへの2台同時出力には対応しない。ノートパソコンへの給電には対応しない(製品ページの注意書き)。
+  パススルーは無い。取説 p.5・p.11「本製品に蓄電中は機器への給電を同時に行わないでください」。入力はケーブルとポートのどちらか一方だけ。
+  使える温度は、本体の充電時 0〜35℃、給電時 -10〜45℃。保管は 0〜35℃。容量は 7.4V/5000mAh(37Wh)、3.7V 換算で 10000mAh。
+  充電の目安(公式画像 MO12X): iPhone 17 約1.7回、Android 約1.2回、iPad Pro 約0.8回。
+  同じシリーズに巻き取りケーブルの無い 700-BTL062BK(デジタル電力表示、5,480円)がある。
+  消費者庁リコール情報サイトで「BTL064」を引いて該当なし(2026-11-18)。NITE は未確認。
