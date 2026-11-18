@@ -9,7 +9,7 @@ site:
   # 読者はガジェット好き(2026-11-12 本人「ガジェット好きに絞る」)。USB-C・GaN タップでデスクの電源を組む人
   # 2026-11-14 本人「ガジェット的に電源タップやチャージャーを紹介するサイトに」。知識を教えるサイトではない
   description: USB-C の充電器・電源タップ・モバイルバッテリーの新製品を、ガジェットとして1つずつ紹介するサイト。2台目を挿したときの出力の配り方まで、取扱説明書の数字を添えています。
-  base_url: https://juden.gadgetterminal.com
+  base_url: https://charge.gadgetterminal.com
   author: Star Platinum LLC
   contact_email: info@gadgetterminal.com
   x_account: ""          # X のアカウント名(未取得)。決まったら入れる。空なら出さない
