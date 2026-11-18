@@ -1,4 +1,8 @@
-# juden.gadgetterminal.com を使えるようにする手順
+# サブドメインの手順(2026-11-18 に charge.gadgetterminal.com へ引っ越し)
+
+今の住所は charge.gadgetterminal.com(CNAME → afrorz.github.io、プロキシ オフ)。旧住所 juden は DNS を残してプロキシ オンにし、Cloudflare のリダイレクトルール「充電沼の旧住所 juden → charge」で同じパスへ 301 転送している。juden のレコードとルールは消さない。
+下は最初に juden で立ち上げたときの記録。
+
 
 サイトは GitHub Pages(Cozy Desk と同じ仕組み)に置き、アドレスを juden.gadgetterminal.com にする。
 
