@@ -53,6 +53,8 @@ header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-
 .logo b { font-size: 22px; font-weight: 900; }
 .logo-text span { font-size: 12px; color: var(--sub); }
 .logo img { display: block; height: 40px; width: auto; }
+.logo-tag { font-size: 13px; font-weight: 700; color: var(--sub); white-space: nowrap; margin-left: 6px; }
+@media (max-width: 900px) { .logo-tag { display: none; } }
 .logo img.logo-face { width: 36px; height: 36px; background: #F3EEE7; border-radius: 8px; }
 .gnav { display: flex; flex-wrap: wrap; gap: 2px 4px; font-size: 14px; font-weight: 700; }
 .gnav a { color: var(--sub); text-decoration: none; padding: 4px 10px; border-radius: 6px; }

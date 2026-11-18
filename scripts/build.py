@@ -247,7 +247,9 @@ def page(*, title: str, desc: str, path: str, body: str, current: str = "", imag
     top_ad = f'<div class="wrap">{AD_NOTE}</div>' if (pr and HAS_AFF) else ""
     logo_img = SITE.get("logo_image") or ""
     if logo_img and asset_exists(logo_img):
-        logo = f'<img src="/assets/{e(logo_img)}" alt="{e(SITE["title"])}" height="44">'
+        # 2026-11-18 本人「キャッチコピーはロゴの右に」。画像は名前だけにして、キャッチコピーは文字で右に置く
+        logo = (f'<img src="/assets/{e(logo_img)}" alt="{e(SITE["title"])} {e(SITE.get("title_en", ""))}" height="40">'
+                f'<span class="logo-tag">{e(SITE["tagline"])}</span>')
     else:  # 名前の入っていないタプ夫の顔と、文字のサイト名
         icon = ('<img class="logo-face" src="/assets/chara/face-futsu.png" alt="" width="40" height="40">'
                 if asset_exists("chara/face-futsu.png") else "")

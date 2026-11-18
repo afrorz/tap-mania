@@ -76,21 +76,17 @@ def grid(im, step):
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
 
-    # ロゴ(背景透明、高さ120。サイトの頭では 40px で出る)
-    face = trim(Image.open(ROOT / "assets/chara/face-futsu.png").convert("RGBA"))
-    face = face.resize((round(face.width * 96 / face.height), 96), Image.LANCZOS)
-    face = tile(face, 12)
+    # ロゴ(背景透明。サイトの頭では 40px の高さで出る)
+    # 2026-11-18 本人「キャラのアイコンはなくていい」「Charge Mania をもう少し大きく」「キャッチコピーは右に」
+    # → 顔を外し、名前だけの1行にした。キャッチコピーは画像に入れず、build.py が右に文字で出す
     logo = Image.new("RGBA", (1000, 120), (0, 0, 0, 0))
-    logo.alpha_composite(face, (0, 0))
     d = ImageDraw.Draw(logo)
-    x0 = face.width + 22
-    end, nh = draw_name(d, x0, 6, 74, 38)
-    tf = font(BOLD, 24)
-    ttop = d.textbbox((0, 0), TAG, font=tf)[1]
-    d.text((x0, 6 + nh + 14 - ttop), TAG, font=tf, fill=SUB)
-    end2 = x0 + d.textlength(TAG, font=tf)
-    logo = logo.crop((0, 0, int(max(end, end2)) + 6, 120))
-    logo.save(ROOT / "assets/logo-juden.png")
+    end, nh = draw_name(d, 4, 20, 80, 52)
+    logo = logo.crop(logo.getbbox())
+    pad = Image.new("RGBA", (logo.width + 8, logo.height + 8), (0, 0, 0, 0))
+    pad.alpha_composite(logo, (4, 4))
+    pad.save(ROOT / "assets/logo-juden.png")
+    logo = pad
 
     # 共有用(1200x630、白い方眼の地、下にオレンジの線)
     og = Image.new("RGBA", (1200, 630), BG)
