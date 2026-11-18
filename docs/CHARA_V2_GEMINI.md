@@ -51,7 +51,7 @@ Plain pure white background, full body, square image.
 | まじめ | `tapuo-majime.png` | flat straight eyes, straight line mouth, no readout | standing straight, pointing at an open page of the manual |
 | うれしい | `tapuo-ureshii.png` | eyes as happy upside-down arcs, big open smile, the readout shows "65W" | waving with both hands, manual tucked under one arm |
 
-## 3. できたら
+## 3. できたら(2026-11-18 済み。Gemini の絵の白い背景を抜いて置いた。おどろきの最初の絵は本を2冊持っていたので作り直させた)
 
 - 5枚を `assets/chara/` に、上のファイル名で置く(今の絵は上書きしてよい。git に残っている)
 - 頭だけの `face-*.png` は Claude が切り出して作る
