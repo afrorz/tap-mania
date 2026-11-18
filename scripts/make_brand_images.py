@@ -81,7 +81,7 @@ def main() -> None:
     # → 顔を外し、名前だけの1行にした。キャッチコピーは画像に入れず、build.py が右に文字で出す
     logo = Image.new("RGBA", (1000, 120), (0, 0, 0, 0))
     d = ImageDraw.Draw(logo)
-    end, nh = draw_name(d, 4, 20, 80, 52)
+    end, nh = draw_name(d, 4, 20, 80, 42)
     logo = logo.crop(logo.getbbox())
     pad = Image.new("RGBA", (logo.width + 8, logo.height + 8), (0, 0, 0, 0))
     pad.alpha_composite(logo, (4, 4))
