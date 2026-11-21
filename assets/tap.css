@@ -440,3 +440,6 @@ footer { background: var(--ink); }
 .rd-row, .rd-foot { font-size: 14px; color: #FFB476; letter-spacing: .08em; }
 .rd-strip small { font-size: 12px; color: #FFB476; }
 .rd-strip .rd-arrow { color: #B9773F; }
+/* 数字が短くても長くても、画面の高さは変えない(2026-11-21 本人「枠内の高さが変わるのがいや」) */
+.rd-watt { height: clamp(72px, 9vw, 126px); align-items: flex-end; }
+.side .rd-watt { height: 94px; }
