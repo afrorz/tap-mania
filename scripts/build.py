@@ -1267,74 +1267,147 @@ def pick_slides(products: list[dict]) -> str:
 """
 
 
+# ── トップの2段目と一覧(2026-11-21 本人がモック v5 の形で OK。「ここまでマニアックに」を数で見せる) ──
+_DIG_SKIP = {"image", "images", "image_credit", "official_url", "manual_url", "url", "q", "stores", "note", "id", "checked",
+             "recall_checked", "sharing_source", "how", "date"}
+GROUP = {"tap": "電源タップ", "extension": "電源タップ", "usb-tap": "電源タップ", "charger": "USB 充電器", "battery": "モバイルバッテリー"}
+CABLE_PORTS = {("adtec-apd-v100lacrc-dg", "C1")}  # 名前にケーブルと書いていない内蔵ケーブル
+
+
+def leaves(d) -> int:
+    """確かめた項目の数(製品データの値の数。写真・リンク・メモは数えない)"""
+    if isinstance(d, dict):
+        return sum(leaves(v) for k, v in d.items() if k not in _DIG_SKIP)
+    if isinstance(d, list):
+        return sum(leaves(v) for v in d)
+    return 0 if d in (None, "", []) else 1
+
+
+def gaps(p: dict) -> list[str]:
+    """公式の資料どうしの食い違い(製品データの note に書いた行)"""
+    return [l.strip() for l in str(p.get("note", "")).splitlines() if "食い違" in l or "合わない" in l]
+
+
+def post_for(p: dict) -> dict | None:
+    return next((x for x in POSTS if x["p"]["id"] == p["id"]), None)
+
+
+def sources(p: dict) -> int:
+    a = post_for(p)
+    return len(a.get("sources") or []) if a else len([x for x in (p.get("official_url"), p.get("manual_url")) if x])
+
+
+def port_face(p: dict) -> str:
+    """ポートの顔: 本体の差し込み口を決まった記号で並べる"""
+    items = [("ac", "AC") for _ in range((p.get("outlets") or {}).get("ac") or 0)]
+    for x in (p.get("usb") or {}).get("ports") or []:
+        k = port_kind(x.get("type"))
+        n = str(x.get("name") or "")
+        cable = (p["id"], x.get("name")) in CABLE_PORTS or (bool(re.search(r"ケーブル|Line|リール|Cable|コード", n)) and "ポート" not in n)
+        kind = "cable" if cable else {"c": "c", "a": "a", "wireless": "wl"}.get(k, "c")
+        items.append((kind, FACE_LABEL[kind]))
+    if not items:
+        return ""
+    cnt: dict[str, int] = {}
+    for _, lab in items:
+        cnt[lab] = cnt.get(lab, 0) + 1
+    alt = "・".join(f"{k}×{v}" for k, v in cnt.items())
+    cells = "".join(f'<span class="pf-i pf-{k}"><i aria-hidden="true"></i><small>{lab}</small></span>' for k, lab in items)
+    return f'<div class="pf" role="img" aria-label="差し込み口 {e(alt)}">{cells}</div>'
+
+
+def home_card(p: dict) -> str:
+    a = post_for(p)
+    title = catch(a) if a else re.sub(r"[（(].*?[)）]", "", p["name"]).strip()
+    g = gaps(p)
+    shots = post_images(a) if a else []
+    im = (shots[0]["src"] if shots else p.get("image")) or ""
+    new = '<span class="hc-new">新製品</span>' if a else ""
+    gap = f'<span class="gap">食い違い {len(g)}</span>' if g else ""
+    return (f'<a class="hcard" href="{a["url"] if a else p["url"]}">'
+            f'<div class="hc-ph"><img src="{e(im)}" alt="" loading="lazy" referrerpolicy="no-referrer">{new}</div>'
+            f'<div class="hc-body"><div class="hc-meta"><span class="cat">{GROUP.get(p["category"], CAT[p["category"]]["name"])}</span>'
+            f'<span>{e(p["maker"])}</span></div>'
+            f'<h3>{e(title)}</h3>{port_face(p)}'
+            f'<div class="dig"><span><b>{leaves(p)}</b>項目</span><span><b>{sources(p)}</b>資料</span>{gap}</div></div></a>')
+
+
+def anatomy_block(products: list[dict]) -> str:
+    path = ROOT / "data" / "anatomy.yaml"
+    if not path.exists():
+        return ""
+    an = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    p = next((x for x in products if x["id"] == an.get("id")), None)
+    if not p or not p.get("image"):
+        return ""
+    a = post_for(p)
+    pts = an.get("points") or []
+    dots = "".join(f'<button type="button" class="dot" style="left:{x["x"]}%;top:{x["y"]}%" data-i="{i}" aria-label="{e(x["t"])}">{i + 1}</button>'
+                   for i, x in enumerate(pts))
+    notes = "".join(f'<li data-i="{i}"><b><span>{i + 1}</span>{e(x["t"])}</b><p>{e(x["d"])}</p></li>' for i, x in enumerate(pts))
+    lcd = an.get("lcd") or {}
+    lcd_html = ""
+    if lcd:
+        lcd_html = f"""<div class="lcd" data-one="{e(lcd['one'])}" data-two="{e(lcd['two'])}">
+  <div class="lcd-scr" aria-live="polite">
+    <div class="lcd-top"><span>USB-C OUTPUT</span><span class="lcd-mode">1台</span></div>
+    <div class="lcd-num"><b>{e(lcd['one'])}</b><i>W</i></div>
+    <div class="lcd-foot">1台だけ挿したとき</div>
+  </div>
+  <div class="lcd-side">
+    <div class="lcd-ports"><span class="lcd-port on" aria-hidden="true"></span><button type="button" class="lcd-port" aria-pressed="false" aria-label="2台目を挿す"></button></div>
+    <p><b>右の口を押す</b>と<br>2台目を挿した数字に</p>
+    <p class="lcd-src">{e(p['model'])}<br>{e(lcd.get('src') or '')}</p>
+  </div>
+</div>"""
+    total = sum(leaves(x) for x in products)
+    ngap = sum(len(gaps(x)) for x in products)
+    name = f'{e(p["maker"])} <span class="mono">{e(p["model"])}</span>'
+    head = f'<a href="{a["url"]}">{name}</a>' if a else name
+    return f"""<section class="hero3"><div class="wrap">
+  <div class="h3-l">
+    <p class="kicker">このサイトの読み方 <span>HOW WE READ</span></p>
+    <h2 class="h3-h"><span>底面ラベルまで、</span><span>読んでます。</span></h2>
+    <dl class="tally">
+      <div><dt>載せた機種</dt><dd>{len(products)}</dd></div>
+      <div><dt>確かめた項目</dt><dd>{total}</dd></div>
+      <div><dt>公式の中の食い違い</dt><dd class="hot">{ngap}</dd></div>
+    </dl>
+    {lcd_html}
+  </div>
+  <div class="h3-r">
+    <p class="spec-label">きょうの解剖 ── {head}</p>
+    <div class="anat"><div class="anat-ph"><img src="{e(p['image'])}" alt="{e(p['model'])} の本体" referrerpolicy="no-referrer">{dots}</div>
+    <ol class="anat-notes">{notes}</ol></div>
+  </div>
+</div></section>
+<script src="/assets/home.js" defer></script>"""
+
+
 def build_index(products: list[dict], arts: list[dict]) -> str:
-    hero_img = ('<img class="hero-chara" src="/assets/chara/tapuo-futsu.png" alt="タプ夫" width="220" height="220">'
-                if asset_exists("chara/tapuo-futsu.png") else face("futsu", 160))
-    qs = "".join(f'<li><a href="{a["url"]}"><b>{e(a["title"])}</b><span>{e(a["summary"])}</span></a></li>' for a in arts[:8])
-    newest = sorted(products, key=lambda p: p["checked"], reverse=True)[:6]
-    usbs = [p for p in products if usb_c_ports(p)]
-    usb_rows = "".join(f'<li><a href="/usb-c/#{p["id"]}"><b>{e(p["maker"])} {e(p["model"])}</b>'
-                       f'<span>1ポート最大 {num(max(x.get("max_w") or 0 for x in usb_c_ports(p)), "W")} → USB-C 2本なら {two_c(p)}</span></a></li>'
-                       for p in usbs[:6])
-    posts = POSTS[:6]
-    news = ""
-    if posts:
-        news = (f'<section class="band"><div class="wrap"><div class="sec-head"><h2><small>NEW ARRIVALS</small>新製品</h2>'
-                f'<a href="/p/">すべて見る →</a></div>'
-                f'<div class="postgrid g3">{"".join(post_card(a) for a in posts)}</div></div></section>')
+    # 並び: 新製品記事のある物(新しい順) → 残りの製品
+    with_post = [a["p"] for a in POSTS]
+    ids = {x["id"] for x in with_post}
+    order = with_post + [p for p in products if p["id"] not in ids]
+    legend = ('<div class="legend"><span class="pf-i pf-ac"><i></i></span>コンセント<span class="pf-i pf-c"><i></i></span>USB-C'
+              '<span class="pf-i pf-a"><i></i></span>USB-A<span class="pf-i pf-cable"><i></i></span>内蔵ケーブル'
+              '<span class="pf-i pf-wl"><i></i></span>ワイヤレス</div>')
     feats = ""
     if FEATURES:
         feats = (f'<section class="band"><div class="wrap"><div class="sec-head"><h2><small>FEATURES</small>特集</h2>'
                  f'<a href="/f/">すべて見る →</a></div>'
                  f'<div class="postgrid g3">{"".join(feature_card(f) for f in FEATURES[:3])}</div></div></section>')
-    # 頭の画面には、いちばん新しい「2台目で数字が落ちる」製品を出す(2026-11-21 READOUT)
-    # 新しい3本のうち、2台目でいちばん大きく落ちる物(合計の書き方のもの)
-    def drop(a):
-        rd = readout(a["p"]) or {}
-        if rd.get("one_k") != "1台だけ" or not rd["two"].startswith("計"):
-            return -1
-        return float(rd["one"][:-1]) / float(rd["two"][1:-1].replace(",", ""))
-    cands = [a for a in POSTS[:3] if drop(a) > 1]
-    star = max(cands, key=drop) if cands else next((a for a in POSTS if (readout(a["p"]) or {}).get("one_k") == "1台だけ"), None)
-    if star:
-        rd = readout(star["p"])
-        sp = star["p"]
-        shot = post_images(star)
-        pill_img = f'<img src="{e(shot[0]["src"])}" alt="" referrerpolicy="no-referrer">' if shot else ""
-        hero_l = (f'<h1>1台なら{e(rd["one"])}。<br>2台なら<em>{e(rd["two"])}</em>。</h1>'
-                  f'<p class="lead">{e(SITE["description"])}</p>'
-                  f'<a class="source" href="{star["url"]}">{pill_img}<span>{e(sp["maker"])} {e(sp["model"])}<br>'
-                  f'<span class="mono">取扱説明書・公式の仕様より</span></span></a>')
-        hero_r = device_html(sp, autoplay=True)
-    else:
-        hero_l = f'<h1>{e(SITE["tagline"])}</h1><p class="lead">{e(SITE["description"])}</p>'
-        hero_r = hero_img
-    slides = pick_slides(products)
-    if slides:  # 横スライドが頭のときは、取説の画面は2段目(大見出しは横スライドの方)
-        hero_l = hero_l.replace("<h1>", '<h2 class="hero-h">', 1).replace("</h1>", "</h2>", 1)
+    more = ' ・ <a href="/q/">疑問に答える</a>' if arts else ""
     body = f"""<main>
-{slides}
-<section class="hero"><div class="wrap">
-  <div class="hero-l">
-    <p class="kicker">{'このサイトの読み方 <span>HOW WE READ</span>' if slides else e(SITE['tagline']) + ' <span>READ THE MANUAL</span>'}</p>
-    {hero_l}
-  </div>
-  <div class="hero-r">{hero_r}</div>
+{pick_slides(products)}
+{anatomy_block(products)}
+<section class="band hlist" id="list"><div class="wrap">
+  <div class="sec-head"><h2><small>NEW ARRIVALS</small>新製品</h2><a href="/compare/">全機種の比べ表 →</a></div>
+  {legend}
+  <div class="hgrid">{''.join(home_card(p) for p in order)}</div>
+  <p class="hlist-more"><a href="/usb-c/">USB-C の配り方の全機種表</a> ・ <a href="/tools/watt/">消費電力の計算機</a>{more}</p>
 </div></section>
-<script src="/assets/readout.js" defer></script>
-{news}
 {feats}
-<section class="band"><div class="wrap">
-  <div class="sec-head"><h2><small>USB-C SHARING</small>2台目を挿すと何Wになるか</h2><a href="/usb-c/">全機種の表 →</a></div>
-  <p>「最大◯W」は1ポートだけ使ったときの数字です。同時に挿したときの配り方を、取扱説明書の表から全機種ぶん並べています。</p>
-  <ul class="qlist">{usb_rows}</ul>
-  <p><a class="btn buy" href="/usb-c/">USB-C の配り方の全機種表を見る</a></p>
-</div></section>
-<section class="band"><div class="wrap">
-  <div class="sec-head"><h2><small>ALL MODELS</small>載せている機種</h2><a href="/compare/">比べ表 →</a></div>
-  <div class="pgrid">{''.join(pcard(p) for p in newest)}</div>
-  <p><a href="/compare/">全機種の比べ表を見る</a> ・ <a href="/tools/watt/">消費電力の計算機</a>{' ・ <a href="/q/">疑問に答える</a>' if arts else ''}</p>
-</div></section>
 </main>"""
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": SITE["title"], "url": SITE["base_url"] + "/"}]
     return page(title="", desc=SITE["description"], path="/", body=body, ld=ld)

@@ -513,3 +513,88 @@ footer { background: var(--ink); }
 /* 横スライドの下に回した取説の画面の見出し */
 .hero .hero-h { font-size: clamp(26px, 4.4vw, 40px); margin: 6px 0 10px; font-weight: 900; display: block; }
 .hero .hero-h::before { display: none; }
+
+/* ── トップの2段目「底面ラベルまで、読んでます。」と一覧(2026-11-21 本人がモック v5 の形で OK。mock/v3・v4 から移した) ── */
+.hero3 { padding: 56px 0 64px; background: var(--panel); border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2); }
+.hero3 .wrap { max-width: 1160px; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; }
+.hero3 .h3-h { font: 900 clamp(30px, 3.4vw, 50px)/1.2 var(--disp); margin: 0 0 18px; display: block; }
+.hero3 .h3-h::before { display: none; }
+.hero3 .h3-h span { display: block; white-space: nowrap; }
+.tally { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 4px 36px; margin: 0 0 22px; }
+.tally div { display: flex; flex-direction: column-reverse; }
+.tally dt { font-size: 12px; color: var(--sub); }
+.tally dd { margin: 0; font: 900 44px/1.1 var(--disp); font-variant-numeric: tabular-nums; }
+.tally dd.hot { color: var(--otext); }
+.spec-label { margin: 0 0 10px; font-size: 13px; font-weight: 700; color: var(--sub); }
+.spec-label a { color: inherit; }
+@media (max-width: 1000px) { .hero3 .wrap { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+@media (max-width: 640px) { .hero3 { padding: 32px 0 44px; } .tally { gap: 4px 20px; } .tally dd { font-size: 32px; } }
+/* 解剖図: 写真に番号の点、横に説明 */
+.anat { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px; align-items: center; background: var(--bg); border-radius: 24px; padding: 18px; }
+.anat-ph { position: relative; background: var(--tile); border-radius: 16px; aspect-ratio: 1 / 1; }
+.anat-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.dot { position: absolute; transform: translate(-50%, -50%); width: 28px; height: 28px; padding: 0; border-radius: 50%; border: 2px solid #fff; background: var(--ink); color: #fff; font: 700 13px/1 var(--mono); cursor: pointer; transition: background .2s; }
+.dot::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 1.5px solid var(--glow); opacity: .7; animation: ping 2.4s ease-out infinite; }
+@keyframes ping { from { transform: scale(.6); opacity: .8 } to { transform: scale(1.5); opacity: 0 } }
+.dot.on, .dot:hover { background: var(--glow); color: var(--ink); }
+.anat-notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.anat-notes li { padding: 10px 12px; border-radius: 12px; transition: background .2s; }
+.anat-notes li.on { background: #FFF1E5; }
+.anat-notes b { display: flex; align-items: center; gap: 8px; font: 700 15px/1.4 var(--disp); }
+.anat-notes b span { display: grid; place-items: center; flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: #fff; font: 700 11px/1 var(--mono); }
+.anat-notes li.on b span { background: var(--glow); color: var(--ink); }
+.anat-notes p { margin: 4px 0 0 30px; font-size: 13px; line-height: 1.6; color: var(--sub); }
+@media (max-width: 640px) { .anat { grid-template-columns: minmax(0, 1fr); padding: 12px; } }
+/* 小さな画面(取説の数字)。数字が変わっても高さは変えない */
+.lcd { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; background: linear-gradient(#FBFBFC, #E9EBEE); border: 1px solid #C9CED5; border-radius: 22px; padding: 12px; max-width: 440px; box-shadow: 0 1px 0 #fff inset, 0 20px 40px -28px rgba(14,16,19,.35); }
+.lcd-scr { position: relative; background: var(--screen); border-radius: 14px; padding: 10px 16px 9px; color: var(--glow); overflow: hidden; box-shadow: inset 0 0 0 1px #000, inset 0 2px 14px rgba(0,0,0,.8); }
+.lcd-scr::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 3px); }
+.lcd-top { display: flex; justify-content: space-between; font: 400 13px/1 var(--dot); letter-spacing: .08em; color: #FFB476; }
+.lcd-num { display: flex; justify-content: flex-end; align-items: flex-end; gap: 4px; height: 58px; font-family: var(--dot); margin: 6px 0 4px; text-shadow: 0 0 14px rgba(248,132,37,.55); white-space: nowrap; }
+.lcd-num b { font-weight: 400; font-size: 56px; line-height: .9; }
+.lcd-num b.long { font-size: 44px; }
+.lcd-num i { font-style: normal; font-size: 22px; line-height: .9; }
+.lcd-scr.flick b { animation: lcdflick .28s steps(2) 1; }
+@keyframes lcdflick { 0% { opacity: .15 } 50% { opacity: 1 } 70% { opacity: .3 } 100% { opacity: 1 } }
+.lcd-foot { font: 400 13px/1.4 var(--dot); color: #FFB476; }
+.lcd-side { display: flex; flex-direction: column; gap: 8px; padding-right: 6px; }
+.lcd-side p { margin: 0; font-size: 12px; line-height: 1.5; color: var(--sub); }
+.lcd-side p b { color: var(--ink); }
+.lcd-side .lcd-src { font: 400 10px/1.5 var(--mono); }
+.lcd-ports { display: flex; gap: 10px; }
+.lcd-port { position: relative; display: block; width: 52px; height: 22px; border-radius: 11px; border: 0; padding: 0; background: #23262B; box-shadow: inset 0 3px 6px rgba(0,0,0,.6), 0 1px 0 #fff; }
+button.lcd-port { cursor: pointer; }
+.lcd-port::before { content: ""; position: absolute; inset: 7px 10px; border-radius: 4px; background: #0B0C0E; }
+.lcd-port.on::after, .lcd-port[aria-pressed="true"]::after { content: ""; position: absolute; left: 50%; top: 3px; width: 28px; height: 16px; margin-left: -14px; border-radius: 5px; background: linear-gradient(90deg, #3A3E45, #6A707A 45%, #3A3E45); box-shadow: 0 0 0 2px var(--glow), 0 0 10px rgba(248,132,37,.55); }
+@media (max-width: 640px) { .lcd { grid-template-columns: minmax(0, 1fr); } .lcd-side { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 6px 14px; } .lcd-side .lcd-src { display: none; } }
+/* 一覧: ポートの顔つきのカード */
+.hlist { padding-top: 48px; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; font-size: 12px; color: var(--sub); margin: -8px 0 18px; }
+.legend .pf-i { margin-left: 10px; }
+.legend .pf-i:first-child { margin-left: 0; }
+.hgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 1100px) { .hgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .hgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+.hcard { display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; color: var(--ink); text-decoration: none; transition: transform .25s ease, box-shadow .25s ease; }
+.hcard:hover { transform: translateY(-3px); box-shadow: 0 24px 40px -24px rgba(14,16,19,.3); }
+.hc-ph { position: relative; aspect-ratio: 1 / 1; background: var(--tile); border-bottom: 1px solid var(--line); overflow: hidden; }
+.hc-ph img { position: absolute; inset: 18px; width: calc(100% - 36px); height: calc(100% - 36px); object-fit: contain; mix-blend-mode: multiply; transition: transform .4s ease; }
+.hcard:hover .hc-ph img { transform: scale(1.05); }
+.hc-new { position: absolute; left: 12px; top: 12px; font-size: 11px; font-weight: 700; line-height: 1.6; background: var(--glow); padding: 2px 8px; border-radius: 6px; }
+.hc-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.hc-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 12px; line-height: 1.4; color: var(--sub); }
+.hc-meta .cat { color: var(--otext); font-weight: 700; }
+.hcard h3 { margin: 0; font: 700 16px/1.5 var(--disp); text-wrap: wrap; }
+.hcard .pf { background: var(--tile); align-self: flex-start; }
+.dig { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 12px; color: var(--sub); margin-top: auto; padding-top: 10px; border-top: 1px dashed var(--line2); }
+.dig b { font: 900 16px/1 var(--disp); color: var(--ink); margin-right: 3px; }
+.gap { font-size: 11px; font-weight: 700; color: var(--otext); background: #FFF1E5; border: 1px solid #F5C9A3; padding: 1px 8px; border-radius: 6px; }
+.hlist-more { margin-top: 22px; font-size: 14px; }
+@media (max-width: 560px) {
+  .hgrid { gap: 10px; }
+  .hc-body { padding: 10px 10px 12px; gap: 8px; }
+  .hcard h3 { font-size: 14px; }
+  .hcard .pf { gap: 5px 7px; padding: 6px 7px 5px; }
+  .dig { gap: 2px 10px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { .dot::after { animation: none; } }
