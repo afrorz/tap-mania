@@ -2,12 +2,12 @@
    同日「黒背景より白背景がいい」で白地にした。方眼の白地にタプ夫のオレンジを差す。数字・型番・ポート名は等幅。
    本文と表は Noto Sans JP(丸ゴシックは読みづらい・小さい極太はギザギザ、2026-11-12 本人) */
 :root {
-  --bg: #F5F6F8;          /* 地(白に近い灰。方眼を薄く引く) */
+  --bg: #ECEEF1;          /* 地。充電器の樹脂の冷たい白(2026-11-21 READOUT で方眼をやめた) */
   --panel: #FFFFFF;       /* 箱 */
   --panel2: #F0F2F5;      /* 表の見出し・強調の箱 */
-  --line: #E2E6EB;
-  --line2: #CBD2DA;
-  --ink: #16191E;         /* 本文 */
+  --line: #DDE1E6;
+  --line2: #CDD2D9;
+  --ink: #0E1013;         /* 本文 */
   --sub: #59636F;         /* 補足。白地との差 6 以上 */
   --orange: #F88425;      /* タプ夫のパーカー。帯・札・ボタンの地に使う(上の文字は黒)。白地の文字には薄すぎる */
   --otext: #B54E00;       /* 文字に使うオレンジ。白地との差 5.18 */
@@ -20,6 +20,12 @@
   --w: #A47CFF;           /* ワイヤレスの色 */
   --font: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --disp: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;   /* 見出し。角のある太いゴシック */
+  --wide: "Archivo", "Noto Sans JP", sans-serif;               /* 英字の小見出し(幅広) */
+  --dot: "DotGothic16", "JetBrains Mono", monospace;           /* 画面の数字 */
+  --screen: #0B0C0E;      /* 画面(数字を出す所だけ) */
+  --glow: #F88425;        /* 画面の数字 */
+  --tile: #F8F9FA;        /* 製品を置く台 */
   color-scheme: light;
 }
 * { box-sizing: border-box; }
@@ -27,9 +33,6 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; color: var(--ink); font-family: var(--font); font-weight: 400; line-height: 1.85; font-size: 16px;
   background: var(--bg);
-  /* 方眼の地。仕様書・基板の雰囲気 */
-  background-image: linear-gradient(rgba(20,30,45,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(20,30,45,.045) 1px, transparent 1px);
-  background-size: 24px 24px;
 }
 b, strong, th { font-weight: 700; }
 a { color: var(--link); text-underline-offset: 3px; }
@@ -295,3 +298,141 @@ footer a:hover { color: #FFFFFF; }
 .ph1 .catch { display: block; }
 .ph1 .pname { display: block; margin-top: 4px; font-size: .62em; font-weight: 700; color: var(--sub); letter-spacing: .02em; }
 .ph1 .pname b { font-family: var(--mono); color: var(--ink); overflow-wrap: anywhere; }
+
+/* ══ READOUT(2026-11-21 本人「この方向で入れる」) ══════════════════
+   充電器の小さな画面(タプ夫の顔と同じ黒地にオレンジの数字)をサイトの看板にする。
+   数字は画面で見せ、ほかは静かに。見出しは Zen Kaku Gothic New、画面の数字は DotGothic16。 */
+:focus-visible { outline: 2px solid var(--glow); outline-offset: 3px; }
+.wrap { max-width: 920px; }
+.wide .wrap, header.top .wrap, footer .wrap, .hero .wrap, .band .wrap, .post .wrap { max-width: 1240px; }
+@media (min-width: 641px) { .wrap { padding: 0 32px; } }
+h1, h2, h3 { font-family: var(--disp); font-weight: 900; }
+h1, h2, h3, .lead, .sum { word-break: auto-phrase; text-wrap: balance; }
+h2::before { display: none; }
+.prose h2, .post .prose h2 { font-size: 26px; padding-top: 18px; border-top: 1px solid var(--ink); margin-top: 56px; }
+header.top { background: rgba(236,238,241,.86); backdrop-filter: blur(10px); border-bottom-color: var(--line2); }
+.gnav a { border-radius: 999px; padding: 4px 12px; }
+.gnav a[aria-current] { background: var(--panel); box-shadow: none; }
+
+/* 画面の部品 */
+.rd-device { background: linear-gradient(#FBFBFC, #E9EBEE); border: 1px solid #C9CED5; border-radius: 28px; padding: 18px; box-shadow: 0 1px 0 #fff inset, 0 30px 60px -30px rgba(14,16,19,.35); }
+.rd-screen { position: relative; background: var(--screen); border-radius: 16px; padding: 18px 22px 16px; color: var(--glow); overflow: hidden; box-shadow: inset 0 0 0 1px #000, inset 0 2px 18px rgba(0,0,0,.8); }
+.rd-screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 3px); }
+.rd-row { display: flex; justify-content: space-between; align-items: baseline; font: 400 13px/1 var(--dot); letter-spacing: .12em; color: #C8681D; }
+.rd-watt { display: flex; align-items: baseline; justify-content: flex-end; gap: 6px; font-family: var(--dot); line-height: .9; margin: 14px 0 10px; text-shadow: 0 0 18px rgba(248,132,37,.55); white-space: nowrap; }
+.rd-num { font-size: clamp(80px, 10vw, 140px); }
+.rd-num.long { font-size: clamp(52px, 6.4vw, 92px); }
+.rd-unit { font-size: 40px; }
+.rd-screen.flick .rd-num { animation: rdflick .28s steps(2) 1; }
+@keyframes rdflick { 0% { opacity: .15 } 50% { opacity: 1 } 70% { opacity: .3 } 100% { opacity: 1 } }
+.rd-foot { font: 400 13px/1.5 var(--dot); color: #C8681D; min-height: 1.5em; }
+.rd-ports { display: flex; justify-content: center; gap: 22px; margin: 18px 0 4px; }
+.rd-port { position: relative; display: block; width: 74px; height: 30px; border-radius: 15px; border: 0; padding: 0; background: #23262B; box-shadow: inset 0 3px 6px rgba(0,0,0,.6), 0 1px 0 #fff; }
+button.rd-port { cursor: pointer; }
+.rd-port::before { content: ""; position: absolute; inset: 9px 14px; border-radius: 6px; background: #0B0C0E; }
+.rd-lbl { position: absolute; top: 40px; left: -10px; right: -10px; text-align: center; font: 700 11px/1 var(--mono); letter-spacing: .08em; color: var(--sub); }
+.rd-port.on::after, .rd-port[aria-pressed="true"]::after { content: ""; position: absolute; left: 50%; top: 4px; width: 40px; height: 22px; margin-left: -20px; border-radius: 6px; background: linear-gradient(90deg, #3A3E45, #6A707A 45%, #3A3E45); box-shadow: 0 0 0 2px var(--glow), 0 0 14px rgba(248,132,37,.55); animation: rdplug .25s ease-out; }
+@keyframes rdplug { from { transform: translateY(14px); opacity: 0 } to { transform: none; opacity: 1 } }
+.rd-port.on .rd-lbl, .rd-port[aria-pressed="true"] .rd-lbl { color: var(--otext); }
+.rd-cap { margin: 40px 0 0; text-align: center; font-size: 13px; color: var(--sub); line-height: 1.6; }
+.rd-cap b { color: var(--ink); }
+
+/* カードの画面の帯(その製品の取説の数字) */
+.rd-strip { margin-top: auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; background: var(--screen); color: var(--glow); border-radius: 12px; padding: 10px 14px; font-family: var(--dot); }
+.rd-strip div { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.rd-strip small { font-size: 11px; color: #C8681D; letter-spacing: .06em; line-height: 1.2; }
+.rd-strip b { font-weight: 400; font-size: 22px; line-height: 1; text-shadow: 0 0 10px rgba(248,132,37,.5); white-space: nowrap; font-family: var(--dot); }
+.rd-strip .rd-arrow { color: #6B4424; font-size: 14px; }
+.rd-strip div:last-child { text-align: right; align-items: flex-end; }
+
+/* トップの頭 */
+.hero { padding: 0; background: none; border-bottom: 1px solid var(--line2); }
+.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 64px; align-items: center; padding-top: 72px; padding-bottom: 88px; }
+.kicker { font: 700 13px/1.4 var(--font); color: var(--otext); margin: 0 0 22px; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; }
+.kicker span { font: 800 11px/1 var(--wide); font-stretch: 125%; letter-spacing: .2em; color: var(--sub); }
+.hero h1 { font: 900 clamp(40px, 5.6vw, 82px)/1.14 var(--disp); letter-spacing: -.01em; margin: 0 0 28px; }
+.hero h1 em { font-style: normal; color: var(--otext); }
+.hero .lead { max-width: 30em; color: var(--sub); margin: 0 0 28px; }
+.source { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); padding: 10px 18px 10px 10px; background: var(--panel); border: 1px solid var(--line2); border-radius: 999px; font-size: 14px; font-weight: 700; line-height: 1.5; }
+.source img { width: 40px; height: 40px; object-fit: contain; background: var(--tile); border-radius: 50%; flex: none; }
+.source .mono { color: var(--sub); font-weight: 400; font-size: 12px; }
+.source:hover { border-color: var(--ink); }
+@media (max-width: 900px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-top: 40px; padding-bottom: 56px; text-align: left; } }
+
+/* 見出しの段 */
+.band { padding: 64px 0 8px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; }
+.sec-head h2 { margin: 0; font: 900 28px/1.25 var(--disp); display: block; }
+.sec-head h2 small { display: block; font: 800 11px/1 var(--wide); font-stretch: 125%; letter-spacing: .2em; color: var(--sub); margin-bottom: 10px; }
+.sec-head a { font-size: 14px; font-weight: 700; color: var(--otext); text-decoration: none; white-space: nowrap; }
+@media (max-width: 640px) { .sec-head h2 { font-size: 23px; } }
+
+/* 新製品のカード */
+.postgrid.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 1000px) { .postgrid.g3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .postgrid, .postgrid.g3 { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
+.postcard { border-radius: 20px; border-color: var(--line); transition: transform .25s ease, box-shadow .25s ease; }
+.postcard:hover { border-color: var(--line); transform: translateY(-3px); box-shadow: 0 24px 40px -24px rgba(14,16,19,.3); }
+.pc-img { position: relative; aspect-ratio: 4 / 3; background: var(--tile); overflow: hidden; }
+.pc-img img { position: absolute; inset: 22px; width: calc(100% - 44px); height: calc(100% - 44px); aspect-ratio: auto; padding: 0; object-fit: contain; mix-blend-mode: multiply; transition: transform .4s ease; }
+.postcard:hover .pc-img img { transform: scale(1.04); }
+.pc-body { padding: 18px 20px 20px; gap: 10px; flex: 1; }
+.pc-body b { font: 700 18px/1.5 var(--disp); word-break: auto-phrase; }
+.pc-meta span { font-family: var(--font); }
+.pc-model { font: 400 12px/1.4 var(--mono); color: var(--sub); }
+
+/* 記事の頭: 左に見出しと写真、右に画面・仕様・買うボタン(下に読み進めても付いてくる) */
+.art-head { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 48px; align-items: start; margin: 8px 0 40px; }
+.post .art-head h1 { font: 900 clamp(28px, 3.6vw, 46px)/1.25 var(--disp); margin: 12px 0 16px; }
+.ph1 .pname { font-family: var(--font); }
+.post .art-head .lead { margin-bottom: 24px; }
+.art-head .gallery { border-radius: 24px; background: var(--tile); }
+.art-head .gallery .main { mix-blend-mode: multiply; }
+.art-head .gallery button { background: var(--tile); }
+.art-head .gallery .thumbs img { background: var(--tile); mix-blend-mode: multiply; }
+.side { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 14px; }
+.side .rd-num { font-size: 104px; }
+.side .rd-num.long { font-size: 64px; }
+.side-specs { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 4px 20px; margin: 0; }
+.side-specs div { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.5; }
+.side-specs div:last-child { border: 0; }
+.side-specs dt { color: var(--sub); flex: none; }
+.side-specs dd { margin: 0; font-family: var(--mono); font-weight: 700; text-align: right; }
+.side-specs .no { color: var(--sub); font-weight: 400; }
+.side .adnote { margin: 0; align-self: center; }
+.side .btns { display: grid; grid-template-columns: 1fr 1fr; margin: 0; }
+.side .btn { display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 14px; font-size: 15px; background: var(--panel); }
+.side .btn.buy { grid-column: 1 / -1; background: var(--glow); border-color: var(--glow); color: var(--ink); }
+.side-price { margin: 0; text-align: center; font-size: 13px; color: var(--sub); }
+@media (max-width: 1000px) { .art-head { grid-template-columns: minmax(0, 1fr); gap: 28px; } .side { position: static; } }
+/* 本文は読みやすい幅に */
+.post .wrap > .prose, .post .wrap > .numbers, .post .wrap > .bubble, .post .wrap > .btns, .post .wrap > .adnote, .post .wrap > .src, .post .wrap > h2 { max-width: 760px; }
+
+/* 吹き出し */
+.bubble .face { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; }
+.bubble p { border: 1px solid var(--line); border-radius: 4px 18px 18px 18px; padding: 14px 18px; }
+.bubble p b { font: 800 11px/1 var(--wide); font-stretch: 125%; letter-spacing: .16em; margin-bottom: 8px; }
+
+/* 「数字で見る」は画面にする: 黒地にオレンジの帯 */
+.numbers { background: var(--screen); border: 0; border-radius: 24px; color: #E7B58A; padding: 8px 24px 20px; }
+.numbers h2 { color: var(--glow); font-family: var(--dot); font-weight: 400; border: 0; padding-top: 8px; letter-spacing: .04em; }
+.numbers h3 { color: #E7B58A; font-family: var(--dot); font-weight: 400; }
+.numbers .small, .numbers small { color: #A8825F; }
+.numbers a { color: var(--glow); }
+.numbers .share, .numbers .share th, .numbers .share td { background: transparent; border-color: #22252A; color: #E7B58A; }
+.numbers .share thead th { color: #A8825F; background: transparent; }
+.numbers .share tbody th { color: #E7B58A; font-family: var(--dot); font-weight: 400; }
+.numbers .split .bars { background: #1F2125; border-color: #1F2125; }
+.numbers .split .bars span { border-right-color: var(--screen); }
+.numbers .split .bars .seg-c { background: repeating-linear-gradient(90deg, var(--glow) 0 6px, #D66F1C 6px 8px); box-shadow: 0 0 10px rgba(248,132,37,.45); }
+.numbers .split .txt { color: var(--glow); font-family: var(--dot); font-size: 15px; text-shadow: 0 0 8px rgba(248,132,37,.4); }
+.numbers .port { border-color: #6B4424; }
+.numbers .port b { color: #E7B58A; }
+.numbers .nl { color: #A8825F; }
+
+/* 本文の紙 */
+.article .wrap > .prose { border-radius: 20px; border-color: var(--line); }
+.prose li::marker { color: var(--glow); }
+footer { background: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .rd-screen.flick .rd-num, .rd-port::after { animation: none !important; } .postcard, .pc-img img { transition: none; } }
+.prose > h2:first-child { border-top: 0; padding-top: 0; margin-top: 28px; }

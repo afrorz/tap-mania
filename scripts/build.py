@@ -30,7 +30,8 @@ CAT = {c["slug"]: c for c in CATS}
 TODAY = dt.date.today()
 CSS_VER = int((ROOT / "assets" / "tap.css").stat().st_mtime)  # 直したら古い見た目が残らないように
 # 見出しは丸ゴシック、本文と表は読みやすさ優先で Noto Sans JP(2026-11-12 本人「フォントが読みづらい」)
-FONTS = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+FONTS = ("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&family=DotGothic16&family=JetBrains+Mono:wght@400;700"
+         "&family=Noto+Sans+JP:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap")  # 2026-11-21 READOUT
 
 PSE = {  # 仕様書 第3章の3段階
     "confirmed": ("確認済", "メーカー公式ページか取扱説明書で、PSE の表示を確認しました"),
@@ -512,6 +513,78 @@ def pse_badge(p: dict) -> str:
     return f'<span class="pse pse-{st}" title="{e(PSE[st][1])}">PSE {e(PSE[st][0])}</span>'
 
 
+# ── 画面(READOUT、2026-11-21 本人「この方向で入れる」) ─────────────────────
+# 充電器の小さな画面に、取説の数字を出す。「1台だけのとき」と「2台同時のとき」の2つ。
+
+def _w(v: float) -> str:
+    return f"{v:g}"
+
+
+def readout(p: dict) -> dict | None:
+    """画面に出す2つの数字。{one_k, one, two_k, two, note}。数字が取れない物は None"""
+    usb = p.get("usb") or {}
+    ports = [x for x in usb.get("ports") or [] if isinstance(x.get("max_w"), (int, float))]
+    rows = [r for r in sharing_list(p) if r["out"]]
+    if ports and rows:
+        cmax = max([x["max_w"] for x in ports if port_kind(x.get("type")) == "c"] or [x["max_w"] for x in ports])
+        out = rows[0]["out"]
+        two = None
+        if "合計" in out:
+            m = re.search(r"合計[^0-9]*?(\d+(?:\.\d+)?)\s*W", out) or re.search(r"\((\d+(?:\.\d+)?)\s*W\)", out)
+            if m:
+                two = f"計{_w(float(m.group(1)))}W"
+            else:
+                va = re.search(r"(\d+(?:\.\d+)?)\s*V\s*/?\s*(\d+(?:\.\d+)?)\s*A", out)
+                if va:
+                    two = f"計{_w(float(va.group(1)) * float(va.group(2)))}W"
+        else:
+            first = re.split(r"\s+(?:/|or)\s+", out.strip())[0]
+            vals = []
+            for tok in re.split(r"\s*\+\s*", re.sub(r"\([^)]*\)$", "", first)):
+                got = _watts(tok)
+                if got is None:
+                    vals = []
+                    break
+                vals += got
+            if vals:
+                two = "+".join(_w(v) for v in vals) + "W"
+        if not two:
+            return None
+        return {"one_k": "1台だけ", "one": f"{_w(cmax)}W", "two_k": "2台同時", "two": two,
+                "note": f'{rows[0]["use"]}: {out}'}
+    o, r = p.get("outlets") or {}, p.get("rating") or {}
+    if o.get("ac") and r.get("watt_max"):
+        return {"one_k": "AC", "one": f'{o["ac"]}口', "two_k": "全部で", "two": f'{r["watt_max"]:,}W', "note": ""}
+    return None
+
+
+def strip_html(p: dict) -> str:
+    rd = readout(p)
+    if not rd:
+        return ""
+    return (f'<div class="rd-strip" aria-label="{e(rd["one_k"])} {e(rd["one"])}、{e(rd["two_k"])} {e(rd["two"])}">'
+            f'<div><small>{e(rd["one_k"])}</small><b>{e(rd["one"])}</b></div><span class="rd-arrow" aria-hidden="true">▶</span>'
+            f'<div><small>{e(rd["two_k"])}</small><b>{e(rd["two"])}</b></div></div>')
+
+
+def device_html(p: dict, autoplay: bool = False) -> str:
+    """押せる画面。右の差し込み口を押すと「2台目を挿した」数字に変わる。2台の数字が無い物は出さない"""
+    rd = readout(p)
+    if not rd or rd["one_k"] != "1台だけ":
+        return ""
+    one = rd["one"].removesuffix("W")
+    two = rd["two"].removesuffix("W")
+    note2 = "2台同時に挿したとき(合計)" if two.startswith("計") else "2台同時に挿したとき"
+    return (f'<div class="rd-device" data-one="{e(one)}" data-two="{e(two)}" data-one-note="1台だけ挿したとき" '
+            f'data-two-note="{e(note2)}"{" data-autoplay=\"1\"" if autoplay else ""}>'
+            '<div class="rd-screen" aria-live="polite"><div class="rd-row"><span>OUTPUT</span><span class="rd-mode">1台</span></div>'
+            f'<div class="rd-watt"><span class="rd-num">{e(one)}</span><span class="rd-unit">W</span></div>'
+            '<div class="rd-foot">1台だけ挿したとき</div></div>'
+            '<div class="rd-ports"><span class="rd-port on" aria-hidden="true"><span class="rd-lbl">1台目</span></span>'
+            '<button type="button" class="rd-port" aria-pressed="false" aria-label="2台目を挿す"><span class="rd-lbl">2台目</span></button></div>'
+            '<p class="rd-cap"><b>右の差し込み口を押す</b>と、2台目を挿したときの数字に変わります</p></div>')
+
+
 def img(p: dict, cls: str = "pimg") -> str:
     if not p.get("image"):
         return f'<div class="{cls} noimg">{e(p["maker"])}</div>'
@@ -921,7 +994,14 @@ def post_card(a: dict, big: bool = False) -> str:
            if im else '<figure class="pc-img noimg"></figure>')
     return (f'<a class="postcard{" big" if big else ""}" href="{a["url"]}">{pic}<div class="pc-body">'
             f'<p class="pc-meta"><span>{e(CAT[p["category"]]["name"])}</span><time>{e(a["date"])}</time></p>'
-            f'<b>{e(a["title"])}</b><span class="tags">{key_chips(p)}</span></div></a>')
+            f'<b>{e(catch(a))}</b><span class="pc-model">{e(p["maker"])} {e(p["model"])}</span>{strip_html(p)}</div></a>')
+
+
+def catch(a: dict) -> str:
+    """題名から後ろの「メーカー 型番」を除いた特徴の部分(カードでは型番を別の行に出すため)"""
+    tail = f'{a["p"]["maker"]} {a["p"]["model"]}'
+    t = str(a["title"]).strip()
+    return t[:-len(tail)].strip() if t.endswith(tail) and t[:-len(tail)].strip() else t
 
 
 def post_h1(a: dict) -> str:
@@ -934,6 +1014,22 @@ def post_h1(a: dict) -> str:
         return (f'<h1 class="ph1"><span class="catch">{e(t[:-len(tail)].strip())}</span>'
                 f'<span class="pname">{e(p["maker"])} <b>{e(p["model"])}</b></span></h1>')
     return f'<h1>{e(t)}</h1>'
+
+
+def side_specs(p: dict) -> str:
+    """記事の横の、ひと目でわかる仕様"""
+    b, usb, r, o = p.get("battery") or {}, p.get("usb") or {}, p.get("rating") or {}, p.get("outlets") or {}
+    cmax = max([x.get("max_w") or 0 for x in usb_c_ports(p)] or [0])
+    rows = [("容量", f'{b["mah"]:,}mAh' + (f' / {b["wh"]:g}Wh' if b.get("wh") else "")) if b.get("mah") else None,
+            ("電池", e(b["cell"])) if b.get("cell") else None,
+            ("差し込み口", f'{o["ac"]}個口') if p["category"] in TAP_CATS and o.get("ac") else None,
+            ("合計の最大", f'{r["watt_max"]:,}W') if p["category"] in TAP_CATS and r.get("watt_max") else None,
+            ("USB-C 1ポート最大", f"{cmax:g}W") if cmax else None,
+            ("USB の合計", f'{usb["total_w"]:g}W') if usb.get("total_w") else None,
+            ("重さ", f'{p["weight_g"]:g}g') if p.get("weight_g") else None,
+            ("パススルー", "あり" if b["passthrough"] else '<span class="no">なし</span>') if "passthrough" in b and b["passthrough"] is not None else None,
+            ("PSE", pse_badge(p))]
+    return "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in (x for x in rows if x))
 
 
 def build_post(a: dict) -> str:
@@ -955,17 +1051,25 @@ def build_post(a: dict) -> str:
         f'<li><a href="{e(s["url"])}">{e(s["name"])}</a>(取得 {e(s.get("date", ""))})</li>' for s in srcs) + "</ol>") if srcs else ""
     usb_part = (f'<h3>同時に挿したときの配り方</h3>{sharing_html(p)}' if (p.get("usb") or {}).get("sharing") else "")
     others = [x for x in POSTS if x["slug"] != a["slug"]][:3]
-    released = f' ・ 発売 {e(a["released"])}' if a.get("released") else ""
+    released = f'<time>発売 {e(a["released"])}</time>' if a.get("released") else ""
     body = f"""<main class="article post"><div class="wrap">
 <p class="crumb"><a href="/">トップ</a> › <a href="/p/">新製品</a> › {e(CAT[p['category']]['name'])}</p>
-<p class="pc-meta"><span>{e(p['maker'])}</span><time>{e(a['date'])}</time>{released}</p>
+<div class="art-head">
+<div class="art-main">
+<p class="pc-meta"><span>{e(CAT[p['category']]['name'])}</span><time>掲載 {e(a['date'])}</time>{released}</p>
 {post_h1(a)}
 <p class="lead">{e(a['summary'])}</p>
 {gallery}
-{'<script src="/assets/gallery.js" defer></script>' if gallery else ''}
-<div class="post-head"><span class="tags">{key_chips(p)}</span>{pse_badge(p)}</div>
-{('<p class="small">値段: ' + e(p['price']) + '</p>') if p.get('price') else ''}
+</div>
+<aside class="side">
+{device_html(p)}
+<dl class="side-specs">{side_specs(p)}</dl>
 {store_buttons(p, 'post-top')}
+{('<p class="side-price">' + e(p['price']) + '(掲載時点)</p>') if p.get('price') else ''}
+</aside>
+</div>
+{'<script src="/assets/gallery.js" defer></script>' if gallery else ''}
+<script src="/assets/readout.js" defer></script>
 {intro}
 <div class="prose">{markdown.markdown(a['body'], extensions=['tables'])}</div>
 <section class="numbers">
@@ -1129,37 +1233,58 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
     usb_rows = "".join(f'<li><a href="/usb-c/#{p["id"]}"><b>{e(p["maker"])} {e(p["model"])}</b>'
                        f'<span>1ポート最大 {num(max(x.get("max_w") or 0 for x in usb_c_ports(p)), "W")} → USB-C 2本なら {two_c(p)}</span></a></li>'
                        for p in usbs[:6])
-    posts = POSTS[:7]
+    posts = POSTS[:6]
     news = ""
     if posts:
-        news = (f'<section class="band"><div class="wrap"><h2>新製品</h2>'
-                f'<div class="postgrid lead-grid">{post_card(posts[0], big=True)}{"".join(post_card(a) for a in posts[1:])}</div>'
-                + ('<p><a href="/p/">新製品をすべて見る</a></p>' if len(POSTS) > 7 else "") + "</div></section>")
+        news = (f'<section class="band"><div class="wrap"><div class="sec-head"><h2><small>NEW ARRIVALS</small>新製品</h2>'
+                f'<a href="/p/">すべて見る →</a></div>'
+                f'<div class="postgrid g3">{"".join(post_card(a) for a in posts)}</div></div></section>')
     feats = ""
     if FEATURES:
-        feats = (f'<section class="band alt"><div class="wrap"><h2>特集</h2>'
-                 f'<div class="postgrid">{"".join(feature_card(f) for f in FEATURES[:3])}</div>'
-                 + ('<p><a href="/f/">特集をすべて見る</a></p>' if len(FEATURES) > 3 else "") + "</div></section>")
+        feats = (f'<section class="band"><div class="wrap"><div class="sec-head"><h2><small>FEATURES</small>特集</h2>'
+                 f'<a href="/f/">すべて見る →</a></div>'
+                 f'<div class="postgrid g3">{"".join(feature_card(f) for f in FEATURES[:3])}</div></div></section>')
+    # 頭の画面には、いちばん新しい「2台目で数字が落ちる」製品を出す(2026-11-21 READOUT)
+    # 新しい3本のうち、2台目でいちばん大きく落ちる物(合計の書き方のもの)
+    def drop(a):
+        rd = readout(a["p"]) or {}
+        if rd.get("one_k") != "1台だけ" or not rd["two"].startswith("計"):
+            return -1
+        return float(rd["one"][:-1]) / float(rd["two"][1:-1].replace(",", ""))
+    cands = [a for a in POSTS[:3] if drop(a) > 1]
+    star = max(cands, key=drop) if cands else next((a for a in POSTS if (readout(a["p"]) or {}).get("one_k") == "1台だけ"), None)
+    if star:
+        rd = readout(star["p"])
+        sp = star["p"]
+        shot = post_images(star)
+        pill_img = f'<img src="{e(shot[0]["src"])}" alt="" referrerpolicy="no-referrer">' if shot else ""
+        hero_l = (f'<h1>1台なら{e(rd["one"])}。<br>2台なら<em>{e(rd["two"])}</em>。</h1>'
+                  f'<p class="lead">{e(SITE["description"])}</p>'
+                  f'<a class="source" href="{star["url"]}">{pill_img}<span>{e(sp["maker"])} {e(sp["model"])}<br>'
+                  f'<span class="mono">取扱説明書・公式の仕様より</span></span></a>')
+        hero_r = device_html(sp, autoplay=True)
+    else:
+        hero_l = f'<h1>{e(SITE["tagline"])}</h1><p class="lead">{e(SITE["description"])}</p>'
+        hero_r = hero_img
     body = f"""<main>
 <section class="hero"><div class="wrap">
-  {hero_img}
-  <div>
-    <p class="label">{e(SITE.get('title_en') or '')} · gadget news</p>
-    <h1>{e(SITE['tagline'])}</h1>
-    <p>{e(SITE['description'])}</p>
-    <p class="hero-q">「取説、最後まで読んだ？」 ── タプ夫</p>
+  <div class="hero-l">
+    <p class="kicker">{e(SITE['tagline'])} <span>READ THE MANUAL</span></p>
+    {hero_l}
   </div>
+  <div class="hero-r">{hero_r}</div>
 </div></section>
+<script src="/assets/readout.js" defer></script>
 {news}
 {feats}
 <section class="band"><div class="wrap">
-  <h2>2台目を挿すと何Wになるか</h2>
+  <div class="sec-head"><h2><small>USB-C SHARING</small>2台目を挿すと何Wになるか</h2><a href="/usb-c/">全機種の表 →</a></div>
   <p>「最大◯W」は1ポートだけ使ったときの数字です。同時に挿したときの配り方を、取扱説明書の表から全機種ぶん並べています。</p>
   <ul class="qlist">{usb_rows}</ul>
   <p><a class="btn buy" href="/usb-c/">USB-C の配り方の全機種表を見る</a></p>
 </div></section>
 <section class="band"><div class="wrap">
-  <h2>載せている機種</h2>
+  <div class="sec-head"><h2><small>ALL MODELS</small>載せている機種</h2><a href="/compare/">比べ表 →</a></div>
   <div class="pgrid">{''.join(pcard(p) for p in newest)}</div>
   <p><a href="/compare/">全機種の比べ表を見る</a> ・ <a href="/tools/watt/">消費電力の計算機</a>{' ・ <a href="/q/">疑問に答える</a>' if arts else ''}</p>
 </div></section>
