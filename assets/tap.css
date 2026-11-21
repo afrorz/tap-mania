@@ -436,3 +436,7 @@ button.rd-port { cursor: pointer; }
 footer { background: var(--ink); }
 @media (prefers-reduced-motion: reduce) { .rd-screen.flick .rd-num, .rd-port::after { animation: none !important; } .postcard, .pc-img img { transition: none; } }
 .prose > h2:first-child { border-top: 0; padding-top: 0; margin-top: 28px; }
+/* 画面の小さい文字は明るく・大きく(2026-11-21 本人「見えにくい」) */
+.rd-row, .rd-foot { font-size: 14px; color: #FFB476; letter-spacing: .08em; }
+.rd-strip small { font-size: 12px; color: #FFB476; }
+.rd-strip .rd-arrow { color: #B9773F; }
