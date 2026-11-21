@@ -510,6 +510,10 @@ footer { background: var(--ink); }
 .pf-cable i::before { content: ""; position: absolute; left: 1px; top: 1px; width: 12px; height: 12px; border: 2px solid var(--ink); border-radius: 50%; }
 .pf-cable i::after { content: ""; position: absolute; right: 0; bottom: 2px; width: 8px; height: 4px; border-radius: 2px; background: var(--c); }
 .pf-wl i { width: 17px; height: 17px; border-radius: 50%; border: 2px dashed var(--w); }
+.pf-plug i { width: 18px; height: 14px; margin-bottom: 2px; }
+.pf-plug i::before, .pf-plug i::after { content: ""; position: absolute; top: 0; width: 3px; height: 12px; border-radius: 1px; background: var(--ink); }
+.pf-plug i::before { left: 4px; } .pf-plug i::after { right: 4px; }
+.pf-line i { width: 30px; height: 3px; border-radius: 2px; background: var(--ink); margin: 0 0 13px; }
 /* 横スライドの下に回した取説の画面の見出し */
 .hero .hero-h { font-size: clamp(26px, 4.4vw, 40px); margin: 6px 0 10px; font-weight: 900; display: block; }
 .hero .hero-h::before { display: none; }
@@ -598,3 +602,76 @@ button.lcd-port { cursor: pointer; }
   .dig { gap: 2px 10px; font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) { .dot::after { animation: none; } }
+
+/* ── ヘッダ: モックの形(2026-11-21 本人「ヘッダもモックと同じに」) ── */
+header.top { background: rgba(236,238,241,.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line2); }
+header.top .wrap { min-height: 60px; flex-wrap: nowrap; padding-top: 0; padding-bottom: 0; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.brand .bolt { width: 36px; height: 22px; flex: none; }
+.brand b { font: 900 24px/1 var(--disp); }
+.brand span { font: 800 10.5px/1.15 var(--wide); font-stretch: 125%; letter-spacing: .16em; color: var(--sub); align-self: center; }
+.gnav { flex-wrap: nowrap; gap: 4px; }
+.gnav a { padding: 6px 12px; border-radius: 999px; color: var(--sub); white-space: nowrap; }
+.gnav a:hover, .gnav a[aria-current] { color: var(--ink); background: var(--panel); box-shadow: none; }
+@media (max-width: 860px) {
+  header.top .wrap { flex-wrap: wrap; padding-top: 10px; padding-bottom: 4px; min-height: 0; gap: 6px; }
+  .gnav { width: 100%; overflow-x: auto; scrollbar-width: none; font-size: 13px; }
+  .gnav::-webkit-scrollbar { display: none; }
+  .gnav a { padding: 4px 10px; }
+}
+
+/* ── 新製品記事: モックの形(2026-11-21 本人「記事ページもモックの形に」= mock/v3/article.html) ── */
+.post3 .wrap { max-width: 1160px; }
+.post3 .crumb { padding-top: 24px; font: 400 12px/1.6 var(--mono); color: var(--sub); }
+.post3 .crumb a { color: inherit; text-decoration: none; }
+.a3-head { padding: 12px 0 24px; }
+.a3-head h1 { font: 900 clamp(30px, 4.4vw, 56px)/1.2 var(--disp); margin: 12px 0 10px; }
+.a3-head .maker { font-weight: 700; margin: 0 0 12px; }
+.dig.big { border: 0; padding: 0; margin: 4px 0 0; font-size: 13px; }
+.dig.big b { font-size: 24px; }
+.a3-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; align-items: start; padding-bottom: 40px; }
+.a3-grid .anat { background: var(--panel); border: 1px solid var(--line); }
+.a3-grid .anat.solo { grid-template-columns: minmax(0, 1fr); }
+.a3-grid .anat.solo .anat-ph { aspect-ratio: 4 / 3; }
+.a3-grid .anat-ph img { padding: 14px; }
+.a3-thumbs { display: flex; gap: 10px; margin-top: 12px; overflow-x: auto; }
+.a3-thumbs button { flex: none; width: 72px; height: 72px; padding: 6px; background: var(--tile); border: 1px solid var(--line); border-radius: 14px; cursor: pointer; }
+.a3-thumbs button[aria-current] { border-color: var(--ink); }
+.a3-thumbs img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.post3 .credit { font-size: 12px; color: var(--sub); margin-top: 8px; }
+.a3-side { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 14px; }
+.a3-side .side-h { margin: 0; font: 800 11px/1 var(--wide); font-stretch: 125%; letter-spacing: .2em; color: var(--sub); text-transform: uppercase; display: block; }
+.a3-side .side-h::before { display: none; }
+.a3-side .sum { margin: 0; font-size: 15px; color: var(--sub); }
+.a3-side .btns { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin: 0; }
+.a3-side .btn, .prose3 .btn { display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 14px; text-align: center; }
+.a3-side .adnote { margin: 0; }
+.a3-side .ad { margin: 0; font-size: 12px; color: var(--sub); text-align: center; }
+.pf.big { gap: 14px 20px; padding: 16px 18px 12px; border-radius: 16px; background: var(--panel); border: 1px solid var(--line); }
+.pf.big .pf-i i { transform: scale(1.4); transform-origin: 50% 100%; margin-bottom: 6px; }
+.pf.big .pf-i small { font-size: 11px; }
+.pf-i small em { display: block; font-style: normal; color: var(--otext); margin-top: 3px; text-align: center; }
+@media (max-width: 1000px) { .a3-grid { grid-template-columns: minmax(0, 1fr); } .a3-side { position: static; } }
+.prose3 { max-width: 760px; }
+.prose3 .prose { background: none; border: 0; padding: 0; }
+.prose3 h2, .post3 .more-h { font: 900 26px/1.4 var(--disp); margin: 48px 0 16px; padding-top: 18px; border-top: 1px solid var(--ink); display: block; }
+.prose3 h2::before, .post3 .more-h::before { display: none; }
+.prose3 .prose p, .prose3 .prose li { font-size: 17px; }
+.gaps { margin: 48px 0; background: var(--panel); border: 1px solid var(--line); border-left: 6px solid var(--glow); border-radius: 16px; padding: 4px 22px 14px; }
+.gaps h2 { border: 0 !important; padding-top: 10px !important; margin-top: 14px !important; }
+.gaps .g-lead { font-size: 15px; color: var(--sub); }
+.gaps li { font-size: 15px; margin: 6px 0; }
+.tbl { overflow-x: auto; }
+.share3 { border-collapse: collapse; width: 100%; font-size: 14px; background: var(--panel); border-radius: 12px; }
+.share3 th, .share3 td { text-align: left; padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+.share3 th { font-family: var(--mono); white-space: nowrap; width: 8em; }
+.small-src { font-size: 12px; color: var(--sub); }
+.all { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin: 0; }
+.all div { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.all dt { font-size: 12px; color: var(--sub); }
+.all dd { margin: 0; font-size: 14px; line-height: 1.6; }
+.srcs { font-size: 14px; }
+@media (max-width: 640px) { .all { grid-template-columns: minmax(0, 1fr); } .a3-head h1 { font-size: 30px; } }
+
+.adwrap { max-width: 1160px; }
+.adwrap .adnote { margin: 8px 0 0; }

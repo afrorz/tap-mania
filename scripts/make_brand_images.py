@@ -62,17 +62,23 @@ def draw_name(d, x, y, size, en_size):
     return box[2], nh
 
 
-BOLT = [(22.5, 6), (11, 22.5), (19, 22.5), (16.5, 34), (29, 16.5), (20.8, 16.5)]
+BOLT = [(20, 14.5), (14.5, 21), (18, 21), (16.5, 25.5), (22.5, 19), (19, 19)]
 
 
 def bolt_icon(size):
-    """黒い角丸の四角にオレンジの稲妻(2026-11-21 本人「タイトルの左に充電をイメージするアイコン」→ A 案)。
-    4倍で描いて縮め、ふちを滑らかにする"""
-    k = size * 4 / 40
+    """オレンジのバッテリー(中に黒い稲妻)。背景は透明。
+    2026-11-21 本人 A 案(稲妻)→ 同日「バッテリーアイコンにしよう」→「縁取りの四角い枠はいらないかも」。
+    40 の方眼で描いた形を 32 の四角に収める。4倍で描いて縮め、ふちを滑らかにする"""
+    k = size * 4 / 32
+
+    def T(x, y):
+        return ((x - 4.5) * k, (y - 4) * k)
     big = Image.new("RGBA", (size * 4, size * 4), (0, 0, 0, 0))
     d = ImageDraw.Draw(big)
-    d.rounded_rectangle((0, 0, size * 4 - 1, size * 4 - 1), radius=round(10 * k), fill=INK)
-    d.polygon([(x * k, y * k) for x, y in BOLT], fill=ORANGE)
+    d.rounded_rectangle((*T(6, 12), *T(31, 28)), radius=round(3 * k), outline=ORANGE, width=round(2.6 * k))
+    d.rounded_rectangle((*T(32.5, 17), *T(35, 23)), radius=round(1 * k), fill=ORANGE)
+    d.rounded_rectangle((*T(9.5, 15.5), *T(27.5, 24.5)), radius=round(1.5 * k), fill=ORANGE)
+    d.polygon([T(x, y) for x, y in BOLT], fill=INK)
     return big.resize((size, size), Image.LANCZOS)
 
 

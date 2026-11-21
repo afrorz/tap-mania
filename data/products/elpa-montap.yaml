@@ -1,0 +1,41 @@
+id: elpa-montap
+maker: ELPA(朝日電器)
+model: "montap(3個口)"
+name: "モンタップ(montap)3個口タイプ"
+category: tap
+image: "https://prcdn.freetls.fastly.net/release_image/173633/10/173633-10-c10ea7211b937ccbd9105761d6963d73-3900x2194.jpg?width=1200"
+image_credit: "朝日電器 プレスリリース"
+official_url: "https://www.makuake.com/project/montap/"
+checked: 2026-11-21
+
+pse:
+  status: unconfirmed
+  how: "プレスリリースに「特定電気用品として PSE マークの正式認証を取得」、Makuake に「ひし形PSEマーク取得」とあるが、届出事業者名・登録検査機関名は文面に記載なし"
+  date: 2026-11-21
+
+rating:
+  volt: 125
+  amp: 15
+  watt_max: 1500
+cord:
+  length_m: 1.5
+  type: "独自配合のしなやかな素材(公式の書き方)。本体・脚・コード・プラグは同じ色"
+outlets:
+  ac: 3
+size: "約117 × 46 × 42.2mm(コード除く。Makuake の仕様表)"
+weight_g: 215
+colors: [ホワイト, グレー, ベージュ, オレンジ]
+seller_jp: "朝日電器株式会社"
+recall_checked: 2026-11-21
+recall: none
+
+stores: []   # 一般販売は 2027年1月以降。いまは Makuake の先行販売だけ
+price: "一般販売の予定価格 5,870円(税込)。Makuake では早割 4,690円から"
+note: |
+  4本のシリコン脚で本体を持ち上げて置く形(プレスリリースの書き方は「4本脚のフォルム(小動物が佇むような形状)」)。脚は取り外せない。滑りにくく、机を傷つけにくい。形は意匠出願中。
+  表面は陶器風のマットな微細シボ。素材は本体 ABS+PC、刃受けカバー ユリア樹脂、脚 シリコン樹脂。プラグは L 字型。
+  使わない差し込み口には、フィギュア付きのコンセントキャップ(16種・ランダム)を付ける。トラッキング対策と遊び心を兼ねる(公式の書き方)。キャップは別売で、Makuake の全リターンに付く。
+  スイッチ・ほこりシャッター・雷サージは公式に記載なし。型番は公式に記載なし。
+  USB-C 付きのタイプもある: AC 3個口 + USB-C 1ポート(PD 20W・5V 3A / 9V 2.22A / 12V 1.67A)、AC 14A 100V(合計 1400W)、約155 × 46 × 42.2mm・約270g、一般販売の予定価格 6,970円。
+  Makuake の先行販売は 2026-09-15〜12-15、出荷は 2027年1月中旬から。プレスリリースの大きさの並びは 117 × 42 × 46mm で、仕様表と順序が違う。
+  出典: Makuake https://www.makuake.com/project/montap/ ・ プレスリリース https://prtimes.jp/main/html/rd/p/000000010.000173633.html

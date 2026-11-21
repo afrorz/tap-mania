@@ -1,0 +1,40 @@
+id: elecom-mpa-ccecdf10bf
+maker: エレコム
+model: MPA-CCECDF10BF
+name: "しろちゃんディスプレイケーブル(USB-C - USB-C/100W/メッシュ)1.0m ブラック"
+category: cable
+image: "https://www.elecom.co.jp/photo/p01/MPA-CCECDF10BF_01.jpg"   # プログラムからは 403。ブラウザでは開ける
+image_credit: "エレコム 公式サイト"
+official_url: "https://www.elecom.co.jp/products/MPA-CCECDF10BF.html"
+checked: 2026-11-21
+
+pse:
+  status: unconfirmed
+  how: "USB ケーブル。公式製品ページ・プレスリリースに PSE の記載なし"
+  date: 2026-11-21
+
+cable:
+  ends: "USB Type-C プラグ - USB Type-C プラグ"
+  max_w: 100
+  power: "USB Power Delivery 対応・最大 100W(20V/5A)"
+  data: "Hi-Speed USB(USB2.0)・最大 480Mbps(理論値)"
+  video: false
+  emarker: true
+  length: "約1m(コネクター含まず)・ケーブル径 約3.5mm"
+  jacket: "傷に強いナイロンメッシュ。コネクターはアルミニウム、金メッキピン、2重シールド"
+  display: "接続するとコネクター部のディスプレイにしろちゃんが表示され、充電電力の変化に合わせて、眠っている表情から目を覚ました表情まで段階的に変わる(公式の書き方)"
+colors: [ブラック, ホワイト]
+warranty: "1年"
+seller_jp: "エレコム株式会社"
+recall_checked: 2026-11-21
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "MPA-CCECDF10BF"
+price: "2,827円(税込・エレコム公式の標準価格)"
+note: |
+  型番は 1m ブラック MPA-CCECDF10BF・2m ブラック MPA-CCECDF20BF・1m ホワイト MPA-CCECDF10WF・2m ホワイト MPA-CCECDF20WF。
+  ワイヤレスイヤホンなど消費電力の小さい機器では、充電中にしろちゃんが Sleep フェイスから変わらないことがある(公式の注意)。何W でどの表情になるかは公式に書かれていない。
+  映像出力(DisplayPort Alternate Mode)には対応していない。TDR コンプライアンステストはエレコムの測定でクリア。付属はケーブルバンドとしろちゃんステッカー1枚。
+  発売はプレスリリース(2026-11-04)で「10月下旬より新発売」、店頭実勢価格は 1m 1,980円・2m 2,080円(税込)。製品ページは 11/21 時点で「近日発売」のまま。
+  出典: 製品ページ https://www.elecom.co.jp/products/MPA-CCECDF10BF.html ・ プレスリリース https://www.elecom.co.jp/news/new/20261104-07/

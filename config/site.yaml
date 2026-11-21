@@ -40,6 +40,7 @@ categories:
   - {slug: extension,     name: 延長コード}
   - {slug: ups,           name: UPS}
   - {slug: power-station, name: ポータブル電源}
+  - {slug: cable,         name: ケーブル}          # 2026-11-21 本人がケーブルも足した(まずしろちゃん)
 
 # 比べ表の用途別ページ(/compare/<slug>/)。where は製品データでの絞り込み
 #   usb_c: USB-C ポートがある / surge: 雷サージあり / min_ac: 口数がこれ以上 / category: 区分

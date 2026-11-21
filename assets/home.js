@@ -27,3 +27,12 @@ document.querySelectorAll(".lcd").forEach((el) => {
     io.observe(el);
   }
 });
+// 記事の小さい写真を押すと、大きい写真が入れ替わる(解剖図の番号は1枚目だけ)
+document.querySelectorAll(".a3-thumbs button").forEach((b, i, all) => b.addEventListener("click", () => {
+  const ph = document.querySelector(".a3-grid .anat-ph");
+  if (!ph) return;
+  ph.querySelector("img").src = b.querySelector("img").src;
+  ph.querySelectorAll(".dot").forEach((d) => (d.hidden = i !== 0));
+  all.forEach((x) => x.removeAttribute("aria-current"));
+  b.setAttribute("aria-current", "true");
+}));

@@ -237,24 +237,24 @@ def page(*, title: str, desc: str, path: str, body: str, current: str = "", imag
     for block in ld or []:
         extra += '<script type="application/ld+json">' + json.dumps(block, ensure_ascii=False).replace("</", "<\\/") + "</script>\n"
     if asset_exists("favicon.ico"):
-        extra += '<link rel="icon" href="/assets/favicon.ico?v=2" sizes="any">\n'
+        extra += '<link rel="icon" href="/assets/favicon.ico?v=4" sizes="any">\n'
     if asset_exists("favicon-32.png"):
-        extra += '<link rel="icon" href="/assets/favicon-32.png?v=2" type="image/png" sizes="32x32">\n'
+        extra += '<link rel="icon" href="/assets/favicon-32.png?v=4" type="image/png" sizes="32x32">\n'
     if asset_exists("apple-touch-icon.png"):
         extra += '<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n'
     year = TODAY.year
     years = f"{SITE['copyright_from']}" + (f"–{year}" if year > SITE["copyright_from"] else "")
     ad_line = f"このサイトはアフィリエイト広告({AFF_SHOPS})を含みます" if HAS_AFF else "Gadget Terminal の姉妹サイト"
-    top_ad = f'<div class="wrap">{AD_NOTE}</div>' if (pr and HAS_AFF) else ""
-    logo_img = SITE.get("logo_image") or ""
-    if logo_img and asset_exists(logo_img):
-        # 2026-11-18 本人「キャッチコピーはロゴの右に」。画像は名前だけにして、キャッチコピーは文字で右に置く
-        logo = (f'<img src="/assets/{e(logo_img)}?v={CSS_VER}" alt="{e(SITE["title"])} {e(SITE.get("title_en", ""))}" height="40">'
-                f'<span class="logo-tag">{e(SITE["tagline"])}</span>')
-    else:  # 名前の入っていないタプ夫の顔と、文字のサイト名
-        icon = ('<img class="logo-face" src="/assets/chara/face-futsu.png" alt="" width="40" height="40">'
-                if asset_exists("chara/face-futsu.png") else "")
-        logo = f'{icon}<span class="logo-text"><b>{e(SITE["title"])}</b><span>{e(SITE["tagline"])}</span></span>'
+    top_ad = f'<div class="wrap adwrap">{AD_NOTE}</div>' if (pr and HAS_AFF) else ""
+    # ヘッダはモックの形(2026-11-21 本人「ヘッダもモックと同じに」)。稲妻のアイコン(本人 A 案)＋文字の名前＋英字
+    # アイコンは 11/21 本人「バッテリーアイコンにしよう」、英字は「改行してみて」で2行
+    en = e((SITE.get("title_en") or "Charge Mania").upper()).replace(" ", "<br>")
+    logo = ('<svg class="bolt" viewBox="4.5 10.5 31 19" aria-hidden="true">'
+            '<rect x="7.3" y="13.3" width="22.4" height="13.4" rx="2.4" fill="none" stroke="#F88425" stroke-width="2.6"/>'
+            '<rect x="32.5" y="17" width="2.5" height="6" rx="1" fill="#F88425"/>'
+            '<rect x="9.5" y="15.5" width="18" height="9" rx="1.5" fill="#F88425"/>'
+            '<path d="M20 14.5 14.5 21H18l-1.5 4.5 6-6.5H19z" fill="#0E1013"/></svg>'
+            f'<b>{e(SITE["title"])}</b><span>{en}</span>')
     x = (f' ・ <a href="https://x.com/{e(SITE["x_account"])}">X @{e(SITE["x_account"])}</a>' if SITE.get("x_account") else "")
     return f"""<!doctype html>
 <html lang="ja">
@@ -277,7 +277,7 @@ def page(*, title: str, desc: str, path: str, body: str, current: str = "", imag
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="/">{logo}</a>
+    <a class="brand" href="/" aria-label="{e(SITE['title'])} トップ">{logo}</a>
     {nav(current)}
   </div>
 </header>
@@ -482,6 +482,22 @@ def usb_rows(p: dict) -> list[tuple[str, str]]:
 def gadget_rows(p: dict) -> list[tuple[str, str]]:
     """充電器・モバイルバッテリーの表"""
     rows: list[tuple[str, str]] = []
+    if p["category"] == "cable":  # 2026-11-21 本人がケーブルも扱う範囲に足した
+        c = p.get("cable") or {}
+        return [
+            ("コネクター", txt(c.get("ends"))),
+            ("最大の電力", txt(c.get("power"))),
+            ("データ転送", txt(c.get("data"))),
+            ("映像出力", yesno(c.get("video"))),
+            ("e-Marker", yesno(c.get("emarker"))),
+            ("長さ", txt(c.get("length"))),
+            ("被ふく・コネクター", txt(c.get("jacket"))),
+            ("ディスプレイ", txt(c.get("display"))),
+            ("色", txt("・".join(p.get("colors") or []))),
+            ("保証", txt(p.get("warranty"))),
+            ("国内の販売者", txt(p.get("seller_jp"))),
+            ("値段(掲載時点)", txt(p.get("price"))),
+        ]
     if p["category"] == "battery":
         b = p.get("battery") or {}
         rows += [
@@ -509,6 +525,8 @@ def gadget_rows(p: dict) -> list[tuple[str, str]]:
 
 
 def pse_badge(p: dict) -> str:
+    if p["category"] == "cable":  # ケーブルには PSE の札を出さない(公式にも記載が無い)
+        return ""
     st = p["pse"]["status"]
     return f'<span class="pse pse-{st}" title="{e(PSE[st][1])}">PSE {e(PSE[st][0])}</span>'
 
@@ -618,6 +636,8 @@ def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
                 + (f'<table class="spec"><tr><th>届出事業者名</th><td>{e(pse["notifier"])}</td></tr>{insp}'
                    f'<tr><th>確かめた方法</th><td>{e(pse["how"])}</td></tr>'
                    f'<tr><th>確かめた日</th><td>{e(pse["date"])}</td></tr></table>' if st != "unconfirmed" else ""))
+    if p["category"] == "cable":
+        pse_html = "<p>公式の製品ページ・プレスリリースに、PSE の記載はありません。</p>"
     rc = p.get("recall")
     if p.get("recall_checked"):
         rc_html = (f"消費者庁リコール情報サイトと NITE で型番「{e(p['model'])}」を引いた結果、該当するリコールは見つかりませんでした({e(p['recall_checked'])} 時点)。"
@@ -1033,54 +1053,90 @@ def side_specs(p: dict) -> str:
 
 
 def build_post(a: dict) -> str:
+    """新製品記事(2026-11-21 本人「記事ページもモックの形に」= mock/v3/article.html)
+    頭: 特徴の大見出し・メーカーと型番・掘った量 / 左: 写真(解剖図があれば番号つき)と小さい写真 / 右: ポートの顔・要約・買うボタン
+    下: タプ夫・本文・公式の中の食い違い・同時に挿したときの配り方(全部)・全部の数字・読んだ資料"""
     p = a["p"]
     im = post_images(a)
-    gallery = ""
-    if im:
-        # 小さい写真を押すと上の大きい写真が入れ替わる。大きい写真を押すと画面いっぱいに出る(2026-11-15 本人)
-        thumbs = "".join(f'<button type="button" class="th{" on" if i == 0 else ""}" aria-label="{i + 1}枚目を大きく表示">'
-                         f'<img src="{e(x["src"])}" alt="{e(x["alt"])}" loading="lazy" referrerpolicy="no-referrer"></button>'
-                         for i, x in enumerate(im)) if len(im) > 1 else ""
-        gallery = (f'<figure class="gallery"><button type="button" class="zoom" aria-label="写真を拡大する">'
-                   f'<img class="main" src="{e(im[0]["src"])}" alt="{e(im[0]["alt"])}" referrerpolicy="no-referrer"></button>'
-                   + (f'<div class="thumbs">{thumbs}</div>' if thumbs else "")
-                   + f'<figcaption>画像: {e(a.get("image_credit") or p.get("image_credit") or p["maker"] + " 公式サイト")}</figcaption></figure>')
+    an = {}
+    ap = ROOT / "data" / "anatomy.yaml"
+    if ap.exists():
+        an = yaml.safe_load(ap.read_text(encoding="utf-8")) or {}
+    pts = (an.get("points") or []) if an.get("id") == p["id"] else []
+    dots = "".join(f'<button type="button" class="dot" style="left:{x["x"]}%;top:{x["y"]}%" data-i="{i}" aria-label="{e(x["t"])}">{i + 1}</button>'
+                   for i, x in enumerate(pts))
+    notes = ("<ol class=\"anat-notes\">" + "".join(f'<li data-i="{i}"><b><span>{i + 1}</span>{e(x["t"])}</b><p>{e(x["d"])}</p></li>'
+                                                   for i, x in enumerate(pts)) + "</ol>") if pts else ""
+    # 解剖図の点は、製品データの写真(1枚目と同じ写真)の上の位置
+    first = im[0]["src"] if im else (p.get("image") or "")
+    photo = (f'<div class="anat{" solo" if not pts else ""}"><div class="anat-ph"><img src="{e(first)}" alt="{e(im[0]["alt"] if im else p["name"])}" referrerpolicy="no-referrer">{dots}</div>{notes}</div>'
+             if first else "")
+    thumbs = ""
+    if len(im) > 1:
+        thumbs = '<div class="a3-thumbs">' + "".join(
+            f'<button type="button"{" aria-current=\"true\"" if i == 0 else ""} aria-label="{i + 1}枚目を大きく"><img src="{e(x["src"])}" alt="{e(x["alt"])}" loading="lazy" referrerpolicy="no-referrer"></button>'
+            for i, x in enumerate(im)) + "</div>"
+    credit = e(a.get("image_credit") or p.get("image_credit") or p["maker"] + " 公式サイト")
+    hint = "。番号を押すと、その部分の説明が光ります" if pts else ""
     intro = bubble(a.get("face", "futsu"), a["intro"]) if a.get("intro") else ""
+    g = gaps(p)
+    gap_html = ""
+    if g:
+        gap_html = ('<section class="gaps"><h2>公式の中で、数字が食い違っていた所</h2>'
+                    '<p class="g-lead">製品ページ・取扱説明書・公式画像(早見表や底面ラベル)を突き合わせて見つけた所です。</p>'
+                    '<ul>' + "".join(f"<li>{e(x)}</li>" for x in g) + "</ul></section>")
+    rows = sharing_list(p)
+    share = ""
+    if rows:
+        share = ('<h2>同時に挿したときの配り方(全部の組み合わせ)</h2><div class="tbl"><table class="share3"><tbody>'
+                 + "".join(f'<tr><th>{e(r["use"])}</th><td>{split_bar(p, r["use"], r["out"])}</td></tr>' for r in rows)
+                 + "</tbody></table></div>"
+                 + (f'<p class="small-src">出典: {e((p.get("usb") or {}).get("sharing_source") or "")}</p>' if (p.get("usb") or {}).get("sharing_source") else ""))
+    allrows = spec_rows(p) + (usb_rows(p) if p["category"] in TAP_CATS else [])
+    allrows = [(k, v) for k, v in allrows if k != "同時に使ったときの配り方"]  # 上の表と重なる
+    all_html = "".join(f"<div><dt>{e(k)}</dt><dd>{v}</dd></div>" for k, v in allrows)
     srcs = a.get("sources") or []
-    src_html = ("<h2>出典</h2><ol class=\"src\">" + "".join(
+    src_html = ('<h2>読んだ資料</h2><ol class="srcs">' + "".join(
         f'<li><a href="{e(s["url"])}">{e(s["name"])}</a>(取得 {e(s.get("date", ""))})</li>' for s in srcs) + "</ol>") if srcs else ""
-    usb_part = (f'<h3>同時に挿したときの配り方</h3>{sharing_html(p)}' if (p.get("usb") or {}).get("sharing") else "")
     others = [x for x in POSTS if x["slug"] != a["slug"]][:3]
-    released = f'<time>発売 {e(a["released"])}</time>' if a.get("released") else ""
-    body = f"""<main class="article post"><div class="wrap">
-<p class="crumb"><a href="/">トップ</a> › <a href="/p/">新製品</a> › {e(CAT[p['category']]['name'])}</p>
-<div class="art-head">
-<div class="art-main">
-<p class="pc-meta"><span>{e(CAT[p['category']]['name'])}</span><time>掲載 {e(a['date'])}</time>{released}</p>
-{post_h1(a)}
-<p class="lead">{e(a['summary'])}</p>
-{gallery}
+    released = f'<span>発売 {e(a["released"])}</span>' if a.get("released") else ""
+    gap_tag = f'<span class="gap">公式の中の食い違い {len(g)}</span>' if g else ""
+    price = f'<p class="ad">{e(p["price"])}(掲載時点)</p>' if p.get("price") else ""
+    body = f"""<main class="article post3"><div class="wrap">
+<p class="crumb"><a href="/">トップ</a> / <a href="/p/">新製品</a> / {e(GROUP.get(p['category'], CAT[p['category']]['name']))} / {e(p['maker'])}</p>
+<header class="a3-head">
+  <div class="hc-meta"><span class="cat">{e(GROUP.get(p['category'], CAT[p['category']]['name']))}</span>{released}<span>掲載 {e(a['date'])}</span></div>
+  <h1>{e(catch(a))}</h1>
+  <p class="maker">{e(p['maker'])} <span class="mono">{e(p['model'])}</span></p>
+  <div class="dig big"><span><b>{leaves(p)}</b>項目を確かめた</span><span><b>{sources(p)}</b>つの資料</span>{gap_tag}</div>
+</header>
+<div class="a3-grid">
+  <div>
+    {photo}
+    {thumbs}
+    <p class="credit">画像: {credit}{hint}</p>
+  </div>
+  <aside class="a3-side">
+    <h2 class="side-h">ポートの顔</h2>
+    {port_face(p, big=True)}
+    <p class="sum">{e(a['summary'])}</p>
+    {store_buttons(p, 'post-top')}
+    {price}
+  </aside>
 </div>
-<aside class="side">
-{device_html(p)}
-<dl class="side-specs">{side_specs(p)}</dl>
-{store_buttons(p, 'post-top')}
-{('<p class="side-price">' + e(p['price']) + '(掲載時点)</p>') if p.get('price') else ''}
-</aside>
-</div>
-{'<script src="/assets/gallery.js" defer></script>' if gallery else ''}
-<script src="/assets/readout.js" defer></script>
+<script src="/assets/home.js" defer></script>
+<article class="prose3">
 {intro}
 <div class="prose">{markdown.markdown(a['body'], extensions=['tables'])}</div>
-<section class="numbers">
-<h2>数字で見る</h2>
-<p class="small">メーカー公式ページと取扱説明書の数字です。全部の項目は<a href="{p['url']}">{e(p['model'])} の仕様のページ</a>にあります。</p>
-<p class="meta-line">{usb_summary(p)}</p>
-{usb_part}
-</section>
+{gap_html}
+{share}
+<h2>全部の数字</h2>
+<dl class="all">{all_html}</dl>
+<p class="small-src">全部の項目と注記は <a href="{p['url']}">{e(p['model'])} の仕様のページ</a>にもあります。</p>
 {store_buttons(p, 'post-bottom')}
 {src_html}
-{('<h2>ほかの新製品</h2><div class="postgrid">' + ''.join(post_card(x) for x in others) + '</div>') if others else ''}
+</article>
+{('<h2 class="more-h">ほかの新製品</h2><div class="postgrid">' + ''.join(post_card(x) for x in others) + '</div>') if others else ''}
 </div></main>"""
     ld = [{"@context": "https://schema.org", "@type": "Article", "headline": a["title"], "datePublished": str(a["date"]),
            "dateModified": str(a.get("updated") or a["date"]), "image": [x["src"] for x in im],
@@ -1224,7 +1280,7 @@ def build_feature_index() -> str:
 
 # ── トップ・固定ページ ───────────────────────────────────────
 
-FACE_LABEL = {"ac": "AC", "c": "C", "a": "A", "cable": "ケーブル", "wl": "無線"}
+FACE_LABEL = {"ac": "AC", "c": "C", "a": "A", "cable": "ケーブル", "wl": "無線", "plug": "プラグ", "line": ""}
 
 
 def pick_slides(products: list[dict]) -> str:
@@ -1270,7 +1326,7 @@ def pick_slides(products: list[dict]) -> str:
 # ── トップの2段目と一覧(2026-11-21 本人がモック v5 の形で OK。「ここまでマニアックに」を数で見せる) ──
 _DIG_SKIP = {"image", "images", "image_credit", "official_url", "manual_url", "url", "q", "stores", "note", "id", "checked",
              "recall_checked", "sharing_source", "how", "date"}
-GROUP = {"tap": "電源タップ", "extension": "電源タップ", "usb-tap": "電源タップ", "charger": "USB 充電器", "battery": "モバイルバッテリー"}
+GROUP = {"tap": "電源タップ", "extension": "電源タップ", "usb-tap": "電源タップ", "charger": "USB 充電器", "battery": "モバイルバッテリー", "cable": "ケーブル"}
 CABLE_PORTS = {("adtec-apd-v100lacrc-dg", "C1")}  # 名前にケーブルと書いていない内蔵ケーブル
 
 
@@ -1297,7 +1353,7 @@ def sources(p: dict) -> int:
     return len(a.get("sources") or []) if a else len([x for x in (p.get("official_url"), p.get("manual_url")) if x])
 
 
-def port_face(p: dict) -> str:
+def port_face(p: dict, big: bool = False) -> str:
     """ポートの顔: 本体の差し込み口を決まった記号で並べる"""
     items = [("ac", "AC") for _ in range((p.get("outlets") or {}).get("ac") or 0)]
     for x in (p.get("usb") or {}).get("ports") or []:
@@ -1305,15 +1361,17 @@ def port_face(p: dict) -> str:
         n = str(x.get("name") or "")
         cable = (p["id"], x.get("name")) in CABLE_PORTS or (bool(re.search(r"ケーブル|Line|リール|Cable|コード", n)) and "ポート" not in n)
         kind = "cable" if cable else {"c": "c", "a": "a", "wireless": "wl"}.get(k, "c")
-        items.append((kind, FACE_LABEL[kind]))
+        w = x.get("max_w")
+        items.append((kind, FACE_LABEL[kind] + (f"<em>{w:g}W</em>" if big and isinstance(w, (int, float)) else "")))
     if not items:
         return ""
     cnt: dict[str, int] = {}
     for _, lab in items:
+        lab = lab.split("<em>")[0]
         cnt[lab] = cnt.get(lab, 0) + 1
     alt = "・".join(f"{k}×{v}" for k, v in cnt.items())
     cells = "".join(f'<span class="pf-i pf-{k}"><i aria-hidden="true"></i><small>{lab}</small></span>' for k, lab in items)
-    return f'<div class="pf" role="img" aria-label="差し込み口 {e(alt)}">{cells}</div>'
+    return f'<div class="pf{" big" if big else ""}" role="img" aria-label="差し込み口 {e(alt)}">{cells}</div>'
 
 
 def home_card(p: dict) -> str:
@@ -1503,7 +1561,7 @@ def main() -> None:
     nobuy = [p["id"] for p in products if not has_buy(p)]
     if nobuy:
         print(f"大手の通販で売っていないため買うボタンが無い製品: {', '.join(nobuy)}")
-    unconf = [p["id"] for p in products if p["pse"]["status"] == "unconfirmed"]
+    unconf = [p["id"] for p in products if p["pse"]["status"] == "unconfirmed" and p["category"] != "cable"]
     if unconf:
         print(f"PSE 未確認(ボタンは出す。表示が読めたら直す): {', '.join(unconf)}")
     missing = [f for f in FACES if not asset_exists(f"chara/face-{f}.png")]

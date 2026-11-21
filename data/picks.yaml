@@ -3,6 +3,23 @@
 # hook: 見た目の特徴を1行で(<br> で2行に)。事実だけ・公式の情報から
 # fact: 下に小さく出す数字(製品データ・公式の情報と同じもの)
 # face: ポートの顔(ac・c・a・cable・wl)。cover: true で写真を枠いっぱいに。bg: 写真の台の色
+# 2026-11-21 本人「モックにあったかっこいい充電器とかタップを入れて」→ SHARGE・モンタップ・しろちゃんを先頭に
+- id: sharge-p7u
+  hook: "透けたボディに、<br>巻き取りケーブル。"
+  fact: "10,000mAh・1ポートで最大30W"
+  face: [cable, c]
+  bg: "#DDE3E8"
+- id: elpa-montap
+  hook: "4本脚で立つ、<br>電源タップ。"
+  fact: "Makuake で先行販売中"
+  face: [ac, ac, ac]
+  bg: "#DEDCE1"
+  cover: true
+- id: elecom-mpa-ccecdf10bf
+  hook: "コネクターの顔が、<br>電力で目を覚ます。"
+  fact: "USB-C 両端・最大100W"
+  face: [c, line, c]
+  bg: "#E6E8EC"
 - id: adtec-apd-v100lacrc-dg
   hook: "側面の画面に、<br>いま何W出ているか。"
   fact: "最大100W・巻き取りケーブル内蔵"
