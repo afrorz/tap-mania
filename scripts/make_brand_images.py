@@ -62,6 +62,20 @@ def draw_name(d, x, y, size, en_size):
     return box[2], nh
 
 
+BOLT = [(22.5, 6), (11, 22.5), (19, 22.5), (16.5, 34), (29, 16.5), (20.8, 16.5)]
+
+
+def bolt_icon(size):
+    """黒い角丸の四角にオレンジの稲妻(2026-11-21 本人「タイトルの左に充電をイメージするアイコン」→ A 案)。
+    4倍で描いて縮め、ふちを滑らかにする"""
+    k = size * 4 / 40
+    big = Image.new("RGBA", (size * 4, size * 4), (0, 0, 0, 0))
+    d = ImageDraw.Draw(big)
+    d.rounded_rectangle((0, 0, size * 4 - 1, size * 4 - 1), radius=round(10 * k), fill=INK)
+    d.polygon([(x * k, y * k) for x, y in BOLT], fill=ORANGE)
+    return big.resize((size, size), Image.LANCZOS)
+
+
 def grid(im, step):
     """方眼を薄く重ねる(別の層に描いて重ねないと、線が透けずに真っ白になる)"""
     layer = Image.new("RGBA", im.size, (0, 0, 0, 0))
@@ -83,8 +97,11 @@ def main() -> None:
     d = ImageDraw.Draw(logo)
     end, nh = draw_name(d, 4, 20, 80, 42)
     logo = logo.crop(logo.getbbox())
-    pad = Image.new("RGBA", (logo.width + 8, logo.height + 8), (0, 0, 0, 0))
-    pad.alpha_composite(logo, (4, 4))
+    ic = bolt_icon(logo.height)
+    gap = round(logo.height * 0.22)
+    pad = Image.new("RGBA", (ic.width + gap + logo.width + 8, logo.height + 8), (0, 0, 0, 0))
+    pad.alpha_composite(ic, (4, 4))
+    pad.alpha_composite(logo, (4 + ic.width + gap, 4))
     pad.save(ROOT / "assets/logo-juden.png")
     logo = pad
 
@@ -102,6 +119,11 @@ def main() -> None:
     d.text((76, 440), SUB_TEXT, font=font(BOLD, 30), fill=SUB)
     d.rectangle((0, 622, 1200, 630), fill=ORANGE)
     og.convert("RGB").save(ROOT / "assets/ogp-juden-1200x630.png")
+    # ブラウザのタブ・ホーム画面のアイコンも稲妻にそろえる(それまではタプ夫の顔)
+    for n in (32, 48, 192):
+        bolt_icon(n).save(ROOT / f"assets/favicon-{n}.png")
+    bolt_icon(180).save(ROOT / "assets/apple-touch-icon.png")
+    bolt_icon(256).save(ROOT / "assets/favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
     print("作った:", logo.size, og.size)
 
 

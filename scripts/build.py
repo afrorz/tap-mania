@@ -237,9 +237,9 @@ def page(*, title: str, desc: str, path: str, body: str, current: str = "", imag
     for block in ld or []:
         extra += '<script type="application/ld+json">' + json.dumps(block, ensure_ascii=False).replace("</", "<\\/") + "</script>\n"
     if asset_exists("favicon.ico"):
-        extra += '<link rel="icon" href="/assets/favicon.ico" sizes="any">\n'
+        extra += '<link rel="icon" href="/assets/favicon.ico?v=2" sizes="any">\n'
     if asset_exists("favicon-32.png"):
-        extra += '<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">\n'
+        extra += '<link rel="icon" href="/assets/favicon-32.png?v=2" type="image/png" sizes="32x32">\n'
     if asset_exists("apple-touch-icon.png"):
         extra += '<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">\n'
     year = TODAY.year
@@ -249,7 +249,7 @@ def page(*, title: str, desc: str, path: str, body: str, current: str = "", imag
     logo_img = SITE.get("logo_image") or ""
     if logo_img and asset_exists(logo_img):
         # 2026-11-18 本人「キャッチコピーはロゴの右に」。画像は名前だけにして、キャッチコピーは文字で右に置く
-        logo = (f'<img src="/assets/{e(logo_img)}" alt="{e(SITE["title"])} {e(SITE.get("title_en", ""))}" height="40">'
+        logo = (f'<img src="/assets/{e(logo_img)}?v={CSS_VER}" alt="{e(SITE["title"])} {e(SITE.get("title_en", ""))}" height="40">'
                 f'<span class="logo-tag">{e(SITE["tagline"])}</span>')
     else:  # 名前の入っていないタプ夫の顔と、文字のサイト名
         icon = ('<img class="logo-face" src="/assets/chara/face-futsu.png" alt="" width="40" height="40">'
@@ -1224,6 +1224,49 @@ def build_feature_index() -> str:
 
 # ── トップ・固定ページ ───────────────────────────────────────
 
+FACE_LABEL = {"ac": "AC", "c": "C", "a": "A", "cable": "ケーブル", "wl": "無線"}
+
+
+def pick_slides(products: list[dict]) -> str:
+    """最初の画面の横スライド(data/picks.yaml)。製品データにある物だけ。記事があれば記事へ、無ければ図鑑へ"""
+    path = ROOT / "data" / "picks.yaml"
+    if not path.exists():
+        return ""
+    by_id = {p["id"]: p for p in products}
+    post_of = {a["p"]["id"]: a for a in POSTS}
+    items = []
+    for i, x in enumerate(yaml.safe_load(path.read_text(encoding="utf-8")) or []):
+        p = by_id.get(x.get("id"))
+        if not p:
+            die(f"data/picks.yaml: {x.get('id')} が data/products にありません")
+        a = post_of.get(p["id"])
+        href = a["url"] if a else p["url"]
+        im = post_images(a)[0]["src"] if a and post_images(a) else p.get("image")
+        face = "".join(f'<span class="pf-i pf-{k}"><i aria-hidden="true"></i><small>{FACE_LABEL.get(k, k)}</small></span>'
+                       for k in x.get("face") or [])
+        items.append(
+            f'<li class="sl{" cover" if x.get("cover") else ""}" style="--sl-bg:{e(x.get("bg") or "#E4E6EA")}"><a href="{href}">'
+            f'<div class="sl-ph"><img src="{e(im or "")}" alt="{e(p["maker"])} {e(p["model"])}" referrerpolicy="no-referrer"'
+            f' loading="{"eager" if i < 4 else "lazy"}"></div>'
+            f'<div class="sl-cap"><p class="sl-k">{e(CAT[p["category"]]["name"])}</p><p class="sl-hook">{x["hook"]}</p>'
+            f'<p class="sl-n">{e(p["maker"])} {e(p["model"])}</p>'
+            f'<div class="sl-row"><div class="pf">{face}</div><span class="sl-f">{e(x.get("fact") or "")}</span></div></div></a></li>')
+    if len(items) < 4:
+        die("data/picks.yaml: 4つ以上並べてください")
+    return f"""<section class="show5"><div class="wrap">
+  <div class="s5-head">
+    <div><p class="kicker">見た目で選んだ充電まわり <span>PICKS</span></p><h1><span>見たことのない、</span><span>充電まわり。</span></h1></div>
+    <div class="s5-ctl"><span class="s5-count"><b>01</b> / {len(items):02d}</span>
+      <button type="button" class="s5-prev" aria-label="前へ">←</button><button type="button" class="s5-next" aria-label="次へ">→</button></div>
+  </div>
+</div>
+<div class="s5-viewport"><ul class="s5-track">{"".join(items)}</ul></div>
+<div class="wrap"><div class="s5-bar"><div class="s5-dots"></div><a href="/p/">新製品をすべて見る →</a></div></div>
+</section>
+<script src="/assets/slides.js" defer></script>
+"""
+
+
 def build_index(products: list[dict], arts: list[dict]) -> str:
     hero_img = ('<img class="hero-chara" src="/assets/chara/tapuo-futsu.png" alt="タプ夫" width="220" height="220">'
                 if asset_exists("chara/tapuo-futsu.png") else face("futsu", 160))
@@ -1266,10 +1309,14 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
     else:
         hero_l = f'<h1>{e(SITE["tagline"])}</h1><p class="lead">{e(SITE["description"])}</p>'
         hero_r = hero_img
+    slides = pick_slides(products)
+    if slides:  # 横スライドが頭のときは、取説の画面は2段目(大見出しは横スライドの方)
+        hero_l = hero_l.replace("<h1>", '<h2 class="hero-h">', 1).replace("</h1>", "</h2>", 1)
     body = f"""<main>
+{slides}
 <section class="hero"><div class="wrap">
   <div class="hero-l">
-    <p class="kicker">{e(SITE['tagline'])} <span>READ THE MANUAL</span></p>
+    <p class="kicker">{'このサイトの読み方 <span>HOW WE READ</span>' if slides else e(SITE['tagline']) + ' <span>READ THE MANUAL</span>'}</p>
     {hero_l}
   </div>
   <div class="hero-r">{hero_r}</div>

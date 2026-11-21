@@ -1,0 +1,36 @@
+# トップの最初の画面に横に流す「見た目で止まる」製品(2026-11-21 本人が横スライド型を選んだ。モックは mock/v5)
+# 並べるのは data/products にある製品だけ。上から順に出る。4つ以上。
+# hook: 見た目の特徴を1行で(<br> で2行に)。事実だけ・公式の情報から
+# fact: 下に小さく出す数字(製品データ・公式の情報と同じもの)
+# face: ポートの顔(ac・c・a・cable・wl)。cover: true で写真を枠いっぱいに。bg: 写真の台の色
+- id: adtec-apd-v100lacrc-dg
+  hook: "側面の画面に、<br>いま何W出ているか。"
+  fact: "最大100W・巻き取りケーブル内蔵"
+  face: [cable, c, a]
+  bg: "#E4E6EA"
+- id: elecom-ect-34wh
+  hook: "手のひらに載る、<br>丸いタップ。"
+  fact: "約59mm角・折りたたみプラグ"
+  face: [ac, ac, ac, c, a, a]
+  bg: "#D2D2D4"
+  cover: true
+- id: anker-a1117
+  hook: "ケーブルを2本、<br>本体に内蔵。"
+  fact: "25,000mAh・合計最大165W"
+  face: [cable, cable, c, a]
+  bg: "#E2E5E9"
+- id: buffalo-bmpbsa5000
+  hook: "厚さ9.2mm、<br>ケーブルがストラップに。"
+  fact: "5,000mAh・半固体電池・122g"
+  face: [cable, c]
+  bg: "#E6E8EC"
+- id: cio-pcd67w2c1a
+  hook: "机に置く立方体、<br>画面にポートごとのW。"
+  fact: "AC3口・USB-C 最大67W"
+  face: [ac, ac, ac, c, c, a]
+  bg: "#DDE3E8"
+- id: sanwa-tap-mc2a1ac2bk
+  hook: "コードを本体に<br>巻いて運ぶタップ。"
+  fact: "AC2口・USB-C 最大65W・217g"
+  face: [ac, ac, c, c, a]
+  bg: "#E4E6EA"

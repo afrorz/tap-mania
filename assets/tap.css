@@ -443,3 +443,73 @@ footer { background: var(--ink); }
 /* 数字が短くても長くても、画面の高さは変えない(2026-11-21 本人「枠内の高さが変わるのがいや」) */
 .rd-watt { height: clamp(72px, 9vw, 126px); align-items: flex-end; }
 .side .rd-watt { height: 94px; }
+
+/* ── 最初の画面: 見た目で止まる製品の横スライド(2026-11-21 本人が横スライド型を選んだ。mock/v5。並べる物は data/picks.yaml) ── */
+.show5 { padding: 32px 0 40px; border-bottom: 1px solid var(--line); overflow: hidden; background: var(--bg); }
+.show5 .wrap { max-width: 1160px; }
+.s5-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.s5-head .kicker { margin: 0 0 8px; }
+.s5-head h1 { margin: 0; font: 900 clamp(30px, 3.6vw, 50px)/1.2 var(--disp); letter-spacing: -.01em; }
+.s5-head h1 span { display: inline-block; white-space: nowrap; }
+.s5-ctl { display: flex; align-items: center; gap: 10px; flex: none; }
+.s5-count { font: 400 13px var(--mono); color: var(--sub); margin-right: 8px; }
+.s5-count b { color: var(--ink); font-size: 18px; }
+.s5-ctl button { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--panel); color: var(--ink); font-size: 18px; cursor: pointer; transition: background .2s, color .2s; }
+.s5-ctl button:hover { background: var(--ink); color: #fff; }
+.s5-ctl button:focus-visible, .s5-dots button:focus-visible, .sl a:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+.s5-viewport { overflow-x: auto; scrollbar-width: none; }
+.s5-viewport::-webkit-scrollbar { display: none; }
+.s5-track { list-style: none; margin: 0; padding: 0 0 10px max(16px, calc((100vw - 1160px) / 2 + 16px)); display: flex; gap: 16px; width: max-content; }
+.s5-track::after { content: ""; flex: none; width: 16px; }
+.sl { flex: none; width: clamp(270px, 24vw, 330px); }
+.sl a { display: flex; flex-direction: column; height: 100%; min-height: 480px; border-radius: 22px; overflow: hidden; background: var(--sl-bg); color: var(--ink); text-decoration: none; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
+.sl a:hover { transform: translateY(-6px); box-shadow: 0 30px 50px -30px rgba(14,16,19,.45); }
+.sl-ph { position: relative; aspect-ratio: 1 / 1; overflow: hidden; }
+.sl-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 26px; mix-blend-mode: multiply; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.sl.cover .sl-ph img { object-fit: cover; padding: 0; mix-blend-mode: normal; }
+.sl a:hover .sl-ph img { transform: scale(1.06); }
+.sl-cap { padding: 4px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.sl-cap p { margin: 0; }
+.sl-k { margin-bottom: 6px !important; font: 700 12px/1 var(--font); letter-spacing: .12em; color: var(--otext); }
+.sl-hook { margin-bottom: 8px !important; font: 900 21px/1.4 var(--disp); }
+.sl-n { margin-bottom: 12px !important; font: 700 13px/1.5 var(--font); color: var(--sub); }
+.sl-row { margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.sl-f { font: 400 12px/1.5 var(--mono); color: var(--sub); }
+.s5-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; }
+.s5-dots { display: flex; gap: 6px; }
+.s5-dots button { width: 22px; height: 4px; border: 0; padding: 0; border-radius: 2px; background: var(--line2); cursor: pointer; transition: width .3s, background .3s; }
+.s5-dots button[aria-current] { width: 44px; background: var(--ink); }
+.s5-bar a { font-size: 14px; font-weight: 700; color: var(--otext); text-decoration: none; }
+.show5.one-page .s5-ctl, .show5.one-page .s5-dots { visibility: hidden; }
+@media (min-width: 641px) {
+  .s5-viewport { overflow: hidden; }
+  .s5-track { transition: transform .7s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+}
+@media (max-width: 640px) {
+  .show5 { padding: 22px 0 30px; }
+  .s5-head { display: block; }
+  .s5-ctl, .s5-dots { display: none; }
+  .s5-bar { justify-content: flex-end; }
+  .s5-viewport { scroll-snap-type: x mandatory; scroll-padding-left: 16px; }
+  .s5-track { padding-left: 16px; gap: 12px; }
+  .sl { width: 78vw; scroll-snap-align: start; }
+  .sl a { min-height: 440px; }
+}
+@media (prefers-reduced-motion: reduce) { .s5-track { transition: none; } }
+/* ポートの顔(小)。差し込み口の形の記号 */
+.pf { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 10px; background: rgba(255,255,255,.55); border-radius: 10px; padding: 7px 10px 6px; }
+.pf-i { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; }
+.pf-i small { font: 700 9px/1 var(--mono); color: var(--sub); white-space: nowrap; }
+.pf-i i { position: relative; display: block; }
+.pf-ac i { width: 18px; height: 18px; border-radius: 5px; background: #fff; border: 1.5px solid #8C949E; }
+.pf-ac i::before, .pf-ac i::after { content: ""; position: absolute; top: 4px; width: 2px; height: 7px; background: var(--ink); border-radius: 1px; }
+.pf-ac i::before { left: 4px; } .pf-ac i::after { right: 4px; }
+.pf-c i { width: 17px; height: 8px; border-radius: 8px; background: #23262B; box-shadow: 0 0 0 2px var(--c); margin: 5px 0 2px; }
+.pf-a i { width: 17px; height: 8px; border-radius: 1px; background: #23262B; box-shadow: 0 0 0 2px var(--a); margin: 5px 0 2px; }
+.pf-cable i { width: 19px; height: 16px; }
+.pf-cable i::before { content: ""; position: absolute; left: 1px; top: 1px; width: 12px; height: 12px; border: 2px solid var(--ink); border-radius: 50%; }
+.pf-cable i::after { content: ""; position: absolute; right: 0; bottom: 2px; width: 8px; height: 4px; border-radius: 2px; background: var(--c); }
+.pf-wl i { width: 17px; height: 17px; border-radius: 50%; border: 2px dashed var(--w); }
+/* 横スライドの下に回した取説の画面の見出し */
+.hero .hero-h { font-size: clamp(26px, 4.4vw, 40px); margin: 6px 0 10px; font-weight: 900; display: block; }
+.hero .hero-h::before { display: none; }
