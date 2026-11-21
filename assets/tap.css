@@ -493,6 +493,7 @@ footer { background: var(--ink); }
   .s5-viewport { scroll-snap-type: x mandatory; scroll-padding-left: 16px; }
   .s5-track { padding-left: 16px; gap: 12px; }
   .sl { width: 78vw; scroll-snap-align: start; }
+  .sl.clone { display: none; }
   .sl a { min-height: 440px; }
 }
 @media (prefers-reduced-motion: reduce) { .s5-track { transition: none; } }

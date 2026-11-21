@@ -28,6 +28,7 @@ SITE = CFG["site"]
 CATS = CFG["categories"]
 CAT = {c["slug"]: c for c in CATS}
 TODAY = dt.date.today()
+JS_VER = {f.stem: int(f.stat().st_mtime) for f in (ROOT / "assets").glob("*.js")}
 CSS_VER = int((ROOT / "assets" / "tap.css").stat().st_mtime)  # 直したら古い見た目が残らないように
 # 見出しは丸ゴシック、本文と表は読みやすさ優先で Noto Sans JP(2026-11-12 本人「フォントが読みづらい」)
 FONTS = ("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&family=DotGothic16&family=JetBrains+Mono:wght@400;700"
@@ -208,6 +209,8 @@ def nav(current: str = "") -> str:
 
 def page(*, title: str, desc: str, path: str, body: str, current: str = "", image: str = "",
          pr: bool = False, ld: list | None = None, noindex: bool = False) -> str:
+    # スクリプトも直したら古いのが残らないように、ファイルの更新時刻を付ける
+    body = re.sub(r'src="/assets/([\w-]+)\.js"', lambda m: f'src="/assets/{m[1]}.js?v={JS_VER.get(m[1], 0)}"', body)
     full = f"{title}｜{SITE['title']}" if title else f"{SITE['title']}｜{SITE['tagline']}"
     base = SITE["base_url"].rstrip("/")
     url = base + path
