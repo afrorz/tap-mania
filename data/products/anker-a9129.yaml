@@ -3,7 +3,7 @@ maker: Anker
 model: A9129
 name: "Anker Nano Charging Station (6-in-1, 67W)"
 category: usb-tap
-image: "https://www.ankerjapan.com/cdn/shop/files/A9129-BLACK.jpg"
+image: "https://www.ankerjapan.com/cdn/shop/files/A9129-WHITE.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
 image_credit: "Anker 公式サイト"
 official_url: "https://www.ankerjapan.com/products/a9129"
 manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A9129Manual.pdf"

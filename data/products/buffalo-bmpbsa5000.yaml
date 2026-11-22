@@ -3,7 +3,7 @@ maker: バッファロー
 model: BMPBSA5000
 name: "半固体モバイルバッテリー 5000mAh(18.5Wh)/20W"
 category: battery
-image: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0100.jpg"
+image: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000WH/BMPBSA5000WH__0100.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
 images:
   - "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0100.jpg"   # 白背景の本体とストラップ式ケーブル
   - "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0104.jpg"   # 横から見た薄さ

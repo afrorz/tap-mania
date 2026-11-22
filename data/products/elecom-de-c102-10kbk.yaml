@@ -3,7 +3,7 @@ maker: エレコム
 model: DE-C102-10KBK
 name: "ケーブル一体型 半固体モバイルバッテリー(10000mAh/22.5W)"
 category: battery
-image: "https://www.elecom.co.jp/photo/p01/DE-C102-10KBK_01.jpg"
+image: "https://www.elecom.co.jp/photo/p01/DE-C102-10KWH_01.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。プログラムからは 403、ブラウザでは開ける
 image_credit: "エレコム 公式サイト"
 official_url: "https://www.elecom.co.jp/products/DE-C102-10KBK.html"
 manual_url: ""
