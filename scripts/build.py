@@ -1315,8 +1315,7 @@ def pick_slides(products: list[dict]) -> str:
     return f"""<section class="show5"><div class="wrap">
   <div class="s5-head">
     <div><p class="kicker">見た目で選んだ充電まわり <span>PICKS</span></p><h1><span>見たことのない、</span><span>充電まわり。</span></h1></div>
-    <div class="s5-ctl"><span class="s5-count"><b>01</b> / {len(items):02d}</span>
-      <button type="button" class="s5-prev" aria-label="前へ">←</button><button type="button" class="s5-next" aria-label="次へ">→</button></div>
+    <div class="s5-ctl"><span class="s5-count"><b>01</b> / {len(items):02d}</span></div>
   </div>
 </div>
 <div class="s5-viewport"><ul class="s5-track">{"".join(items)}</ul></div>
