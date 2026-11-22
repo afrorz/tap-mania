@@ -1,7 +1,7 @@
 # 充電沼(旧タップマニア)
 
 USB-C の充電器・電源タップ・モバイルバッテリーの新製品を、ガジェットとして1つずつ紹介するサイト(https://charge.gadgetterminal.com。2026-11-18 に juden から引っ越し、旧住所は Cloudflare で 301 転送)。キャッチコピーは「充電まわりを、取説まで読む。」
-2026-11-12 に本人がタップマニアから改名した(充電器・バッテリーも扱うため)。リポジトリ名(afrorz/tap-mania)・フォルダ名(media\TapMania)・CSS の名前(tap.css)・キャラクターのタプ夫は旧名のまま。
+2026-11-12 に本人がタップマニアから改名した(充電器・バッテリーも扱うため)。リポジトリ名(afrorz/tap-mania)・CSS の名前(tap.css)・キャラクターのタプ夫は旧名のまま。フォルダは 2026-11-22 に media\TapMania から media\ChargeMania に改名した。
 ロゴと共有用の画像は `scripts/make_brand_images.py` でタプ夫の画像に文字を重ねて作る(`assets/logo-juden.png`・`ogp-juden-1200x630.png`、`config/site.yaml` の `logo_image`・`ogp_image` で指定)。旧名の `logo.png`・`ogp-1200x630.png` は使わない。X のアイコンとヘッダーは本人が設定する。
 Gadget Terminal(`media\GadgetTerminal`)・Cozy Desk(`media\CozyDesk`)の姉妹サイト。運営は Star Platinum LLC。収益は紹介料(もしも経由の楽天・Amazon・Yahoo!ショッピングと、メーカー公式ストア)。
 
