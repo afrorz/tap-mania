@@ -1,0 +1,59 @@
+id: ugreen-uno-45327
+maker: UGREEN
+model: "45327"
+name: "UGREEN Uno 10000mAh マグネット式ワイヤレス充電対応モバイルバッテリー"
+category: battery
+image: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/f7af7fcac2e3bcc32ec6c2e9236e9e49_6fd923fb-7d4e-4b07-8afd-95f32ff0f188.webp?v=1772093835"
+images:
+  - "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/f7af7fcac2e3bcc32ec6c2e9236e9e49_6fd923fb-7d4e-4b07-8afd-95f32ff0f188.webp?v=1772093835"   # 画面にロボットの顔(^ ^)。黒背景・文字は本体の UGREEN ロゴだけ(UGREEN 本社サイト・豪州版)
+  - "https://ugreen.jp/cdn/shop/files/45327_45328-4.png"   # 白背景・グレーと紫の2台。画面は消灯
+  - "https://ugreen.jp/cdn/shop/files/45327-3.png"   # 側面。スタンドと USB-C(IN/OUT)
+image_credit: "UGREEN 公式サイト"
+official_url: "https://ugreen.jp/products/uno-10000mah-magnetic-wireless-charging-compatible-mobile-battery"
+manual_url: ""
+checked: 2026-11-23
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "ugreen.jp の製品ページ(本文・製品仕様)に PSE の記載なし。公式の側面写真(45327-3.png)に丸形 PSE マークが写っているが、横の小さな文字は読めず、届出事業者名は確かめられない。取扱説明書は公式サイトに見当たらない"
+  date: 2026-11-23
+
+battery:
+  mah: 10000
+  cell: "リチウムポリマー(UGREEN 本社サイトの Specs)"
+  input_w: 20
+  passthrough: true
+size: "約106.5 × 69 × 20mm"
+weight_g: 226
+usb:
+  ports:
+    - {name: "USB-C(入出力)", type: C, max_w: 20}
+    - {name: "マグネット式ワイヤレス", type: wireless, max_w: 7.5}
+  total_w: 15
+  sharing:
+    - {use: "ワイヤレス+USB-C", out: "5V 3A(合計 最大15W)"}
+  sharing_source: "ugreen.jp の製品仕様「合計出力 5V=3A 15.0W 最大(磁吸とCポート同時出力時)」。それぞれへの配り方は書かれていない"
+  pd: true
+colors: [メタリックグレー, 紫]
+warranty: "24ヶ月(UGREEN の全製品)"
+seller_jp: "株式会社ユーグリーン・ジャパン"
+recall_checked: 2026-11-23
+recall: none
+
+stores: [rakuten, amazon]   # Yahoo! では 11/23 時点で見つからない
+q: "UGREEN 45327"
+price: "7,980円(税込・UGREEN 公式サイトの通常価格。公式ストアは 11/23 時点で売り切れ)"
+note: |
+  画面(TFT スクリーン)に出るロボットの表情で充電状況を知らせる(ugreen.jp の書き方)。本社サイトでは「15+ Status Emojis」。
+  製品型番は 45327(グレー)/ 45328(紫)。ugreen.jp の色の選択肢はメタリックグレーだけ。Amazon の商品名は PB572。
+  入出力: USB-C 1つで 5V=3A / 9V=2.22A / 12V=1.5A(最大 20W)。ワイヤレスは iPhone 用 7.5W。10N のマグネット、亜鉛合金の折りたたみ式スタンド。
+  「本機器を充電しながらのワイヤレス充電もできます」(ugreen.jp)。13 層の安全保護、エアライン認証取得、トリクル充電(低電流)モード。
+  iPhone 15 を約2回フル充電(ugreen.jp)。本社サイトでは iPhone 16 に最大 1.8 回、電圧 3.7V。Wh と定格容量は公式に記載なし。
+  重さは ugreen.jp に無く、226g は UGREEN 本社サイト(中東・豪州版)の値。本社サイトのサイズは 10.6 × 7 × 2.2cm で、ugreen.jp の約106.5 × 69 × 20mm と少し違う。本社の宣伝画像には「100*180*30mm, 320g」とあるが食い違いが大きく採らない。
+  ugreen.jp の公式写真は Qi2 版(45329・15W)と同じ画像で、背面に Qi2 のロゴが写っている。45327 自体の Qi2 対応は公式に書かれていない(ワイヤレスは「Qi」)。
+  Qi2 版の UGREEN Uno Magnetic Wireless 10000mAh 15W(45329・8,980円)も ugreen.jp にあるが売り切れで、Amazon の商品ページも無くなっていた。5000mAh 版(35605/35606・6,590円、2024年10月25日にフォーカルポイントが発売)は公式ストア・Amazon とも在庫切れで、Amazon は「再入荷予定は立っておりません」。フォーカルポイントの製品ページ(focalstore.jp/product/ugreen-pb571/)も無くなっている。
+  売り場: Amazon は販売元 Ugreen Japan Co., Ltd・出荷元 Amazon で 5,638円、楽天は UGREEN 公式楽天市場店で 9,250円(45%OFF クーポンあり)。いずれも 11/23 時点・税込。
+  日本での発売日は公式に記載なし。
+  ugreen.jp のお知らせに回収・リコールの告知なし(電池表示の改善のお知らせは PB311 で別の型番、2024-10)。消費者庁リコール情報サイトは 11/23 に応答がなく見られなかった。
+  出典: https://ugreen.jp/products/uno-10000mah-magnetic-wireless-charging-compatible-mobile-battery ・ https://www.ugreen.com/en-ae/products/ae-45327 ・ https://www.ugreen.com/en-au/products/au-45327 ・ https://ugreen.jp/pages/product-warranty

@@ -1,0 +1,53 @@
+id: sharge-retro67
+maker: SHARGE
+model: S067U
+name: "Retro 67"
+category: charger
+image: "https://cdn.shopify.com/s/files/1/0611/2234/7259/files/Retro67GaNCharger_4c90d722-1258-487c-b9e3-e158de744150.png?v=1772714414"
+image_credit: "SHARGE 公式サイト"
+official_url: "https://sharge.com/products/retro-67w-gan-usb-c-charger"
+manual_url: "https://cdn.shopify.com/s/files/1/0611/2234/7259/files/SHARGE_S067U_292ec68f-14b0-4c8f-a42e-cfe31ba6fbda.pdf?v=1791442173"
+checked: 2026-11-23
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "公式の製品ページ(英語・日本語)、日本語の取扱説明書 PDF(適合規格は GB 4943.1-2022 / GB 31241-2022 だけ)、英語の取扱説明書 PDF、公式の製品画像5枚のどれにも PSE マーク・届出事業者名・登録検査機関名が無い。Makuake のよくある質問に「電気用品安全法（PSE）に基づくテストを完了します。皆様のお手元に届く際にはPSEマークが付きます。」とあるが、2023年のクラウドファンディング時点の予告で、事業者名は書かれていない"
+  date: 2026-11-23
+
+input: "100-240V 50/60Hz 1.5A Max"
+size: "57×39×41mm"
+weight_g: 118
+foldable_plug: true
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 67}   # 5V/9V/12V/15V⎓3A, 20V⎓3.35A, PPS 3.3-20V⎓3A
+    - {name: C2, type: C, max_w: 67}
+    - {name: C3, type: C, max_w: 67}
+  total_w: 67
+  sharing:
+    - {use: "C1+C2", out: "45W+20W"}
+    - {use: "C1+C3", out: "45W+20W"}
+    - {use: "C2+C3", out: "合計15W"}
+    - {use: "C1+C2+C3", out: "45W+15W(C2 と C3 で 15W)"}
+  sharing_source: "公式ページ(英語・日本語)の仕様欄「Output / 出力」と、日本語の取扱説明書 p.1「製品情報」。どれも同じ文言"
+  pd: true
+  pps: true
+  gan: true
+colors: [ユーズドグレー]
+warranty: "12ヶ月"
+recall_checked: 2026-11-23
+recall: none
+
+stores: []   # 11/23 楽天・Yahoo! は出品なし。Amazon は「Amazon Global Store」(海外からの直送)だけで、公式は「US プラグのみ」・日本の PSE と販売元も確かめられないため、買うボタンは出さない
+price: "49.90 米ドル(公式ストア・11/23 時点のセール価格。通常 69.00 米ドル)"
+note: |
+  見た目は初代 Macintosh の形。本体の正面に小さな画面、上面に USB-C が3つ並ぶ。色は Makuake の表記で「ユーズドグレー」。
+  画面は、つないでいないときは映画「マトリックス」風の緑のコードが流れ、充電が始まると出力のW数を数字で出す(公式ページ・Makuake)。充電が終わって5分で画面が消える(公式ページのよくある質問)。
+  1ポートのとき(C1/C2/C3 とも): 5V/9V/12V/15V⎓3A、20V⎓3.35A、PPS 3.3〜20V⎓3A(最大67W)。対応規格の公式表記は「PD 3.0、QC 3.0、SCP、FCP、Apple 2.4など」。
+  重さは公式ページが 118g、取扱説明書が 110g、Makuake が「わずか120g」で食い違う。ここでは公式ページの値。
+  プラグ: 公式ストアの選択肢は「US Plug / UK Plug / EU Plug / Travel Set(UK・EU・AU の付け替えプラグ付き)」。「日本向け」の選択肢は無い。公式画像の説明は Standard が「Only suitable for US plugs.」。Makuake は「電源プラグは折りたたみ式」とだけ書いている。
+  Makuake では 2023-03-23〜2023-05-30 に先行販売(実行者名は「SHARGE」、応援購入総額 10,271,532円・サポーター 1,168人)。一般販売予定価格は 13,699円(税込・送料込、Retro ケーブル付きの標準セット)と書かれていた。海外では 2023年1月に先行販売(Makuake の本文)。
+  保証は公式ページで 12ヶ月。Makuake には「日本で販売している全てのSHARGE商品に対し、１年間の製品保証」とある。日本の販売元・代理店の会社名は公式にも Makuake にも書かれていない(取説の製造元は Sharge Technology (Shenzhen) Co., Ltd. だけ)。
+  Amazon.co.jp の出品(11/23 時点 12,236円)は出荷元・販売元とも Amazon Global Store。
+  出典: 公式 https://sharge.com/products/retro-67w-gan-usb-c-charger ・ 日本語ページ https://sharge.com/ja/products/sharge-%E3%83%AC%E3%83%88%E3%83%AD-67-%E5%85%85%E9%9B%BB%E5%99%A8-67w-3-%E3%83%9D%E3%83%BC%E3%83%88 ・ 日本語の取説 https://cdn.shopify.com/s/files/1/0611/2234/7259/files/SHARGE_S067U_292ec68f-14b0-4c8f-a42e-cfe31ba6fbda.pdf ・ Makuake https://www.makuake.com/project/sharge_retro67/

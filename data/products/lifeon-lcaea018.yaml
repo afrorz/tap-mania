@@ -1,0 +1,60 @@
+id: lifeon-lcaea018
+maker: Life on Products
+model: LCAEA018
+name: "USB急速充電器 USB PD(パワーデリバリー)対応 67W"
+category: charger
+image: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_08.jpg"
+image_credit: "Life on Products 公式サイト"
+official_url: "https://lifeonproducts.co.jp/product/lcaea018/"
+manual_url: "https://lifeonproducts.co.jp/data/manual/lifeonproducts/lcaea018.pdf"
+checked: 2026-11-23
+released: 2026-04-27
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページに「PSEマーク 電気用品安全法「特定電気用品」に該当する技術基準に適合した製造…」の文はあるが、届出事業者名と登録検査機関名は書かれていない。取扱説明書(全6ページ)にも PSE の記載なし。公式の製品画像19枚に、本体の銘板・刻印が写った物は無い"
+  date: 2026-11-23
+
+input: "AC 100V 50/60Hz 1.5A"
+size: "76×84×45mm"
+weight_g: 266
+cord:
+  length_m: 1.4
+  type: "本体から出た電源コード(先に電源プラグ)。机の上に本体を置いて使う形"
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 67}
+    - {name: C2, type: C, max_w: 67}
+    - {name: A1, type: A, max_w: 30}
+    - {name: A2, type: A, max_w: 30}
+  sharing:
+    - {use: "C1+C2", out: "45W+20W(最大65W)"}
+    - {use: "A1+A2", out: "5V 3A(最大15W)"}
+    - {use: "C1/C2+A1/A2", out: "45W+18W(最大63W)"}
+    - {use: "C1+C2+A1/A2", out: "30W+20W+12W(最大62W)"}
+    - {use: "C1/C2+A1+A2", out: "45W+15W(最大60W)"}
+    - {use: "C1+C2+A1+A2", out: "30W+20W+12W(最大62W)"}
+  sharing_source: "公式製品ページの商品仕様「定格出力(2ポート使用時)」「(3ポート使用時)」「(4ポート使用時)」と、取扱説明書 p.6「仕様」。どちらも同じ文言"
+  pd: true
+  pps: true
+  gan: true
+colors: [ベージュ]
+warranty: "保証書付き(期間は公式ページ・取扱説明書に記載なし)"
+seller_jp: "ライフオンプロダクツ株式会社"
+recall_checked: 2026-11-23
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "LCAEA018"
+price: "7,150円(税込・2026年4月7日のお知らせ)"
+note: |
+  見た目: 透明な PC の外殻が、ベージュの本体を包む形。上面の黒いパネルに C×2・A×2 と出力ディスプレイ(公式写真)。材質は「本体：PC」(仕様)。外殻の中の部品(基板など)は公式写真では見えない。
+  1ポートのとき: C1/C2 は 5V 3A, 9V 3A, 12V 3A, 15V 3A, 20V 3.35A(最大67W)。A1/A2 は 5V 3A, 9V 3A, 10V 2.25A, 12V 2.5A(最大30W)。
+  USB の合計は、公式に「1ポート時 67W」と「同時に使うと最大65W/63W/62W/60W/15W」が書かれているので、total_w は書いていない。
+  PD・PPS・Quick Charge・GaN は製品ページの説明から。Quick Charge の版は公式に記載なし。
+  出力ディスプレイに、供給している電力が数字で出る。10W 以上で充電しているときは稲妻のマークが付く(取説 p.3)。公式写真の注記に「出力ディスプレイ表示は参考値」「日本国内専用」「モバイルバッテリー機能はございません」。
+  USB ケーブルは付属しない。セット内容は本体と取扱説明書(保証書付)。使用環境温度は25℃以下、クラスII機器(取説 p.2)。補修用性能部品の保有期間は生産終了後5年(取説 p.5)。
+  発売は2026年4月27日(公式のお知らせ https://lifeonproducts.co.jp/news/541468/ )。同じ透明デザインのモバイルバッテリー LCAEA019(20W・5000mAh・3,410円)は、透明なのが下半分だけで、写真での見え方が弱いので今回は入れていない。
+  売り場は3つとも公式店(楽天・Yahoo! は「lifeonproducts」の店、Amazon は出品者「Life on Products 公式店」・7,150円)。11/23 確認。
+  回収: 公式の「重要なお知らせ」(電気温風機・電気湯沸器・LED電球・ACアダプター PR-F054・スチームアロマ加湿器)に LCAEA018 は入っていない。

@@ -1,0 +1,65 @@
+id: ugreen-95127
+maker: UGREEN
+model: "95127"
+name: "UGREEN Nexode Pro 160W 巻き取りケーブル内蔵充電器"
+category: charger
+image: "https://ugreen.jp/cdn/shop/files/US-X776.png"
+images:
+  - "https://ugreen.jp/cdn/shop/files/US-X776.png"   # 背景透過の本体(日本と同じ形のプラグ・ケーブルを引き出した状態)。文字の重ねなし
+  - "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/612wdi9RzNL.jpg"   # 140W Retractable Cable(文字あり)
+  - "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/61f22CeV8yL.jpg"   # 画面の表示とタッチ操作(文字あり)
+  - "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/61qd45J07rL.jpg"   # かばんに入れる場面(文字あり)
+image_credit: "UGREEN 公式サイト"
+official_url: "https://ugreen.jp/products/ugreen-160w-retractable-charger"
+manual_url: ""
+checked: 2026-11-23
+released: ""
+cable_note: "巻き取り式の USB-C ケーブルを内蔵。長さは 2.3 フィート(約70cm)で8段階に固定できる。巻き取り10,000回以上・折り曲げ10,000回以上の試験(米国公式のシリーズページ。製品ページは「10,000+ stretch tests」)。ケーブルと USB-C1 は1ポートで最大140W"
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "ugreen.jp の製品ページは画像1枚だけで仕様の文字が無く、PSE の記載なし。海外の公式ページ(米国・欧州・カナダ・シンガポール)にも PSE の記載なし。公式画像に本体の銘板は写っていない。取扱説明書は公式サイトで見つからない。UGREEN 公式楽天市場店の商品ページには「PSマークの種類:PSE / 届出事業者名:株式会社ユーグリーン・ジャパン / 登録検査機関名称:TUV」とあるが、楽天の記載なので決まりにより確認済にはしない"
+  date: 2026-11-23
+
+usb:
+  ports:
+    - {name: "巻き取り式ケーブル", type: C, max_w: 140}
+    - {name: USB-C1, type: C, max_w: 140}
+    - {name: USB-C2, type: C, max_w: 100}
+    - {name: USB-A, type: A, max_w: 22.5}
+  total_w: 160
+  sharing:
+    - {use: "ケーブル+C1", out: "100W+60W(または60W+100W)"}
+    - {use: "ケーブル+C2", out: "100W+60W(または60W+100W)"}
+    - {use: "C1+C2", out: "100W+60W(または60W+100W)"}
+    - {use: "ケーブル+A", out: "100W+22.5W"}
+    - {use: "C1+A", out: "100W+22.5W"}
+    - {use: "C2+A", out: "7.5W+7.5W"}
+    - {use: "ケーブル+C1+C2", out: "65W+65W+30W"}
+    - {use: "ケーブル+C1+A", out: "65W+65W+22.5W"}
+    - {use: "ケーブル+C2+A", out: "140W+7.5W+7.5W"}
+    - {use: "C1+C2+A", out: "140W+7.5W+7.5W"}
+    - {use: "ケーブル+C1+C2+A", out: "80W+65W+7.5W+7.5W"}
+  sharing_source: "米国公式の製品ページ(us.ugreen.com)の紹介画像「Single Port Charging」「Dual Ports Charging」「3&4 Ports Charging」の図を読んだ(2026-11-23)。文字の表は公式に無い"
+  pd: true
+  gan: true
+foldable_plug: true
+colors: [グレー]
+seller_jp: "株式会社ユーグリーン・ジャパン(ugreen.jp の販売元表記。Amazon の販売元は Ugreen Japan Co., Ltd)"
+
+stores: [rakuten, amazon, yahoo]
+q: "UGREEN 95127"
+price: "17,980円(UGREEN 日本公式サイトの価格・2026-11-23 時点)"
+note: |
+  日本で売られている。UGREEN 日本公式(ugreen.jp)に「UGREEN Nexode Pro 160W 巻き取りケーブル内蔵充電器」SKU 95127・17,980円で掲載(掲載日 2026-08-29)。公式ページの購入先は Amazon B0GLXGZWMY(販売元 Ugreen Japan Co., Ltd)と UGREEN 公式楽天市場店(ugreen-gear/95127)。Yahoo! ではジョーシン・ソフマップ・コジマ・ヤマダの店が「95127B」として出品(11/23)。
+  機種の番号は X776(ugreen.jp・欧州公式の写真のファイル名 US-X776 / EU-X776、Amazon の型番欄、FCC ID 2AQI5-X776)。SKU は日本・米国・カナダが 95127、欧州が 95256、英国・シンガポールが 95527。
+  世界での発表は 2026-07-30 前後(米国公式のシリーズページの注記「Data as of July 29, 2026」)。米国公式 149.99 米ドル、欧州公式は通常 129.99 ユーロ(11/23 はセールで 89.99 ユーロ)。Amazon.co.jp は 11/23 時点 12,966円。
+  2026年6月に日本で出た「スマートディスプレイ搭載 160W 5-in-1 充電器」は別の製品(USB-C×4+USB-A×1 の5ポート、巻き取りケーブルなし。ugreen.jp では「Nexode Pro 160W 5ポート充電器」SKU 65636・12,980円)。
+  ポートは、巻き取りケーブル・USB-C1・USB-C2・USB-A の4つ(公式の言い方は「3C1A」「4-In-1」)。1ポートの最大はケーブル140W・C1 140W・C2 100W・A 22.5W(公式の図)。公式の図では 2ポート同時が 100W+60W の組で、合計は160W に届かない。4つ同時は 80W+65W+7.5W+7.5W(合計160W)。
+  画面: 前面の回転するタッチ画面(公式の言い方「Rotatable touch screen」)。合計とポートごとの W、電圧・電流、充電の規格(PD など)、温度を表示。壁紙を好きな写真にでき、時計も出る(公式画像)。
+  アプリ: Bluetooth と 2.4GHz の Wi-Fi でつなぎ、離れた所から状態を見られる。ファームウェアを OTA で更新(Wi-Fi は 2.4GHz のみ、と公式画像の注記)。充電モードの切り替えもアプリから。米国公式のシリーズページは「5つの充電モード(Adaptive Power・Priority Charging・DC Turbo Charging・Thermal-Safe Charging・Custom Power)」を 300W 機と並べて書いており、この機種でどれが使えるかは公式から読み切れない(DC Turbo は 300W 機の DC 端子向けと見られる)。
+  そのほか: GaNInfinity、変換効率は最大93%(公式画像)。Thermal Guard は温度を1秒に200回見る(公式画像)。保護は9種類。折りたたみプラグ。外装は V-0 難燃材。
+  大きさ・重さは公式ページ(日本・米国・欧州・カナダ・シンガポール)に記載なし。Amazon の「商品の重量 465 グラム」は箱込みと見られ、出典にしない。取扱説明書は公式サイトで見つからない(FCC の取説は 2027-03-09 まで非公開)。
+  日本の公式ページに入力電圧・対応規格(PPS など)の文字は無い。米国公式の仕様欄は入力「240 volts」とだけ書く。
+  出典: 日本公式 https://ugreen.jp/products/ugreen-160w-retractable-charger ・米国公式 https://us.ugreen.com/products/ugreen-160w-retractable-charger ・シリーズ https://us.ugreen.com/pages/nexode-pro-series-official ・欧州公式 https://eu.ugreen.com/products/nexode-pro-160w-smart-display-charger-with-retractable-cable

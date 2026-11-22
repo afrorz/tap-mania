@@ -1,0 +1,46 @@
+id: anker-a121d
+maker: Anker
+model: A121D
+name: "Anker Nano Charger (45W, Display, スイングプラグ)"
+category: charger
+image: "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A121D111.jpg?v=1775191877"
+image_credit: "Anker 公式サイト"
+official_url: "https://www.ankerjapan.com/products/a121d"
+manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A121DManual.pdf"
+checked: 2026-11-23
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページ・取扱説明書・クイックスタートガイド(PDF)に PSE の記載なし。製品画像 hosyo.jpg に PSE マークと「Ankerグループのすべての対象製品…技術基準に適合」の文があるが、グループ共通の案内で、本機の表示でも届出事業者名でもない"
+  date: 2026-11-23
+
+input: "100-240V~ 1.5A, 50-60Hz"
+size: "約40 x 36 x 36mm"
+weight_g: 72
+foldable_plug: true
+usb:
+  ports:
+    - {name: C, type: C, max_w: 45}
+  total_w: 45
+  pd: true
+  pps: true
+colors: [ブラック, ホワイト, ブルー, オレンジ]
+warranty: "18ヶ月(Anker で会員登録すると +6ヶ月)"
+seller_jp: "アンカー・ジャパン株式会社"
+recall_checked: 2026-11-23
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "A121D"
+price: "3,990円(税込・Anker Japan 公式オンラインストア)"
+note: |
+  発売月は公式ページの仕様欄で「2026年4月」。型番は A121DN11(ブラック)/ A121DN21(ホワイト)/ A121DN31(ブルー)/ A121DNO1(オレンジ)。
+  出力: 5V⎓3A / 9V⎓3A / 15V⎓3A / 20V⎓2.25A(最大45W)。PD・PPS は公式ページの注意「最大45WでのUSB PD充電、3アンペアでのPPS充電」から。5A の PPS が要る機器は急速充電にならない。GaN は公式に記載なし。
+  画面: 公式ページは「iPhoneのモデル検知」「充電出力やiPhoneのバッテリー残量を表示」「出力や充電モードの状況や、本体の温度状況」「20種類を超える画面デザイン」。公式画像 A121D121_01.jpg では画面に「Charging / iPhone 17 Pro Max」と出ている(機種名の表示は画像で確認。文章では「モデル検知」としか書いていない)。
+  モデル検知の対象は iPhone 17e を除く iPhone 15〜17 シリーズと第10世代以降の iPad(公式ページの注意)。ほかの機器も充電はできる。
+  操作は本体側面のタッチ式ボタン。取説: 1回タップで画面の操作、2回タップで充電モードの切替、2秒長押しで画面の回転。1分操作しないと画面が消える(1分か5分に設定できる)。
+  充電モード(取説): 急速充電(最大45W。残量 0〜20% 急速 / 20〜80% 充電 / 80〜100% 低速)と保護充電(最大20W)。
+  プラグは上下に 180°回転するスイングプラグで、折りたためる(公式ページ・取説)。
+  公式ページの比較表は色を「ブラック,ホワイト」と書いているが、選べる色は4色(ページの色の選択)。
+  Anker の自主回収の告知(製品回収情報、最新は2025年10月掲載)に A121D は入っていない。充電器の回収は2019年7月の PowerPort Atom PD 4 だけ。

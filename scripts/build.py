@@ -1286,6 +1286,9 @@ def build_feature_index() -> str:
 FACE_LABEL = {"ac": "AC", "c": "C", "a": "A", "cable": "ケーブル", "wl": "無線", "plug": "プラグ", "line": ""}
 
 
+PICKS_MAX = 6
+
+
 def pick_slides(products: list[dict]) -> str:
     """最初の画面の横スライド(data/picks.yaml)。製品データにある物だけ。記事があれば記事へ、無ければ図鑑へ"""
     path = ROOT / "data" / "picks.yaml"
@@ -1294,7 +1297,11 @@ def pick_slides(products: list[dict]) -> str:
     by_id = {p["id"]: p for p in products}
     post_of = {a["p"]["id"]: a for a in POSTS}
     items = []
-    for i, x in enumerate(yaml.safe_load(path.read_text(encoding="utf-8")) or []):
+    picks = yaml.safe_load(path.read_text(encoding="utf-8")) or []
+    # 出すのは上から6つまで(2026-11-23 本人「スライダーに表示させるガジェットは最大6個で」)。7つ目からは控え
+    if len(picks) > PICKS_MAX:
+        print(f"横スライドは上から {PICKS_MAX} つだけ出す。控え: {', '.join(str(x.get('id')) for x in picks[PICKS_MAX:])}")
+    for i, x in enumerate(picks[:PICKS_MAX]):
         p = by_id.get(x.get("id"))
         if not p:
             die(f"data/picks.yaml: {x.get('id')} が data/products にありません")

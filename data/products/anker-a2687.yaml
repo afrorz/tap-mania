@@ -1,0 +1,54 @@
+id: anker-a2687
+maker: Anker
+model: A2687
+name: "Anker Prime Charger (160W, 3 Ports)"
+category: charger
+image: "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A2687141.png?v=1762316684"
+image_credit: "Anker 公式サイト"
+official_url: "https://www.ankerjapan.com/products/a2687"
+manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A2687Manual.pdf"
+checked: 2026-11-23
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページ・取扱説明書・クイックスタートガイド(PDF)・公式の製品画像9枚に、PSE マーク・届出事業者名・登録検査機関名のどれも見当たらない。本体の表示を写した公式画像も無い"
+  date: 2026-11-23
+
+input: "100-240V~, 2A, 50 / 60Hz"
+size: "約65 × 52 × 35mm"
+weight_g: 220
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 140}
+    - {name: C2, type: C, max_w: 140}
+    - {name: C3, type: C, max_w: 140}
+  total_w: 160
+  sharing:
+    - {use: "2ポート・3ポート(自動配分モード)", out: "合計最大160W(2分ごとに自動で配分を変える。決まった表は無い)"}
+    - {use: "C1+C2(C1ポート優先モード)", out: "100W+60W"}
+    - {use: "C2+C3(C1ポート優先モード)", out: "100W+60W"}
+    - {use: "C1+C3(C1ポート優先モード)", out: "100W+60W"}
+    - {use: "C1+C2+C3(C1ポート優先モード)", out: "100W+30W+30W"}
+    - {use: "2ポート(デュアルPCモード)", out: "70W+70W(C1+C2・C2+C3・C1+C3 とも)"}
+    - {use: "C1+C2+C3(デュアルPCモード)", out: "70W+70W+20W"}
+  sharing_source: "取扱説明書 p.8〜9「充電モード設定」の図(固定配分モード)。公式ページの仕様欄は「2ポート利用時 : 合計最大160W / 3ポート利用時 : 合計最大160W」だけ"
+  gan: true
+colors: [シルバー]
+warranty: "24ヶ月(Anker で会員登録すると +6ヶ月)"
+seller_jp: "アンカー・ジャパン株式会社"
+recall_checked: 2026-11-23
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "A2687"
+price: "17,990円(税込・Anker Japan 公式オンラインストア)"
+note: |
+  型番は A2687N41(シルバー)。公式ページに発売月の記載は無い。
+  1ポートのとき(公式ページ): 全ポート 5V⎓3A / 9V⎓3A / 15V⎓3A / 20V⎓5A / 28V⎓5A(最大140W)。単ポート最大150W は Anker Prime Power Bank (26250mAh, 300W)(A110A)を自動配分モードで充電するときだけ(公式ページの注意・取説の よくある質問)。取説の仕様は 28V⎓5.36A(最大150W)まで書き、「4 ポート利用時 最大 160W」という行もある(3ポートの製品なので誤記と見られる)。
+  GaN は公式ページ「GaNPrime™ 2.0」から。PD・PPS は公式ページ・取説に対応の記載が無いので書いていない。PowerIQ 5.0 対応(公式ページ)。
+  画面: 公式ページは「タッチ式ディスプレイ」「ポートごとの充電状況のモニタリングや本体の温度状況の確認」。つないだケーブルの種類を「3Aケーブル」(最大60W)「5Aケーブル」(最大100W)「EPRケーブル」(最大240W)と表示する。複数つないだときは上のポートのケーブルだけ表示(取説)。小数点以下1桁まで。本体の向きに合わせて画面が自動で回転する。
+  取説の操作は「ボタン」と書いている: 1回押すと画面オン・切替、2秒長押しで画面オフ、2回押すと充電モードの切替(Bluetooth のオン/オフも2回押しと書いてある)、3回押すと画面を手動で回転、7秒長押しで Bluetooth のリセット。
+  Bluetooth で Anker アプリにつなぐと、ポートごとの電源オフ(タイマー)・カスタムモード・画面の明るさ(25〜100%)・言語(英・独・日・中)を設定できる。ログインなしでも全機能を使える(取説)。
+  折りたたみプラグかどうかは公式ページ・取説の文章に記載が無いので書いていない。
+  Anker の自主回収の告知(製品回収情報、最新は2025年10月掲載)に A2687 は入っていない。充電器の回収は2019年7月の PowerPort Atom PD 4 だけ。

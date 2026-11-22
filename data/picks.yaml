@@ -4,17 +4,49 @@
 # fact: 下に小さく出す数字(製品データ・公式の情報と同じもの)
 # face: ポートの顔(ac・c・a・cable・wl)。cover: true で写真を枠いっぱいに。bg: 写真の台の色
 # 2026-11-21 本人「モックにあったかっこいい充電器とかタップを入れて」→ SHARGE・モンタップ・しろちゃんを先頭に
-- id: sharge-p7u
-  hook: "透けたボディに、<br>巻き取りケーブル。"
-  fact: "10,000mAh・1ポートで最大30W"
-  face: [cable, c]
-  bg: "#DDE3E8"
+# 2026-11-23 本人「デザイン的に変わった物を」「スライダーは最大6個」→ 上の6つが表に出る。7つ目からは控え(並べ替えで入れ替える)
+- id: ugreen-uno-45327
+  hook: "ロボットの表情で、<br>電池の残りを知らせる。"
+  fact: "10,000mAh・ワイヤレス7.5W"
+  face: [c, wl]
+  bg: "#E4E6EA"
+  cover: true
+- id: sharge-retro67
+  hook: "初代Macintoshの形、<br>画面にいまのW数。"
+  fact: "USB-C×3・1ポートで最大67W"
+  face: [c, c, c]
+  bg: "#E6E4DF"
 - id: elpa-montap
   hook: "4本脚で立つ、<br>電源タップ。"
   fact: "Makuake で先行販売中"
   face: [ac, ac, ac]
   bg: "#DEDCE1"
   cover: true
+- id: anker-a121d
+  hook: "挿したiPhoneの機種名が、<br>本体の画面に出る。"
+  fact: "USB-C・最大45W・約72g"
+  face: [c]
+  bg: "#E4E6EA"
+- id: sharge-p7u
+  hook: "透けたボディに、<br>巻き取りケーブル。"
+  fact: "10,000mAh・1ポートで最大30W"
+  face: [cable, c]
+  bg: "#DDE3E8"
+- id: ugreen-95127
+  hook: "W数を映す画面と、<br>引き出すケーブル。"
+  fact: "合計最大160W・ケーブル最大140W"
+  face: [cable, c, c, a]
+  bg: "#E2E5E9"
+- id: anker-a2687
+  hook: "3ポートの出力と温度を、<br>タッチ式の画面に。"
+  fact: "USB-C×3・合計最大160W"
+  face: [c, c, c]
+  bg: "#E4E6EA"
+- id: lifeon-lcaea018
+  hook: "透明な殻が、<br>ベージュの本体を包む。"
+  fact: "USB-C 最大67W・4ポート"
+  face: [c, c, a, a]
+  bg: "#E6E4DF"
 - id: elecom-mpa-ccecdf10bf
   hook: "コネクターの顔が、<br>電力で目を覚ます。"
   fact: "USB-C 両端・最大100W"
