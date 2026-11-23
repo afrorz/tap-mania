@@ -806,3 +806,8 @@ header.top .wrap { min-height: 60px; flex-wrap: nowrap; padding-top: 0; padding-
 
 .v7-more { margin-top: 64px; }
 .v7-meta .v7-ad { margin: 0 0 0 auto; }  /* 11/23 本人「広告を含みます」は日付の行の右端に */
+/* 11/23 本人「はみでちゃってる」: 名前の長いポートの札は、黒い仕様書の中では折り返す */
+.v7-plate .ports { display: flex; flex-wrap: wrap; max-width: 100%; }
+.v7-plate .port { white-space: normal; max-width: 100%; }
+.v7-plate .port i { overflow-wrap: anywhere; }
+.v7-plate .port b { white-space: nowrap; align-self: center; }
