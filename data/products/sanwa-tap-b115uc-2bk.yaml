@@ -4,6 +4,16 @@ model: TAP-B115UC-2BK
 name: "クランプ固定式タップ（簡単脱着・4方向向き変更・卓上使用対応・PD65W）"
 category: usb-tap
 image: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2W_MX.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2BK_MX.jpg", alt: "ブラック", color: "ブラック"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2W_FT1X.jpg", alt: "机に固定してUSBを挿す場面"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2W_FT3X.jpg", alt: "正面のUSB-C×2・USB-A×2"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2W_FT8X.jpg", alt: "上面と側面のACコンセント(4方向から見た図)"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2W_FT11X.jpg", alt: "本体とクランプを外したところ"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2W_FT19X.jpg", alt: "本体・クランプ・2mのコード"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2W_FT22X.jpg", alt: "机の上でスマホやPCを充電する場面"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2W_FT24X.jpg", alt: "机の天板の端に取り付けた様子"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-B115UC-2W_MO17X.jpg", alt: "大きいACアダプタも挿せる"}
 image_credit: "サンワサプライ 公式サイト"
 official_url: "https://www.sanwa.co.jp/product/syohin?code=TAP-B115UC-2BK"
 manual_url: "https://cdn.sanwa.co.jp/support/setsumeisyo/pdf/T/TAP-B115UC-2series_ver1-0.pdf"
@@ -66,3 +76,9 @@ note: |
   プラグは「2P(平行型・絶縁キャップ付き)」。差込口は両側面と上面に1口ずつで、全口にシャッター。過電流保護機能あり。日本国内専用。
   本体 約W70×D70×H72.5mm(クランプを除く)、約690g。取り付けられる天板の厚さは最大4cm(公式画像)。白は TAP-B115UC-2W。
   雷サージ・難燃性・マグネットは、公式ページにも取説にも記載なし。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "机の天板にクランプで挟んで固定する電源タップで、簡単に取り外せて向きを4方向に変えられ、卓上に置いても使えます。差込口はACが3つ(両側面と上面に1口ずつ)で、そこにUSB-Cが2つとUSB-Aが2つ並びます。"
+  points:
+    - "USB-Cは1ポートなら最大65W。C1+C2の2つ同時なら45W+20Wで、ノートPCとスマホを手元で充電できる"
+    - "取り付けられる天板の厚さは最大4cm。机の上に充電器を置かずに済む"
+    - "コードは2mの二重被ふくコード。床のコンセントから机の上まで引き上げて使える"

@@ -4,11 +4,15 @@ model: EC-C68LBK
 name: "Qi2対応・AC充電器・ケーブル一体型4in1モバイルバッテリー 10000mAh/22.5W"
 category: battery
 image: "https://www.elecom.co.jp/photo/p01/EC-C68LBK_01.jpg"
-images:
-  - "https://www.elecom.co.jp/photo/p01/EC-C68LBK_01.jpg"   # 白背景の本体(プラグ・ケーブルを出した状態)
-  - "https://www.elecom.co.jp/photo/p31/EC-C68LBK_31.jpg"   # 正面とケーブル
-  - "https://www.elecom.co.jp/photo/p33/EC-C68LBK_33.jpg"   # 側面(残量表示・ポート)
-  - "https://www.elecom.co.jp/photo/p32/EC-C68LBK_32.jpg"   # 裏面の印字
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elecom.co.jp/photo/p31/EC-C68LBK_31.jpg", alt: "正面とケーブル"}
+  - {src: "https://www.elecom.co.jp/photo/p33/EC-C68LBK_33.jpg", alt: "側面の残量表示とポート"}
+  - {src: "https://www.elecom.co.jp/photo/p34/EC-C68LBK_34.jpg", alt: "折りたたみのプラグ側"}
+  - {src: "https://www.elecom.co.jp/photo/p32/EC-C68LBK_32.jpg", alt: "裏面の印字"}
+  - {src: "https://www.elecom.co.jp/photo/p38/EC-C68LBK_38.jpg", alt: "手に持った大きさ"}
+  - {src: "https://www.elecom.co.jp/photo/p43/EC-C68LBK_43.jpg", alt: "コンセントに挿して AC 充電器に"}
+  - {src: "https://www.elecom.co.jp/photo/p42/EC-C68LBK_42.jpg", alt: "机でスマホとイヤホンを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p45/EC-C68LBK_45.jpg", alt: "イヤホンを載せてワイヤレス充電"}
 image_credit: "エレコム 公式サイト"
 official_url: "https://www.elecom.co.jp/products/EC-C68LBK.html"
 manual_url: ""
@@ -66,3 +70,9 @@ note: |
   定格容量(5V 換算)は製品ページに無く、裏面の印字も小さくて読めない。
   エレコムのサイトは自動取得をはじく(403)。画像はブラウザでは開ける。取扱説明書の PDF は製品ページから直接は見つからない。
   消費者庁リコール情報サイトと NITE SAFE-Lite で「EC-C68LBK」を引いて該当なし(2026-11-14)。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "モバイルバッテリー・AC充電器・一体型ケーブル・Qi2 ワイヤレス充電器を1台にまとめた『4in1』です。スイングプラグを回して本体にしまえて、底面のスタンドでスマホを横向きに立てて置けます。残量は LED パネルに1%単位で出ます。"
+  points:
+    - "コンセントに挿せば AC 充電器になり、電力に余裕があればスマホと本体をまとめて充電"
+    - "Qi2 正規認証のワイヤレス充電は、バッテリーとして使うとき最大15W。スマホを載せるだけで充電できる"
+    - "旅行には充電器とバッテリーを別々に持たず、335g のこの1台で済ませられる"

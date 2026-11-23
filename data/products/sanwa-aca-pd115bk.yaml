@@ -4,11 +4,15 @@ model: ACA-PD115BK
 name: "USB PD対応AC充電器（PD100W・電源コード型）"
 category: charger
 image: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MX.jpg"
-images:
-  - "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MX.jpg"     # 白背景の本体・AC電源コード・Type-Cケーブル
-  - "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MO8X.jpg"   # Type-Cケーブル一体型
-  - "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MO6X.jpg"   # 合計3mのケーブル
-  - "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MO10X.jpg"  # 本体ラベルと PSE マーク
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MO8X.jpg", alt: "Type-Cケーブル一体型"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_FT6X.jpg", alt: "斜めから見た本体と両側のケーブル"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_FT4X.jpg", alt: "AC電源コードの差込口の寄り"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_FT11X.jpg", alt: "ノートPCに挿して使う場面"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_FT13X.jpg", alt: "タップに挿したACプラグ(ほかの差込口と干渉しにくい)"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_FT17X.jpg", alt: "タブレットを充電する場面"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MO6X.jpg", alt: "合計3mのケーブル"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/A/ACA-PD115BK_MO10X.jpg", alt: "本体ラベルと PSE マーク"}
 image_credit: "サンワサプライ 公式サイト"
 official_url: "https://www.sanwa.co.jp/product/syohin?code=ACA-PD115BK"
 manual_url: ""
@@ -49,3 +53,9 @@ note: |
   取扱説明書の PDF と保証期間は製品ページで見つけられなかった(付属品に「取扱説明書・保証書」とだけある)。
   楽天・Yahoo! は公式店 サンワダイレクト(楽天 9,480円)。Amazon(B0HBWLLKDB)は 11/14 時点の販売元が「やるCAN」で公式・Amazon.co.jp ではないため stores に入れていない。
   消費者庁リコール情報サイトと NITE SAFE-Lite で「ACA-PD115BK」を引いて該当なし(2026-11-14)。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "ノートPC用のACアダプタを、USB-Cケーブルと一体にした充電器です。本体の片側からUSB-Cケーブル約1.5m、反対側から着脱式のAC電源コード約1.5mが出ていて、合わせて3mの長さになります。"
+  points:
+    - "出力は一体型ケーブル1本だけで最大100W。机のノートPCの電源として使える"
+    - "コンセントには細いAC電源コードを挿すので、メーカーによるとタップのほかの差込口とぶつからない"
+    - "ドッキングステーションにつないだまま空きポートに別の機器を挿しても、映像・通信が切れる心配がない、とメーカーは説明"

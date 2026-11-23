@@ -4,6 +4,14 @@ model: ECT-34WH
 name: "球体USB電源タップ(AC3個口/スイングプラグ)"
 category: usb-tap
 image: "https://www.elecom.co.jp/photo/p01/ECT-34WH_01.jpg"   # プログラムからは 403。ブラウザでは開ける
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elecom.co.jp/photo/p35/ECT-34WH_35.jpg", alt: "USB-C と USB-A のポート面"}
+  - {src: "https://www.elecom.co.jp/photo/p43/ECT-34WH_43.jpg", alt: "折りたためるスイングプラグ"}
+  - {src: "https://www.elecom.co.jp/photo/p45/ECT-34WH_45.jpg", alt: "横から見た AC の差し込み口"}
+  - {src: "https://www.elecom.co.jp/photo/p32/ECT-34WH_32.jpg", alt: "壁のコンセントで使う"}
+  - {src: "https://www.elecom.co.jp/photo/p34/ECT-34WH_34.jpg", alt: "机の横でノートPCとスマホを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p46/ECT-34WH_46.jpg", alt: "ポーチに入れて持ち運ぶ"}
+  - {src: "https://www.elecom.co.jp/photo/p47/ECT-34WH_47.jpg", alt: "手のひらにのる大きさ"}
 image_credit: "エレコム 公式サイト"
 official_url: "https://www.elecom.co.jp/products/ECT-34WH.html"
 checked: 2026-11-12
@@ -54,3 +62,9 @@ note: |
   トラッキング対策は、仕様に「耐トラッキング性の要求事項(PSE：電気用品安全法)を満たしたコンセントプラグを採用」とある。AC 差込口は熱硬化性樹脂、刃受け金具は0.8mm厚の板。
   極性対応・雷ガード・スイッチ・抜け止め・通電ランプは、仕様表でどれも「×」。
   取扱説明書は公開されていない(エレコムのマニアル一覧に ECT の型番なし)。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "大きさ約59mm角の球体に、コンセント3口と USB-C 1つ・USB-A 2つを詰めたタップです。コードは無く、壁のコンセントに直接挿す形で、使わないときはプラグを折りたためます。色はホワイトの1色です。"
+  points:
+    - "USB-C は1ポートだけなら USB PD 20W で、スマホを急速充電できる"
+    - "重さ約130g でプラグを折りたためるので、国内旅行のかばんにも入れやすい"
+    - "USB は C が1つと A が2つ。机の横のコンセントでスマホとイヤホンを一度に充電できる"

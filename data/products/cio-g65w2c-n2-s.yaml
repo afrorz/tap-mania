@@ -4,6 +4,16 @@ model: CIO-G65W2C-N2-S
 name: "NovaPort SLIM DUOⅡ 65W2C"
 category: charger
 image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/05/65W-B-1536x1536.png"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/05/65W-W-1536x1536.png", alt: "ホワイト", color: "ホワイト"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/NovaPort-SLIM-DUOII-65W2C_v2_02_BK.jpg", alt: "横から見た薄さ"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/NovaPort-SLIM-DUOII-65W2C_v2_03.jpg", alt: "ブラックとホワイト"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/NovaPort-SLIM-DUOII-65W2C_v2_04_BK.jpg", alt: "180°開閉プラグ"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/NovaPort-SLIM-DUOII-65W2C_v2_05_BK.jpg", alt: "カフェや壁のコンセントで使う場面"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/NovaPort-SLIM-DUOII-65W2C_v2_06_BK.jpg", alt: "ノートPCとスマホに充電"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/NovaPort-SLIM-DUOII-65W2C_v2_07_BK.jpg", alt: "プラグの向き 180°・90°・0°"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/NovaPort-SLIM-DUOII-65W2C_v2_08_BK.jpg", alt: "厚さ 12.5mm・90g"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/NovaPort-SLIM-DUOII-65W2C_v2_11.jpg", alt: "シボ加工と USB-C ポート"}
 image_credit: "CIO 公式サイト"
 official_url: "https://connectinternationalone.co.jp/cioproduct/adapter/novaport/cio-g65w2c-n2-s/"
 manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/7e9d20ea93c255304b30d1b8edbcf3b6.pdf"
@@ -47,3 +57,9 @@ note: |
   1ポートのときは C1/C2 とも 5V⎓3A/9V⎓3A/12V⎓3A/15V⎓3A/20V⎓3.25A(65W Max)、PPS 5-11V⎓5A(本体の刻印)。
   取説 p.6 は振り分けを「45W+20W / 30W+30W など」と「など」付きで書いている。
   楽天は公式ページのリンクが店のトップに飛び、型番の検索で正規店を確かめきれなかったので stores に入れていない。Amazon は販売元「株式会社CIO」。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "厚さ約12.5mm・重さ約90gの、薄い板のような形の65W充電器です。USB-C が2つ並び、1ポートなら最大65Wで、ノートPCの充電もこれ1台で足ります。プラグは180°スイング式で、持ち運ぶときは折りたためます。"
+  points:
+    - "2つ同時なら45W＋20W・30W＋30Wなどに振り分け、ノートPCとスマホを一緒に充電できる"
+    - "大きさは約46.4×87.4×12.5mm(プラグ部除く)で、出張のかばんにも入れやすい"
+    - "PD3.0 と PPS に対応し、色はブラックとホワイトの2色"

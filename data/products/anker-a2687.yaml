@@ -4,6 +4,12 @@ model: A2687
 name: "Anker Prime Charger (160W, 3 Ports)"
 category: charger
 image: "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A2687141.png?v=1762316684"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2687001.png", alt: "クレジットカードと大きさ比べ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2687003.jpg", alt: "一般的な140W充電器と大きさ比べ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2687004.png", alt: "ノートPC・タブレット・スマホを同時に充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2687005.jpg", alt: "3つの USB-C ポートとディスプレイ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2687006.jpg", alt: "タッチ式ディスプレイの表示"}
 image_credit: "Anker 公式サイト"
 official_url: "https://www.ankerjapan.com/products/a2687"
 manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A2687Manual.pdf"
@@ -52,3 +58,9 @@ note: |
   Bluetooth で Anker アプリにつなぐと、ポートごとの電源オフ(タイマー)・カスタムモード・画面の明るさ(25〜100%)・言語(英・独・日・中)を設定できる。ログインなしでも全機能を使える(取説)。
   折りたたみプラグかどうかは公式ページ・取説の文章に記載が無いので書いていない。
   Anker の自主回収の告知(製品回収情報、最新は2025年10月掲載)に A2687 は入っていない。充電器の回収は2019年7月の PowerPort Atom PD 4 だけ。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "3つの USB-C がどれも1ポートなら最大140Wの充電器に、タッチ式の画面が付いています。ポートごとの充電状況や本体の温度に加えて、つないだケーブルが3A・5A・EPRのどれかまで表示され、本体の向きに合わせて画面が自動で回ります。"
+  points:
+    - "2台のノートPCを同時に充電する日は、デュアルPCモードで70W＋70Wに固定して配れる"
+    - "Bluetooth で Anker アプリにつなぐと、ポートごとのタイマー電源オフや画面の明るさを設定できる"
+    - "合計は最大160Wで、大きさは約65×52×35mm、重さは約220g"

@@ -4,6 +4,14 @@ model: "montap(3個口)"
 name: "モンタップ(montap)3個口タイプ"
 category: tap
 image: "https://prcdn.freetls.fastly.net/release_image/173633/10/173633-10-c10ea7211b937ccbd9105761d6963d73-3900x2194.jpg?width=1200"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://prcdn.freetls.fastly.net/release_image/173633/10/173633-10-21ac11f6e19b3088ff6be58374b0a29c-1672x941.png?width=1200", alt: "サニーオレンジ", color: "サニーオレンジ"}
+  - {src: "https://prcdn.freetls.fastly.net/release_image/173633/10/173633-10-2d0db2a16b636c14f2cf578cefd6ecde-3900x2194.jpg?width=1200", alt: "アーバングレー(棚の上)", color: "アーバングレー"}
+  - {src: "https://prcdn.freetls.fastly.net/release_image/173633/10/173633-10-864b3d6f88144030c00c6a0958a89c4f-3900x2194.jpg?width=1200", alt: "サンドベージュ(窓辺の机)", color: "サンドベージュ"}
+  - {src: "https://prcdn.freetls.fastly.net/release_image/173633/10/173633-10-109f231000a415906cb75a8570e0c794-1181x664.jpg?width=1200", alt: "横から見た脚"}
+  - {src: "https://prcdn.freetls.fastly.net/release_image/173633/10/173633-10-000f50e01e86f76772b137f8f895628d-1181x664.jpg?width=1200", alt: "本体と同じ色のプラグとコード"}
+  - {src: "https://prcdn.freetls.fastly.net/release_image/173633/10/173633-10-53a19ad841fa7c2df660e7bfddbdef14-3900x2194.jpg?width=1200", alt: "棚の上に置いたところ"}
+  - {src: "https://prcdn.freetls.fastly.net/release_image/173633/10/173633-10-71fddb5e36a95f1351d962277e46b7c6-1181x664.jpg?width=1200", alt: "4色と2タイプを並べたところ"}
 image_credit: "朝日電器 プレスリリース"
 official_url: "https://www.makuake.com/project/montap/"
 checked: 2026-11-21
@@ -39,3 +47,9 @@ note: |
   USB-C 付きのタイプもある: AC 3個口 + USB-C 1ポート(PD 20W・5V 3A / 9V 2.22A / 12V 1.67A)、AC 14A 100V(合計 1400W)、約155 × 46 × 42.2mm・約270g、一般販売の予定価格 6,970円。
   Makuake の先行販売は 2026-09-15〜12-15、出荷は 2027年1月中旬から。プレスリリースの大きさの並びは 117 × 42 × 46mm で、仕様表と順序が違う。
   出典: Makuake https://www.makuake.com/project/montap/ ・ プレスリリース https://prtimes.jp/main/html/rd/p/000000010.000173633.html
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "4本のシリコン脚で本体を持ち上げた、小動物が佇むような形の電源タップです。使わない差し込み口には、フィギュア付きのコンセントキャップ(16種・ランダム)を付けられます。いまは Makuake で先行販売中です。"
+  points:
+    - "表面は陶器風のマットな微細シボで、本体・脚・コード・プラグがすべて同じ色"
+    - "脚は滑りにくく机を傷つけにくいので、机の上に出したまま置いておける"
+    - "AC 3個口で合計1500W。大きさは約117 × 46 × 42.2mm、色は4つから選べる"

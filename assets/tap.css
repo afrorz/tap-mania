@@ -676,3 +676,20 @@ header.top .wrap { min-height: 60px; flex-wrap: nowrap; padding-top: 0; padding-
 
 .adwrap { max-width: 1160px; }
 .adwrap .adnote { margin: 8px 0 0; }
+
+/* 製品ページの「ここが面白い」(2026-11-23 本人「商品の魅力を多少は語らないと」) */
+.pitch { margin: 28px 0 8px; padding: 20px 22px 14px; background: var(--panel); border: 1px solid var(--line); border-left: 6px solid var(--orange); border-radius: 16px; }
+.pitch h2 { margin: 0 0 10px; }
+.pitch-lead { font-size: 17px; line-height: 1.8; margin: 0 0 10px; }
+.pitch-pts { margin: 0; padding-left: 1.2em; }
+.pitch-pts li { font-size: 15px; line-height: 1.7; margin: 4px 0; }
+.pitch-more { margin: 10px 0 0; font-size: 14px; }
+
+/* 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも掲載」) */
+.pgal { min-width: 0; }
+.pgal-th { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.pgal-th button { flex: none; width: 64px; padding: 4px; background: #fff; border: 1px solid var(--line2); border-radius: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.pgal-th button[aria-current] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.pgal-th img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+.pgal-th small { font-size: 10px; line-height: 1.2; color: var(--sub); text-align: center; }
+@media (max-width: 640px) { .pgal { max-width: 300px; margin: 0 auto; } }

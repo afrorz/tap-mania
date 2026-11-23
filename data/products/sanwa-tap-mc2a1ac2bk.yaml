@@ -4,6 +4,15 @@ model: TAP-MC2A1AC2BK
 name: "巻き取りコード式モバイルタップ（AC2個口・C×2・A×1・PD65W）"
 category: usb-tap
 image: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_MX.jpg"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_FT1X.jpg", alt: "コードを本体に巻き付けた状態"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_FT9X.jpg", alt: "手のひらに載る大きさ"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_FT15X.jpg", alt: "上面のACコンセント2口"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_FT16X.jpg", alt: "側面のUSB-A×1・USB-C×2"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_FT12X.jpg", alt: "壁のコンセントに挿したL型の薄型プラグ"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_FT3X.jpg", alt: "机でノートPCやスマホを充電する場面"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_FT8X.jpg", alt: "かばんに入れて持ち歩く"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-MC2A1AC2BK_FT20X.jpg", alt: "底面のラベル(PSE・CQC・サンワサプライ)"}
 image_credit: "サンワサプライ 公式サイト"
 official_url: "https://www.sanwa.co.jp/product/syohin?code=TAP-MC2A1AC2BK"
 manual_url: ""
@@ -62,3 +71,9 @@ note: |
   USB の入力は AC100〜240V(主な対応国は日本)。過電流保護と自動識別 IC。差込口は耐熱のユリア樹脂。
   発売は 2026-10-16(リリースの日付)。取扱説明書の PDF と保証期間は製品ページに見当たらない。
   楽天・Yahoo! は公式店 sanwadirect、Amazon は B0H6M7V2DF(販売元 Amazon.co.jp)。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "コードを本体に巻き付けてまとめられる、持ち歩き用のタップです。約W99×D54×H53mmの本体にACコンセント2口とUSB-C2つ・USB-A1つが入っていて、コードの先は厚さ1cmの薄いL型プラグです。"
+  points:
+    - "USB-CはC1+C2の2つ同時なら45W+20W。旅行先でノートPCとスマホを一緒に充電できる"
+    - "ACの差込口は間隔50mmで、大きめのACアダプタも2つ並べて挿せる"
+    - "コードは0.8mで、本体に巻き付けて持ち運べる。重さは217g"

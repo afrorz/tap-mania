@@ -4,10 +4,16 @@ model: "45327"
 name: "UGREEN Uno 10000mAh マグネット式ワイヤレス充電対応モバイルバッテリー"
 category: battery
 image: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/f7af7fcac2e3bcc32ec6c2e9236e9e49_6fd923fb-7d4e-4b07-8afd-95f32ff0f188.webp?v=1772093835"
-images:
-  - "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/f7af7fcac2e3bcc32ec6c2e9236e9e49_6fd923fb-7d4e-4b07-8afd-95f32ff0f188.webp?v=1772093835"   # 画面にロボットの顔(^ ^)。黒背景・文字は本体の UGREEN ロゴだけ(UGREEN 本社サイト・豪州版)
-  - "https://ugreen.jp/cdn/shop/files/45327_45328-4.png"   # 白背景・グレーと紫の2台。画面は消灯
-  - "https://ugreen.jp/cdn/shop/files/45327-3.png"   # 側面。スタンドと USB-C(IN/OUT)
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://ugreen.jp/cdn/shop/files/45327_45328-4.png", alt: "グレーと紫の2台。画面は消灯"}
+  - {src: "https://ugreen.jp/cdn/shop/files/45327_45328-2.png", alt: "紫(奥・背面とスタンド)とメタリックグレー(手前)", color: "紫"}
+  - {src: "https://ugreen.jp/cdn/shop/files/45327-1.png", alt: "背面とスタンドを開いたところ"}
+  - {src: "https://ugreen.jp/cdn/shop/files/45327-3.png", alt: "側面。スタンドと USB-C(IN/OUT)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/61WQ1qlBM3L_90c96c7c-6ba3-42e7-84b7-2eb1b4f81eae.jpg", alt: "スマホの背面にマグネットで付けたところ(文字あり)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/713vLoonqPL_7b7e01dc-83b1-4f42-af25-91ac95120c5d.jpg", alt: "画面の残量表示と表情(文字あり)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/71aX7cHuZ2L_4e525aad-860f-466c-b403-e2245a0420b8.jpg", alt: "手に持って使う場面(文字あり)"}
+  - {src: "https://ugreen.jp/cdn/shop/files/Group_1000006332_d7f1908a-329a-40ff-a632-11b9c0bb23e0.png", alt: "スタンドでスマホを立てた場面"}
+  - {src: "https://ugreen.jp/cdn/shop/files/Group_1000006333_183789c5-5fec-4961-a25e-b63b1e9ef8ca.png", alt: "グレーと紫、ほかの機器と並べたところ"}
 image_credit: "UGREEN 公式サイト"
 official_url: "https://ugreen.jp/products/uno-10000mah-magnetic-wireless-charging-compatible-mobile-battery"
 manual_url: ""
@@ -57,3 +63,9 @@ note: |
   日本での発売日は公式に記載なし。
   ugreen.jp のお知らせに回収・リコールの告知なし(電池表示の改善のお知らせは PB311 で別の型番、2024-10)。消費者庁リコール情報サイトは 11/23 に応答がなく見られなかった。
   出典: https://ugreen.jp/products/uno-10000mah-magnetic-wireless-charging-compatible-mobile-battery ・ https://www.ugreen.com/en-ae/products/ae-45327 ・ https://www.ugreen.com/en-au/products/au-45327 ・ https://ugreen.jp/pages/product-warranty
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "正面の小さな画面に出るロボットの表情で、充電の状況を知らせる10000mAhのモバイルバッテリーです。マグネットでiPhoneの背面に付けてワイヤレス充電でき、亜鉛合金の折りたたみ式スタンドを開けば立てて置けます。"
+  points:
+    - "表情はメーカーによると15種類以上。画面を見るだけで充電の状況が分かる"
+    - "容量は10000mAh、重さ226g。USB-Cは入出力兼用で最大20W"
+    - "スタンドで立てたまま、机の上で動画を見ながらワイヤレス充電できる"

@@ -4,6 +4,15 @@ model: DE-C102-10KBK
 name: "ケーブル一体型 半固体モバイルバッテリー(10000mAh/22.5W)"
 category: battery
 image: "https://www.elecom.co.jp/photo/p01/DE-C102-10KWH_01.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。プログラムからは 403、ブラウザでは開ける
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elecom.co.jp/photo/p01/DE-C102-10KBK_01.jpg", alt: "ブラック", color: "ブラック"}
+  - {src: "https://www.elecom.co.jp/photo/p01/DE-C102-10KWF_01.jpg", alt: "しろちゃん(ホワイト×ブラック)", color: "しろちゃん(ホワイト×ブラック)"}
+  - {src: "https://www.elecom.co.jp/photo/p34/DE-C102-10KBK_34.jpg", alt: "ケーブルの付け根とポート"}
+  - {src: "https://www.elecom.co.jp/photo/p37/DE-C102-10KBK_37.jpg", alt: "一体型ケーブルを出したところ"}
+  - {src: "https://www.elecom.co.jp/photo/p40/DE-C102-10KBK_40.jpg", alt: "手に持った大きさ"}
+  - {src: "https://www.elecom.co.jp/photo/p43/DE-C102-10KBK_43.jpg", alt: "机でスマホを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p44/DE-C102-10KBK_44.jpg", alt: "3台を同時に充電"}
+  - {src: "https://www.elecom.co.jp/photo/p48/DE-C102-10KBK_48.jpg", alt: "スマホにつないで手に持つ"}
 image_credit: "エレコム 公式サイト"
 official_url: "https://www.elecom.co.jp/products/DE-C102-10KBK.html"
 manual_url: ""
@@ -55,3 +64,9 @@ note: |
   残量は LED パネルに 1% 単位。低電流モードと「おまかせ充電」は USB-A だけ。Switch 2 の充電に対応(ドックとの併用は不可)。
   定格容量は、底面印字の画像が読めないので空欄。同じシリーズに既存の 30W 版がある。
   エレコムのサイトは自動取得をはじく(403)。ブラウザでは画像が開ける。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "充放電をくり返した回数に応じて LED の色が『消灯→青→橙』と変わり、電池の替えどきを知らせる10000mAh のバッテリーです。電池は半固体リチウムイオンで、-15〜45℃のあいだ給電でき、冬の屋外でもスマホに充電できます。"
+  points:
+    - "約0.1m のケーブルが本体に付いていて、旅行でケーブルを忘れてもスマホにつなげる"
+    - "ケーブル・USB-C・USB-A の3つで、スマホ2台とイヤホンを一緒に充電できる"
+    - "38.5Wh・190g で、メーカーによると機内に持ち込める。残量は LED パネルに1%単位"

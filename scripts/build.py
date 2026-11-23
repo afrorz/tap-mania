@@ -613,6 +613,38 @@ def img(p: dict, cls: str = "pimg") -> str:
             f'<figcaption>画像: {e(p.get("image_credit") or p["maker"] + " 公式サイト")}</figcaption></figure>')
 
 
+def prod_images(p: dict) -> list[dict]:
+    """製品の写真をすべて。image(1枚目)＋ images(文字列か {src, alt, color})。重なりは除く。
+    2026-11-23 本人「複数画像があるなら、なるべく掲載する」「色違いがあるならそれも掲載する」"""
+    out, seen = [], set()
+    for x in [p.get("image")] + list(p.get("images") or []):
+        if not x:
+            continue
+        d = {"src": x} if isinstance(x, str) else dict(x)
+        if d["src"] in seen:
+            continue
+        seen.add(d["src"])
+        d.setdefault("alt", p["name"] + (f'({d["color"]})' if d.get("color") else ""))
+        out.append(d)
+    return out
+
+
+def gallery(p: dict) -> str:
+    """製品ページの写真。大きい1枚＋小さい写真の列(押すと入れ替わる)。色違いは小さい写真の下に色の名前"""
+    ims = prod_images(p)
+    if len(ims) < 2:
+        return img(p)
+    credit = e(p.get("image_credit") or p["maker"] + " 公式サイト")
+    thumbs = "".join(
+        f'<button type="button"{" aria-current=\"true\"" if i == 0 else ""} aria-label="{e(x["alt"])}を大きく">'
+        f'<img src="{e(x["src"])}" alt="" loading="lazy" referrerpolicy="no-referrer">'
+        + (f'<small>{e(x["color"])}</small>' if x.get("color") else "") + "</button>"
+        for i, x in enumerate(ims))
+    return (f'<div class="pgal"><figure class="pimg"><img src="{e(ims[0]["src"])}" alt="{e(ims[0]["alt"])}" referrerpolicy="no-referrer">'
+            f'<figcaption>画像: {credit}</figcaption></figure><div class="pgal-th">{thumbs}</div></div>'
+            '<script src="/assets/gallery.js" defer></script>')
+
+
 def pcard(p: dict) -> str:
     r = p.get("rating") or {}
     o = p.get("outlets") or {}
@@ -628,6 +660,19 @@ def pcard(p: dict) -> str:
     return (f'<a class="pcard" href="{p["url"]}">{img(p, "pthumb")}'
             f'<span class="maker">{e(p["maker"])}</span><b>{e(p["model"])}</b>'
             f'<span class="tags">{" ".join(f"<i>{b}</i>" for b in bits if b)}</span>{pse_badge(p)}</a>')
+
+
+def pitch_html(p: dict) -> str:
+    """製品ページの頭の「特徴」(11/23 本人「まず『特徴』だろう」)。2026-11-23 本人「商品の魅力を多少は語らないと意味ない」。
+    製品データの pitch: {lead: 2文, points: [見どころ3つ]}。事実は公式の数字だけ(docs/WRITING.md の「ここが面白い」)"""
+    pt = p.get("pitch") or {}
+    if not pt.get("lead"):
+        return ""
+    pts = "".join(f"<li>{e(x)}</li>" for x in pt.get("points") or [])
+    art = next((a for a in POSTS if a["product"] == p["id"]), None)
+    more = '<p class="pitch-more"><a href="{a_url}">紹介記事でくわしく読む →</a></p>'.replace("{a_url}", art["url"]) if art else ""
+    return (f'<section class="pitch"><h2>特徴</h2><p class="pitch-lead">{e(pt["lead"])}</p>'
+            + (f'<ul class="pitch-pts">{pts}</ul>' if pts else "") + more + "</section>")
 
 
 def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
@@ -671,7 +716,7 @@ def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
     body = f"""<main class="article"><div class="wrap">
 <p class="crumb"><a href="/">トップ</a> › <a href="/compare/">比べ表</a> › {e(CAT[p['category']]['name'])}</p>
 <div class="phead">
-  {img(p)}
+  {gallery(p)}
   <div>
     <p class="maker">{e(p['maker'])} ・ {e(CAT[p['category']]['name'])}</p>
     <h1>{e(p['model'])}<small>{e(p['name'])}</small></h1>
@@ -680,6 +725,7 @@ def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
     {store_buttons(p, 'product-top')}
   </div>
 </div>
+{pitch_html(p)}
 <h2>仕様(公式の数字だけ)</h2>
 <p class="small">メーカー公式ページと取扱説明書に書かれている値だけを載せています。書かれていない項目は「記載なし」です。</p>
 <table class="spec">{rows}</table>
@@ -1000,7 +1046,11 @@ def post_images(a: dict) -> list[dict]:
     """記事の写真。images が無ければ製品データの写真1枚"""
     p = a["p"]
     imgs = a.get("images") or ([{"src": p["image"], "alt": p["name"]}] if p.get("image") else [])
-    return [{"src": x["src"], "alt": x.get("alt") or p["name"]} for x in imgs]
+    out = [{"src": x["src"], "alt": x.get("alt") or p["name"]} for x in imgs]
+    # 色違いの写真は記事にも足す(2026-11-23 本人「色違いがあるならそれも掲載する」)
+    have = {x["src"] for x in out}
+    out += [{"src": x["src"], "alt": x["alt"]} for x in prod_images(p) if x.get("color") and x["src"] not in have]
+    return out
 
 
 def key_chips(p: dict) -> str:

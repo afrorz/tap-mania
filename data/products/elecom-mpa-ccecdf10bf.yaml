@@ -4,6 +4,15 @@ model: MPA-CCECDF10BF
 name: "しろちゃんディスプレイケーブル(USB-C - USB-C/100W/メッシュ)1.0m ブラック"
 category: cable
 image: "https://www.elecom.co.jp/photo/p01/MPA-CCECDF10BF_01.jpg"   # プログラムからは 403。ブラウザでは開ける
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elecom.co.jp/photo/p01/MPA-CCECDF10WF_01.jpg", alt: "ホワイト", color: "ホワイト"}
+  - {src: "https://www.elecom.co.jp/photo/p31/MPA-CCECDF10BF_31.jpg", alt: "両端のコネクター"}
+  - {src: "https://www.elecom.co.jp/photo/p32/MPA-CCECDF10BF_32.jpg", alt: "しろちゃんの顔がついたコネクター"}
+  - {src: "https://www.elecom.co.jp/photo/p34/MPA-CCECDF10BF_34.jpg", alt: "手に持ったケーブル"}
+  - {src: "https://www.elecom.co.jp/photo/p35/MPA-CCECDF10BF_35.jpg", alt: "ノートPCとスマホにつなぐ"}
+  - {src: "https://www.elecom.co.jp/photo/p37/MPA-CCECDF10BF_37.jpg", alt: "机でスマホを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p41/MPA-CCECDF10BF_41.jpg", alt: "ケーブルバンドでまとめたところ"}
+  - {src: "https://www.elecom.co.jp/photo/p42/MPA-CCECDF10BF_42.jpg", alt: "ポーチに入れて持ち運ぶ"}
 image_credit: "エレコム 公式サイト"
 official_url: "https://www.elecom.co.jp/products/MPA-CCECDF10BF.html"
 checked: 2026-11-21
@@ -38,3 +47,9 @@ note: |
   映像出力(DisplayPort Alternate Mode)には対応していない。TDR コンプライアンステストはエレコムの測定でクリア。付属はケーブルバンドとしろちゃんステッカー1枚。
   発売はプレスリリース(2026-11-04)で「10月下旬より新発売」、店頭実勢価格は 1m 1,980円・2m 2,080円(税込)。製品ページは 11/21 時点で「近日発売」のまま。
   出典: 製品ページ https://www.elecom.co.jp/products/MPA-CCECDF10BF.html ・ プレスリリース https://www.elecom.co.jp/news/new/20261104-07/
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "USB-C ケーブルのコネクター部に小さな画面があり、エレコムのキャラクター『しろちゃん』が出ます。充電の電力が変わるのに合わせて、眠っている表情から目を覚ました表情まで段階的に変わるので、いま速く充電できているかが顔つきで分かります。"
+  points:
+    - "USB PD で最大100W(20V/5A)に対応し、ノートPCの充電にも使える"
+    - "傷に強いナイロンメッシュとアルミのコネクターで、旅行かばんに入れて持ち歩きやすい"
+    - "長さ約1m・ケーブル径約3.5mm。ケーブルバンドとしろちゃんステッカー1枚が付く"

@@ -4,11 +4,14 @@ model: "95127"
 name: "UGREEN Nexode Pro 160W 巻き取りケーブル内蔵充電器"
 category: charger
 image: "https://ugreen.jp/cdn/shop/files/US-X776.png"
-images:
-  - "https://ugreen.jp/cdn/shop/files/US-X776.png"   # 背景透過の本体(日本と同じ形のプラグ・ケーブルを引き出した状態)。文字の重ねなし
-  - "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/612wdi9RzNL.jpg"   # 140W Retractable Cable(文字あり)
-  - "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/61f22CeV8yL.jpg"   # 画面の表示とタッチ操作(文字あり)
-  - "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/61qd45J07rL.jpg"   # かばんに入れる場面(文字あり)
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/612wdi9RzNL.jpg", alt: "巻き取り式ケーブルは140W(文字あり)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/61f22CeV8yL.jpg", alt: "画面の表示とタッチ操作(文字あり)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/61Ro8sR29aL.jpg", alt: "ノートPC2台を同時に充電(文字あり)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/61g02g7uXYL.jpg", alt: "4台を同時に充電(文字あり)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/71RuNzw5YPL.jpg", alt: "アプリで外から操作(文字あり)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/71jugKO7h3L.jpg", alt: "内部の温度センサー(文字あり)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0785/4181/6027/files/61qd45J07rL.jpg", alt: "かばんに入れる場面(文字あり)"}
 image_credit: "UGREEN 公式サイト"
 official_url: "https://ugreen.jp/products/ugreen-160w-retractable-charger"
 manual_url: ""
@@ -63,3 +66,9 @@ note: |
   大きさ・重さは公式ページ(日本・米国・欧州・カナダ・シンガポール)に記載なし。Amazon の「商品の重量 465 グラム」は箱込みと見られ、出典にしない。取扱説明書は公式サイトで見つからない(FCC の取説は 2027-03-09 まで非公開)。
   日本の公式ページに入力電圧・対応規格(PPS など)の文字は無い。米国公式の仕様欄は入力「240 volts」とだけ書く。
   出典: 日本公式 https://ugreen.jp/products/ugreen-160w-retractable-charger ・米国公式 https://us.ugreen.com/products/ugreen-160w-retractable-charger ・シリーズ https://us.ugreen.com/pages/nexode-pro-series-official ・欧州公式 https://eu.ugreen.com/products/nexode-pro-160w-smart-display-charger-with-retractable-cable
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "前面に回転するタッチ画面があり、合計とポートごとのW数、電圧・電流、温度まで表示する160Wの充電器です。壁紙を好きな写真にしたり時計を出したりでき、本体には約70cmの巻き取り式USB-Cケーブルも入っています。"
+  points:
+    - "巻き取りケーブルとUSB-C1は1ポートで最大140W。4つ同時なら合計160W"
+    - "Bluetoothと2.4GHzのWi-Fiでアプリにつなぎ、離れた所から充電の状態を見られる"
+    - "ケーブル・USB-C×2・USB-Aの4つで、机の上のノートPCとスマホ、タブレットをまとめて充電できる"

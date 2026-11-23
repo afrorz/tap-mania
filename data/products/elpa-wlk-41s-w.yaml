@@ -4,6 +4,15 @@ model: WLK-41S(W)
 name: "耐雷スイッチ付タップ 4個口 1m"
 category: tap
 image: "https://www.elpa.co.jp/product/img/wlk-41s-w_l.jpg"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elpa.co.jp/product/img/point07_wlk-s.jpg", alt: "上差し・横差しの差し込み口"}
+  - {src: "https://www.elpa.co.jp/product/img/point01_wlk-s.jpg", alt: "ホタル色 LED のスイッチ"}
+  - {src: "https://www.elpa.co.jp/product/img/wlk-s_wlk-b_point02.jpg", alt: "プラグの雷ガード表示 LED"}
+  - {src: "https://www.elpa.co.jp/product/img/wlk-s_wlk-b_point03.jpg", alt: "差し込み口の寄り(PBT 樹脂)"}
+  - {src: "https://www.elpa.co.jp/product/img/point05_wlk-s.jpg", alt: "AC アダプターを2つ挿したところ"}
+  - {src: "https://www.elpa.co.jp/product/img/point08_wlk-s.jpg", alt: "別売のフリーバンドでラックに付ける"}
+  - {src: "https://www.elpa.co.jp/product/img/point09_wlk-s.jpg", alt: "別売のマグネットでワゴンに付ける"}
+  - {src: "https://www.elpa.co.jp/product/img/point10_wlk-s.jpg", alt: "裏のフック穴"}
 image_credit: "ELPA(朝日電器) 公式サイト"
 official_url: "https://www.elpa.co.jp/product/el01/elpa1510.html"
 manual_url: "https://www.elpa.co.jp/product/pdf/tairai-tap_manual.pdf"
@@ -47,3 +56,9 @@ note: |
   使用温度範囲 -10℃〜40℃。屋内専用・国内専用。同じシリーズに 2m・3m・5m(WLK-42S・43S・45S)がある。
   マグネットは別売(WXP-MG01)。
   出典: 公式カタログ https://www.elpa.co.jp/webooks/2024/pdf/14.pdf ・ 値段 https://www.elpadirect.jp/products/4901087225743/ (11/12 時点で「欠品のため入荷まち」)
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "4つの差し込み口それぞれに、LED ランプ付きの独立スイッチが付いたタップです。置き方で差し込み口を上向きにも横向きにもでき、背面の溝には別売のマグネット(WXP-MG01)を付けられます。コードは断線に強い保護被ふくです。"
+  points:
+    - "AC アダプターが2つ差せるので、机でノートPCとスマホの充電器を並べて使える"
+    - "スイッチを切れば、挿したままの機器のうち使わない物の電気だけを止められる"
+    - "4個口で合計1500W、コードは1m。差し込み口は熱や衝撃に強い PBT 樹脂"

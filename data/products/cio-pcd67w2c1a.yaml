@@ -4,6 +4,14 @@ model: CIO-PCD67W2C1A
 name: "Polaris CUBE DESK"
 category: usb-tap
 image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/01_DESK_LP_BK.jpg"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/01_DESK_LP_WH.jpg", alt: "ホワイト", color: "ホワイト"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/03_DESK_LP_BK.jpg", alt: "机でノートPCを充電"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/04_DESK_LP_BK-1.jpg", alt: "モニターまわりで6台を同時に"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/05_DESK_LP-BK.jpg", alt: "出力が見えるスクリーン"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/06_DESK_LP_BK.jpg", alt: "付箋と並べた大きさと電源コード"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/11_DESK_LP_BK.jpg", alt: "底の滑り止め"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/13_DESK_LP_BK.jpg", alt: "バッグに入れて持ち運ぶ"}
 image_credit: "CIO 公式サイト"
 official_url: "https://connectinternationalone.co.jp/cioproduct/adapter/powerstrip/cio-pcd67w2c1a/"
 manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2024/07/240628_Polaris_CUBE_DESK_UM_ol.pdf"
@@ -58,3 +66,9 @@ note: |
   急速充電の規格は PD3.0 / PPS / QC4.0+(取説 p.6)。公式ページに「次世代半導体GaNを採用」。液晶でポートごとの給電 W 数が見える。過電流保護機能あり(取説 p.7)。
   トラッキング対策・スイッチ・雷サージは記載なし。本体 約76.5×66.8×49mm・約228g(ケーブル約100g は別)。
   Yahoo!ショッピングにはメーカー公式の店が見当たらないので stores から外した。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "コンセント3口と USB 3ポートを、約76.5×66.8×49mm の立方体にまとめた、机の上に置く電源です。液晶には、ポートごとにいま何W給電しているかが出ます。電源コードは着脱式で、本体の AC 入力ポートに挿して使います。"
+  points:
+    - "USB-C は2つとも、1ポートだけなら最大67W。ノートPCも充電できる"
+    - "C1+C2 にノートPCとスマホを挿すと、合計65Wを機器に合わせて自動で振り分け"
+    - "電源コードは1.5m。本体だけを机に置き、コードは足元のコンセントへ回せる"

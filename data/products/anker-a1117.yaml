@@ -4,11 +4,14 @@ model: A1117
 name: "Anker Nano Power Bank (25000mAh, Built-In & 巻取り式USB-Cケーブル)"
 category: battery
 image: "https://www.ankerjapan.com/cdn/shop/files/A1117H11.jpg"
-images:
-  - "https://www.ankerjapan.com/cdn/shop/files/A1117H11.jpg"            # 白背景の本体(2本のケーブルを出した状態)
-  - "https://www.ankerjapan.com/cdn/shop/files/A1117002.jpg"            # 巻取り式 約70cm・ストラップ式 約30cm
-  - "https://www.ankerjapan.com/cdn/shop/files/A1117_PA_PC_2-2.png"     # 2ポート時の合計 165W / 133W
-  - "https://www.ankerjapan.com/cdn/shop/files/A1117_PA_SP_2-3.jpg"     # 3ポート時 合計130W の内訳
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1117001.jpg", alt: "ケーブルを挿したところ(ディスプレイ付き)"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1117002.jpg", alt: "巻取り式 約70cm・ストラップ式 約30cm"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1117003.jpg", alt: "机の上で MacBook の横に置いたところ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1117004.jpg", alt: "4台を同時に充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1117005.jpg", alt: "ディスプレイの表示"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1117_PA_PC_2-2.png", alt: "屋外での仕事に使う場面"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1117_PA_SP_2-3.jpg", alt: "アウトドアで使う場面"}
 image_credit: "Anker 公式サイト"
 official_url: "https://www.ankerjapan.com/products/a1117"
 manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A1117Manual.pdf"
@@ -60,3 +63,9 @@ note: |
   入力は USB-C1・C2・C3 のどれでも最大100W。3つ同時につなぐと、一番入力の大きいポートで充電する(取説)。
   USB-A は低電流モードあり。容量は「セル容量 25,000mAh」(取説)だけで、Wh・定格容量・電池の種類は製品ページにも取説にも無い。重さは仕様欄・画像とも 約595g。
   消費者庁リコール情報サイトと NITE SAFE-Lite(事故情報・リコール情報)で「A1117」を引いて該当なし(2026-11-14)。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "25000mAh の電池に、USB-C ケーブルを2本まるごと内蔵したモバイルバッテリーです。巻き取り式の約70cmとストラップ式の約30cmがあり、液晶画面には残量やポートごとの入出力W、電池の温度、充電回数まで出ます。"
+  points:
+    - "内蔵ケーブル2本と USB-C ポートは、どれも1ポートなら最大100W。USB-C を2台なら合計165W"
+    - "ケーブルを持たずに、ノートPCとスマホを旅行先でこれ1台から同時に充電できる"
+    - "画面で最大容量(Battery Health)まで確かめられ、60%を下回ると「バッテリー状態の確認」が出る"

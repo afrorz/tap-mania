@@ -4,6 +4,14 @@ model: CIO-MB35W2C-SS10K-EX05
 name: "SMARTCOBY Ex05 Wireless2.2 Pro CABLE SS10K"
 category: battery
 image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/01_WH_amazon.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/01_BK_amazon.jpg", alt: "ブラック", color: "ブラック"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/02_BK.jpg", alt: "ノートPCの横に置いた本体"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/08.jpg", alt: "ケーブルでノートPCに給電"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/09_BK.jpg", alt: "リングでスマホを持つ・立てる"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/11_BK.jpg", alt: "充電しながらスマホを載せる(パススルー)"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/21-BK.jpg", alt: "傷がつきにくいシボ加工の表面"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/21_BK.jpg", alt: "外せる内蔵ケーブル"}
 image_credit: "CIO 公式サイト"
 official_url: "https://connectinternationalone.co.jp/cioproduct/mobilebattery/smartcoby/cio-mb35w2c-ss10k-ex05/"
 manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/06/260319_SC_Ex05_UM.pdf"
@@ -55,3 +63,9 @@ note: |
   ワイヤレスと有線を同時に使うには、ボタンを5秒長押しして「有線+無線充電切替モード【HY】」にする。HY にしていないと、ワイヤレス充電中にケーブルをつないだ時点でワイヤレスが止まる(取説 p.9・p.12)。
   パススルーは「完全パススルー充電対応」。サイクル回数は約400回。合計の最大出力は1つの値で書かれていないので total_w は書いていない。
   CIO の過去の回収は SMARTCOBY Ex01 SLIM Qi2 & CABLE(2025-01-27)で、型番が違う。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "USB-C の差し込み口と、本体から外せる約22cm のケーブルの2本立てに、Qi2.2 のワイヤレス充電まで載せた10000mAh のバッテリーです。セルは、CIO が独自の基準で『半固体系』と呼ぶものを使っています。"
+  points:
+    - "ワイヤレスは Qi2.2 で最大25W。Qi2 の機器へは最大15Wで、置くだけで充電できる"
+    - "有線の USB-C は最大35W。旅行でケーブルを忘れても、本体のケーブルでスマホにつなげる"
+    - "完全パススルー対応で、本体を充電しながらスマホにも給電でき、机では充電台のように置いておける"

@@ -4,12 +4,14 @@ model: TAP-AC3WN2-FPS
 name: "トリプルタップ（消火シート内蔵）"
 category: tap
 image: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_MX.jpg"
-images:
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_MX.jpg"     # 白背景の本体(直挿し・3個口)
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT1X.jpg"   # 内部の図。上下に消火シート
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT3X.jpg"   # 消火シートの拡大
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT7X.jpg"   # 壁のコンセントに挿した様子
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT11X.jpg"  # 底面の刻印(PSE・JET・15A 125V)
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT9X.jpg", alt: "正面の差込口(合計1500Wまでの刻印)"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT8X.jpg", alt: "プラグ側から見た本体"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_MO7X.jpg", alt: "プラグの刃の根元の絶縁キャップ"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT1X.jpg", alt: "内部の図。上下に消火シート"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT3X.jpg", alt: "消火シートの拡大"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT7X.jpg", alt: "壁のコンセントに挿した様子"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-AC3WN2-FPS_FT11X.jpg", alt: "底面の刻印(PSE・JET・15A 125V)"}
 image_credit: "サンワサプライ 公式サイト"
 official_url: "https://www.sanwa.co.jp/product/syohin?code=TAP-AC3WN2-FPS"
 manual_url: ""
@@ -55,3 +57,9 @@ note: |
   パッケージ 73×40×132mm・62g。JAN 4969887792285。
   発売日は、ニュースリリース(https://www.sanwa.co.jp/info/news/202609/tap-ac3wn2-fps/index.html)の日付。製品ページに発売日の記載は無い。取扱説明書の PDF は製品ページから直接は見つからない。
   楽天はサンワダイレクト(item.rakuten.co.jp/sanwadirect/tap-ac3wn2-fps/)、Yahoo! はサンワダイレクトほか、Amazon は「サンワサプライ 火災予防トリプルタップ 3個口 消火シート内蔵」(2026-11-16 検索)。
+pitch_draft:   # 消火シートの話が中心(安全の話)なので、本人が見てから pitch: に戻す(2026-11-23)
+  lead: "壁のコンセントに直接挿す小さな3個口タップの内側に、消火剤入りのマイクロカプセルを組み込んだシートが上下2か所に貼られています。メーカーによると、作動温度は130℃±10℃で、タップ内部で初期火災を抑える仕組みです。"
+  points:
+    - "大きさは約W48×D39.6×H23.3mm、重さ42g。コードが無く、壁のコンセントがそのまま3口に増える"
+    - "消火シートは厚さ約1mmの板状シリコン材。使用寿命は約5年で、タップを交換する時期と同じ"
+    - "差込口は2Pの3個口。机まわりのスマホやノートPCの充電器をまとめて挿せる"

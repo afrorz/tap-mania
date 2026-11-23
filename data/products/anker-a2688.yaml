@@ -4,6 +4,12 @@ model: A2688
 name: "Anker Prime Charger (100W, 3 Ports, GaN)"
 category: charger
 image: "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A2688-SILVER.jpg?width=900"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2688001.jpg", alt: "MacBook Pro に充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2688002.jpg", alt: "クレジットカードと大きさ比べ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2688003.jpg", alt: "3台を同時に充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2688004.jpg", alt: "コンセントから抜け落ちにくい形"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A2688005.jpg", alt: "寝室で使う場面"}
 image_credit: "Anker 公式サイト"
 official_url: "https://www.ankerjapan.com/products/a2688"
 manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A2688QSG.pdf"
@@ -46,3 +52,9 @@ note: |
   公式ページ・取説に「PD」「PPS」の文字が無いので、書いていない(電圧表 5/9/15/20V はある)。
   公式ページは型番 A2688N42 をシルバーと表示し、比較表ではグレーと書いていて、表記がそろっていない。
   入力は公式ページの仕様欄に無く、クイックスタートガイドの表記。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "シルバーの小さな本体に USB-C 2つと USB-A 1つを並べ、合計最大100Wを出せる GaN 充電器です。大きさは約68×45×29mm、重さは約168gで、持ち運ぶときはプラグを折りたためます。"
+  points:
+    - "一番上の USB-C1 なら1ポートで最大100W。高電力の機器はここにつなぐ"
+    - "C1+C2 なら65W＋35Wで、ノートPCとスマホを1台で同時に充電できる"
+    - "3つ全部使えば、机の上でノートPC・スマホ・イヤホンをまとめて充電できる"

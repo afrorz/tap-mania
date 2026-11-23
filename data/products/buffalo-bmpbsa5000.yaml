@@ -4,11 +4,17 @@ model: BMPBSA5000
 name: "半固体モバイルバッテリー 5000mAh(18.5Wh)/20W"
 category: battery
 image: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000WH/BMPBSA5000WH__0100.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
-images:
-  - "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0100.jpg"   # 白背景の本体とストラップ式ケーブル
-  - "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0104.jpg"   # 横から見た薄さ
-  - "https://www.buffalo.jp/system/pimw048_product/__icsFiles/afieldfile/2026/10/07/BMPBSA5000_06-side-500-350.png"   # ケーブルホルダー・ネックガード・スリムコネクター
-  - "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0105.jpg"   # 裏面の印字(PSE・株式会社バッファロー)
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0100.jpg", alt: "メタリックブラック", color: "メタリックブラック"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BL/BMPBSA5000BL__0100.jpg", alt: "アイスブルー", color: "アイスブルー"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BE/BMPBSA5000BE__0100.jpg", alt: "サテンベージュ", color: "サテンベージュ"}
+  - {src: "https://www.buffalo.jp/system/pimw048_product/__icsFiles/afieldfile/2026/10/07/BMPBSA5000_05-side-500-350_1.png", alt: "4色を並べたところ"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0104.jpg", alt: "横から見た薄さ"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0103.jpg", alt: "端の USB-C ポート"}
+  - {src: "https://www.buffalo.jp/system/pimw048_product/__icsFiles/afieldfile/2026/10/07/BMPBSA5000_06-side-500-350.png", alt: "ケーブルホルダー・ネックガード・スリムコネクター"}
+  - {src: "https://www.buffalo.jp/system/pimw048_product/__icsFiles/afieldfile/2026/10/07/BMPBSA5000_07-side-500-350.png", alt: "手に持ったところ(約122g・9.2mm)"}
+  - {src: "https://www.buffalo.jp/system/pimw048_product/__icsFiles/afieldfile/2026/10/07/BMPBSA5000_09-side-500-350.png", alt: "スマホに充電する場面"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BMPBSA5000/BMPBSA5000BK/BMPBSA5000BK__0105.jpg", alt: "裏面の印字(PSE・株式会社バッファロー)"}
 image_credit: "バッファロー 公式サイト"
 official_url: "https://www.buffalo.jp/product/detail/bmpbsa5000bk.html"
 manual_url: ""
@@ -61,3 +67,9 @@ note: |
   取扱説明書は PDF でなく説明ページ(https://www.buffalo.jp/product/detail/manual/bmpbsa5000bk.html)なので manual_url は空。
   同じシリーズに先行の 10000mAh モデル BMPBSA10000 がある。
   消費者庁リコール情報サイトと NITE SAFE-Lite で「BMPBSA5000」を引いて該当なし(2026-11-14)。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "約23cmの USB-C ケーブルが本体と一体の輪になっていて、そのままストラップとして持てるモバイルバッテリーです。電池は半固体リチウムイオン電池で、5000mAh を厚さ約9.2mm・約122gに収めています。"
+  points:
+    - "ケーブルは丈夫なナイロン生地で、細い端子は厚いケースのスマホにもそのまま挿せる"
+    - "ケーブルは最大20Wの出力と本体への入力の両方に使え、旅行でもこれ1つで足りる"
+    - "色はアイスブルー・サテンベージュ・シルキーホワイト・メタリックブラックの4色"

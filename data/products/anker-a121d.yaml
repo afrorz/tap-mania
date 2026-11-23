@@ -4,6 +4,16 @@ model: A121D
 name: "Anker Nano Charger (45W, Display, スイングプラグ)"
 category: charger
 image: "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A121D111.jpg?v=1775191877"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A121D121_01.jpg", alt: "iPhone の機種を見分けて表示"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A121D121_02.jpg", alt: "ディスプレイとタッチ操作"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A121D121_03.jpg", alt: "画面の表示いろいろ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A121D121_04.jpg", alt: "スイングプラグの向き"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A121D121_05.jpg", alt: "iPhone に急速充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A121D121_06.jpg", alt: "寝る前の保護充電モード"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A121D121.jpg", alt: "ホワイト", color: "ホワイト"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A121DN31.jpg", alt: "ブルー", color: "ブルー"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A121DNO1.jpg", alt: "オレンジ", color: "オレンジ"}
 image_credit: "Anker 公式サイト"
 official_url: "https://www.ankerjapan.com/products/a121d"
 manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A121DManual.pdf"
@@ -44,3 +54,9 @@ note: |
   プラグは上下に 180°回転するスイングプラグで、折りたためる(公式ページ・取説)。
   公式ページの比較表は色を「ブラック,ホワイト」と書いているが、選べる色は4色(ページの色の選択)。
   Anker の自主回収の告知(製品回収情報、最新は2025年10月掲載)に A121D は入っていない。充電器の回収は2019年7月の PowerPort Atom PD 4 だけ。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "約40×36×36mmの小さな45W充電器に、画面が付いています。対応する iPhone をつなぐと機種を見分けて、充電出力や iPhone の電池残量を表示し、画面のデザインは20種類を超え、2秒長押しで表示を回せます。"
+  points:
+    - "側面のタッチ式ボタンで、最大45Wの急速充電と最大20Wの保護充電を切り替えられる"
+    - "プラグは上下に180°回るスイングプラグで、折りたためるので旅行にも持ち出しやすい"
+    - "色はブラック・ホワイト・ブルー・オレンジの4色。重さは約72g"

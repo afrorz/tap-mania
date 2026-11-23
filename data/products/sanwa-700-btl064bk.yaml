@@ -4,11 +4,15 @@ model: 700-BTL064BK
 name: "巻き取りケーブル式 半固体電池モバイルバッテリー(10000mAh・PD30W)"
 category: battery
 image: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MX.JPG"
-images:
-  - "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MX.JPG"     # 白背景の本体と巻き取りケーブル
-  - "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MO5X.JPG"   # ケーブルを10cm〜70cmで止められる
-  - "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MO6X.JPG"   # 厚さ約1.5cm
-  - "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MO13X.JPG"  # 2台同時充電(小さく「複数ポート使用時は合計で5V/3Aまで」)
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_FT2X.JPG", alt: "机の上でスマホを充電する場面"}
+  - {src: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_FT5X.JPG", alt: "ケーブルでスマホを充電しながら手に持つ"}
+  - {src: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_FT6X.JPG", alt: "新幹線の席で使う場面"}
+  - {src: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MO5X.JPG", alt: "ケーブルを10cm〜70cmで止められる"}
+  - {src: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MO6X.JPG", alt: "厚さ約1.5cm"}
+  - {src: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_FT10X.JPG", alt: "残量のデジタル表示の寄り"}
+  - {src: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_FT11X.JPG", alt: "側面のUSB-Cポートと残量表示"}
+  - {src: "https://cdn.sanwadirect.jp/images/goods/700-BTL064BK_MO13X.JPG", alt: "2台同時充電(小さく「複数ポート使用時は合計で5V/3Aまで」)"}
 image_credit: "サンワダイレクト(サンワサプライ直営)"
 official_url: "https://direct.sanwa.co.jp/ItemPage/700-BTL064BK"
 manual_url: "https://cdn.sanwa.co.jp/support/setsumeisyo/pdf/direct/700-BTL064BK_ver1-0.pdf"
@@ -61,3 +65,9 @@ note: |
   充電の目安(公式画像 MO12X): iPhone 17 約1.7回、Android 約1.2回、iPad Pro 約0.8回。
   同じシリーズに巻き取りケーブルの無い 700-BTL062BK(デジタル電力表示、5,480円)がある。
   消費者庁リコール情報サイトで「BTL064」を引いて該当なし(2026-11-18)。NITE は未確認。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "本体の中に約70cmのUSB-Cケーブルが巻き取られていて、引き出して手を放すとその長さで止まり、もう一度軽く引くと巻き戻ります。電池は半固体リチウムイオン電池で、厚さ約1.5cmの板のような形です。"
+  points:
+    - "巻き取りケーブルは10cm〜70cmの好きな長さで止められ、机の上で余ったケーブルが散らからない"
+    - "ケーブルとUSB-Cポートのどちらも1ポートなら最大30W。本体への充電も最大30W"
+    - "容量は10000mAh、重さ225g。ケーブルを別に持たずに旅行のかばんへ入れておける"

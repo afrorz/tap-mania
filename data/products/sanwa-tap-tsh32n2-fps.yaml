@@ -4,12 +4,15 @@ model: TAP-TSH32N2-FPS
 name: "火災予防タップ（消火シート内蔵・2m）"
 category: tap
 image: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MX.jpg"
-images:
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MX.jpg"     # 白背景の本体(3個口・2m・消火シート付き)
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO1X.jpg"   # 「消火シート内蔵」の看板画像
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO3X.jpg"   # 消火剤入りシートのしくみ(放電→温度上昇→消火剤を散布→酸素遮断)
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO5X.jpg"   # 本体を開けた図。差込口の横に消火シート2枚
-  - "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO11X.jpg"  # 底面とプラグの PSE マーク
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_FT5X.jpg", alt: "本体とプラグ(斜めから)"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_FT17X.jpg", alt: "上から見た差込口"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_FT11X.jpg", alt: "差込口のホコリ防止シャッター"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_FT14X.jpg", alt: "向きを変えられるスイングプラグ"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_FT15X.jpg", alt: "床に置いて使う場面"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO5X.jpg", alt: "本体を開けた図。差込口の横に消火シート2枚"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO3X.jpg", alt: "消火剤入りシートのしくみ(放電→温度上昇→消火剤を散布→酸素遮断)"}
+  - {src: "https://cdn.sanwa.co.jp/product/syohin_img/T/TAP-TSH32N2-FPS_MO11X.jpg", alt: "底面とプラグの PSE マーク"}
 image_credit: "サンワサプライ 公式サイト"
 official_url: "https://www.sanwa.co.jp/product/syohin?code=TAP-TSH32N2-FPS"
 manual_url: ""
@@ -58,3 +61,9 @@ note: |
   消火シートの無い従来品「火災予防安全タップ TAP-TSH32N」「TAP-TSH32SWN」が Amazon で並んで売られている。型番の末尾「N2-FPS」で区別する。
   発売日は、ニュースリリース(https://www.sanwa.co.jp/info/news/202609/tap-ac3wn2-fps/index.html)の日付。製品ページに発売日の記載は無い。取扱説明書の PDF は製品ページから直接は見つからない。
   楽天はサンワダイレクト(item.rakuten.co.jp/sanwadirect/tap-tsh32n2-fps/)、Yahoo! はサンワダイレクトほか、Amazon は「サンワサプライ 火災予防タップ（消火シート内蔵・2m）」(2026-11-16 検索)。
+pitch_draft:   # 消火シートの話が中心(安全の話)なので、本人が見てから pitch: に戻す(2026-11-23)
+  lead: "白い3個口の延長タップの中、差込口の横に消火剤入りのシートが2枚入っています。メーカーによると、タップ内部が130℃±10℃になるとシートのマイクロカプセルから消火剤が出て、内部の密閉空間で初期火災を抑える仕組みです。"
+  points:
+    - "プラグは180°回るスイングプラグで、壁ぎわのコンセントにも向きを合わせて挿せる"
+    - "コードは2m、重さ230g。差込口は上面に2口と端面に1口で、机まわりの充電器をまとめられる"
+    - "消火シートの使用寿命は約5年で、タップを交換する時期と同じ。長さは1m・2m・3m・5mから選べる"

@@ -4,6 +4,13 @@ model: A9129
 name: "Anker Nano Charging Station (6-in-1, 67W)"
 category: usb-tap
 image: "https://www.ankerjapan.com/cdn/shop/files/A9129-WHITE.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A9129001.jpg", alt: "MacBook に充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A9129002.jpg", alt: "6台をまとめて充電(使う前と後)"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A9129003.jpg", alt: "iPhone と大きさ比べ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A9129004.jpg", alt: "ベッド横に置いた場面"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A9129-BLACK.jpg", alt: "ブラック", color: "ブラック"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A9129-BLUE.jpg", alt: "グレイッシュブルー", color: "グレイッシュブルー"}
 image_credit: "Anker 公式サイト"
 official_url: "https://www.ankerjapan.com/products/a9129"
 manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A9129Manual.pdf"
@@ -60,3 +67,9 @@ note: |
   AC の定格は取説 p.2 で「100-125V~ 50/60Hz 11A」。
   シャッター・トラッキング対策・スイッチ・雷サージ・GaN・PPS は、公式ページ・取説とも記載なし。公式ページには「PowerIQ 3.0搭載」「ActiveShield 2.0」とある。
   大きさ 約100×93×19mm、約298g(ケーブル込み)。型番は A9129N11(黒)・N21(白)・N31(グレイッシュブルー)。発売は2023年9月。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "コンセント2口と USB-C 2つ・USB-A 2つを、厚さ約19mmの平たい本体にまとめた電源タップです。USB-C は1ポートなら最大67Wで、タップがそのままノートPCの充電器の代わりにもなります。"
+  points:
+    - "USB-C を2つ使うときは20W＋45Wで、机の上でノートPCとスマホを同時に充電できる"
+    - "大きさは約100×93×19mm、重さは約298g(ケーブル込み)、ケーブルは1.5m"
+    - "色はブラック・ホワイト・グレイッシュブルーの3色"

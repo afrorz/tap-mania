@@ -4,11 +4,16 @@ model: CIO-G45W2C-CR-N2
 name: "NovaPort DUOⅡ 45W2C Built in CORD REEL"
 category: charger
 image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/WH_NovaPort_DUO2_45W2C_01.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
-images:
-  - "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_01.jpg"   # 白背景の本体(USB-C 端子が飛び出した状態)
-  - "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_02.jpg"   # シャッター
-  - "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_10.jpg"   # 65cm ケーブル
-  - "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_08.jpg"   # 急速充電早見表
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_01.jpg", alt: "ブラック(USB-C 端子が飛び出した状態)", color: "ブラック"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_02.jpg", alt: "シャッターを開けるところ"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/10/251110_LP_NovaPort_DUO2_45W2C_BuiltinCORDREEL_02_LP_11-1.jpg", alt: "手のひらに載せた大きさ"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_05.jpg", alt: "ノートPCに充電"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_06.jpg", alt: "2台を同時に充電する場面"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_10.jpg", alt: "デスクの端まで届く65cmケーブル"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_14.jpg", alt: "コンセントに挿したところ"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/11/BK_NovaPort_DUO2_45W2C_13.jpg", alt: "表面のシボ加工"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/10/251110_LP_NovaPort_DUO2_45W2C_BuiltinCORDREEL_04_LP_09_BK.jpg", alt: "ケーブルの出し方・しまい方"}
 image_credit: "CIO 公式サイト"
 official_url: "https://connectinternationalone.co.jp/cioproduct/adapter/novaport/cio-g45w2c-cr-n2/"
 manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/10/250521_NovaPortDUO2_G45W2C_UM_text.pdf"
@@ -55,3 +60,9 @@ note: |
   楽天は CIO 楽天市場店、Amazon は販売元 株式会社CIO(B0GLGC5YFK ブラック / B0GLG24LNJ ホワイト)。Yahoo! では見つからなかった。
   保証期間は取説 PDF にあるが、文字が取り出せず読み切れなかったので空。
   消費者庁リコール情報サイトと NITE SAFE-Lite で「CIO-G45W2C」「NovaPort」を引いて該当なし(2026-11-14)。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "本体上のボタンを押すと USB-C の端子が飛び出し、内蔵の約65cmのケーブルを必要な長さだけ引き出せる充電器です。使わないときはケーブルを巻き取って、シャッターで本体の中にしまえます。残りの USB-C ポートと合わせて、2台まで同時に充電できます。"
+  points:
+    - "2台同時なら最大45Wの中で、つないだ機器に合わせて自動で振り分ける"
+    - "大きさは約52×56×31mmで、ケーブルを別に持たずに旅行や出張へ持ち出せる"
+    - "スイングプラグとフルフラットデザインで、壁にすき間なく挿さる"

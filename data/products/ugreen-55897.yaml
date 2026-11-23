@@ -4,11 +4,15 @@ model: "55897"
 name: "UGREEN Nexode 巻き取り式 USB-Cケーブル内蔵 充電器 65W"
 category: charger
 image: "https://ugreen.jp/cdn/shop/files/55897-1.png"
-images:
-  - "https://ugreen.jp/cdn/shop/files/55897-1.png"   # 白背景の本体(正面・ケーブル収納時)
-  - "https://ugreen.jp/cdn/shop/files/55897-3.png"   # ケーブルを引き出した状態
-  - "https://ugreen.jp/cdn/shop/files/9_8e9b2e53-dce7-49ec-a592-3d2be6ef1e77.jpg"   # 8段階のケーブル長さ調整
-  - "https://ugreen.jp/cdn/shop/files/9e55368e-8c42-453b-bb3c-08fa0bf51648.__CR0_0_1464_600_PT0_SX1464_V1.jpg"   # 最大出力65W・巻き取り式ケーブル使用時 最大60W
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://ugreen.jp/cdn/shop/files/55897-3.png", alt: "ケーブルを引き出した状態"}
+  - {src: "https://ugreen.jp/cdn/shop/files/55897-2.png", alt: "正面のUSB-CとUSB-A"}
+  - {src: "https://ugreen.jp/cdn/shop/files/55897-4.png", alt: "側面と折りたたみプラグ"}
+  - {src: "https://cdn.shopify.com/s/files/1/0257/5246/9566/files/ugreen-nexode-65w-charger-with-retractable-usb-c-cable-8311528.webp", alt: "斜め下から見た本体とケーブル"}
+  - {src: "https://ugreen.jp/cdn/shop/files/9_8e9b2e53-dce7-49ec-a592-3d2be6ef1e77.jpg", alt: "8段階のケーブル長さ調整"}
+  - {src: "https://cdn.shopify.com/s/files/1/0257/5246/9566/files/ugreen-nexode-65w-charger-with-retractable-usb-c-cable-3333645.jpg", alt: "ケーブルを引き出す場面(長さ69cm)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0257/5246/9566/files/ugreen-nexode-65w-charger-with-retractable-usb-c-cable-6734532.jpg", alt: "机でノートPCを充電する場面"}
+  - {src: "https://ugreen.jp/cdn/shop/files/9e55368e-8c42-453b-bb3c-08fa0bf51648.__CR0_0_1464_600_PT0_SX1464_V1.jpg", alt: "最大出力65W・巻き取り式ケーブル使用時 最大60W"}
 image_credit: "UGREEN 公式サイト"
 official_url: "https://ugreen.jp/products/ugreen-nexode-65w-charger-with-retractable-usb-c-cable"
 manual_url: ""
@@ -54,3 +58,9 @@ note: |
   発売日は公式ページに無い(2025年夏ごろから日本で売られているという報道はある)。
   上位に Nexode Pro 160W 巻き取りケーブル内蔵充電器(17,980円・画面付き)もあるが、ugreen.jp の製品ページに仕様の文字が無いため今回は外した。
   消費者庁リコール情報サイトと NITE SAFE-Lite で「UGREEN」「55897」を引いて該当なし(2026-11-14)。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "コンセントに挿す充電器の本体に、長さ0.7mのUSB-Cケーブルが巻き取られて入っています。ケーブルは8段階で長さを止められ、使い終わったら本体に戻せます。ほかにUSB-CポートとUSB-Aポートも1つずつ付いています。"
+  points:
+    - "1ポートなら最大65W。内蔵ケーブルは最大60Wで、ノートPCもケーブルを持たずに充電できる"
+    - "大きさは5.94 × 5.3 × 5.04 cm。旅行のかばんに充電器とケーブルを1つにまとめて入れられる"
+    - "ケーブルは25,000回の伸縮・10,000回の折り曲げテストをしている、とメーカーは書いている"

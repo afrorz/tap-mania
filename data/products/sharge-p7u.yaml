@@ -4,6 +4,15 @@ model: P7U
 name: "Discho ハイブリッド 格納式 3-in-1 10000mAh パワーバンク"
 category: battery
 image: "https://sharge.com/cdn/shop/files/1_8dd4211c-6a4b-491b-a028-d3bac8326575.png?v=1766046399"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://sharge.com/cdn/shop/files/2_1acb0055-fa1d-4dda-9b90-2d2f0e57b0d9.png", alt: "手に持った本体(横向き)"}
+  - {src: "https://sharge.com/cdn/shop/files/4_e94cf810-72c6-44f7-a64a-cade28163e50.png", alt: "縦に置いた本体とストラップ"}
+  - {src: "https://sharge.com/cdn/shop/files/5_7503bc91-29b9-40c6-9a23-c7d72181ff06.png", alt: "ドット表示の残量計の寄り"}
+  - {src: "https://sharge.com/cdn/shop/files/6_6daed83b-3065-43ce-975c-0ee91ff95af5.png", alt: "USB-Cケーブルの差込部の寄り"}
+  - {src: "https://sharge.com/cdn/shop/files/7_3c.png", alt: "本体と充電器部分を並べたところ"}
+  - {src: "https://sharge.com/cdn/shop/files/8_e55fa711-5a8b-4b47-ab39-724881eb72d1.png", alt: "充電器部分とつないだところ"}
+  - {src: "https://sharge.com/cdn/shop/files/PC-_-1.png", alt: "寝室のコンセントで使う場面"}
+  - {src: "https://sharge.com/cdn/shop/files/PC-_-2.png", alt: "机でスマホとタブレットを充電する場面"}
 image_credit: "SHARGE 公式サイト"
 official_url: "https://sharge.com/ja/products/retractable-3-in-1-power-bank"
 manual_url: "https://cdn.shopify.com/s/files/1/0611/2234/7259/files/SHARGE_P7U_ecc08e9d-357f-49be-9d82-366f99fed1ea.pdf?v=1788319005"
@@ -44,3 +53,9 @@ note: |
   本体の充電: USB-C で最大約 20W(5V 3A / 9V 2.22A / 12V 1.67A)。AC プラグで直接コンセントからも充電できる(AC 100-240V)。ただし製品ページに「折りたたみ式プラグは米国バージョンでのみ利用可能」の注記があり、日本で買える物にプラグが付くかは公式から確かめられない。
   パススルー充電に対応。使用温度 0〜25℃(取説)。日本の代理店・販売元は公式に記載なし。発売日は公式に記載なし。
   出典: 公式 https://sharge.com/ja/products/retractable-3-in-1-power-bank ・ 取説 https://cdn.shopify.com/s/files/1/0611/2234/7259/files/SHARGE_P7U_ecc08e9d-357f-49be-9d82-366f99fed1ea.pdf
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "透明なカバー越しに、中の白い巻き取りリールが見えるモバイルバッテリーです。約70cmのUSB-Cケーブルが本体に巻き取られていて、ドット表示の残量計も付いています。ケーブルでもUSB-Cポートでも、1つずつなら最大30Wで充電できます。"
+  points:
+    - "容量は10000mAhで、ケーブル・ポートとも1つなら最大30W。外出先でスマホを充電できる"
+    - "パススルー充電に対応し、本体を充電しながらスマホにも給電できる"
+    - "大きさは110 × 52 × 40mm、重さ300g。ケーブルを別に持たずに旅行へ持ち出せる"

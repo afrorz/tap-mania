@@ -4,6 +4,15 @@ model: LCAEA018
 name: "USB急速充電器 USB PD(パワーデリバリー)対応 67W"
 category: charger
 image: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_08.jpg"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_00.jpg", alt: "上から見たポート面"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_02.jpg", alt: "ディスプレイとケーブルをつないだところ"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_03.jpg", alt: "手のひらにのる大きさ"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_04.jpg", alt: "本体と1.4mのコード"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_05.jpg", alt: "ノートPCを充電"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_06.jpg", alt: "机の上で出力を表示"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_07.jpg", alt: "机の端でスマホを充電"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea018/lcaea018_09.jpg", alt: "木の机に置いたところ"}
 image_credit: "Life on Products 公式サイト"
 official_url: "https://lifeonproducts.co.jp/product/lcaea018/"
 manual_url: "https://lifeonproducts.co.jp/data/manual/lifeonproducts/lcaea018.pdf"
@@ -58,3 +67,9 @@ note: |
   発売は2026年4月27日(公式のお知らせ https://lifeonproducts.co.jp/news/541468/ )。同じ透明デザインのモバイルバッテリー LCAEA019(20W・5000mAh・3,410円)は、透明なのが下半分だけで、写真での見え方が弱いので今回は入れていない。
   売り場は3つとも公式店(楽天・Yahoo! は「lifeonproducts」の店、Amazon は出品者「Life on Products 公式店」・7,150円)。11/23 確認。
   回収: 公式の「重要なお知らせ」(電気温風機・電気湯沸器・LED電球・ACアダプター PR-F054・スチームアロマ加湿器)に LCAEA018 は入っていない。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "透明な PC の外殻が、ベージュの本体を包む形の67W 充電器です。上面の黒いパネルには USB-C 2つ・USB-A 2つと出力ディスプレイが並び、いま機器に供給している電力が数字で出ます。中が透けて見える外殻ごと、机の上に置いて使う形です。"
+  points:
+    - "USB-C は1ポートなら最大67W。C1+C2 ならノートPCとスマホに45W+20W"
+    - "10W 以上で充電しているときは、ディスプレイの数字の横に稲妻のマークが付く"
+    - "大きさ76×84×45mm、コード1.4m。机の上に置いて、手元で4台まで充電できる"

@@ -4,6 +4,12 @@ model: APD-V100LACRC-DG
 name: "PD3.0 100W対応 充電器 LED搭載・巻き取り式"
 category: charger
 image: "https://www.adtec.co.jp/wp-content/uploads/2026/08/APD-V100LACRC-DG-1.jpg"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.adtec.co.jp/wp-content/uploads/2026/08/apd-v100lacrc-dg-set-non-cable.jpg", alt: "ケーブルをしまった本体"}
+  - {src: "https://www.adtec.co.jp/wp-content/uploads/2026/08/APD-V100LACRC-DG-01-1.jpg", alt: "ノートPCとスマホを同時に充電"}
+  - {src: "https://www.adtec.co.jp/wp-content/uploads/2026/10/apd-v100lacrc-dg-1.jpg", alt: "巻き取り式ケーブル(約65cm)を引き出すところ"}
+  - {src: "https://www.adtec.co.jp/wp-content/uploads/2026/08/apd-v100lacrc-dg-2.jpg", alt: "スマートモニターの表示いろいろ"}
+  - {src: "https://www.adtec.co.jp/wp-content/uploads/2026/08/apd-v100lacrc-dg-4.jpg", alt: "アップル純正96Wとの大きさ比べ"}
 image_credit: "アドテック 公式サイト"
 official_url: "https://www.adtec.co.jp/product/charger/apd-v100lacrc-dg/"
 manual_url: "https://www.adtec.co.jp/wp-content/uploads/2026/08/APD-V100LACRC-DG__manual.pdf"
@@ -50,3 +56,9 @@ note: |
   C1+A の配り方は、製品ページ・リリースが 65W+30W、取説が A 側最大18W で食い違う。
   発売は 2026-10-15。発売記念で 10/15〜10/25 は参考価格から15%オフだった(終了)。
   Amazon は B0H6MFBVRX(販売元 ADTEC DIRECT)、楽天・Yahoo! は公式店 adtecdirect。PSE が未確認のため、買うボタンは出ない。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "USB-C ケーブルを1本、本体に巻き取ってしまえる、合計100Wの充電器です。側面の1.33インチの画面には、合計の出力やポートごとのW数、充電器の温度が出て、2台目を挿したときの配り方も数字で見えます。"
+  points:
+    - "C1 は本体から引き出す巻き取り式のケーブルなので、ケーブルを別に持ち歩かずに済む"
+    - "画面の表示は横のスイッチで切り替え、長押しで90度回るので、縦向きに挿しても読める"
+    - "C1+C2 なら65W＋35Wで、ノートPCとスマホを机の上で同時に充電できる"

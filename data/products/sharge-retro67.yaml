@@ -4,6 +4,13 @@ model: S067U
 name: "Retro 67"
 category: charger
 image: "https://cdn.shopify.com/s/files/1/0611/2234/7259/files/Retro67GaNCharger_4c90d722-1258-487c-b9e3-e158de744150.png?v=1772714414"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://sharge.com/cdn/shop/files/Check_Your_Power_in_Real-time.png", alt: "画面に出る出力W数"}
+  - {src: "https://sharge.com/cdn/shop/files/All-GaN_Technology_67W_Fast_Charging_1.png", alt: "ノートPCを充電する場面"}
+  - {src: "https://sharge.com/cdn/shop/files/Multiple_Output_No_More_Chaos.png", alt: "ノートPC・タブレット・スマホを同時に充電"}
+  - {src: "https://sharge.com/cdn/shop/files/Retro_67W_GaN_Charger_1.png", alt: "画面に流れる緑のコード"}
+  - {src: "https://sharge.com/cdn/shop/files/Six_Safety_Protection.png", alt: "折りたたみプラグ側から見た本体"}
+  - {src: "https://sharge.com/cdn/shop/files/Wide_Compatibility_b1acffe6-e615-4b38-b769-625bd16333c5_1.png", alt: "いろいろな機器と並べたところ"}
 image_credit: "SHARGE 公式サイト"
 official_url: "https://sharge.com/products/retro-67w-gan-usb-c-charger"
 manual_url: "https://cdn.shopify.com/s/files/1/0611/2234/7259/files/SHARGE_S067U_292ec68f-14b0-4c8f-a42e-cfe31ba6fbda.pdf?v=1791442173"
@@ -51,3 +58,10 @@ note: |
   保証は公式ページで 12ヶ月。Makuake には「日本で販売している全てのSHARGE商品に対し、１年間の製品保証」とある。日本の販売元・代理店の会社名は公式にも Makuake にも書かれていない(取説の製造元は Sharge Technology (Shenzhen) Co., Ltd. だけ)。
   Amazon.co.jp の出品(11/23 時点 12,236円)は出荷元・販売元とも Amazon Global Store。
   出典: 公式 https://sharge.com/products/retro-67w-gan-usb-c-charger ・ 日本語ページ https://sharge.com/ja/products/sharge-%E3%83%AC%E3%83%88%E3%83%AD-67-%E5%85%85%E9%9B%BB%E5%99%A8-67w-3-%E3%83%9D%E3%83%BC%E3%83%88 ・ 日本語の取説 https://cdn.shopify.com/s/files/1/0611/2234/7259/files/SHARGE_S067U_292ec68f-14b0-4c8f-a42e-cfe31ba6fbda.pdf ・ Makuake https://www.makuake.com/project/sharge_retro67/
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "1984年の初代 Macintosh を、手のひらに載る充電器に縮めた形です。正面の小さな画面には、つないでいないあいだは映画『マトリックス』のような緑のコードが流れ、充電が始まると、いま何W出ているかが数字に切り替わります。"
+  points:
+    - "画面に出力のW数がそのまま出るので、ケーブルや機器がちゃんと速く充電できているかが一目で分かる"
+    - "USB-C が3つ。1ポートなら最大67Wで、ノートPCも充電できる。2つ同時なら45W＋20W"
+    - "大きさは 57×39×41mm。本体の色は、使い込んだ昔のパソコンのような「ユーズドグレー」"
+

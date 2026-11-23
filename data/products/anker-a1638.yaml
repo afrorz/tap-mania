@@ -4,6 +4,16 @@ model: A1638
 name: "Anker Nano Power Bank (10000mAh, 45W, 巻取り式 USB-Cケーブル)"
 category: battery
 image: "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A1638N21.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1638001.jpg", alt: "巻取り式ケーブルでスマホに充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1638002.jpg", alt: "ポーチの中がすっきり(使う前と後)"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1638003.jpg", alt: "巻取りケーブルの長さ調整と外で使う場面"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1638004.jpg", alt: "30W入力とパススルー充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1638005.jpg", alt: "AirPods と大きさ比べ・ディスプレイ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1638N11.jpg", alt: "ブラック", color: "ブラック"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1638N61.jpg", alt: "ミントブルー", color: "ミントブルー"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1638N11_485607bb-5ec1-4b76-8790-d4afd0bdf540.jpg", alt: "ピンク", color: "ピンク"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A1638N31_e57d7191-43b4-4702-8ff9-90d25d2f8004.jpg", alt: "ブルー", color: "ブルー"}
 image_credit: "Anker 公式サイト"
 official_url: "https://www.ankerjapan.com/products/a1638"
 manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A1638Manual.pdf"
@@ -51,3 +61,9 @@ note: |
   パススルー: 「パススルー充電にも対応」。お使いの機器への充電が優先され、充電が終わってから本体への充電が始まる(製品ページの注意)。
   ケーブルは約7cm〜約70cmで8段階に長さを変えられる。USB-A には低電流モードがある。本体の充電時間・PD・PPS は公式に記載なし。
   Anker の自主回収の対象(2024年9月・2025年6月・2025年10月の掲載分)に A1638 は入っていない。発売は2025年9月。
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-23)
+  lead: "10000mAh の電池に、約7cm〜約70cmまで8段階で長さを変えられる巻き取り式の USB-C ケーブルを内蔵したモバイルバッテリーです。ケーブルのほかに USB-C と USB-A のポートもあり、3台まで同時につなげます。"
+  points:
+    - "1ポートなら最大45W。大きさは約82×51×36mm、重さは約230g"
+    - "パススルー充電に対応し、寝る前にスマホと本体をまとめて充電できる"
+    - "色はブラック・ホワイト・ミントブルー・ピンク・ブルーの5色"
