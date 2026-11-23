@@ -1205,12 +1205,14 @@ def build_post(a: dict) -> str:
     intro = bubble(a.get("face", "futsu"), a["intro"]) if a.get("intro") else ""
     others = [x for x in POSTS if x["slug"] != a["slug"]][:3]
     more = ('<h2 class="more-h v7-more">ほかの新製品</h2><div class="postgrid">' + "".join(post_card(x) for x in others) + "</div>") if others else ""
+    # 「広告を含みます」はページの頭の左上でなく、分類と日付の行の右端に(11/23 本人)
+    top_ad = '<span class="adnote v7-ad">広告を含みます</span>' if (has_buy(p) and HAS_AFF) else ""
     price = f'<p class="v7-price">{e(p["price"])}<small>掲載時点</small></p>' if p.get("price") else ""
 
     body = f"""<main class="v7"><div class="wrap v7-wrap">
 <p class="v7-crumb"><a href="/">トップ</a> / <a href="/p/">新製品</a> / {e(cat)} / {e(p['maker'])}</p>
 <header class="v7-head">
-  <p class="v7-meta"><span class="v7-cat">{e(cat)}</span>{released}<span>掲載 {e(str(a['date']))}</span></p>
+  <div class="v7-meta"><span class="v7-cat">{e(cat)}</span>{released}<span>掲載 {e(str(a['date']))}</span>{top_ad}</div>
   <h1>{e(catch(a))}</h1>
   <p class="v7-maker">{e(p['maker'])}<span>{e(p['model'])}</span></p>
 </header>
@@ -1251,7 +1253,7 @@ def build_post(a: dict) -> str:
            "author": {"@type": "Organization", "name": SITE["title"]},
            "publisher": {"@type": "Organization", "name": SITE["author"]}}]
     return page(title=a["title"], desc=a["summary"], path=a["url"], body=body, current="posts",
-                image=im[0]["src"] if im else "", pr=has_buy(p), ld=ld)
+                image=im[0]["src"] if im else "", ld=ld)
 
 
 def build_post_index() -> str:

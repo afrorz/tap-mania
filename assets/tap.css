@@ -805,3 +805,4 @@ header.top .wrap { min-height: 60px; flex-wrap: nowrap; padding-top: 0; padding-
 .v7-plate .port b { color: #F2F4F6 !important; }
 
 .v7-more { margin-top: 64px; }
+.v7-meta .v7-ad { margin: 0 0 0 auto; }  /* 11/23 本人「広告を含みます」は日付の行の右端に */
