@@ -814,3 +814,5 @@ header.top .wrap { min-height: 60px; flex-wrap: nowrap; padding-top: 0; padding-
 /* 11/23 本人「黒じゃなくて黒に近い青とかグレーは？」→ 4色の見比べで D グラファイトに決定 */
 .v7-plate { background: #22252A; }
 .v7-plate dl div { border-bottom-color: #33373E; }
+/* 11/23 本人「タイトルの文字色(定格とか)がちょっと薄い」: 項目名を #8C959F → #B8C0CA に */
+.v7-plate dt { color: #B8C0CA; }
