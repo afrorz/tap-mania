@@ -653,7 +653,14 @@ def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
         srcs.append(f'<li><a href="{e(p["manual_url"])}">取扱説明書(PDF)</a></li>')
     same = [x for x in products if x["id"] != p["id"] and x["category"] == p["category"]][:6]
     rel_arts = [a for a in arts if p["id"] in (a.get("products") or [])]
-    note = f'<div class="note">{markdown.markdown(e(p["note"]))}</div>' if p.get("note") else ""
+    # note は調べたときの記録(出典・経緯)で、そのまま出すと読めない塊になる(2026-11-23 本人「こんなの誰も読もうと思わない」)。
+    # ページには、公式の資料どうしで数字が違うところだけを短い箇条書きで出す
+    gaps = []
+    for sent in re.split(r"(?<=。)", str(p.get("note") or "")):
+        sent = sent.strip()
+        if ("食い違" in sent or "合わない" in sent) and "http" not in sent and not re.search("採ら|出典にしない", sent) and len(sent) <= 140 and sent not in gaps:
+            gaps.append(sent)
+    note = ('<h2>公式の資料で数字が違うところ</h2><ul class="gapnote">' + "".join(f"<li>{e(x)}</li>" for x in gaps[:3]) + "</ul>") if gaps else ""
     ld = [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": SITE["title"], "item": SITE["base_url"] + "/"},
         {"@type": "ListItem", "position": 2, "name": "比べ表", "item": SITE["base_url"] + "/compare/"},
