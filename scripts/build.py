@@ -1205,7 +1205,7 @@ def build_post(a: dict) -> str:
     intro = bubble(a.get("face", "futsu"), a["intro"]) if a.get("intro") else ""
     others = [x for x in POSTS if x["slug"] != a["slug"]][:3]
     more = ('<h2 class="more-h v7-more">ほかの新製品</h2><div class="postgrid">' + "".join(post_card(x) for x in others) + "</div>") if others else ""
-    # 「広告を含みます」はページの頭の左上でなく、分類と日付の行の右端に(11/23 本人)
+    # 「広告を含みます」はページの頭の左上でなく、分類と日付の行の右端に1つだけ(11/23 本人。買うボタンの近くには出さない)
     top_ad = '<span class="adnote v7-ad">広告を含みます</span>' if (has_buy(p) and HAS_AFF) else ""
     price = f'<p class="v7-price">{e(p["price"])}<small>掲載時点</small></p>' if p.get("price") else ""
 
@@ -1233,7 +1233,7 @@ def build_post(a: dict) -> str:
 
 <section class="v7-lead">
   <p class="v7-sum">{e(a['summary'])}</p>
-  <div class="v7-buy">{price}{store_buttons(p, 'post-top')}</div>
+  <div class="v7-buy">{price}{store_buttons(p, 'post-top').replace(AD_NOTE, '')}</div>
 </section>
 
 <article class="v7-body">
@@ -1242,7 +1242,7 @@ def build_post(a: dict) -> str:
 {gap_html}
 {share}
 {plate}
-<div class="v7-buy end">{price}{store_buttons(p, 'post-bottom')}</div>
+<div class="v7-buy end">{price}{store_buttons(p, 'post-bottom').replace(AD_NOTE, '')}</div>
 {src_html}
 </article>
 {more}
