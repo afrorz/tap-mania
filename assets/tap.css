@@ -693,3 +693,115 @@ header.top .wrap { min-height: 60px; flex-wrap: nowrap; padding-top: 0; padding-
 .pgal-th img { width: 100%; aspect-ratio: 1; object-fit: contain; }
 .pgal-th small { font-size: 10px; line-height: 1.2; color: var(--sub); text-align: center; }
 @media (max-width: 640px) { .pgal { max-width: 300px; margin: 0 auto; } }
+
+/* ── 新製品記事 v7(2026-11-23 本人 OK = mock/v7)。v6 は「横幅も文字もでかすぎ」。
+   幅は 1080 まで、見出しは 36px まで。上は「写真」と「計器の板(ポートの顔＋何ワットになるか＋確かめた量)」の2つだけ。
+   通販に見えるもの(写真の横に値段とボタンが並ぶ)をやめ、買う所は要約の下に1本の帯で置く。 */
+.v7 { padding-bottom: 72px; }
+.v7-wrap { max-width: 1080px; }
+.v7-crumb { margin: 0; padding-top: 22px; font: 400 12px/1.6 var(--mono); color: var(--sub); }
+.v7-crumb a { color: inherit; text-decoration: none; }
+.v7-head { padding: 26px 0 26px; }
+.v7-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; margin: 0; font: 400 12px/1.6 var(--mono); color: var(--sub); }
+.v7-cat { font: 700 12px/1 var(--font); color: var(--ink); padding: 5px 10px 5px 8px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line2); }
+.v7-cat::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 2px; background: var(--orange); margin-right: 7px; vertical-align: 1px; }
+.v7-head h1 { margin: 14px 0 10px; font: 900 clamp(25px, 3vw, 36px)/1.35 var(--disp); letter-spacing: .01em; }
+.v7-maker { margin: 0; font-size: 14px; font-weight: 700; color: var(--sub); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.v7-maker span { font: 700 13px/1 var(--mono); color: var(--ink); background: var(--panel); border: 1px solid var(--line2); border-radius: 6px; padding: 4px 8px; }
+
+/* 上から1列(2026-11-23 本人「左右のカラムになっているのをやめたい」)。幅は 760 の1本の柱 */
+.v7-wrap { max-width: 808px; }
+.v7-top { display: block; }
+.v7-photo { margin: 0; }
+.v7-ph.a3-grid { display: block; padding: 0; }
+.v7-ph .anat { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
+.v7-ph .anat-ph { aspect-ratio: 16 / 10; }
+.v7-ph .anat-ph img { width: 100%; height: 100%; object-fit: contain; padding: 28px; }
+.v7-thumbs { margin-top: 10px; }
+.v7-thumbs button { width: 64px; height: 64px; border-radius: 12px; background: var(--panel); opacity: .6; transition: opacity .2s; }
+.v7-thumbs button:hover, .v7-thumbs button[aria-current] { opacity: 1; }
+.v7-photo figcaption { margin-top: 6px; font-size: 11px; color: var(--sub); }
+
+/* 計器の板: 写真の下に横長で。左にポートの顔、右に何ワットになるか、下の段に確かめた量 */
+.v7-panel { margin-top: 22px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 0 22px; background: linear-gradient(180deg, #FBFBFC, #EEF0F3); border: 1px solid #C9CED5; border-radius: 22px; padding: 4px 20px; box-shadow: 0 1px 0 #fff inset, 0 24px 48px -36px rgba(14,16,19,.45); }
+.v7-block { padding: 16px 0; border-bottom: 1px dashed var(--line2); }
+.v7-block + .v7-block { padding-left: 22px; border-left: 1px dashed var(--line2); margin-left: -1px; }
+.v7-label { margin: 0 0 12px; display: flex; justify-content: space-between; align-items: baseline; font: 800 11px/1 var(--wide); font-stretch: 125%; letter-spacing: .2em; color: var(--ink); }
+.v7-label span { font: 700 11px/1 var(--font); letter-spacing: .04em; color: var(--sub); }
+.v7-panel .pf.big { background: var(--panel); border-color: var(--line); justify-content: flex-start; }
+.v7-panel .lcd { max-width: none; background: none; border: 0; box-shadow: none; padding: 0; grid-template-columns: minmax(0, 1fr) auto; }
+.v7-panel .lcd-num b { font-size: 46px; }
+.v7-panel .lcd-num b.long { font-size: 36px; }
+.v7-panel .lcd-side { padding-right: 0; }
+.v7-panel .lcd-side .lcd-src { max-width: 9.5em; }
+.v7-panel .lcd.static .lcd-side p:first-child { font-size: 12px; }
+.v7-tally { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px 28px; margin: 0; padding: 12px 0 12px; }
+.v7-tally div { display: flex; align-items: baseline; gap: 8px; }
+.v7-tally dt { font-size: 12px; color: var(--sub); order: 2; }
+.v7-tally dd { margin: 0; font: 700 22px/1.1 var(--mono); font-variant-numeric: tabular-nums; }
+.v7-tally dd.hot { color: var(--otext); }
+
+/* 要約と買う所 */
+.v7-lead { margin-top: 30px; }
+.v7-sum { margin: 0 0 18px; font: 700 18px/1.9 var(--font); }
+.v7-buy { display: flex; flex-direction: column; gap: 0; max-width: 560px; }
+.v7-buy .adnote { align-self: flex-start; margin: 0 0 8px; }
+.v7-buy .btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.v7-buy .btn { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 6px 8px; border-radius: 12px; font-size: 13px; line-height: 1.35; text-align: center; background: var(--panel); border: 1px solid var(--line2); }
+.v7-buy .btn.buy { background: var(--ink); border-color: var(--ink); color: #fff; }
+.v7-buy .btn.buy::after { content: "→"; margin-left: 6px; color: var(--orange); }
+.v7-buy .btn:hover { border-color: var(--ink); }
+.v7-price { order: 3; margin: 8px 0 0; font: 700 13px/1.5 var(--mono); color: var(--ink); }
+.v7-price small { margin-left: 8px; font: 400 11px/1 var(--font); color: var(--sub); }
+.v7-buy .nobuy { margin: 0; font-size: 13px; color: var(--sub); }
+
+/* 本文 */
+.v7-body { max-width: none; margin-top: 28px; }
+.v7-body .bubble { margin: 32px 0 8px; }
+.v7-h { display: block; margin: 52px 0 14px; font: 900 23px/1.4 var(--disp); }
+.v7-h small { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font: 800 10.5px/1 var(--wide); font-stretch: 125%; letter-spacing: .22em; color: var(--otext); }
+.v7-h small::after { content: ""; flex: 1; height: 1px; background: var(--line2); }
+.v7-prose p, .v7-prose li { font-size: 16.5px; line-height: 2; }
+.v7-note { font-size: 14px; color: var(--sub); }
+.v7-gaps { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
+.v7-gaps li { display: grid; grid-template-columns: 28px minmax(0, 1fr); padding: 14px 0; border-bottom: 1px solid var(--line2); font-size: 15px; line-height: 1.8; }
+.v7-gaps li::before { content: "≠"; font: 700 18px/1.4 var(--mono); color: var(--otext); }
+.v7-share { background: var(--panel); border-radius: 14px; overflow: hidden; }
+
+/* 全部の数字: 黒い画面の仕様書 */
+.v7-plate { background: var(--screen); color: #E6E9EC; border-radius: 20px; padding: 10px 22px 16px; }
+.v7-plate dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin: 0; }
+.v7-plate dl div { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 10px; padding: 10px 0; border-bottom: 1px solid #22262C; }
+.v7-plate dt { font-size: 12px; color: #8C959F; padding-top: 2px; }
+.v7-plate dd { margin: 0; font: 400 13.5px/1.6 var(--mono); overflow-wrap: anywhere; }
+.v7-plate dd .no { color: #8C959F; }
+.v7-plate a { color: #F6B06E; }
+.v7-plate .pse, .v7-plate [class*="badge"] { filter: none; }
+.v7-none { margin: 12px 0 0; font-size: 12px; color: #8C959F; line-height: 1.7; }
+.v7-buy.end { margin-top: 36px; max-width: 460px; }
+.v7-srcs { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+.v7-srcs li { counter-increment: s; display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--line2); font-size: 14px; }
+.v7-srcs li::before { content: counter(s, decimal-leading-zero); font: 400 12px/1.8 var(--mono); color: var(--sub); }
+.v7-srcs span { font: 400 12px/1.8 var(--mono); color: var(--sub); }
+
+@media (max-width: 720px) {
+  .v7-panel { grid-template-columns: minmax(0, 1fr); }
+  .v7-block + .v7-block { padding-left: 0; border-left: 0; margin-left: 0; }
+  .v7-plate dl { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .v7-head { padding: 18px 0 18px; }
+  .v7-ph .anat-ph img { padding: 16px; }
+  .v7-panel { padding: 4px 14px; }
+  .v7-panel .lcd { grid-template-columns: minmax(0, 1fr); }
+  .v7-sum { font-size: 16px; }
+  .v7-buy .btns { grid-template-columns: minmax(0, 1fr); }
+  .v7-plate { padding: 6px 14px 14px; }
+  .v7-plate dl div { grid-template-columns: 7em minmax(0, 1fr); }
+  .v7-srcs li { grid-template-columns: 26px minmax(0, 1fr); }
+  .v7-srcs span { grid-column: 2; }
+}
+.v7-h::before { display: none !important; }
+.v7-plate .port b { color: #F2F4F6 !important; }
+
+.v7-more { margin-top: 64px; }

@@ -664,7 +664,7 @@ def pcard(p: dict) -> str:
 
 def pitch_html(p: dict) -> str:
     """製品ページの頭の「特徴」(11/23 本人「まず『特徴』だろう」)。2026-11-23 本人「商品の魅力を多少は語らないと意味ない」。
-    製品データの pitch: {lead: 2文, points: [見どころ3つ]}。事実は公式の数字だけ(docs/WRITING.md の「ここが面白い」)"""
+    製品データの pitch: {lead: 2文, points: [見どころ3つ]}。事実は公式の数字だけ(docs/WRITING.md の「特徴」)"""
     pt = p.get("pitch") or {}
     if not pt.get("lead"):
         return ""
@@ -1112,92 +1112,140 @@ def side_specs(p: dict) -> str:
     return "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in (x for x in rows if x))
 
 
+H2_EN = {"何が新しいか": "WHAT'S NEW", "ここが面白い": "FEATURES", "特徴": "FEATURES", "どんな使い方に合うか": "HOW TO USE"}
+
+
+def post_h2(jp: str, en: str = "") -> str:
+    en = en or H2_EN.get(jp, "")
+    return f'<h2 class="v7-h"><small>{e(en)}</small>{e(jp)}</h2>'
+
+
+def post_lcd(p: dict) -> str:
+    """何ワットになるかの画面。USB は「右の口を押すと2台目」、コンセントだけの物は合計の上限を出す"""
+    rd = readout(p)
+    if rd and rd["one_k"] == "1台だけ":
+        one, two = rd["one"].removesuffix("W"), rd["two"].removesuffix("W")
+        return f"""<div class="lcd" data-one="{e(one)}" data-two="{e(two)}">
+  <div class="lcd-scr" aria-live="polite">
+    <div class="lcd-top"><span>USB-C OUTPUT</span><span class="lcd-mode">1台</span></div>
+    <div class="lcd-num"><b>{e(one)}</b><i>W</i></div>
+    <div class="lcd-foot">1台だけ挿したとき</div>
+  </div>
+  <div class="lcd-side">
+    <div class="lcd-ports"><span class="lcd-port on" aria-hidden="true"></span><button type="button" class="lcd-port" aria-pressed="false" aria-label="2台目を挿す"></button></div>
+    <p><b>右の口を押す</b>と<br>2台目を挿した数字に</p>
+    <p class="lcd-src">{e(p['model'])}<br>{e(rd['note'])}</p>
+  </div>
+</div>"""
+    o, r = p.get("outlets") or {}, p.get("rating") or {}
+    if o.get("ac") and r.get("watt_max"):
+        return f"""<div class="lcd static">
+  <div class="lcd-scr">
+    <div class="lcd-top"><span>AC OUTPUT</span><span>{o['ac']}口</span></div>
+    <div class="lcd-num"><b>{r['watt_max']}</b><i>W</i></div>
+    <div class="lcd-foot">{o['ac']}口ぜんぶの合計まで</div>
+  </div>
+  <div class="lcd-side">
+    <p><b>{r.get('volt', 125)}V・{r.get('amp', 15)}A</b><br>ドライヤー1台でほぼ上限</p>
+    <p class="lcd-src">{e(p['model'])}<br>定格の表示より</p>
+  </div>
+</div>"""
+    return ""
+
+
 def build_post(a: dict) -> str:
-    """新製品記事(2026-11-21 本人「記事ページもモックの形に」= mock/v3/article.html)
-    頭: 特徴の大見出し・メーカーと型番・掘った量 / 左: 写真(解剖図があれば番号つき)と小さい写真 / 右: ポートの顔・要約・買うボタン
-    下: タプ夫・本文・公式の中の食い違い・同時に挿したときの配り方(全部)・全部の数字・読んだ資料"""
+    """新製品記事(2026-11-23 本人 OK = mock/v7。「通販サイトみたいで野暮ったい」→「左右のカラムをやめたい」)
+    上から1列: 見出し / 写真と小さい写真 / 計器の板(ポートの顔・何ワットになるか・確かめた量) / 要約と買うボタン /
+    タプ夫・本文(見出しに小さな英字)・食い違い・配り方・全部の数字(黒い画面、記載なしは1行に)・買うボタン・読んだ資料 / ほかの新製品"""
     p = a["p"]
     im = post_images(a)
-    an = {}
-    ap = ROOT / "data" / "anatomy.yaml"
-    if ap.exists():
-        an = yaml.safe_load(ap.read_text(encoding="utf-8")) or {}
-    pts = (an.get("points") or []) if an.get("id") == p["id"] else []
-    dots = "".join(f'<button type="button" class="dot" style="left:{x["x"]}%;top:{x["y"]}%" data-i="{i}" aria-label="{e(x["t"])}">{i + 1}</button>'
-                   for i, x in enumerate(pts))
-    notes = ("<ol class=\"anat-notes\">" + "".join(f'<li data-i="{i}"><b><span>{i + 1}</span>{e(x["t"])}</b><p>{e(x["d"])}</p></li>'
-                                                   for i, x in enumerate(pts)) + "</ol>") if pts else ""
-    # 解剖図の点は、製品データの写真(1枚目と同じ写真)の上の位置
-    first = im[0]["src"] if im else (p.get("image") or "")
-    photo = (f'<div class="anat{" solo" if not pts else ""}"><div class="anat-ph"><img src="{e(first)}" alt="{e(im[0]["alt"] if im else p["name"])}" referrerpolicy="no-referrer">{dots}</div>{notes}</div>'
-             if first else "")
+    first = im[0] if im else {"src": p.get("image") or "", "alt": p["name"]}
     thumbs = ""
     if len(im) > 1:
-        thumbs = '<div class="a3-thumbs">' + "".join(
-            f'<button type="button"{" aria-current=\"true\"" if i == 0 else ""} aria-label="{i + 1}枚目を大きく"><img src="{e(x["src"])}" alt="{e(x["alt"])}" loading="lazy" referrerpolicy="no-referrer"></button>'
+        thumbs = '<div class="a3-thumbs v7-thumbs">' + "".join(
+            f'<button type="button"{" aria-current=\"true\"" if i == 0 else ""} aria-label="{i + 1}枚目を大きく">'
+            f'<img src="{e(x["src"])}" alt="{e(x["alt"])}" loading="lazy" referrerpolicy="no-referrer"></button>'
             for i, x in enumerate(im)) + "</div>"
     credit = e(a.get("image_credit") or p.get("image_credit") or p["maker"] + " 公式サイト")
-    hint = "。番号を押すと、その部分の説明が光ります" if pts else ""
-    intro = bubble(a.get("face", "futsu"), a["intro"]) if a.get("intro") else ""
     g = gaps(p)
+    cat = GROUP.get(p["category"], CAT[p["category"]]["name"])
+    released = f'<span>発売 {e(a["released"])}</span>' if a.get("released") else ""
+
+    # 本文: 「ここが面白い」は「特徴」に(本人 11/23)。見出しに小さな英字を添える
+    html = markdown.markdown(a["body"].replace("## ここが面白い", "## 特徴"), extensions=["tables"])
+    html = re.sub(r"<h2>(.*?)</h2>", lambda m: post_h2(m.group(1)), html)
+
     gap_html = ""
     if g:
-        gap_html = ('<section class="gaps"><h2>公式の中で、数字が食い違っていた所</h2>'
-                    '<p class="g-lead">製品ページ・取扱説明書・公式画像(早見表や底面ラベル)を突き合わせて見つけた所です。</p>'
-                    '<ul>' + "".join(f"<li>{e(x)}</li>" for x in g) + "</ul></section>")
+        gap_html = (post_h2("公式の中で、数字が食い違っていた所", "CROSS-CHECK")
+                    + '<p class="v7-note">製品ページ・取扱説明書・公式画像(早見表や底面ラベル)を突き合わせて見つけた所です。</p>'
+                    + '<ul class="v7-gaps">' + "".join(f"<li>{e(x)}</li>" for x in g) + "</ul>")
     rows = sharing_list(p)
     share = ""
     if rows:
-        share = ('<h2>同時に挿したときの配り方(全部の組み合わせ)</h2><div class="tbl"><table class="share3"><tbody>'
+        share = (post_h2("同時に挿したときの配り方", "POWER SHARING") + '<div class="tbl"><table class="share3 v7-share"><tbody>'
                  + "".join(f'<tr><th>{e(r["use"])}</th><td>{split_bar(p, r["use"], r["out"])}</td></tr>' for r in rows)
-                 + "</tbody></table></div>"
-                 + (f'<p class="small-src">出典: {e((p.get("usb") or {}).get("sharing_source") or "")}</p>' if (p.get("usb") or {}).get("sharing_source") else ""))
+                 + "</tbody></table></div>")
     allrows = spec_rows(p) + (usb_rows(p) if p["category"] in TAP_CATS else [])
-    allrows = [(k, v) for k, v in allrows if k != "同時に使ったときの配り方"]  # 上の表と重なる
-    all_html = "".join(f"<div><dt>{e(k)}</dt><dd>{v}</dd></div>" for k, v in allrows)
+    allrows = [(k, v) for k, v in allrows if k != "同時に使ったときの配り方"]
+    # 「記載なし」は1行ずつ並べず、最後にまとめる(読む所を減らす)
+    seen, have, none = set(), [], []
+    for k, v in allrows:
+        if k in seen:
+            continue
+        seen.add(k)
+        (none if re.sub(r"<[^>]+>", "", v).strip() == "記載なし" else have).append((k, v))
+    plate = (post_h2("全部の数字", "SPEC SHEET") + '<div class="v7-plate"><dl>'
+             + "".join(f"<div><dt>{e(k)}</dt><dd>{v}</dd></div>" for k, v in have) + "</dl>"
+             + (f'<p class="v7-none">公式に記載なし: {"・".join(e(k) for k, _ in none)}</p>' if none else "")
+             + f'<p class="v7-none">全部の注記は <a href="{p["url"]}">{e(p["model"])} の仕様のページ</a>に。</p></div>')
     srcs = a.get("sources") or []
-    src_html = ('<h2>読んだ資料</h2><ol class="srcs">' + "".join(
-        f'<li><a href="{e(s["url"])}">{e(s["name"])}</a>(取得 {e(s.get("date", ""))})</li>' for s in srcs) + "</ol>") if srcs else ""
+    src_html = (post_h2("読んだ資料", "SOURCES") + '<ol class="v7-srcs">' + "".join(
+        f'<li><a href="{e(s["url"])}">{e(s["name"])}</a><span>{e(str(s.get("date", "")))}</span></li>' for s in srcs) + "</ol>") if srcs else ""
+    intro = bubble(a.get("face", "futsu"), a["intro"]) if a.get("intro") else ""
     others = [x for x in POSTS if x["slug"] != a["slug"]][:3]
-    released = f'<span>発売 {e(a["released"])}</span>' if a.get("released") else ""
-    gap_tag = f'<span class="gap">公式の中の食い違い {len(g)}</span>' if g else ""
-    price = f'<p class="ad">{e(p["price"])}(掲載時点)</p>' if p.get("price") else ""
-    body = f"""<main class="article post3"><div class="wrap">
-<p class="crumb"><a href="/">トップ</a> / <a href="/p/">新製品</a> / {e(GROUP.get(p['category'], CAT[p['category']]['name']))} / {e(p['maker'])}</p>
-<header class="a3-head">
-  <div class="hc-meta"><span class="cat">{e(GROUP.get(p['category'], CAT[p['category']]['name']))}</span>{released}<span>掲載 {e(a['date'])}</span></div>
+    more = ('<h2 class="more-h v7-more">ほかの新製品</h2><div class="postgrid">' + "".join(post_card(x) for x in others) + "</div>") if others else ""
+    price = f'<p class="v7-price">{e(p["price"])}<small>掲載時点</small></p>' if p.get("price") else ""
+
+    body = f"""<main class="v7"><div class="wrap v7-wrap">
+<p class="v7-crumb"><a href="/">トップ</a> / <a href="/p/">新製品</a> / {e(cat)} / {e(p['maker'])}</p>
+<header class="v7-head">
+  <p class="v7-meta"><span class="v7-cat">{e(cat)}</span>{released}<span>掲載 {e(str(a['date']))}</span></p>
   <h1>{e(catch(a))}</h1>
-  <p class="maker">{e(p['maker'])} <span class="mono">{e(p['model'])}</span></p>
-  <div class="dig big"><span><b>{leaves(p)}</b>項目を確かめた</span><span><b>{sources(p)}</b>つの資料</span>{gap_tag}</div>
+  <p class="v7-maker">{e(p['maker'])}<span>{e(p['model'])}</span></p>
 </header>
-<div class="a3-grid">
-  <div>
-    {photo}
+
+<div class="v7-top">
+  <figure class="v7-photo">
+    <div class="a3-grid v7-ph"><div class="anat solo"><div class="anat-ph"><img src="{e(first['src'])}" alt="{e(first['alt'])}" referrerpolicy="no-referrer"></div></div></div>
     {thumbs}
-    <p class="credit">画像: {credit}{hint}</p>
-  </div>
-  <aside class="a3-side">
-    <h2 class="side-h">ポートの顔</h2>
-    {port_face(p, big=True)}
-    <p class="sum">{e(a['summary'])}</p>
-    {store_buttons(p, 'post-top')}
-    {price}
+    <figcaption>画像: {credit}</figcaption>
+  </figure>
+  <aside class="v7-panel">
+    <div class="v7-block"><p class="v7-label">PORTS<span>ポートの顔</span></p>{port_face(p, big=True)}</div>
+    <div class="v7-block"><p class="v7-label">OUTPUT<span>何ワットになるか</span></p>{post_lcd(p)}</div>
+    <dl class="v7-tally"><div><dt>確かめた項目</dt><dd>{leaves(p)}</dd></div><div><dt>読んだ資料</dt><dd>{sources(p)}</dd></div>
+      <div><dt>公式の食い違い</dt><dd class="hot">{len(g)}</dd></div></dl>
   </aside>
 </div>
-<script src="/assets/home.js" defer></script>
-<article class="prose3">
+
+<section class="v7-lead">
+  <p class="v7-sum">{e(a['summary'])}</p>
+  <div class="v7-buy">{price}{store_buttons(p, 'post-top')}</div>
+</section>
+
+<article class="v7-body">
 {intro}
-<div class="prose">{markdown.markdown(a['body'], extensions=['tables'])}</div>
+<div class="v7-prose">{html}</div>
 {gap_html}
 {share}
-<h2>全部の数字</h2>
-<dl class="all">{all_html}</dl>
-<p class="small-src">全部の項目と注記は <a href="{p['url']}">{e(p['model'])} の仕様のページ</a>にもあります。</p>
-{store_buttons(p, 'post-bottom')}
+{plate}
+<div class="v7-buy end">{price}{store_buttons(p, 'post-bottom')}</div>
 {src_html}
 </article>
-{('<h2 class="more-h">ほかの新製品</h2><div class="postgrid">' + ''.join(post_card(x) for x in others) + '</div>') if others else ''}
-</div></main>"""
+{more}
+</div></main>
+<script src="/assets/home.js" defer></script>"""
     ld = [{"@context": "https://schema.org", "@type": "Article", "headline": a["title"], "datePublished": str(a["date"]),
            "dateModified": str(a.get("updated") or a["date"]), "image": [x["src"] for x in im],
            "author": {"@type": "Organization", "name": SITE["title"]},

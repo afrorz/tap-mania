@@ -6,3 +6,4 @@ public/
 # 手元の確認用の設定
 .claude/
 mock/
+mock/v7/shots/
