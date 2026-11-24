@@ -675,37 +675,134 @@ def pitch_html(p: dict) -> str:
             + (f'<ul class="pitch-pts">{pts}</ul>' if pts else "") + more + "</section>")
 
 
-def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
-    st = p["pse"]["status"]
-    rows = "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in spec_rows(p))
+def product_checks(p: dict) -> str:
+    """製品ページの「確かめたこと」: PSE・リコール・公式情報を見た日を3行で(2026-11-24 本人 OK = mock/v9)"""
     pse = p["pse"]
-    insp = (f'<tr><th>登録検査機関名</th><td>{e(pse.get("inspector"))}</td></tr>' if pse_mark(p) == "diamond" else "")
-    pse_html = (f'<p>{pse_badge(p)} {e(PSE[st][1])}。この製品で確かめる PSE マークの形: {PSE_MARK[pse_mark(p)]}。</p>'
-                + (f'<table class="spec"><tr><th>届出事業者名</th><td>{e(pse["notifier"])}</td></tr>{insp}'
-                   f'<tr><th>確かめた方法</th><td>{e(pse["how"])}</td></tr>'
-                   f'<tr><th>確かめた日</th><td>{e(pse["date"])}</td></tr></table>' if st != "unconfirmed" else ""))
+    st = pse["status"]
     if p["category"] == "cable":
-        pse_html = "<p>公式の製品ページ・プレスリリースに、PSE の記載はありません。</p>"
+        pse_t = "公式の製品ページ・プレスリリースに、PSE の記載はありません(ケーブル)。"
+    else:
+        pse_t = e(PSE[st][1]) + f"。この製品で確かめる PSE マークの形: {PSE_MARK[pse_mark(p)]}。"
+        if st != "unconfirmed":
+            pse_t += f'<br>届出事業者名: {e(pse.get("notifier") or "")}'
+            if pse_mark(p) == "diamond" and pse.get("inspector"):
+                pse_t += f' ・ 登録検査機関名: {e(pse["inspector"])}'
+            pse_t += f'<br>確かめた方法: {e(pse.get("how") or "")}({e(str(pse.get("date") or ""))})'
     rc = p.get("recall")
     if p.get("recall_checked"):
-        rc_html = (f"消費者庁リコール情報サイトと NITE で型番「{e(p['model'])}」を引いた結果、該当するリコールは見つかりませんでした({e(p['recall_checked'])} 時点)。"
-                   if rc in (None, "none") else
-                   f'型番が一致するリコールがあります: <a href="{e(rc)}">{e(rc)}</a>({e(p["recall_checked"])} 時点)')
+        rc_t = (f"消費者庁リコール情報サイトなどで型番「{e(p['model'])}」を引き、該当するリコールは見つかりませんでした"
+                if rc in (None, "none") else f'型番が一致するリコールがあります: <a href="{e(rc)}">{e(rc)}</a>') + f'({e(p["recall_checked"])} 時点)。'
     else:
-        rc_html = "リコール情報はまだ引いていません。"
-    srcs = [f'<li><a href="{e(p["official_url"])}">{e(p["maker"])} 公式の製品ページ</a></li>']
-    if p.get("manual_url"):
-        srcs.append(f'<li><a href="{e(p["manual_url"])}">取扱説明書(PDF)</a></li>')
-    same = [x for x in products if x["id"] != p["id"] and x["category"] == p["category"]][:6]
+        rc_t = "リコール情報はまだ引いていません。"
+    return (post_h2("確かめたこと", "CHECKS") + '<div class="v9-checks">'
+            f'<div><p class="v9-ck-k">PSE</p><div>{pse_badge(p)}<p>{pse_t}</p></div></div>'
+            f'<div><p class="v9-ck-k">RECALL</p><div><p>{rc_t}</p></div></div>'
+            f'<div><p class="v9-ck-k">CHECKED</p><div><p>公式情報を見た日 {e(str(p.get("checked") or ""))}</p></div></div></div>')
+
+
+def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
+    """製品ページ(2026-11-24 本人 OK = mock/v9。「スライダーの先と新製品の先でデザインが違う」→ 記事 v7 と同じ1列の形に)。
+    記事との違い: 本文の代わりに「特徴」(pitch の見どころ3つ)。PSE・リコールは「確かめたこと」に3行で"""
+    ims = prod_images(p)
+    first = ims[0] if ims else {"src": p.get("image") or "", "alt": p["name"]}
+    thumbs = ""
+    if len(ims) > 1:
+        thumbs = '<div class="a3-thumbs v7-thumbs v9-thumbs">' + "".join(
+            f'<button type="button"{" aria-current=\"true\"" if i == 0 else ""} aria-label="{e(x["alt"])}を大きく">'
+            f'<img src="{e(x["src"])}" alt="{e(x["alt"])}" loading="lazy" referrerpolicy="no-referrer">'
+            + (f'<small>{e(x["color"])}</small>' if x.get("color") else "") + "</button>"
+            for i, x in enumerate(ims)) + "</div>"
+    credit = e(p.get("image_credit") or p["maker"] + " 公式サイト")
+    g = gaps(p)
+    cat = GROUP.get(p["category"], CAT[p["category"]]["name"])
+    rel = str(p.get("released") or "")
+    released = f'<span>発売 {e(rel[:4])}年{int(rel[5:7])}月</span>' if re.match(r"\d{4}-\d{2}", rel) else ""
+    top_ad = '<span class="adnote v7-ad">広告を含みます</span>' if (has_buy(p) and HAS_AFF) else ""
+    pt = p.get("pitch") or {}
+    feats = ""
+    if pt.get("points"):
+        feats = (post_h2("特徴") + '<ol class="v9-pts">'
+                 + "".join(f'<li><span>{i + 1:02d}</span><p>{e(x)}</p></li>' for i, x in enumerate(pt["points"])) + "</ol>")
+    gap_html = ""
+    if g:
+        gap_html = (post_h2("公式の中で、数字が食い違っていた所", "CROSS-CHECK")
+                    + '<p class="v7-note">製品ページ・取扱説明書・公式画像を突き合わせて見つけた所です。</p>'
+                    + '<ul class="v7-gaps">' + "".join(f"<li>{e(x)}</li>" for x in g) + "</ul>")
+    rows = sharing_list(p)
+    share = ""
+    if rows:
+        share = (post_h2("同時に挿したときの配り方", "POWER SHARING") + '<div class="tbl"><table class="share3 v7-share"><tbody>'
+                 + "".join(f'<tr><th>{e(r["use"])}</th><td>{split_bar(p, r["use"], r["out"])}</td></tr>' for r in rows)
+                 + "</tbody></table></div>")
+    allrows = spec_rows(p) + (usb_rows(p) if p["category"] in TAP_CATS else [])
+    allrows = [(k, v) for k, v in allrows if k != "同時に使ったときの配り方"]
+    seen, have, none = set(), [], []
+    for k, v in allrows:
+        if k in seen:
+            continue
+        seen.add(k)
+        (none if re.sub(r"<[^>]+>", "", v).strip() == "記載なし" else have).append((k, v))
+    plate = (post_h2("全部の数字", "SPEC SHEET")
+             + '<p class="v7-note">メーカー公式ページと取扱説明書に書かれている値だけです。</p><div class="v7-plate"><dl>'
+             + "".join(f"<div><dt>{e(k)}</dt><dd>{v}</dd></div>" for k, v in have) + "</dl>"
+             + (f'<p class="v7-none">公式に記載なし: {"・".join(e(k) for k, _ in none)}</p>' if none else "") + "</div>")
+    srcs = [(f'{p["maker"]} 公式の製品ページ', p["official_url"])] + ([("取扱説明書(PDF)", p["manual_url"])] if p.get("manual_url") else [])
+    src_html = (post_h2("読んだ資料", "SOURCES") + '<ol class="v7-srcs">'
+                + "".join(f'<li><a href="{e(u)}">{e(n)}</a><span></span></li>' for n, u in srcs) + "</ol>")
+    art = post_for(p)
+    art_html = (f'<a class="v9-art" href="{art["url"]}"><small>この製品の紹介記事</small><b>{e(catch(art))}</b><span>→</span></a>') if art else ""
     rel_arts = [a for a in arts if p["id"] in (a.get("products") or [])]
-    # note は調べたときの記録(出典・経緯)で、そのまま出すと読めない塊になる(2026-11-23 本人「こんなの誰も読もうと思わない」)。
-    # ページには、公式の資料どうしで数字が違うところだけを短い箇条書きで出す
-    gaps = []
-    for sent in re.split(r"(?<=。)", str(p.get("note") or "")):
-        sent = sent.strip()
-        if ("食い違" in sent or "合わない" in sent) and "http" not in sent and not re.search("採ら|出典にしない", sent) and len(sent) <= 140 and sent not in gaps:
-            gaps.append(sent)
-    note = ('<h2>公式の資料で数字が違うところ</h2><ul class="gapnote">' + "".join(f"<li>{e(x)}</li>" for x in gaps[:3]) + "</ul>") if gaps else ""
+    q_html = ((post_h2("この製品にかかわる疑問", "QUESTIONS") + "<ul>" + "".join(f'<li><a href="{a["url"]}">{e(a["title"])}</a></li>' for a in rel_arts) + "</ul>")
+              if rel_arts else "")
+    same = [x for x in products if x["id"] != p["id"] and GROUP.get(x["category"]) == GROUP.get(p["category"])][:4]
+    more = (f'<h2 class="more-h v7-more">ほかの{e(cat)}</h2><div class="hgrid v9-more">' + "".join(home_card(x) for x in same) + "</div>") if same else ""
+    price = f'<p class="v7-price">{e(p["price"])}<small>掲載時点</small></p>' if p.get("price") else ""
+    lcd = post_lcd(p)
+    out_block = f'<div class="v7-block"><p class="v7-label">OUTPUT<span>何ワットになるか</span></p>{lcd}</div>' if lcd else ""
+    face_ = port_face(p, big=True)
+    port_block = f'<div class="v7-block"><p class="v7-label">PORTS<span>ポートの顔</span></p>{face_}</div>' if face_ else ""
+    name = re.sub(r"[（(].*?[)）]", "", p["name"]).strip() or p["name"]
+    lead_html = f'<p class="v7-sum">{e(pt["lead"])}</p>' if pt.get("lead") else ""  # 安全の話で保留中の物(pitch_draft だけ)は出さない
+    body = f"""<main class="v7 v9"><div class="wrap v7-wrap">
+<p class="v7-crumb"><a href="/">トップ</a> / <a href="/compare/">比べ表</a> / {e(cat)} / {e(p['maker'])}</p>
+<header class="v7-head">
+  <div class="v7-meta"><span class="v7-cat">{e(cat)}</span>{released}{top_ad}</div>
+  <h1>{e(name)}</h1>
+  <p class="v7-maker">{e(p['maker'])}<span>{e(p['model'])}</span>{pse_badge(p)}</p>
+</header>
+
+<div class="v7-top">
+  <figure class="v7-photo">
+    <div class="a3-grid v7-ph"><div class="anat solo"><div class="anat-ph"><img src="{e(first['src'])}" alt="{e(first['alt'])}" referrerpolicy="no-referrer"></div></div></div>
+    {thumbs}
+    <figcaption>画像: {credit}</figcaption>
+  </figure>
+  <aside class="v7-panel{' v9-one' if not (port_block and out_block) else ''}">
+    {port_block}{out_block}
+    <dl class="v7-tally"><div><dt>確かめた項目</dt><dd>{leaves(p)}</dd></div><div><dt>読んだ資料</dt><dd>{sources(p)}</dd></div>
+      <div><dt>公式の食い違い</dt><dd class="hot">{len(g)}</dd></div></dl>
+  </aside>
+</div>
+
+<section class="v7-lead">
+  {lead_html}
+  <div class="v7-buy">{price}{store_buttons(p, 'product-top').replace(AD_NOTE, '')}</div>
+</section>
+
+<article class="v7-body">
+{feats}
+{art_html}
+{gap_html}
+{share}
+{plate}
+{product_checks(p)}
+<div class="v7-buy end">{price}{store_buttons(p, 'product-bottom').replace(AD_NOTE, '')}</div>
+{src_html}
+{q_html}
+</article>
+{more}
+</div></main>
+<script src="/assets/home.js" defer></script>"""
     ld = [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": SITE["title"], "item": SITE["base_url"] + "/"},
         {"@type": "ListItem", "position": 2, "name": "比べ表", "item": SITE["base_url"] + "/compare/"},
@@ -713,36 +810,8 @@ def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
     r = p.get("rating") or {}
     desc = (f'{p["maker"]}「{p["model"]}」の定格' + (f'(最大{r["watt_max"]:,}W)' if r.get("watt_max") else "")
             + "・口数・コード・雷サージ・USB の出力と PSE の表示を、公式ページと取扱説明書から並べました。")
-    body = f"""<main class="article"><div class="wrap">
-<p class="crumb"><a href="/">トップ</a> › <a href="/compare/">比べ表</a> › {e(CAT[p['category']]['name'])}</p>
-<div class="phead">
-  {gallery(p)}
-  <div>
-    <p class="maker">{e(p['maker'])} ・ {e(CAT[p['category']]['name'])}</p>
-    <h1>{e(p['model'])}<small>{e(p['name'])}</small></h1>
-    {pse_badge(p)}
-    <p class="checked">公式情報を見た日: {e(p['checked'])}</p>
-    {store_buttons(p, 'product-top')}
-  </div>
-</div>
-{pitch_html(p)}
-<h2>仕様(公式の数字だけ)</h2>
-<p class="small">メーカー公式ページと取扱説明書に書かれている値だけを載せています。書かれていない項目は「記載なし」です。</p>
-<table class="spec">{rows}</table>
-{note}
-<h2>PSE の表示</h2>
-{pse_html}
-<h2>リコール</h2>
-<p>{rc_html}</p>
-<h2>出典</h2>
-<ul class="src">{''.join(srcs)}</ul>
-{store_buttons(p, 'product-bottom')}
-{('<h2>この製品の紹介記事</h2><div class="postgrid">' + ''.join(post_card(a) for a in POSTS if a['product'] == p['id']) + '</div>') if any(a['product'] == p['id'] for a in POSTS) else ''}
-{('<h2>この製品にかかわる疑問</h2><ul>' + ''.join(f'<li><a href="{a["url"]}">{e(a["title"])}</a></li>' for a in rel_arts) + '</ul>') if rel_arts else ''}
-{('<h2>同じ区分のほかの機種</h2><div class="pgrid">' + ''.join(pcard(x) for x in same) + '</div>') if same else ''}
-</div></main>"""
     return page(title=f'{p["maker"]} {p["model"]} の仕様', desc=desc, path=p["url"], body=body, current="compare",
-                image=p.get("image") or "", pr=has_buy(p), ld=ld)
+                image=p.get("image") or "", ld=ld)
 
 
 # ── 比べ表 ──────────────────────────────────────────────────

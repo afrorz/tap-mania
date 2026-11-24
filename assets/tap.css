@@ -816,3 +816,48 @@ header.top .wrap { min-height: 60px; flex-wrap: nowrap; padding-top: 0; padding-
 .v7-plate dl div { border-bottom-color: #33373E; }
 /* 11/23 本人「タイトルの文字色(定格とか)がちょっと薄い」: 項目名を #8C959F → #B8C0CA に */
 .v7-plate dt { color: #B8C0CA; }
+
+/* ── 製品ページ(/t/)を記事 v7 の形に(2026-11-24 本人 OK = mock/v9) ── */
+.v9 .v7-maker .pse { margin-left: 2px; }
+.v9-thumbs button { position: relative; }
+.v9-thumbs button small { position: absolute; left: 0; right: 0; bottom: 2px; font-size: 9.5px; line-height: 1.2; color: var(--sub); text-align: center; background: rgba(255,255,255,.85); }
+/* ポートの顔か画面のどちらかしか無い物(コンセントだけ・ケーブル)は1段に */
+.v7-panel.v9-one { grid-template-columns: minmax(0, 1fr); }
+.v7-panel.v9-one .v7-block + .v7-block { padding-left: 0; border-left: 0; margin-left: 0; }
+
+/* 特徴: 見どころ3つ。番号は「並べた順」ではなく数で、目で追う所なので小さく */
+.v9-pts { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.v9-pts li { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 18px; }
+.v9-pts span { display: block; font: 400 22px/1 var(--dot); color: var(--otext); margin-bottom: 10px; }
+.v9-pts p { margin: 0; font-size: 15px; line-height: 1.85; }
+
+/* 紹介記事への帯 */
+.v9-art { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 16px; margin-top: 22px; padding: 16px 20px; border-radius: 16px; background: var(--ink); color: #fff; text-decoration: none; }
+.v9-art small { grid-column: 1; font-size: 12px; color: #B8C0CA; }
+.v9-art b { grid-column: 1; font: 900 16px/1.5 var(--disp); }
+.v9-art span { grid-column: 2; grid-row: 1 / 3; color: var(--orange); font-size: 20px; }
+
+/* 確かめたこと */
+.v9-checks { border-top: 1px solid var(--ink); }
+.v9-checks > div { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line2); }
+.v9-ck-k { margin: 2px 0 0; font: 800 11px/1.4 var(--wide); font-stretch: 125%; letter-spacing: .18em; color: var(--sub); }
+.v9-checks p { margin: 0; font-size: 14.5px; line-height: 1.8; overflow-wrap: anywhere; }
+.v9-checks .pse { margin-bottom: 6px; }
+.v9-more { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (max-width: 720px) {
+  .v9-pts { grid-template-columns: minmax(0, 1fr); }
+  .v9-more { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .v9-checks > div { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+}
+/* 色違いの名前は小さい写真の下に(64px の枠に重ねると窮屈) */
+.v9-thumbs { align-items: flex-start; }
+.v9-thumbs button { height: auto; overflow: visible; background: none; border: 0; padding: 0; width: 64px; display: flex; flex-direction: column; gap: 4px; }
+.v9-thumbs button img { width: 64px; height: 64px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); object-fit: contain; }
+.v9-thumbs button small { position: static; background: none; padding: 0; font-size: 10.5px; }
+.v9-thumbs button[aria-current] img { border-color: var(--ink); }
+.v9-thumbs button img { padding: 6px; }
+.v9-thumbs button { width: auto; min-width: 64px; align-items: center; }
+.v9-thumbs button small { white-space: nowrap; color: var(--ink); }
