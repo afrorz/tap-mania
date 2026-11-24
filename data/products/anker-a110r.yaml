@@ -1,0 +1,76 @@
+id: anker-a110r
+maker: Anker
+model: A110R
+name: "Anker MagGo Power Bank 2 Pro"
+category: battery
+image: "https://www.ankerjapan.com/cdn/shop/files/A110RN11.jpg"   # 今買える色はメタリックグレーだけ(ほかの3色は順次発売予定)
+images:   # 製品ページの写真の列。1枚目は image
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A110R007.jpg", alt: "側面の画面に充電中の表示"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A110R004.jpg", alt: "Qi2 25W のワイヤレス充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A110R_PA_PC_3-4.png", alt: "折りたたみスタンド・冷却ファン・大きさ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A110R008.jpg", alt: "片手に収まる大きさ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A110R009.jpg", alt: "スタンドで立てて枕元でパススルー充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A110R006.jpg", alt: "付けたまま通話"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A110R_PA_PC_4-2.jpg", alt: "付けたままゲーム"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A110R_PA_PC_3-5.png", alt: "4色の展開(メタリックグレー以外は順次発売予定)"}
+image_credit: "Anker 公式サイト"
+official_url: "https://www.ankerjapan.com/products/a110r"
+manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A110RManual.pdf"
+checked: 2026-11-24
+released: "2026-11"
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "製品ページ・特設ページ・取扱説明書(PDF 8ページ)に PSE の記載なし。製品画像 30month_hosyo.jpg に PSE マークと「Ankerグループのすべての対象製品…技術基準に適合」の文があるが、グループ共通の案内で、本機の表示でも届出事業者名でもない"
+  date: 2026-11-24
+
+battery:
+  mah: 10000
+  wh: 39.2
+  cell: "ネオリチウムイオンバッテリー™(Anker 独自の呼び方)"
+  input_w: 45
+  passthrough: true
+  safety: "ActiveShield™ 5.0(1秒あたり120回以上の温度検知)・常時温度管理システム(公式の書き方)"
+size: "約105 x 71 x 18mm"
+weight_g: 220
+usb:
+  ports:
+    - {name: "USB-C", type: C, max_w: 45}
+    - {name: "ワイヤレス", type: wireless, max_w: 25}
+  sharing:
+    - {use: "USB-C+ワイヤレス", out: "10W+5W"}
+  sharing_source: "取扱説明書 PDF p.6「製品の仕様」の合計出力「USB-C: 5V 2A (最大10W) ワイヤレス: 最大5W」。公式ページの製品仕様は「合計最大出力 15W」"
+colors: [メタリックグレー]
+warranty: "24ヶ月(Anker で会員登録すると +6ヶ月)"
+seller_jp: "アンカー・ジャパン株式会社"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "MagGo Power Bank 2 Pro A110R"
+price: "16,990円(税込・Anker Japan 公式オンラインストア)"
+note: |
+  型番は製品ページの仕様欄で A110RN11(メタリックグレー)。発売月は「2026年11月」。特設ページ https://www.ankerjapan.com/pages/anker-nlb-maggo2pro は製品ページ /products/a110r へつながる。
+  色: 特設ページは「好みに合わせて選べる4色展開」、ただし「メタリックグレー以外のカラーは順次発売予定」。11/24 に選べるのはメタリックグレーだけ。
+  出力: USB-C 5V⎓3A / 9V⎓3A / 15V⎓3A / 20V⎓2.25A / 10V⎓2.25A(最大45W)。入力 USB-C 5V⎓3A / 9V⎓3A / 15V⎓3A(最大45W)。ワイヤレス 5W / 7.5W / 15W / 25W(取説)。Qi2 25W 認証取得済(公式ページ)。容量の書き方は「10000mAh / 10K / 39.2Wh」。定格容量は書かれていない(取説の FAQ に「実際に利用できる容量は約5,500〜6,500mAh」)。
+  ワイヤレスの最大は公式ページで25W だが、同じページの注意書きには「Max15Wの出力でのマグネット式ワイヤレス充電は、iOS 17.4以上にアップデートしたiPhone 12以降」とあり、25W で充電できる機種の条件は書かれていない。
+  同時に使うとき: USB-C とワイヤレスを同時に使うと USB-C 10W(5V 2A)+ワイヤレス 5W(取説)。本体を充電しながらワイヤレス充電するとワイヤレスは5Wに制限(取説 p.3)。本体の充電は45W 以上の PD 充電器が最適(取説)。本体の充電時間は公式に書かれていない。
+  画面(取説 p.4〜5): バッテリー残量、ワイヤレスと USB-C の出力、温度の状態、バッテリーの最大容量(%)を表示。ボタン1回で画面の切り替え、2回で冷却モード/静音モードの切り替え(「ワイヤレス」の画面ではワイヤレス充電のオン/オフ)、2秒長押しで画面オフ。
+  冷却ファン: 冷却モード(初期設定)では充電中に自動で回り、出力がワイヤレス 7W・有線 15W に達すると回り始めて温度で速さを変える。静音モードでは回らない(クイックスタートガイド)。
+  スタンドは0〜80度で角度を変えられ、5,000回以上の開閉テストをクリア(公式画像 A110R_PA_PC_3-4.png)。取説はスタンドを縦向きで使うよう案内。磁力は約12N(取説)。
+  公式ページの安全の記載(ネオリチウムイオンバッテリー™、「釘刺し試験も100%通過可能」「セルの釘刺し・加圧試験や、筐体の燃焼試験など、厳しい安全試験をクリア」、「最安全」= Anker 自社の基準での比較、SGS のプレミアムパフォーマンスマーク)は、pitch に入れず pitch_draft に置いた。
+  リコール: 消費者庁リコール情報サイトで「A110R」を検索すると乗用車(ルノー アルピーヌ A110R)だけで、本機は該当なし(2026-11-24)。Anker の過去の回収に「Anker MagGo Power Bank」(2025年6〜7月)があるが、名前の似た別の機種で型番が違う。Anker の製品回収情報(最新は2025年10月掲載)にも A110R は入っていない。NITE は未確認。
+  売り場: 「A110R」だけで検索すると車の部品などが混ざるので、q は「MagGo Power Bank 2 Pro A110R」にした。楽天・Yahoo!・Amazon とも一番上にこの製品(Amazon は広告枠の下の最初の通常枠も同じ製品)。11/24 確認。
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)
+  lead: "Qi2 25W のワイヤレス充電に、冷却ファンを内蔵した10000mAhのマグネット式バッテリーです。側面の画面では、バッテリー残量・ワイヤレスと USB-C の出力・温度の状態・バッテリーの最大容量を切り替えて確かめられます。"
+  points:
+    - "ワイヤレスは最大25W、USB-C は入力・出力とも最大45W"
+    - "ボタン2回押しで冷却モードと静音モードを切り替えられ、冷却モードではワイヤレス7W・有線15Wに達するとファンが回る"
+    - "0〜80度で角度を変えられる折りたたみスタンド付きで、大きさ約105×71×18mm・約220g"
+pitch_draft:   # 新しいセルの安全性の話(安全の話)なので、本人が見てから pitch: に戻す(2026-11-24)
+  lead: "Anker が「ネオリチウムイオンバッテリー™」と呼ぶ独自のセルを載せた、Qi2 25W のマグネット式バッテリーです。公式ページは、セルの釘刺し・加圧試験や筐体の燃焼試験などの安全試験をクリアし、釘刺し試験も100%通過可能と書いています。"
+  points:
+    - "温度管理は ActiveShield™ 5.0 で、1秒あたり120回以上の温度検知(公式の書き方)"
+    - "SGS の総合評価で最高ランク(A+)を取り、プレミアムパフォーマンスマークを取得(2026年9月時点、Anker の発表)"
+    - "冷却ファン内蔵で、ワイヤレスは最大25W、USB-C は入力・出力とも最大45W"

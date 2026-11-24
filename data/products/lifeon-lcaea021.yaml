@@ -1,0 +1,72 @@
+id: lifeon-lcaea021
+maker: Life on Products
+model: LCAEA021
+name: "USB急速充電器 USB PD (パワーデリバリー)対応 65W コード巻取式"
+category: charger
+image: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea021/lcaea021_00.jpg"
+images:   # 製品ページの写真の列。1枚目は image
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea021/lcaea021_de_07.jpg", alt: "リールコード(USB-C1)と USB-A・USB-C2 のポート"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea021/lcaea021_08.jpg", alt: "コードを引き出した2台"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea021/lcaea021_05.jpg", alt: "手のひらにのる大きさ"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea021/lcaea021_de_04.jpg", alt: "折りたためるスイングプラグ"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea021/lcaea021_01.jpg", alt: "電源タップに挿してノートPCを充電"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea021/lcaea021_02.jpg", alt: "3台を同時に充電"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea021/lcaea021_06.jpg", alt: "木の机に置いたところ"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea021/lcaea021_03.jpg", alt: "コードでスマホを充電"}
+image_credit: "Life on Products 公式サイト"
+official_url: "https://lifeonproducts.co.jp/product/lcaea021/"
+manual_url: "https://lifeonproducts.co.jp/data/manual/lifeonproducts/lcaea021.pdf"
+checked: 2026-11-24
+released: "2026-04"
+cable_note: "本体一体型の USB-C コード(リールコード、最長約75cm)を内蔵。必要な長さで固定でき、巻き戻すときは少し引いて離すと自動で巻き戻る(製品ページ・取説 p.4)。公式写真 lcaea021_de_07.jpg の本体の表示では、コードの差し込み口側が「USB-C1」、本体のポートが「USB-C2」"
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページに「PSEマーク 電気用品安全法「特定電気用品」に該当する技術基準に適合した製造…」の文はあるが、届出事業者名と登録検査機関名は書かれていない。取扱説明書(全7ページ、文字が画像の PDF をブラウザで開いて目で確認)の各部名称・使用方法・アフターサービス・仕様にも PSE の記載なし(p.2 の安全上の注意は細かい字で読み切れていない)。公式の製品画像19枚に、本体の銘板・刻印が読める物は無い"
+  date: 2026-11-24
+
+input: "AC 100V-240V 50/60Hz 1.5A"
+size: "54×58×48mm"
+weight_g: 169
+foldable_plug: true
+usb:
+  ports:
+    - {name: "USB-C1(リールコード)", type: C, max_w: 65}
+    - {name: "USB-C2", type: C, max_w: 65}
+    - {name: "USB-A", type: A, max_w: 60}
+  sharing:
+    - {use: "USB-C1+C2", out: "45W+20W(最大65W)"}
+    - {use: "USB-C1+A", out: "45W+18W(最大63W)"}
+    - {use: "USB-C2+A", out: "合計15W(5V 3A)"}
+    - {use: "USB-C1+C2+A", out: "45W+15W(最大60W)"}
+  sharing_source: "公式製品ページの商品仕様「定格出力(2ポート使用時)」「(3ポート使用時)」と、取扱説明書 p.7「仕様」・プレスリリースの仕様(同じ文言)"
+  pd: true
+  pps: true
+  gan: true
+colors: [ベージュ]
+warranty: "保証書付き(期間は公式ページ・取扱説明書に記載なし)"
+seller_jp: "ライフオンプロダクツ株式会社"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "LCAEA021"
+price: "6,930円(税込・プレスリリースの価格)"
+note: |
+  見た目: 透明な PC の外殻の中に、ベージュの本体と巻き取ったコードが収まる四角い形(公式写真)。材質は「本体：PC」(仕様)。同じシリーズの LCAEA017・LCAEA018 と違い、出力ディスプレイは無い(仕様「出力ディスプレイ 無」)。
+  製品名は公式ページ・取説・プレスリリースとも「コード巻取式」。プレスリリース本文は「本体一体型USBコード」とも書く。
+  1ポートのとき: USB-C1/C2 は 5V 3A, 9V 3A, 12V 3A, 15V 3A, 20V 3.25A(最大65W)。USB-A は 5V 3A, 9V 3A, 10V 2.25A, 12V 3A, 20V 3A(最大60W)。USB-A の最大60W は公式の数字のまま写した。
+  C1 と C2 のどちらがリールコードかは、仕様の文章には書かれていない。公式写真 lcaea021_de_07.jpg の本体の印字で、コードの収まる口の下に「USB-C1」、本体の Type-C 差込口の上に「USB-C2」と読めたので、C1 をリールコードとした。
+  3ポート同時(C1+C2+A)の公式の書き方は「45W+15W（最大60W）」で、3つのポートへの配り方は2つの数字しか書かれていない。C2+A は「5V 3A（最大15W）」だけで、ポートごとの配り方は書かれていない。total_w は組み合わせで値が違うので書いていない。
+  PD・PPS・Quick Charge・GaN は製品ページの説明から。Quick Charge の版は公式に記載なし。スイングプラグ(折りたたみ式)は製品ページ。
+  USB ケーブルは付属しない(コードは本体一体型)。セット内容は本体と取扱説明書(保証書付)。補修用性能部品の保有期間は生産終了後5年(取説 p.6)。JAN 4944370064810(ベージュ)。
+  発売: Life on Products オフィシャルストアで2026年4月10日、全国の雑貨店・量販店・オンラインショップで4月27日から(PR TIMES https://prtimes.jp/main/html/rd/p/000000411.000073257.html )。
+  売り場: 楽天・Yahoo! は「ライフオンプロダクツ 公式店」、Amazon も「LCAEA021」の検索で一番上にこの製品(11/24 確認。Amazon の出品者名は確かめていない)。
+  リコール: 消費者庁リコール情報サイトで「LCAEA021」「ライフオンプロダクツ」を検索して0件(2026-11-24)。NITE は未確認。
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)
+  lead: "透明な PC の外殻の中に、最長約75cmの USB-C コードを巻き取って収めた65W 充電器です。コードは必要な長さで止められ、少し引いて離すと自動で巻き戻ります。ほかに USB-C と USB-A のポートが1つずつあり、3台まで同時に充電できます。"
+  points:
+    - "USB-C は1ポートなら最大65W。リールコード(C1)と C2 の2台なら45W+20W"
+    - "組み合わせで配り方が大きく変わり、C1+A は45W+18W、C2+A は5V 3A(最大15W)"
+    - "大きさ54×58×48mm・169gで、プラグは折りたためるスイングプラグ"

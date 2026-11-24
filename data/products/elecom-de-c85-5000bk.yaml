@@ -1,0 +1,81 @@
+id: elecom-de-c85-5000bk
+maker: エレコム
+model: DE-C85-5000BK
+name: "半固体モバイルバッテリー(5000mAh/22.5W)"
+category: battery
+image: "https://www.elecom.co.jp/photo/p01/DE-C85-5000WH_01.jpg"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない。プログラムからは 403、ブラウザでは開ける
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elecom.co.jp/photo/p01/DE-C85-5000BK_01.jpg", alt: "ブラック", color: "ブラック"}
+  - {src: "https://www.elecom.co.jp/photo/p39/DE-C85-5000BK_39.jpg", alt: "残量を1%単位で出す LED パネル"}
+  - {src: "https://www.elecom.co.jp/photo/p41/DE-C85-5000BK_41.jpg", alt: "厚さ約11.4mm の横顔"}
+  - {src: "https://www.elecom.co.jp/photo/p36/DE-C85-5000BK_36.jpg", alt: "USB-C と USB-A の並ぶ端面"}
+  - {src: "https://www.elecom.co.jp/photo/p42/DE-C85-5000BK_42.jpg", alt: "スマホにつないで手に持つ"}
+  - {src: "https://www.elecom.co.jp/photo/p43/DE-C85-5000BK_43.jpg", alt: "イヤホンを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p44/DE-C85-5000BK_44.jpg", alt: "ポーチに入れて持ち運ぶ"}
+  - {src: "https://www.elecom.co.jp/photo/p46/DE-C85-5000BK_46.jpg", alt: "机でスマホを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p45/DE-C85-5000BK_45.jpg", alt: "充電器につないだまま本体とスマホをまとめて充電"}
+image_credit: "エレコム 公式サイト"
+official_url: "https://www.elecom.co.jp/products/DE-C85-5000BK.html"
+manual_url: "https://www.elecom.co.jp/support/manual/cellphone/battery/de-c85-5000/de-c85-5000_v01.pdf"
+checked: 2026-11-24
+released: "2026-05"
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "仕様欄に「○PSE 特定以外の電気用品」、特長欄に「日本の電気用品安全法(PSE)の技術基準に適合」の文字だけ。取扱説明書(2ページ、2025年12月 第1版)をブラウザで見た範囲(右端の一部は未確認)に、PSE マーク・届出事業者名の表示なし。公式画像 p37(端面の印字)は小さく、文字が読めない"
+  date: 2026-11-24
+
+battery:
+  mah: 5000
+  wh: 19.25
+  cell: "充電式半固体リチウムイオン電池(3.85V/5000mAh)"
+  input_w: 18
+  recharge_time: "約1時間40分(製品本体のみを充電した場合の目安)"
+  passthrough: true
+  safety: "Thermal Protection、多重保護、JIS C 62133-2:2020 および JIS C 8715-2:2024 に準拠した安全設計、くり返し使用回数 約2000回(公式の書き方)"
+size: "幅約68 × 奥行約11.4 × 高さ約110mm"
+weight_g: 135
+usb:
+  ports:
+    - {name: "USB Type-C1", type: C, max_w: 22.5}   # 入力兼用。PPS は最大20W
+    - {name: "USB-A1", type: A, max_w: 22.5}
+  total_w: 15
+  sharing:
+    - {use: "C1+A1", out: "合計最大15W(5V/3A)"}
+  sharing_source: "製品ページの仕様欄「出力」の「2ポート同時使用時：合計最大15W(5V/3A)」と、取扱説明書 p.1「ポート・出力ワット(W)数」の図(同じ値)"
+  pd: true
+  pps: true
+colors: [ブラック, ホワイト]
+warranty: "1年間"
+seller_jp: "エレコム株式会社"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "DE-C85-5000BK"
+note: |
+  型番はブラック DE-C85-5000BK・ホワイト DE-C85-5000WH、どちらもオープン価格。製品ページは 11/24 時点で「発売中」。
+  発売月: エレコムのリリースは見つけられなかった。2026-05 は依頼のときの情報で、公式の文書では確かめていない(ニュースサイトの DC Watch は「5月下旬発売」と書いている)。取扱説明書は「2025年12月 第1版」。
+  出力: C1 は 5V/3A・9V/2.22A・10V/2.25A(最大22.5W)、PPS 5～11V/1.8A(最大20W)。A1 は 5V/2.4A・9V/2A・10V/2.25A(最大22.5W)。入力は C1 だけで 5V/3A・9V/2A(最大18W)。AC 充電器は18W 以上を推奨(取説)。
+  まとめて充電(パススルー)のときは、入力・出力とも最大15W(5V/3A)(取説 p.1)。
+  電池は「充電式半固体リチウムイオン電池」。特長欄の説明では、電解質を液体からゲル状に変えている。
+  Health Monitor(取説・特長欄): 充放電の回数で LED の色が変わる。消灯 ～約250回、青 約251～約500回、橙 約501回～(買い替えの検討をうながす表示)。くり返し使用回数は約2000回(取説は「JIS C 8711」と注記)で、橙になる回数とは別の物差し。
+  使える温度は、充電時 0℃～35℃、放電時 -15℃～45℃(一般的なモバイルバッテリーの放電は 0℃～40℃ と公式が比べている)。
+  残量は LED パネルに1%単位。低電流モードとおまかせ充電は USB-A だけ。付属は USB Type-C - USB Type-C ケーブル(約0.1m)と絶縁シール。160Wh 以下で機内持ち込み可(航空会社の規定で例外あり)。Switch 2 / Switch / Switch Lite の充電に対応。
+  定格容量(5V 換算)は公式に書かれていない。
+  売り場: 楽天・Yahoo! に黒・白とも出ている。Amazon は検索の1件目が「エレコム モバイルバッテリー 半固体電池 5000mAh 22.5W PD20W USB-C USB-A 2ポート」(B0GYJ8QYNP)。値段は公式に無い(オープン価格)ので書いていない。
+  消費者庁リコール情報サイトで「エレコム」を引いた15件に、この型番は無い(2026-11-24)。NITE はまだ引いていない。
+  出典: 製品ページ https://www.elecom.co.jp/products/DE-C85-5000BK.html ・ 特設ページ https://www.elecom.co.jp/pickup/contents/00126/standard/ ・ 取扱説明書 https://www.elecom.co.jp/support/manual/cellphone/battery/de-c85-5000/de-c85-5000_v01.pdf
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)。安全の話(半固体電池の性質)は pitch_draft に分けた
+  lead: "厚さ約11.4mm・重さ約135g の薄い5000mAh バッテリーです。充放電をくり返した回数に応じて LED が消灯から青、橙へと変わり、電池の替えどきを知らせる Health Monitor をエレコムで初めて載せました。"
+  points:
+    - "USB-C と USB-A は単独でどちらも最大22.5W。2台同時なら合計最大15W"
+    - "放電時は -15℃～45℃ で使え、冬の屋外でもスマホに充電できる"
+    - "残量は LED パネルに1%単位で出る。くり返し使用回数は約2000回"
+pitch_draft:   # 「発火しにくい」は安全に関わる主張なので、本人が見てから pitch: に入れる(2026-11-24)
+  lead: "電解質を液体からゲル状に変えた『半固体リチウムイオン電池』を使った、厚さ約11.4mm の5000mAh バッテリーです。メーカーによると、可燃性成分の揮発が抑えられてガスが出にくくなり、発火しにくくなっています。"
+  points:
+    - "メーカーは、釘刺し試験・圧壊試験を行ったと記載している"
+    - "くり返し使用回数は約2000回で、メーカーは一般的なリチウムイオン電池の約500回の約4倍としている"
+    - "放電時は -15℃～45℃ で使える。一般的なモバイルバッテリーは 0℃～40℃(メーカーの比べ方)"

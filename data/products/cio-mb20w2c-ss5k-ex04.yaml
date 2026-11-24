@@ -1,0 +1,77 @@
+id: cio-mb20w2c-ss5k-ex04   # 型番の「CIO-」とメーカー名が重なるので、メーカー名を1回だけにした(Ex05 と同じ)
+maker: CIO
+model: CIO-MB20W2C-SS5K-EX04
+name: "SMARTCOBY Ex04 Wireless2.2 CABLE SS5K"
+category: battery
+released: "2026-03"   # ブラック 2026-03(3/27 予約開始・3/31 一般発売の報道)。ホワイトは 2026-06-19 発売(PR TIMES)
+image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/03/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP01WH_Amazon.jpg"   # 写真はホワイト。仕様は色で変わらない
+images:   # 製品ページの写真の列。1枚目は image。「燃えにくい」の画像(LP03)と安全の仕組みの図(LP08〜LP13)は入れない
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/03/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP01BK_Amazon-1.jpg", alt: "ブラック", color: "ブラック"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/10/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP02_BK.jpg", alt: "スマホの背面に付けて持つ"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/10/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP06_BK.jpg", alt: "Qi2.2 のワイヤレス充電"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/03/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP07_WH.jpg", alt: "内蔵ケーブルで有線充電"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/03/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP15_WH.jpg", alt: "厚さ約14mm"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/03/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP17_WH.jpg", alt: "充電しながらスマホを載せる(パススルー)"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/03/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP18_BK-1.jpg", alt: "外せる内蔵ケーブル"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/03/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP19_WH.jpg", alt: "1%単位のデジタル残量表示"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/10/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP20-BK.jpg", alt: "傷がつきにくいシボ加工の表面"}
+image_credit: "CIO 公式サイト"
+official_url: "https://connectinternationalone.co.jp/cioproduct/mobilebattery/smartcoby/cio-mb20w2c-ss5k-ex04/"
+manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2025/10/20260128_SMARTCOBY_Ex04_wireless22_CABLE_SS5K.pdf"
+checked: 2026-11-24
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "製品ページ・取扱説明書(日本語の全23ページ)・製品ページの公式画像22枚のどれにも、PSE マーク・届出事業者名の表示なし"
+  date: 2026-11-24
+
+battery:
+  mah: 5000
+  wh: 18.5
+  rated_mah: 2900   # 取扱説明書「4.仕様」の「定格容量:2900mAh(5V=3A)」。製品ページには書かれていない
+  cell: "半固体系バッテリーセル(CIO の独自基準による呼び方)"
+  input_w: 20
+  recharge_time: "約90分(使用環境により異なる場合がある)"
+  passthrough: true
+  safety: "加熱・短絡・圧迫・落下などの試験を実施し、内部温度を監視しながら出力を自動制御する安全機能を搭載(公式の書き方)"
+size: "約100 × 70 × 14mm"
+weight_g: 151
+usb:
+  ports:
+    - {name: "USB-C", type: C, max_w: 20}                 # PD 最大20W・PPS 5-11V⎓2A(最大22W)。入力兼用
+    - {name: "USB-C内蔵ケーブル", type: C, max_w: 20}     # 約21cm・脱着式。入力兼用
+    - {name: "Qi2.2 ワイヤレス", type: wireless, max_w: 25}
+  sharing:
+    - {use: "USB-C内蔵ケーブル+USB-C", out: "合計15W(5V⎓3A)"}
+    - {use: "ワイヤレス+有線", out: "同時には使えない(有線が優先され、ワイヤレスは止まる)"}
+  sharing_source: "製品ページの製品仕様「出力:USB-C内蔵ケーブル+USB-C Total 15W(5V⎓3A)」、取扱説明書 p.5「USB-C1+C2 Cable出力:Total 15W(5V=3A)」と p.9「1-3.同時充電について」・p.12「ワイヤレス充電を使った同時充電には非対応です」"
+  pd: true
+  pps: true
+colors: [ブラック, ホワイト]
+warranty: "1年"
+seller_jp: "株式会社CIO"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon]
+q: "CIO-MB20W2C-SS5K-EX04"
+price: "7,130円(税込・メーカー希望小売価格)"
+note: |
+  容量の公式の書き方: 「バッテリー容量 2500mAh/7.4V/18.5Wh」「バッテリーセル 2500mAh × 2pcs(Total 5000mAh)」。定格容量 2900mAh(5V=3A)は取扱説明書だけに書かれている。
+  「半固体系」は、CIO の注記で「半固体/準固体の定義には統一見解がないため、CIOでは独自基準を満たしたバッテリーを「半固体系」と定義」とされている。
+  出力: 5V⎓3A/9V⎓2.22A/12V⎓1.67A(Max 20W)/PPS 5-11V⎓2A(Max 22W)。入力: 5V⎓3A/9V⎓2.22A/12V⎓1.67A(Max 20W)。対応規格は Qi2.2(25W)/PD3.0。
+  Qi2.2 の機器へは最大25W、Qi2 の機器へは最大15W。出力モードは3つ(ハイパフォーマンス 25W・セーフティー 7.5W・低電流)で、ボタン5秒長押しで切り替える。初期設定はハイパフォーマンス(取説 p.16〜21)。
+  ワイヤレス充電中にケーブルで機器をつなぐと、有線が優先されてワイヤレスは止まる(製品ページの FAQ と取説 p.9・p.12)。同じ CIO の Ex05 と違い、ワイヤレスと有線を同時に使うモードは無い。
+  内蔵ケーブルは約21cm・脱着式で、Ex01 用の交換ケーブルとは互換性がない(公式 FAQ)。残量は1%単位のデジタル表示。完全パススルー対応。サイクル回数は約400回。
+  公式画像 LP16 の中で、満充電までの時間が食い違う: 大きな文字は「約90分で満充電」、同じ画像の小さな文字は「急速充電器を用いることで約130分で満充電」。製品仕様と取説は「約90分」。
+  公式画像 LP14 に、iPhone 17 Pro を有線で約0.77回・ワイヤレスで約0.66回、iPhone 16 Pro を有線で約0.88回・ワイヤレスで約0.80回充電できるとある(製品ページの本文と同じ)。
+  Yahoo! ショッピングでは型番で見つからなかった(2026-11-24)。Amazon は公式リンク B0FTZ41VT6、楽天は machinoomise の店。
+  CIO の過去の回収は SMARTCOBY Ex01 SLIM Qi2 & CABLE(2025-01-27)で、型番が違う。消費者庁リコール情報サイトで「MB20W2C」「SMARTCOBY」を検索し、Ex04 は該当なし(2026-11-24)。NITE は未確認。
+  出典: 製品ページ・取扱説明書(上の URL、2026-11-24 取得)。発売日は PR TIMES https://prtimes.jp/main/html/rd/p/000000671.000043212.html と報道。
+pitch:   # 製品ページの頭の「特徴」(公式の事実だけ)
+  lead: "厚さ約14mm・151g の5000mAh バッテリーに、Qi2.2 のワイヤレス充電と、本体から外せる約21cm の USB-C ケーブルを載せています。セルは、CIO が独自の基準で『半固体系』と呼ぶものを使っています。"
+  points:
+    - "ワイヤレスは Qi2.2 で最大25W。Qi2 の機器へは最大15Wで、マグネットで付けて充電できる"
+    - "内蔵ケーブルと USB-C ポートはどちらも最大20Wの入出力。2本同時なら合計15W"
+    - "残量は1%単位のデジタル表示。本体の充電は約90分で、完全パススルーにも対応"

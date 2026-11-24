@@ -1,0 +1,71 @@
+id: belkin-bpd022
+maker: Belkin
+model: BPD022
+name: "UltraCharge Slim マグネット式モバイルバッテリー 10K"
+category: battery
+image: "https://www.belkin.com/dw/image/v2/BGBH_PRD/on/demandware.static/-/Sites-master-product-catalog-blk/default/dwa1801ce6/images/hi-res/2/75890e18220a942a_BPD022fqWH-ultracharge-slim-magnetic-power-bank-10k-webgg-01-hero-6000x6000-us.jpg?sw=1200"   # ホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.belkin.com/dw/image/v2/BGBH_PRD/on/demandware.static/-/Sites-master-product-catalog-blk/default/dwe5abb67e/images/hi-res/6/6b35549ff32f0e1d_BPD022fqBK-ultracharge-slim-magnetic-power-bank-10k-webgg-01-hero-6000x6000-us.jpg?sw=1200", alt: "ブラック", color: "ブラック"}
+  - {src: "https://www.belkin.com/dw/image/v2/BGBH_PRD/on/demandware.static/-/Sites-master-product-catalog-blk/default/dw8d700833/images/hi-res/b/11bbec762ec5ff02_BPD022fqSA-ultracharge-slim-magnetic-power-bank-10k-webgg-01-hero-6000x6000-us.jpg?sw=1200", alt: "サンド", color: "サンド"}
+  - {src: "https://www.belkin.com/dw/image/v2/BGBH_PRD/on/demandware.static/-/Sites-master-product-catalog-blk/default/dwf3c19cac/images/hi-res/4/68d76206719b2da_BPD022fqBK-ultracharge-slim-magnetic-power-bank-10k-webgg-14.jpg?sfrm=png", alt: "斜めから見た表面と側面"}
+  - {src: "https://www.belkin.com/dw/image/v2/BGBH_PRD/on/demandware.static/-/Sites-master-product-catalog-blk/default/dw3778e467/images/hi-res/4/4bfe2a3c7b51baab_BPD022fqBK-ultracharge-slim-magnetic-power-bank-10k-webgg-15.jpg?sfrm=png", alt: "端の USB-C ポート"}
+  - {src: "https://www.belkin.com/dw/image/v2/BGBH_PRD/on/demandware.static/-/Sites-master-product-catalog-blk/default/dw87b1d4e1/images/hi-res/NaN/db1ae4aabb19511_BPD022fqBK-ultracharge-slim-magnetic-power-bank-10k-webgg-16.jpg?sfrm=png", alt: "スマホと並べた厚さ"}
+  - {src: "https://www.belkin.com/dw/image/v2/BGBH_PRD/on/demandware.static/-/Sites-master-product-catalog-blk/default/dwc9b3758a/images/hi-res/b/11c0ec4375b003fc_BPD022fqBK-ultracharge-slim-magnetic-power-bank-10k-webgg-12.jpg?sfrm=png", alt: "マグネット面と背面の印字"}
+  - {src: "https://image.rakuten.co.jp/belkin-shop/cabinet/09794475/13918362/5.jpg", alt: "ワイヤレスと USB-C で2台を同時に充電(文字あり)"}
+  - {src: "https://image.rakuten.co.jp/belkin-shop/cabinet/09794475/13918362/6.jpg", alt: "スマホに付けて手に持ったところ(文字あり)"}
+image_credit: "Belkin 公式サイト・Belkin公式ショップ(楽天)"
+official_url: "https://www.belkin.com/jp/p/slim-magnetic-power-bank-10k/BPD022fqBK.html"
+manual_url: "https://www.belkin.com/on/demandware.static/-/Sites-master-product-catalog-blk/default/dw5931aed3/datasheets/regulatory/INS_BPD022_8850bt02268_RC-Web.pdf"
+checked: 2026-11-24
+released: ""   # 日本の発売年月を公式の資料・報道で確かめられなかった(依頼メモでは 2026-08)
+
+pse:
+  status: image
+  mark: round
+  how: "Belkin 公式サイトの製品画像 BPD022fqBK-…-webgg-12.jpg(3000px・背面)で、丸形の PSE マークと「ベルキン株式会社」が読める(2026-11-24 に画像を開いて拡大して確認)。ただし同じ印字の「定格容量：(5V) XXXXX mAh」「SN: PPPVVMM」などが仮の文字のままで、製品の実物ではなくデザイン用の画像。Belkin公式ショップ(楽天)の説明にも「届け出事業者名：ベルキン株式会社/PSマーク種類：PSE」"
+  notifier: "ベルキン株式会社"
+  date: 2026-11-24
+
+battery:
+  mah: 10000
+  wh: 38.7
+  cell: "リチウムイオン(背面の印字 2ICP6/65/78、Capacity 38.7Wh 7.74V 5000mAh)"
+  passthrough: true
+  safety: "Belkin SmartProtect で55項目の安全性テストを実施、デュアルチップによる過熱・過電圧保護(公式の書き方)"
+size: "102 × 72 × 16mm(公式の仕様欄)"
+usb:
+  ports:
+    - {name: "USB-C(入出力)", type: C, max_w: 30}   # 5V⎓3A、9V⎓3A、12V⎓2.5A、15V⎓2A(取扱説明書)
+    - {name: "ワイヤレス(Qi2 25W)", type: wireless, max_w: 25}
+  total_w: 30
+  sharing:
+    - {use: "USB-C + ワイヤレス", out: "15W + 15W(合計 最大30W)"}
+  sharing_source: "取扱説明書の英語の仕様「Total Output (USB-C + Wireless): 15W + 15W (Max 30W)」と背面の印字(公式画像 webgg-12)の同じ文言。Belkin公式ショップの画像は「ワイヤレスとUSB-Cで最大30Wの合計出力」"
+  pd: true
+colors: [ブラック, ホワイト, サンド]
+warranty: "2年(ほかに最大2,500米ドルの接続機器保証)"
+seller_jp: "ベルキン株式会社"
+
+stores: [rakuten, amazon]   # 楽天は Belkin公式ショップ(belkin-shop/bpd022fq)、Amazon は「Belkin Qi2.2 25W モバイルバッテリー…」(11/24 検索)。Yahoo! は確かめていない
+q: "BPD022"
+price: "11,580円(税込・Belkin公式ショップ(楽天)の掲載時点の値段。Belkin 日本公式サイトに値段の表示なし)"
+note: |
+  SKU は BPD022fqBK(ブラック)/ BPD022fqWH(ホワイト)/ BPD022fqSA(サンド)。日本の製品ページの見出しは「UltraCharge Slimマグネット式モバイルバッテリー 10K」、ページの title は英語の「UltraCharge Pro Slim Magnetic Power Bank 10K」。
+  入力(取扱説明書): 5V⎓3A、9V⎓3A、12V⎓3A、15V⎓2.5A。USB-C 出力: 5V⎓3A、9V⎓3A、12V⎓2.5A、15V⎓2A。ワイヤレス 25W Max。60cm の USB-C to USB-C ケーブルが付属。
+  2台同時の配り方は公式の資料で食い違う: 取扱説明書の英語の仕様と背面の印字は「USB-C + Wireless: 15W + 15W (Max 30W)」、取扱説明書の繁体字中国語の仕様は「USB-C + 無線輸出: 5V⎓2.8A + 15W (Max 29W)」、日本の製品ページは「2台のデバイスを同時充電：Qi2ワイヤレス充電で最大25W、USB-Cポート経由で最大30W」と、それぞれの最大だけを書いている。
+  USB-C の12V の電流は、取扱説明書「12V⎓2.5A」と背面の印字(公式画像)「12V⎓3A」が食い違う。
+  厚さは、仕様欄「16mm」と Belkin公式ショップの画像「約1.5cm」が食い違う。
+  取扱説明書(繁体字中国語)では、本体を充電しながらワイヤレスで出すとき、入力 5V ならワイヤレス 5W/6W、9V なら 15W、12V・15V なら 25W まで。日本の製品ページは「30Wパススルー充電に対応」。
+  ワイヤレスは日本の製品ページで「Qi2」、Amazon の商品名・海外の報道では「Qi2.2」。Belkin 日本の公式ページで Qi2.2 の文字は確かめていない。
+  残量は「デジタルディスプレイ」で%表示(Belkin公式ショップの画像。日本の製品ページの文章には無い)。
+  外装の再生プラスチックは、製品ページ「85%以上(ケーブルを除く)」と Belkin公式ショップの画像「70%以上」が食い違う。
+  重さは公式の仕様欄に無く、書いていない。
+  日本の発売年月は、Belkin のプレスリリース・製品ページで見つけられず released は空。海外では 2026-06 下旬に発表(報道)。
+  消費者庁リコール情報サイトは 2026-11-24 に 504 エラーで引けなかった。
+  出典: https://www.belkin.com/jp/p/slim-magnetic-power-bank-10k/BPD022fqBK.html ・ 取扱説明書 PDF(manual_url) ・ https://item.rakuten.co.jp/belkin-shop/bpd022fq/
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-24)
+  lead: "厚さ16mm のアルミ合金の外装に、Qi2 のマグネット式ワイヤレス充電と USB-C ポートを載せた10000mAh のバッテリーです。表面は柔らかなシリコンとサンドブラスト加工で、滑りにくく握りやすい形にしたとメーカーは書いています。"
+  points:
+    - "ワイヤレスは最大25W、USB-C は最大30W。2台同時なら合計30W"
+    - "102 × 72 × 16mm。色はブラック・ホワイト・サンドの3色"
+    - "30W のパススルー充電に対応し、60cm の USB-C ケーブルが付属"

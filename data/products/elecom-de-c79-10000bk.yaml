@@ -1,0 +1,75 @@
+id: elecom-de-c79-10000bk
+maker: エレコム
+model: DE-C79-10000BK
+name: "巻き取り式ケーブル一体型モバイルバッテリー(10,000mAh/30W)"
+category: battery
+image: "https://www.elecom.co.jp/photo/p01/DE-C79-10000BK_01.jpg"   # プログラムからは 403、ブラウザでは開ける
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elecom.co.jp/photo/p01/DE-C79-10000SV_01.jpg", alt: "シルバー", color: "シルバー"}
+  - {src: "https://www.elecom.co.jp/photo/p42/DE-C79-10000BK_42.jpg", alt: "キャリーケース風の溝のある正面"}
+  - {src: "https://www.elecom.co.jp/photo/p44/DE-C79-10000BK_44.jpg", alt: "側面のポートとケーブルの収まり"}
+  - {src: "https://www.elecom.co.jp/photo/p31/DE-C79-10000BK_31.jpg", alt: "ケーブルを約65cm 引き出したところ"}
+  - {src: "https://www.elecom.co.jp/photo/p33/DE-C79-10000BK_33.jpg", alt: "充電しながらスマホを持つ"}
+  - {src: "https://www.elecom.co.jp/photo/p37/DE-C79-10000BK_37.jpg", alt: "3台を同時に充電"}
+  - {src: "https://www.elecom.co.jp/photo/p39/DE-C79-10000BK_39.jpg", alt: "ノートPCを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p38/DE-C79-10000BK_38.jpg", alt: "ポーチに入れて持ち運ぶ"}
+  - {src: "https://www.elecom.co.jp/photo/p49/DE-C79-10000BK_49.jpg", alt: "付属の丸紐ストラップ"}
+image_credit: "エレコム 公式サイト"
+official_url: "https://www.elecom.co.jp/products/DE-C79-10000BK.html"
+manual_url: "https://www.elecom.co.jp/support/manual/cellphone/battery/de-c79-10000/de-c79-10000_v01.pdf"
+checked: 2026-11-24
+released: "2026-01"
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "仕様欄に「○PSE 特定以外の電気用品」、リリースに「日本の電気用品安全法(PSE)の技術基準をクリア」の文字だけ。公式画像 p43(裏面の印字)は 600px で、文字の列とマークらしき形は写っているが、PSE マークも届出事業者名も読めない(2026-11-24 にブラウザで拡大して確認)。取扱説明書は1ページ目の縮小表示とポートの表だけ見た(PSE の表示は見つけていない。2ページ目は未確認)"
+  date: 2026-11-24
+
+battery:
+  mah: 10000
+  wh: 38.5
+  cell: "充電式リチウムイオン電池(3.85V/10000mAh)"
+  input_w: 30
+  recharge_time: "約2時間(製品本体のみを充電した場合の目安)"
+  passthrough: true
+  safety: "Thermal Protection、過充電・過放電・過電流防止機能および短絡保護機能と温度検知機能の5つの保護機能、JIS C 62133-2:2020 および JIS C 8715-2:2024 規格の安全設計、くり返し使用回数 500回(公式の書き方)"
+size: "幅約66 × 奥行約34 × 高さ約89.5mm(突起部除く)"
+weight_g: 250
+usb:
+  ports:
+    - {name: "本体一体型USB Type-Cケーブル", type: C, max_w: 30}   # 巻き取り式 約65cm。入力兼用
+    - {name: "USB Type-C1ポート", type: C, max_w: 30}            # 入力兼用(ケーブルとの同時入力は不可)
+    - {name: "USB-A1", type: A, max_w: 22.5}
+  total_w: 15
+  sharing:
+    - {use: "C1 か ケーブル + A1", out: "合計最大15W(5V/3A)"}
+    - {use: "C1 + ケーブル", out: "合計最大15W(5V/3A)"}
+    - {use: "C1 + ケーブル + A1", out: "合計最大15W(5V/3A)"}
+  sharing_source: "製品ページの仕様欄「出力」と、取扱説明書 p.1「ポート/ケーブル・ワット数」の図(2ポート同時・1ポート+1ケーブル同時・2ポート+1ケーブル同時、どれも合計最大15W)。リリースにも「2ポートでも2ポート/1ケーブルでも、合計最大15Wを分配」"
+  pd: true
+  pps: true
+colors: [ブラック, シルバー]
+warranty: "1年間"
+seller_jp: "エレコム株式会社"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, yahoo]
+q: "DE-C79-10000BK"
+note: |
+  発表は 2026-01-20 のリリースで「新発売いたしました」。型番はブラック DE-C79-10000BK・シルバー DE-C79-10000SV、どちらもオープン価格。
+  出力: ケーブル/C1 は 5V/3A・9V/3A・12V/2.5A・15V/2A・20V/1.5A(最大30W)、PPS 5-11V/2.75A(最大30W)。A1 は 5V/3A・9V/2A・10V/2.25A・12V/1.5A(最大22.5W)。入力は 5V/9V/12V/15V/20V・最大30W。
+  ケーブルは巻き取り式で長さ約65cm。取扱説明書の図では、ケーブルを「C2」と呼んでいる。取扱説明書 PDF の文書名は「DE-C79L-10000series」だが、表紙の表記は「DE-C79-10000シリーズ」。
+  CCC 認証(中国の強制製品認証)の取得品で、中国の国内線にも機内に持ち込めるとリリースに書かれている。160Wh 以下なので日本の機内持ち込みも可(航空会社の規定で例外あり)。
+  パススルー(まとめて充電)に対応。低電流モードとおまかせ充電は USB-A だけ。AC 充電器は30W 以上を推奨。付属は絶縁シート×2 と丸紐ストラップ(約0.2m)×1。使える温度は 0℃～40℃。定格容量(5V 換算)は公式に書かれていない。
+  1,800mAh のスマホを約3.3回、3,000mAh のスマホを約1.9回充電できる(リリースの目安)。
+  売り場: 楽天と Yahoo! には黒・シルバーとも出ている。Amazon は「DE-C79-10000BK」の検索の上位3件に出てこなかった(11/24)。値段は公式に無い(オープン価格)ので書いていない。
+  消費者庁リコール情報サイトで「エレコム」を引いた15件に、この型番は無い(2026-11-24)。NITE はまだ引いていない。
+  出典: 製品ページ https://www.elecom.co.jp/products/DE-C79-10000BK.html ・ リリース https://www.elecom.co.jp/news/new/20260120-03/
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)
+  lead: "表面に縦の溝が並んだ、キャリーケースのような形の10000mAh バッテリーです。本体に約65cm の USB-C ケーブルを巻き取って収めていて、必要な長さだけ引き出せるので、充電しながらスマホを手に持って使えます。"
+  points:
+    - "ケーブルか USB-C ポートなら単独で最大30W。MacBook Air などのノートPCにも充電できる"
+    - "ケーブル・USB-C・USB-A の3つで3台まで同時に充電できる(同時のときは合計最大15W)"
+    - "色はブラックとシルバー。CCC 認証の取得品で、中国の国内線にも機内に持ち込める"

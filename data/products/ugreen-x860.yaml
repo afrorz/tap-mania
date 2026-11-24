@@ -1,0 +1,63 @@
+id: ugreen-x860
+maker: UGREEN
+model: X860
+name: "UGREEN Nexode Air 65W急速充電器"
+category: charger
+image: "https://ugreen.jp/cdn/shop/files/X860_75813-1.webp"   # グレー(銘板の P/N 75813)
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://ugreen.jp/cdn/shop/files/X860_45090_de823ea1-f3c2-46dc-b92e-480557c5330c.webp", alt: "ホワイト", color: "ホワイト"}
+  - {src: "https://ugreen.jp/cdn/shop/files/X860_75813_581f6d76-2157-4e96-8bed-d15267c34936.webp", alt: "アイスブルー", color: "アイスブルー"}
+  - {src: "https://ugreen.jp/cdn/shop/files/X860_35478_a41e9be5-f828-4c97-8de1-f142997eedd2.webp", alt: "オレンジ", color: "オレンジ"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260506193209_2.jpg", alt: "一般的な60W充電器・イヤホンと大きさ比べ(文字あり)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260506193209_8.jpg", alt: "折りたたみ式プラグとポーチ(文字あり)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260506193209_12.jpg", alt: "マット素材・ポリカーボネートの表面・メッシュ加工(文字あり)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260506193209_13.jpg", alt: "スマホ・イヤホン・ノートPCと並べたところ"}
+image_credit: "UGREEN 公式サイト・UGREEN公式楽天市場店"
+official_url: "https://ugreen.jp/products/nexode-air-65w-charger"
+manual_url: ""
+checked: 2026-11-24
+released: "2026-05"
+
+pse:
+  status: image
+  mark: diamond
+  how: "UGREEN公式楽天市場店の公式画像 75813-pse.jpg(https://image.rakuten.co.jp/ugreen-gear/cabinet/12930928/75813-pse.jpg)で、本体の印字にひし形の PSE マーク・その左の TÜV Rheinland の検査機関マーク・「株式会社ユーグリーン・ジャパン」が読める(2026-11-24 に画像を開いて確認)。同じ印字に Model: X860・P/N: 75813。ugreen.jp の製品ページには仕様も PSE の記載も無い"
+  notifier: "株式会社ユーグリーン・ジャパン"
+  inspector: "TÜV Rheinland(銘板の検査機関マーク。楽天の商品説明の「登録検査機関名称：TUV」とも一致)"
+  date: 2026-11-24
+
+input: "100-240V~ 50/60Hz 1.8A Max(本体の印字)"
+size: "33 × 31 × 40.4mm"
+foldable_plug: true
+usb:
+  ports:
+    - {name: "USB-C", type: C, max_w: 65}   # 5.0V/3.0A、9.0V/3.0A、12.0V/3.0A、15.0V/3.0A、20.0V/3.25A(本体の印字)
+  total_w: 65
+  pd: true
+  pps: true
+  gan: true
+colors: [グレー, アイスブルー, ホワイト, オレンジ]
+warranty: "24ヶ月"
+seller_jp: "株式会社ユーグリーン・ジャパン"
+
+stores: [rakuten, amazon]   # ugreen.jp の購入ボタンは楽天(ugreen-gear/75813)と Amazon(B0GDCPBYHF)。Yahoo! は確かめていない
+q: "UGREEN Nexode Air 65W"
+price: "4,580円(税込・UGREEN 公式サイトの通常価格。11/24 時点で4色とも売り切れ)"
+note: |
+  ugreen.jp の製品ページ(製品概要・製品仕様の欄)は 11/24 時点で中身が空で、数字は UGREEN公式楽天市場店(item.rakuten.co.jp/ugreen-gear/75813/)の説明文と公式画像から取った。
+  型番: 本体の印字(楽天の公式画像 75813-pse.jpg)で Model: X860・P/N: 75813(グレー)。楽天の色ごとの画像の名前は 35478(オレンジ)・45090(アイスブルー)・75813(グレー)。ugreen.jp では画像の名前と色が合っていない(アイスブルーの写真が X860_75813、ホワイトの写真が X860_45090)。ホワイトの P/N は確かめられていない。
+  1m の 100W USB-C ケーブルが付属(楽天の説明)。BCN の記事では「Nexode Air 65W急速充電器(ケーブルセット)」4,280円、色はグレー・ホワイト・ブルー・限定オレンジ。
+  値段は、ugreen.jp の通常価格 4,580円と、BCN が伝えた発表時の価格 4,280円が食い違う。
+  楽天の説明: USB-C PD3.0 / PPS / QC 対応、トリクル充電(微弱電流モード)の「いたわり充電」、12重以上の保護機能、従来比74%小型化。公式画像: GaNInfinity、エネルギー変換率93%以上、ノートPC 最大65W・スマートフォン最大45W・タブレット最大30W。
+  MacBook Air の30分の充電量は、楽天の同じ説明文の中で「30分で50％」と「30分で51％に到達」が食い違う(公式画像は約51%)。iPhone 17 Pro は30分で68%。
+  重さは公式に記載が見つからない(依頼メモの約75g は確かめられず、書いていない)。UGREEN 英国版の X860 は 101g・33 x 31 x 54mm とする資料があるが、英国プラグの別仕様なので採らない。
+  安全の話(ThermalGuard「発火や熱暴走を防止」、毎秒200回の温度計測など)は公式画像にあるが、書いていない。
+  発売: ugreen.jp の掲載 2026-05-09、BCN の記事は 2026-05-13 発表。
+  消費者庁リコール情報サイトは 2026-11-24 に 504 エラーで引けなかった。
+  出典: https://ugreen.jp/products/nexode-air-65w-charger ・ https://item.rakuten.co.jp/ugreen-gear/75813/ ・ https://www.bcnretail.com/news/detail/20260514_626315.html
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-24)
+  lead: "33×31×40.4mm の立方体に近い本体で、USB-C 1口から最大65W を出せる充電器です。プラグは折りたためて、色はグレー・アイスブルー・ホワイト・オレンジの4色です。"
+  points:
+    - "USB-C 1口で最大65W。MacBook Air は30分で約51%、iPhone 17 Pro は30分で約68%(メーカーの数字)"
+    - "UGREEN 独自の GaNInfinity で、エネルギー変換率93%以上とメーカーは書いている"
+    - "PD3.0・PPS・QC に対応し、入力は100〜240V で、海外でも使えるとメーカーは書いている"

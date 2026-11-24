@@ -1,0 +1,68 @@
+id: elecom-acdc-pd13667bk
+maker: エレコム
+model: ACDC-PD13667BK
+name: "巻き取り式ケーブル一体型AC充電器(67W/C×1+Cケーブル×1)"
+category: charger
+image: "https://www.elecom.co.jp/photo/p01/MPA-AC13667BK_01.jpg"   # 同じ仕様の MPA-AC13667BK の写真(ACDC 側の製品ページにも同じ番号の写真がある)。プログラムからは 403、ブラウザでは開ける
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elecom.co.jp/photo/p32/MPA-AC13667BK_32.jpg", alt: "USB-C ポートと巻き取りケーブルの先"}
+  - {src: "https://www.elecom.co.jp/photo/p33/MPA-AC13667BK_33.jpg", alt: "90度スイングのプラグ"}
+  - {src: "https://www.elecom.co.jp/photo/p34/MPA-AC13667BK_34.jpg", alt: "手に持った大きさ"}
+  - {src: "https://www.elecom.co.jp/photo/p38/MPA-AC13667BK_38.jpg", alt: "ケーブルを約91cmまで引き出したところ"}
+  - {src: "https://www.elecom.co.jp/photo/p37/MPA-AC13667BK_37.jpg", alt: "ポーチに入れて持ち運ぶ"}
+  - {src: "https://www.elecom.co.jp/photo/p39/MPA-AC13667BK_39.jpg", alt: "壁のコンセントからノートPCを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p41/MPA-AC13667BK_41.jpg", alt: "ノートPCとスマホを同時に充電"}
+  - {src: "https://www.elecom.co.jp/photo/p40/MPA-AC13667BK_40.jpg", alt: "スマホ2台を同時に充電"}
+image_credit: "エレコム 公式サイト"
+official_url: "https://www.elecom.co.jp/products/ACDC-PD13667BK.html"
+checked: 2026-11-24
+released: "2026-11"
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページの仕様欄に「◇PSE 特定電気用品」、特長欄とリリースに「電気用品安全法(PSE)の適合品」の文字だけ。届出事業者名・登録検査機関名は書かれていない。公式の製品画像(01・31〜44)に本体の銘板が写った物は無い。取扱説明書の PDF は公開されていない(マニュアルの検索で該当なし)"
+  date: 2026-11-24
+
+input: "AC100～240V、50/60Hz、1.8A"
+size: "幅約69 × 奥行約34.5 × 高さ約55mm"
+weight_g: 170
+cable_note: "本体一体型の巻き取り式 USB Type-C ケーブル 約0.91m。必要な長さまで引き出して使い、使い終わったら本体に巻き取る"
+usb:
+  ports:
+    - {name: "USB Type-Cポート", type: C, max_w: 67}
+    - {name: "本体一体型巻き取り式USB Type-Cケーブル", type: C, max_w: 67}
+  sharing:
+    - {use: "ポート+ケーブル(1)", out: "45W+20W(合計65W)"}
+    - {use: "ポート+ケーブル(2)", out: "30W+30W(合計60W)"}
+    - {use: "ポート+ケーブル(3)", out: "20W+45W(合計65W)"}
+  sharing_source: "製品ページの仕様欄「定格出力電力(2ポート同時接続時(1)〜(3))」。3つのうちどれにするかは充電器が接続機器を見て自動で選ぶ(AdjustCharge、特長欄とリリース)"
+  pd: true
+  pps: true
+  gan: true
+colors: [ブラック]
+warranty: "1年間"
+seller_jp: "エレコム株式会社"
+recall_checked: 2026-11-24
+recall: none
+
+stores: []
+q: "ACDC-PD13667BK"
+price: "6,780円(税込・店頭実勢価格。2026-11-18 のリリース)"
+note: |
+  ACDC-PD13667BK と MPA-AC13667BK は「販売チャネルの異なる同一仕様の製品」(2026-11-18 のリリース)。仕様欄の文言は2つの製品ページで同じ。写真は MPA-AC13667BK の番号を使った。
+  発売はリリースで「11月中旬より新発売」。11/24 時点で製品ページはどちらも「近日発売」。楽天・Amazon・Yahoo! で ACDC-PD13667BK と MPA-AC13667BK を検索して、どちらも出てこなかった(11/24)ので stores は空。売り場に出たら足す。
+  値段: リリースの店頭実勢価格は2つとも 6,780円(税込)。製品ページの標準価格は ACDC-PD13667BK が 9,691円、MPA-AC13667BK が 10,428円(税込)で、型番によって違う。
+  単独のとき(ポート・ケーブルとも): 5V/9V/15V 3A、20V 3.35A(最大67W)、PPS 5V～21V 3.35A(最大67W)。
+  同時のときの電圧: (1) ポート 5V/9V/15V/20V・PPS 5～16V、ケーブル 5V/9V・PPS 5～11V。(2) 両方 5V/9V 3A・15V 2A・20V 1.5A、PPS 5～11V 3A・5～16V 2A。(3) は (1) の逆。
+  合計の書き方: 特長欄とリリースは「同時使用時は合計最大65W」。仕様欄の (2) 30W+30W の組み合わせは合計60W なので、65W は (1)(3) のときの値。total_w は書いていない。
+  GaN は「GaN II Plus(窒化ガリウムIC使用)」(特長欄)。プラグは仕様欄で「90度スイング構造」。折りたたみとは書かれていないので foldable_plug は書いていない。
+  巻き戻すときは、完全に戻るまでケーブルを手で持つよう注意書きがある。USB-C ポート用のケーブルは付属しない。使える温度は 0℃～25℃。日本国内専用。Switch 2 / Switch / Switch Lite の充電に対応。
+  消費者庁リコール情報サイトで「エレコム」を引いた15件に、この型番は無い(2026-11-24)。NITE はまだ引いていない。
+  出典: 製品ページ https://www.elecom.co.jp/products/ACDC-PD13667BK.html ・ https://www.elecom.co.jp/products/MPA-AC13667BK.html ・ リリース https://www.elecom.co.jp/news/new/20261118-03/
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)
+  lead: "本体に約91cmの USB-C ケーブルを巻き取って収める67W の AC 充電器です。必要な長さだけ引き出して使い、終わったら本体に巻き戻せるので、床のコンセントから机の上のノートPCまでケーブル1本を持ち歩かずに届きます。"
+  points:
+    - "ケーブルか USB-C ポートの片方だけなら最大67W で、ノートPCの充電にも使える"
+    - "ケーブルとポートで2台同時に充電でき、配分は 45W+20W・30W+30W・20W+45W から充電器が自動で選ぶ"
+    - "大きさ約69×34.5×55mm、重さ約170g。プラグは90度スイングで、カバンのポケットにも収まる"

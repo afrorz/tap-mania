@@ -1,0 +1,79 @@
+id: owltech-owl-pbm10005j
+maker: オウルテック
+model: OWL-PBM10005J
+name: "準固体電池採用 Qi2認証取得 Qi2.2対応 スマホリング搭載 10000mAh 最大PD30W対応 マグネット式ワイヤレス充電対応 モバイルバッテリー"
+category: battery
+released: "2026-10"   # 公式プレスリリース 2026-10-07「発売いたしました」
+image: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j-wh_front01.jpg"   # 写真はホワイト。仕様は色で変わらない
+images:   # 製品ページの写真の列。1枚目は image。安全の仕組みの図(a02・a09)は入れない
+  - {src: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j-bk_front01.jpg", alt: "ブラック", color: "ブラック"}
+  - {src: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j-bl_front01.jpg", alt: "ベビーブルー", color: "ベビーブルー"}
+  - {src: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j-bk_front02.jpg", alt: "背面のスマホリング"}
+  - {src: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j-bk_front05.jpg", alt: "リングを立ててスタンドにしたところ"}
+  - {src: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j_a05.jpg", alt: "スマホを付けて机に立てる"}
+  - {src: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j_a06.jpg", alt: "2台同時充電とパススルー充電"}
+  - {src: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j_a07.jpg", alt: "ワイヤレスイヤホンを置いて充電"}
+  - {src: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j-bk_cable.jpg", alt: "付属の USB-C to C ケーブル(約30cm)"}
+image_credit: "オウルテック 公式サイト"
+official_url: "https://www.owltech.co.jp/product-top/cat_mobile-battery/cat_semi-solid-mobile-battery/pbm10005j/"
+manual_url: "https://www.owltech.co.jp/image/OWL-PBM10005J_manual02.pdf"
+checked: 2026-11-24
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "製品ページ・取扱説明書の仕様欄は「PSE適合製品」の文字だけ。公式画像 bl_front01・wh_front01(1000px)で本体側面の印字に、小さな丸い印と社名らしき2行(「株式会社ライフエッグ」と読める)が写っているが、印の中の文字は読めない。販売元の表示は「株式会社オウルテック」"
+  date: 2026-11-24
+
+battery:
+  mah: 10000
+  wh: 38.5
+  rated_mah: 6000   # 定格出力容量の 5V 時。9V/3300mAh、12V/2450mAh、15V/1960mAh、20V/1475mAh
+  cell: "準固体電池(製品ページの呼び方。仕様欄の書き方は「リチウムイオン電池3.85V/10000mAh」)"
+  input_w: 30
+  recharge_time: "約2時間(空から満充電、PD30W 充電時)"
+  passthrough: true
+  safety: "過充電(電圧/電流)保護、過放電(電圧/電流)保護、短絡(ショート)保護、温度保護。ワイヤレス充電は過放電保護と異物検出(公式の書き方)"
+size: "約70(W) × 20(D) × 110(H)mm"
+weight_g: 216
+usb:
+  ports:
+    - {name: "USB Type-C", type: C, max_w: 30}           # 入出力兼用。入力と出力は同時に使えない(取説 p.13)
+    - {name: "ワイヤレス充電", type: wireless, max_w: 25}
+  total_w: 35
+  sharing:
+    - {use: "USB Type-C+ワイヤレス充電", out: "合計35W"}
+    - {use: "パススルー(本体を充電しながらワイヤレス)", out: "ワイヤレス最大5W"}
+  sharing_source: "製品ページの仕様「合計最大出力 USB Type-C+ワイヤレス充電:35W」、本文「2台同時充電時は合計最大35W出力」「パススルー充電時は最大5W出力」。取扱説明書 p.13・p.14 も同じ。ポートごとの配り方は公式に書かれていない"
+  pd: true
+colors: [ブラック, ホワイト, ベビーブルー]
+warranty: "1.5年"
+seller_jp: "株式会社オウルテック(神奈川県海老名市)"
+recall_checked: 2026-11-24
+recall: none
+
+stores: []   # 2026-11-24 時点で楽天・Amazon・Yahoo! のどれでも型番で見つからない。売り出されたら足す
+q: "OWL-PBM10005J"
+note: |
+  型番は OWL-PBM10005J-BK(ブラック)・-WH(ホワイト)・-BL(ベビーブルー)。
+  出力の公式の書き方: USB Type-C 5V/3A、9V/3A、12V/2.5A、15V/2A、20V/1.5A(30W)。ワイヤレス 5W/7.5W/10W/15W/25W。入力も USB Type-C の同じ電圧で30W。
+  ワイヤレスの 25W は「iOS26以降のiPhone 16、iPhone 17シリーズなど」の Qi2 25W 対応機器(公式)。Qi2 認証取得。
+  パススルーは、本体を充電しながらワイヤレスで機器を充電する形で、その間ワイヤレスは最大5W。USB Type-C は入力と出力の兼用で、同時には使えない(取説 p.13)。
+  使用回数は約2000回。使用温度は充電時 0〜45℃、放電時 -20〜60℃。製品ページの本文は「-20～60℃の高温・低温にも強い」と書く。
+  本体の残量は LED パネルで1%単位。スマホリングは360°回転し、縦置き・横置きのスタンドになる。付属は USB Type-C to C ケーブル(約30cm)。
+  製品ページの本文に、準固体電池は電解質がゲル状で「従来のモバイルバッテリーよりも発火リスクが低い特性」との記載がある(安全の話なので pitch には入れず pitch_draft に置いた)。公式画像 a02 は従来品と並べて「充電回数 約500回→約2000回」「対応温度 0〜35℃→-20〜60℃」と比べている。
+  値段は公式サイトに書かれていない。検索では NTT-X Store に 9,878円の掲載があった(公式ではないので price は書いていない)。
+  リコールは消費者庁リコール情報サイトで「PBM10005」を検索して該当なし(2026-11-24)。NITE は未確認。
+  出典: 製品ページ・取扱説明書(上の URL)・プレスリリース https://www.owltech.co.jp/news/news-press/pr202610071110/ (いずれも 2026-11-24 取得)
+pitch:   # 製品ページの頭の「特徴」(公式の事実だけ。安全の主張は pitch_draft)
+  lead: "背面に360°回るスマホリングを付けた、Qi2.2 対応の10000mAh ワイヤレスバッテリーです。リングでスマホを支えながら充電でき、立てれば縦置き・横置きのスタンドにもなります。"
+  points:
+    - "ワイヤレスは Qi2 認証の最大25W。USB Type-C は入出力とも PD 最大30W"
+    - "ワイヤレスと USB Type-C で2台を同時に充電できる(合計最大35W)"
+    - "残量は1%単位の表示。本体の充電は PD30W で約2時間、色はブラック・ホワイト・ベビーブルー"
+pitch_draft:   # 準固体電池の安全の主張を含むので、本人が見てから pitch: に戻すか決める(2026-11-24)
+  lead: "電解質がゲル状の準固体電池を使った、Qi2.2 対応の10000mAh ワイヤレスバッテリーです。メーカーによると、従来のモバイルバッテリーより発火リスクが低い特性を持ち、-20〜60℃で放電できます。"
+  points:
+    - "使用回数は約2000回(メーカー公表。機器と使用条件による)"
+    - "過充電・過放電・短絡・温度保護に加え、ワイヤレス充電は過放電保護と異物検出を搭載(公式の書き方)"
+    - "背面のスマホリングは360°回転し、スマホを支えながら充電できる"

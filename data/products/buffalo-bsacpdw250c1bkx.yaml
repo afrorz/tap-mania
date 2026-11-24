@@ -1,0 +1,68 @@
+id: buffalo-bsacpdw250c1bkx
+maker: バッファロー
+model: BSACPDW250C1BKX
+name: "3-Way コンセントプラグ一体型ワイヤレス充電器"
+category: charger
+image: "https://www.buffalo.jp/webpim/product/image/B/BSACPDW250C1X/BSACPDW250C1BKX/BSACPDW250C1BKX__0100.jpg"   # 型番の色(メタリックブラック)に合わせた
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BSACPDW250C1X/BSACPDW250C1WHX/BSACPDW250C1WHX__0100.jpg", alt: "シルキーホワイト", color: "シルキーホワイト"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BSACPDW250C1X/BSACPDW250C1BKX/BSACPDW250C1BKX__0102.jpg", alt: "ワイヤレスパッドを傾けた正面"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BSACPDW250C1X/BSACPDW250C1BKX/BSACPDW250C1BKX__0103.jpg", alt: "折りたたみ式の電源プラグの側"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BSACPDW250C1X/BSACPDW250C1BKX/BSACPDW250C1BKX__0104.jpg", alt: "側面の USB-C ポート"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BSACPDW250C1X/BSACPDW250C1BKX/BSACPDW250C1BKX__0105.jpg", alt: "裏面の印字(入出力・PSE)"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BSACPDW250C1X/BSACPDW250C1BKX/BSACPDW250C1BKX__0107.jpg", alt: "机のコンセントに挿してスマホを立てた場面"}
+  - {src: "https://www.buffalo.jp/webpim/product/image/B/BSACPDW250C1X/BSACPDW250C1BKX/BSACPDW250C1BKX__0108.jpg", alt: "USB-C でタブレットに給電する場面"}
+image_credit: "バッファロー 公式サイト"
+official_url: "https://www.buffalo.jp/product/detail/bsacpdw250c1bkx.html"
+manual_url: "https://manual.buffalo.jp/buf-doc/35023277-01.pdf"
+checked: 2026-11-24
+released: "2026-11"
+
+pse:
+  status: image
+  mark: diamond
+  how: "公式の製品画像 BSACPDW250C1BKX__0106.jpg(800px・裏面の正面)で、ひし形の PSE マーク・その下の「UL HK」・「株式会社バッファロー」が読める(2026-11-24 に画像を開いて拡大して確認)。製品ページの仕様欄と取扱説明書の仕様にも「電気用品安全法(PSE)」"
+  notifier: "株式会社バッファロー"
+  inspector: "UL HK(銘板の略号のまま。正式名称は未確認)"
+  date: 2026-11-24
+
+input: "AC100～240V、50/60Hz(銘板は 1.2A)。USB-C 入力 15V/3A 最大45W(別売の USB PD 充電器でスタンドとして使うとき)"
+size: "約60 × 40 × 60mm(幅×高さ×奥行・ACプラグ除く)"
+weight_g: 185
+foldable_plug: true
+usb:
+  ports:
+    - {name: "USB-C(入出力兼用)", type: C, max_w: 35}   # USB PD 5V/3A、9V/3A、12V/2.91A、15V/2.33A、PPS 5～11V/3A
+    - {name: "ワイヤレス(Qi2 25W)", type: wireless, max_w: 25}
+  total_w: 35
+  sharing:
+    - {use: "USB-C + ワイヤレス", out: "20W + 15W(合計 最大35W)"}
+  sharing_source: "製品ページの仕様「2ポート同時接続時 USB Type-Cポート:最大20W(5V/3A、9V/2.22A、12V/1.67A、PPS 5V～11V/2.22A)・ワイヤレス充電:最大15W」と取扱説明書 p.8・p.10「同時充電時は合計最大35W(ワイヤレス最大15W、有線最大20W)」"
+  pd: true
+  pps: true
+colors: [メタリックブラック, シルキーホワイト]
+warranty: "1年"
+seller_jp: "株式会社バッファロー"
+
+stores: [rakuten, amazon, yahoo]   # プレスリリースで Amazon・楽天市場・Yahoo!ショッピングのバッファロー公式ストア
+q: "BSACPDW250C1"
+price: "6,990円(税込・発売時のバッファロー公式ストアの通常販売価格)"
+note: |
+  型番は BSACPDW250C1BKX(メタリックブラック・JAN 4950190385486)/ BSACPDW250C1WHX(シルキーホワイト・JAN 4950190385684)。シリーズ名は BSACPDW250C1X。依頼の「BSACPDW250C1BK」では公式ページが無く(404)、末尾に X が付く。
+  製品ページに「この商品は特定販売店向けです」とある。プレスリリース(2026-11-12 発売)の販売先は Amazon・楽天市場・Yahoo!ショッピングのバッファロー公式ストア。通常販売価格 6,990円、発売記念キャンペーン 5,690円(上限で終了)。製品ページの価格欄は空。
+  3つの使い方(公式の呼び方): コンセント直挿しスタイル / デスクスタンドスタイル(35W 以上の USB PD 充電器が別に必要) / PDチャージャースタイル。USB ケーブルは付属しない。
+  ワイヤレスパッドは 0〜45°で無段階に傾けられる。マグネット吸着に対応しない機種はチルトが使えず、閉じて水平に置く。Qi2 認証(Qi ID:27464)。
+  機種ごとのワイヤレスの最大(製品ページの表・2026年11月時点): iPhone 17 / 17 Pro / 17 Pro Max・18 Pro 系は 25W、iPhone Air 20W、iPhone 17e 15W、iPhone 16 / 16 Pro は 20W(iOS 26 以降)など。
+  PPS の2台同時の電流は、公式の資料で食い違う: 製品ページの仕様は「PPS…5V～11V/2.22A」、取扱説明書は「PPS 5-11V/2.20A」、本体の印字(公式画像 0106)は「PPS:5V-11V 2.2A 20W Max」。
+  1台のときの PPS は、製品ページ・取説が「PPS 5V～11V/3A」、本体の印字は「PPS:5V-11V 3A 33W Max」。
+  大きさの書き方は、製品ページが「約60×40×60mm(幅×高さ×奥行、ACプラグ除く)」、取説が「約60×60×40mm(ワイヤレスパッド、電源プラグを折りたたんだ状態)」で、並べ方が違うだけで数字は同じ。
+  取説: 金属をはさむと異物検出機能で充電を止める(金属の種類や大きさによっては検出できない)。製品ページ: チルト機構による熱分散、放熱素材、温度センサー内蔵(公式の書き方)。GaN は公式に記載なし。
+  発売時期は製品ページ「2026年11月」、プレスリリースで 2026-11-12。
+  消費者庁リコール情報サイトは 2026-11-24 に 504 エラーで引けなかった(recall_checked は空のまま)。
+  出典: https://www.buffalo.jp/product/detail/bsacpdw250c1bkx.html ・ https://www.buffalo.jp/product/series/BSACPDW250C1X ・ https://manual.buffalo.jp/buf-doc/35023277-01.pdf ・ https://www.oricon.co.jp/pressrelease/3082479/
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-24)
+  lead: "コンセントに直接挿す充電器の上に、Qi2 25W のワイヤレス充電パッドを載せた1台です。パッドは0〜45°で無段階に傾けられ、側面の USB-C は最大35W の充電器にもなります。"
+  points:
+    - "コンセント直挿し・USB PD 充電器につないでデスクスタンド・USB-C 充電器の3通りで使える"
+    - "ワイヤレスは Qi2 25W。2台同時ならワイヤレス15W+USB-C 20W"
+    - "約60×40×60mm・約185g。使わないときは電源プラグを折りたためる"

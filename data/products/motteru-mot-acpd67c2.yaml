@@ -1,0 +1,69 @@
+id: motteru-mot-acpd67c2
+maker: MOTTERU
+model: MOT-ACPD67C2
+name: "USB充電器 巻取り式USB-Cケーブル一体型 PD67W 2台同時充電 折りたたみ式コンセント"
+category: charger
+image: "https://motteru.co.jp/wp/wp-content/uploads/2026/06/mot-acpd67c2-bk_front01.jpg"   # 色はブラックだけ
+images:   # 製品ページの写真の列。1枚目は image
+  - {src: "https://motteru.co.jp/wp/wp-content/uploads/2026/06/mot-acpd67c2_a14.jpg", alt: "本体と引き出したケーブル"}
+  - {src: "https://motteru.co.jp/wp/wp-content/uploads/2026/06/mot-acpd67c2_a02.jpg", alt: "ケーブルを引き出す・先端をマグネットで収納"}
+  - {src: "https://motteru.co.jp/wp/wp-content/uploads/2026/06/mot-acpd67c2_a04.jpg", alt: "ノートPCとスマホを2台同時に充電"}
+  - {src: "https://motteru.co.jp/wp/wp-content/uploads/2026/06/mot-acpd67c2_a05.jpg", alt: "デスク下のコンセントから100cm 引き出す"}
+  - {src: "https://motteru.co.jp/wp/wp-content/uploads/2026/06/mot-acpd67c2_a08.jpg", alt: "壁のコンセント・電源タップに挿したところ"}
+  - {src: "https://motteru.co.jp/wp/wp-content/uploads/2026/06/mot-acpd67c2_a07.jpg", alt: "プラグをたたんでポーチに入れる"}
+  - {src: "https://motteru.co.jp/wp/wp-content/uploads/2026/06/mot-acpd67c2_a13.jpg", alt: "デスクでスマホを充電"}
+image_credit: "MOTTERU 公式サイト"
+official_url: "https://motteru.co.jp/product/charger/pd_usb_charger/mot-acpd67c2/"
+manual_url: "https://motteru.co.jp/wp/wp-content/uploads/2026/05/MOT-ACPD67C2_Instructions.pdf"
+checked: 2026-11-24
+released: "2026-08"
+cable_note: "巻き取り式(リール式)の USB-C ケーブル 約100cm を内蔵。ゆっくり引き出すとロックがかかって止まり、少し引っ張るとロックが外れて巻き取られる(取説「使用方法」)。先端はマグネットで本体に収納(公式ページ・プレスリリース)。内蔵ケーブルの単独出力は最大67W(5V3A / 9V3A / 15V3A / 20V3.35A、PPS 5-21V3.35A)"
+
+pse:
+  status: image
+  mark: diamond
+  how: "製品ページの公式画像 mot-acpd67c2_a10.jpg の本体刻印の拡大で、ひし形の PSE マーク・「UL HK」・「株式会社MOTTERU」が読めた(2026-11-24 に画像を開いて拡大して確認)。製品ページの文章・取扱説明書・プレスリリースには PSE の記載なし"
+  notifier: "株式会社MOTTERU"
+  inspector: "UL HK(本体刻印の表示。日本の正式名は公式資料に無い。要確認)"
+  date: 2026-11-24
+
+input: "100-240V 50/60Hz 1.8A"
+size: "約35(W)×65(D)×55(H)mm"
+weight_g: 163
+foldable_plug: true
+usb:
+  ports:
+    - {name: "USB-Cケーブル", type: C, max_w: 67}
+    - {name: "USB-Cポート", type: C, max_w: 67}
+  sharing:
+    - {use: "USB-Cケーブル+USB-Cポート", out: "45W+20W / 20W+45W / 30W+30W"}
+  sharing_source: "製品ページの商品仕様「同時使用時 USB-Cケーブル＋USB-Cボート：PD45W＋PD20W/PD20W＋PD45W/PD30W＋PD30W」と取扱説明書「製品仕様」(同じ数字)。取説「各ポートの出力配分」の図と公式画像 mot-acpd67c2_a04.jpg も 45W 20W / 20W 45W / 30W 30W"
+  pd: true
+  pps: true
+  gan: true
+colors: [ブラック]
+warranty: "2年"
+seller_jp: "株式会社MOTTERU(神奈川県海老名市。サポート TEL 046-200-7090・support@motteru.co.jp)"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "MOT-ACPD67C2"
+price: "5,530円(税込・MOTTERU 公式サイトの価格)"
+note: |
+  重さは、製品ページの仕様・取扱説明書・プレスリリースが「約163g」、製品ページの公式画像 mot-acpd67c2_a07.jpg が「約172g」で食い違う。ここでは仕様の163g を入れた。パッケージ込みは約198g。
+  発売は2026年8月5日(PR TIMES のプレスリリース https://prtimes.jp/main/html/rd/p/000000339.000078304.html 。楽天・Yahoo!ショッピング・Amazon などの EC モールで販売)。取説 PDF と製品画像のアップロードは 2026年5〜6月。
+  型番の似た MOT-ACPD67C2U1 は USB-C×2・USB-A×1 の3ポート充電器(ケーブル内蔵ではない)で、別の製品。
+  出力: USB-Cケーブル・USB-Cポートとも 5V3A / 9V3A / 15V3A / 20V3.35A【PD67W】、PPS 5-21V3.35A【67Wmax】。2台同時は3通りの配り方が書かれていて、どれになるかの条件(つないだ機器で決まるか)は公式に書かれていない。取説の図では左(USB-Cポート)と右(ケーブル)の順に 45W 20W / 20W 45W / 30W 30W。
+  耐久: 巻き取り部は約20,000回以上の伸縮試験、ケーブルは約10,000回以上の折り曲げ試験をクリア(製品ページ・プレスリリース。メーカーの試験)。
+  GaN はプレスリリース「GaN（窒化ガリウム）を採用」と公式画像 mot-acpd67c2_a09.jpg。製品ページの文章には GaN の記載なし。
+  公式の注意: ケーブルを急に引き出したり強い力で引っ張らない、引っ張る時や収納する時は手に持ったままゆっくり、手を離すと勢いよく巻き取られる(取説)。保証は日本国内に限る(製品ページの Q&A)。
+  公式画像 mot-acpd67c2_a10.jpg には「過電流保護・過電圧保護・短絡保護・温度保護」の図もあるが、安全の機能なので本文には使っていない。
+  売り場: 楽天・Yahoo!・Amazon とも「MOT-ACPD67C2」の検索で一番上にこの製品(Amazon の商品名には型番が入っていない)。11/24 確認。
+  消費者庁リコール情報サイトで「MOT-ACPD67C2」「MOTTERU」を検索して0件(2026-11-24)。NITE は未確認。
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)
+  lead: "本体に約100cmの USB-C ケーブルを巻き取り式で内蔵した、最大67Wの充電器です。使う分だけ引き出せば止まり、使い終わったら少し引くと巻き取られて、先端はマグネットで本体に収まります。"
+  points:
+    - "内蔵ケーブルとは別に USB-C ポートが1つあり、どちらも1台なら最大67W。2台同時なら45W+20W・20W+45W・30W+30W"
+    - "巻き取り部は約20,000回以上の伸縮試験、ケーブルは約10,000回以上の折り曲げ試験をクリア(メーカーの試験)"
+    - "大きさは約35×65×55mm・約163gで、プラグは折りたためる"

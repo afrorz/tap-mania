@@ -1,0 +1,58 @@
+id: thanko-ucmd26sbk
+maker: サンコー
+model: UCMD26SBK
+name: "PD対応見える充電マグネットケーブル"
+category: cable
+released: "2026-06"   # 公式の仕様欄「発売日 2026/6/22」
+image: "https://makeshop-multi-images.akamaized.net/thankothanko/shopimages/60/48/13_000000004860.jpg"   # サンコー公式通販の商品画像。色はブラックだけ
+images:   # 製品ページの写真の列。1枚目は image
+  - {src: "https://www.data.thanko.jp/product/img-product/ucmd26sbk-pr4.jpg", alt: "コネクターの画面に出力ワット数"}
+  - {src: "https://www.data.thanko.jp/product/img-product/ucmd26sbk-pr5.jpg", alt: "スマホにつないだコネクター"}
+  - {src: "https://www.data.thanko.jp/product/img-product/ucmd26sbk-pr2.jpg", alt: "磁石でくるくるとまとまるケーブル"}
+  - {src: "https://www.data.thanko.jp/product/img-product/ucmd26sbk-pr1.jpg", alt: "ノートPCの横で巻いたまま使う"}
+  - {src: "https://www.data.thanko.jp/product/img-product/ucmd26sbk-pr3.jpg", alt: "ポーチに入れて持ち運ぶ"}
+  - {src: "https://www.data.thanko.jp/product/img-product/ucmd26sbk-pr6.jpg", alt: "ケーブル全体"}
+image_credit: "サンコー 公式通販サイト"   # data.thanko.jp は www.data.thanko.jp へ転送されるので、転送先の URL を書いた
+official_url: "https://www.thanko.jp/view/item/000000004860"
+manual_url: "https://www.data.thanko.jp/download/manual/ucmd26sbk_man_web_01.pdf"
+checked: 2026-11-24
+
+pse:
+  status: unconfirmed
+  how: "USB ケーブル。公式製品ページ・取扱説明書に PSE の記載なし"
+  date: 2026-11-24
+
+cable:
+  ends: "USB Type-C(オス) - USB Type-C(オス)"
+  max_w: 100
+  power: "USB PD 対応出力 最大20V/5A(100W)。e-Marker 搭載"
+  data: "USB2.0・最大480Mbps(理論値)"
+  video: false
+  emarker: true
+  length: "全長1,025mm(プラグ含む)・ケーブル長 約940mm・ケーブル径 4mm・厚み13mm(プラグ含む)"
+  jacket: "ナイロン。ケーブル自体にマグネットを内蔵し、巻くと磁力でまとまる。プラグはアルミ合金、液晶は ABS"
+  display: "コネクター部の液晶ディスプレイに、接続した機器への出力(ワット数)が常に表示される。PD 対応機器のときはワット数の上に「PD」と表示(公式の書き方)"
+weight_g: 70
+colors: [ブラック]
+warranty: "購入日より6か月"
+seller_jp: "サンコー株式会社(東京都千代田区)"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "UCMD26SBK"
+price: "2,280円(税込・サンコー公式通販の通常価格)"
+note: |
+  JAN 4580060605781。映像出力(DisplayPort Alternate Mode)には対応していない(製品ページの注記)。
+  製品ページの仕様と取扱説明書の仕様の両方に「USBビデオクラス(UVC) 最大1080P@30Hzまたは720P@30Hz」という行があるが、何を指すかの説明はない(データには入れていない)。
+  公式の仕様欄で、パッケージ込みの重量(約70g)が本体の重量(約70g)と同じ値になっている。パッケージサイズは幅110×奥行2×高さ180mm。
+  ディスプレイは片方のコネクターだけ(取説 p.2 の各部名称)。ディスプレイの表示が何W 単位か・どちら向きの電力を表示するかは公式に書かれていない。
+  付属は本体と日本語取扱説明書。製品ページでは 2026-11-16〜11-30 にセール価格 1,938円(一時的な値引きなので price には書いていない)。
+  リコールは消費者庁リコール情報サイトで「UCMD26」を検索して該当なし(2026-11-24)。NITE は未確認。
+  出典: 製品ページ https://www.thanko.jp/view/item/000000004860 ・取扱説明書(上の URL)。発表の報道 https://www.gdm.or.jp/pressrelease/2026/0622/640425 (いずれも 2026-11-24 取得)
+pitch:   # 製品ページの頭の「特徴」(公式の事実だけ)
+  lead: "ケーブルそのものに磁石が入っていて、巻くと磁力でくるっとまとまる USB-C ケーブルです。片方のコネクターに液晶があり、いま機器へ何W 出ているかが常に表示されます。"
+  points:
+    - "USB PD で最大100W(20V/5A)。e-Marker 搭載で、ノートPCの充電にも使える"
+    - "PD で充電しているときは、ワット数の上に「PD」の文字が出る"
+    - "ケーブル長 約940mm・径4mm・約70g。被覆はナイロン、プラグはアルミ合金"

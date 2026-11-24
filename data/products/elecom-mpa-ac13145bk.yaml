@@ -1,0 +1,63 @@
+id: elecom-mpa-ac13145bk
+maker: エレコム
+model: MPA-AC13145BK
+name: "電力ディスプレイ付き AC充電器 (45W/C×1)"
+category: charger
+image: "https://www.elecom.co.jp/photo/p01/MPA-AC13145BK_01.jpg"   # プログラムからは 403、ブラウザでは開ける
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elecom.co.jp/photo/p32/MPA-AC13145BK_32.jpg", alt: "正面の電力ディスプレイと USB-C ポート"}
+  - {src: "https://www.elecom.co.jp/photo/p33/MPA-AC13145BK_33.jpg", alt: "プラグを起こしたところ"}
+  - {src: "https://www.elecom.co.jp/photo/p34/MPA-AC13145BK_34.jpg", alt: "指でつまめる大きさ"}
+  - {src: "https://www.elecom.co.jp/photo/p36/MPA-AC13145BK_36.jpg", alt: "暗い所で光るディスプレイの数字"}
+  - {src: "https://www.elecom.co.jp/photo/p35/MPA-AC13145BK_35.jpg", alt: "電源タップに挿して使う"}
+  - {src: "https://www.elecom.co.jp/photo/p37/MPA-AC13145BK_37.jpg", alt: "寝る前に枕元でスマホを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p38/MPA-AC13145BK_38.jpg", alt: "机でノートPCを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p40/MPA-AC13145BK_40.jpg", alt: "ハンディ掃除機を充電"}
+  - {src: "https://www.elecom.co.jp/photo/p41/MPA-AC13145BK_41.jpg", alt: "壁のコンセントからスマホを充電"}
+image_credit: "エレコム 公式サイト"
+official_url: "https://www.elecom.co.jp/products/MPA-AC13145BK.html"
+checked: 2026-11-24
+released: "2026-05"
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページの仕様欄に「◇PSE 特定電気用品」、特長欄とリリースに「電気用品安全法(PSE)の認証品」の文字だけ。届出事業者名・登録検査機関名は書かれていない。公式の製品画像15枚に本体の銘板が写った物は無い。取扱説明書の PDF は公開されていない(マニュアルの検索で該当なし)"
+  date: 2026-11-24
+
+input: "AC100-240V 50/60Hz 1.3A"
+size: "幅約46.8 × 奥行約38.8 × 高さ約34.4mm"
+weight_g: 69
+foldable_plug: true
+usb:
+  ports:
+    - {name: "USB Type-Cポート", type: C, max_w: 45}
+  total_w: 45
+  pd: true
+  pps: true
+  gan: true
+colors: [ブラック]
+warranty: "1年間"
+seller_jp: "エレコム株式会社"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [amazon, yahoo]
+q: "MPA-AC13145BK"
+price: "3,780円(税込・店頭実勢価格。2026-05-12 のリリース)"
+note: |
+  発表は 2026-05-12 のリリースで「新発売いたしました」。製品ページは 11/24 時点で「発売中」。標準価格は 5,819円(税込)。
+  出力: 5V/9V/12V/15V 3A、20V 2.25A(最大45W)、PPS 5V～16V 3A(最大45W)。GaN は「GaN II Plus(窒化ガリウムIC)」(リリース)。
+  電力ディスプレイ: 接続した機器に供給している電力を数字で表示する。充電器自身の動作に使う電力は除いた値で、表示は目安(公式の注意)。機器をつないだときだけ点灯し、点くまで数秒かかることがある。供給電力が小さいとき(満充電に近いなど)は消えるが、給電は続く。満充電に近づくと数字が小さくなるので、充電の終わりどきが分かる。
+  プラグ: 仕様欄は「90度スイング構造」、特長欄とリリースは「電源プラグは本体に折りたたんで、すっきりコンパクトに収納」。公式写真 33 でプラグを起こした形が見える。
+  兄弟機の MPA-AC13030BK(30W・USB-C×1+USB-A×1・約68g・店頭実勢 3,280円)も同じリリースで出た。2ポート同時は合計最大15W で、そのときは USB PD で出ない(リリース)。製品データは45W のこの1件だけ。
+  使える温度は 0℃～25℃。日本国内専用。充電ケーブルは付属しない。Switch 2 / Switch / Switch Lite の充電に対応(ドックでは使えない)。
+  売り場: Amazon は検索の1件目に「エレコム USB充電器 Type-C 1ポート 45W … 電力表示 ディスプレイ付き」(B0GXXPZ1W1)、Yahoo! は 3,780円で1件。楽天はこの型番で出てこなかった(11/24)。
+  消費者庁リコール情報サイトで「エレコム」を引いた15件に、この型番は無い(2026-11-24)。NITE はまだ引いていない。
+  出典: 製品ページ https://www.elecom.co.jp/products/MPA-AC13145BK.html ・ リリース https://www.elecom.co.jp/news/new/20260512-03/
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)
+  lead: "正面の小さな電力ディスプレイに、いまスマホやノートPCへ送っている電力が数字で出る45W の充電器です。満充電に近づくと数字が小さくなっていくので、充電がそろそろ終わるかどうかも画面で分かります。"
+  points:
+    - "USB-C 1つで USB PD 最大45W・PPS 最大45W。対応するノートPCも充電できる"
+    - "大きさ約46.8×38.8×34.4mm、重さ約69g の手のひらサイズ。プラグは本体に折りたためる"
+    - "数字は機器をつないだときだけ点き、充電器自身の動作に使う電力を除いた値が出る"

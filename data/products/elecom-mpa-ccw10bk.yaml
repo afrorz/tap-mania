@@ -1,0 +1,60 @@
+id: elecom-mpa-ccw10bk
+maker: エレコム
+model: MPA-CCW10BK
+name: "電力ディスプレイ付きケーブル(USB-C - USB-C/240W/なめらか)1.0m ブラック"
+category: cable
+image: "https://www.elecom.co.jp/photo/p01/MPA-CCW10BK_01.jpg"   # プログラムからは 403、ブラウザでは開ける
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://www.elecom.co.jp/photo/p01/MPA-CCW10WH_01.jpg", alt: "ホワイト", color: "ホワイト"}
+  - {src: "https://www.elecom.co.jp/photo/p31/MPA-CCW10BK_31.jpg", alt: "電力ディスプレイの付いたコネクター"}
+  - {src: "https://www.elecom.co.jp/photo/p33/MPA-CCW10BK_33.jpg", alt: "コネクターの仕様の印字"}
+  - {src: "https://www.elecom.co.jp/photo/p34/MPA-CCW10BK_34.jpg", alt: "手に掛けたシリコンのケーブル"}
+  - {src: "https://www.elecom.co.jp/photo/p35/MPA-CCW10BK_35.jpg", alt: "ノートPCにつないで電力を表示"}
+  - {src: "https://www.elecom.co.jp/photo/p37/MPA-CCW10BK_37.jpg", alt: "壁の充電器からノートPCを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p38/MPA-CCW10BK_38.jpg", alt: "ノートPCからスマホを充電"}
+  - {src: "https://www.elecom.co.jp/photo/p36/MPA-CCW10WH_36.jpg", alt: "ホワイトでスマホを充電"}
+image_credit: "エレコム 公式サイト"
+official_url: "https://www.elecom.co.jp/products/MPA-CCW10BK.html"
+checked: 2026-11-24
+released: "2026-01"
+
+pse:
+  status: unconfirmed
+  how: "USB ケーブル。公式製品ページ・リリースに PSE の記載なし"
+  date: 2026-11-24
+
+cable:
+  ends: "USB Type-C プラグ - USB Type-C プラグ"
+  max_w: 240
+  power: "USB Power Delivery EPR 対応・最大 240W(48V/5A)。従来の USB PD 最大 100W(20V/5A)にも対応"
+  data: "Hi-Speed USB(USB2.0)・最大 480Mbps(理論値)"
+  video: false
+  emarker: true
+  length: "約1m(コネクター含まず)・ケーブル太さ 約4.2mm"
+  jacket: "やわらかくなめらかなシリコン素材。金メッキピン、ツイストペアケーブル(通信線)。コネクターに仕様の印字(480Mbps / USB2.0・240W / Alt mode ×)"
+  display: "コネクター部のディスプレイに、接続した機器間の充電電力値がリアルタイムで数字で出る。満充電に近づくと値が小さくなり、0W と出ることもある(公式の書き方)"
+colors: [ブラック, ホワイト]
+warranty: "1年間"
+seller_jp: "エレコム株式会社"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "MPA-CCW10BK"
+price: "2,479円(税込・店頭実勢価格。2026-01-27 のリリース)"
+note: |
+  発表は 2026-01-27 のリリースで「新発売いたしました」。製品ページは 11/24 時点で「発売中」、標準価格は 3,542円(税込)。
+  型番は 1m ブラック MPA-CCW10BK・1m ホワイト MPA-CCW10WH・2m ブラック MPA-CCW20BK・2m ホワイト MPA-CCW20WH(2m は店頭実勢 2,680円)。
+  同じリリースで、電力ディスプレイ付き延長ケーブル(片側 USB-C プラグ・片側 USB-C ポート、最大240W、約1m)の MPA-CCWE10BK / MPA-CCWE10WH も出た。延長はこの製品を含めて最大2m・合計2本まで。製品データはケーブルの1m ブラック1件だけ。
+  ほかに MPA-CCECW10BK(製品名は同じ「電力ディスプレイ付きケーブル(USB-C - USB-C/240W/なめらか)」、シリコン外皮、標準価格 2,827円)も製品ページがある。販売チャネル違いの物とみられるが、公式に「同一仕様」とは書かれていないので、ここでは分けて扱う。
+  表示される電力値は目安で、ケーブル自身の動作に使う電力は除いた、接続した機器に供給される値(公式の注意)。ディスプレイは機器がつながっているときだけ点き、点くまで数秒かかることがある。間にアダプター・ハブ・ドッキングステーションを入れると正しく動かないことがある。
+  eMarker は特長欄とリリースに「搭載」とある(仕様欄には項目なし)。映像出力(DisplayPort Alternate Mode)には対応していない。
+  売り場: 楽天・Yahoo! に出ている。Amazon は検索の1件目が「エレコム USB Type C ケーブル 1m 240W PD対応 液晶ディスプレイ 電力表示 … シリコン素材」(B0FKB773R1)。
+  消費者庁リコール情報サイトで「エレコム」を引いた15件に、この型番は無い(2026-11-24)。NITE はまだ引いていない。
+  出典: 製品ページ https://www.elecom.co.jp/products/MPA-CCW10BK.html ・ リリース https://www.elecom.co.jp/news/new/20260127-05/
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)
+  lead: "USB-C ケーブルのコネクター部に小さなディスプレイがあり、つないだ機器のあいだで流れている充電の電力が数字で出ます。満充電に近づくと数字が小さくなっていくので、充電の終わりどきも見て分かります。"
+  points:
+    - "USB PD EPR に対応し、最大240W(48V/5A)。高出力のノートPCの充電にも使える"
+    - "外皮はやわらかいシリコンで、折り癖がつきにくく、束ねても絡みにくい"
+    - "長さ約1m・太さ約4.2mm。色はブラックとホワイト、2m もある"

@@ -1,0 +1,78 @@
+id: anker-a9196
+maker: Anker
+model: A9196
+name: "Anker Nano Power Strip (10-in-1, 70W, クランプ式)"
+category: usb-tap
+image: "https://www.ankerjapan.com/cdn/shop/files/A9196N11_b219d3ac-3a9f-4be6-9b6b-6bc13931ad46.jpg"   # 色はブラックだけ
+images:   # 製品ページの写真の列。1枚目は image
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A919602.jpg", alt: "工具なしでデスクに挟んで取り付ける"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A919603.jpg", alt: "上と下でまとめて10台を充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A919604.jpg", alt: "USB-C から最大70W でノートPC に充電"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A919606.jpg", alt: "デスクの上に出るのは薄い部分だけ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A919601.jpg", alt: "デスクの上下の配線の前と後"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A9196_PA_PC_3-1.jpg", alt: "滑り止めパッド付きのクランプ"}
+  - {src: "https://www.ankerjapan.com/cdn/shop/files/A9196_PA_PC_3-2.jpg", alt: "いろいろなデスクの天板に取り付けた例"}
+image_credit: "Anker 公式サイト"
+official_url: "https://www.ankerjapan.com/products/a9196"
+manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A9196Manual.pdf"
+checked: 2026-11-24
+released: "2026-07"
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページ・取扱説明書(PDF 8ページ)・クイックスタートガイド(PDF)に PSE の記載なし。製品ページの公式画像に本体の銘板が写った物は無い"
+  date: 2026-11-24
+
+rating:
+  volt: "100-125"
+  amp: 11
+outlets:
+  ac: 6
+surge: {has: true, spec: "サージ保護：1500J(取扱説明書「外観」のサージ保護ランプの説明)。公式ページは「過電流・過電圧を自動で検知し電源を遮断する雷ガードを搭載」"}
+usb:
+  ports:
+    - {name: C1, type: C, max_w: 70}
+    - {name: C2, type: C, max_w: 70}
+    - {name: A1, type: A, max_w: 12}
+    - {name: A2, type: A, max_w: 12}
+  total_w: 70
+  sharing:
+    - {use: "C1+C2", out: "45W+25W / 25W+45W / 35W+35W / 65W+5W"}
+    - {use: "C1+A1", out: "45W+12W / 65W+5W"}
+    - {use: "C1+A2", out: "45W+12W / 65W+5W"}
+    - {use: "C2+A1", out: "45W+12W / 65W+5W"}
+    - {use: "C2+A2", out: "45W+12W / 65W+5W"}
+    - {use: "A1+A2", out: "合計12W"}
+    - {use: "C1+C2+A1", out: "45W+12W+12W"}
+    - {use: "C1+C2+A2", out: "45W+12W+12W"}
+    - {use: "C1+A1+A2", out: "45W+12W(A1とA2の合計)"}
+    - {use: "C2+A1+A2", out: "45W+12W(A1とA2の合計)"}
+    - {use: "C1+C2+A1+A2", out: "45W+12W+12W(A1とA2の合計)"}
+  sharing_source: "公式製品ページの製品仕様「出力」(2〜4ポート利用時)。取扱説明書 PDF p.7「電力配分詳細」の図で照合(3ポートは C1 45W・C2 12W・A 12W、4ポートは C1 45W・C2 12W・A1+A2 で12W)"
+colors: [ブラック]
+warranty: "18ヶ月(Anker で会員登録すると +6ヶ月)"
+seller_jp: "アンカー・ジャパン株式会社"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "A9196"
+price: "9,990円(税込・Anker Japan 公式オンラインストア)"
+note: |
+  発売月は公式ページの仕様欄で「2026年7月」。型番は A9196N11(ブラック)。製品本体と取説の印字はグローバル名「Anker Nano Power Strip (10-in-1, 70W, Clamp)」(公式ページの注意)。
+  形: デスクの天板を挟む形。天板の上に出る薄い部分に USB-C×2・USB-A×2・AC 差し込み口×2(上部)、天板の下の箱に AC 差し込み口×4(底部)。取説 p.6 は上部を「頻繁に抜き差しする機器」、底部を「長時間接続したままにする機器」用と案内。上部のコンセントにプラグを差すと、コンセント枠が自動で持ち上がる(取説 p.6)。
+  取り付け: 天板の厚さ1.5〜4.5cm、側面の傾斜0〜45°(取説 p.2)。ノブを回してクランプを締める。ガラス製の天板・脚がないデスクには付けられない(公式ページの注意)。
+  1ポートのとき: C1・C2 は 5V⎓3A / 9V⎓3A / 15V⎓3A / 20V⎓3.5A(最大70W)、A1・A2 は 5V⎓2.4A(最大12W)。合計最大出力 70W(USB)。取説の仕様は「2ポート利用時：最大70W、3ポート・4ポート利用時：最大69W」。
+  C と A を同時に使うと C 45W・A 12W で、A で10分間小型電子機器を充電した後は C 65W・A 5W に変わる(取説 p.7)。複数の USB ポートを使うと USB-C2 の出力が下がる(公式ページの注意)。60W 以上には 5A 対応の E-Marker ケーブルが要る(公式ページの注意)。
+  C1+C2 の配り方の例(取説 p.7): ノートPC 45W+スマホ 25W、ノートPC+ノートPC は 35W+35W、ノートPC+小型電子機器は 65W+5W。
+  AC の定格は「100-125V~, 11A, 50/60Hz」(公式ページ・取説)。合計の最大W(AC を含む)・コードの長さ・シャッター・トラッキング対策・スイッチ・3ピン・PD・PPS・GaN は、公式ページ・取説とも記載なし。過負荷保護装置(押して復帰するスイッチ)は取説「外観」にある。
+  大きさ 約153×101×52mm、約544g(公式ページの仕様)。
+  Anker の製品回収情報(最新は2025年10月掲載)に A9196 は入っていない。消費者庁リコール情報サイトで「A9196」を検索して0件(2026-11-24)。NITE は未確認。
+  売り場: 楽天・Yahoo!・Amazon とも「A9196」の検索で一番上にこの製品(11/24 確認)。
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)
+  lead: "デスクの天板に工具なしで挟んで付ける、クランプ式の電源タップです。天板の上の薄い部分に USB-C 2つ・USB-A 2つ・コンセント2口、天板の下の箱にコンセント4口があり、最大10台をまとめて充電できます。"
+  points:
+    - "USB-C は1ポートなら最大70W。C1+C2 は45W+25W・35W+35W などに配られ、USB の合計は最大70W"
+    - "天板の厚さ1.5〜4.5cmに対応し、ノブを回してクランプを締めるだけで固定できる"
+    - "上部のコンセントにプラグを差すと、コンセント枠が自動で持ち上がる"

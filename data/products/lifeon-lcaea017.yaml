@@ -1,0 +1,66 @@
+id: lifeon-lcaea017
+maker: Life on Products
+model: LCAEA017
+name: "USB急速充電器 USB PD (パワーデリバリー)対応 35W"
+category: charger
+image: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea017/lcaea017_00.jpg"
+images:   # 製品ページの写真の列。1枚目は image
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea017/lcaea017_de_07.jpg", alt: "ポート面(USB-C と USB-A)"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea017/lcaea017_02.jpg", alt: "壁のコンセントで出力ディスプレイが点いたところ"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea017/lcaea017_05.jpg", alt: "指でつまめる大きさ"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea017/lcaea017_de_04.jpg", alt: "折りたためるスイングプラグ"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea017/lcaea017_01.jpg", alt: "電源タップに挿してノートPCを充電"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea017/lcaea017_04.jpg", alt: "透けて見える外殻"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea017/lcaea017_06.jpg", alt: "木の机に置いたところ"}
+  - {src: "https://lifeonproducts.co.jp/brand_area/lifeonproducts/products_img/lcaea017/lcaea017_07.jpg", alt: "横から見た丸い形"}
+image_credit: "Life on Products 公式サイト"
+official_url: "https://lifeonproducts.co.jp/product/lcaea017/"
+manual_url: "https://lifeonproducts.co.jp/data/manual/lifeonproducts/lcaea017.pdf"
+checked: 2026-11-24
+released: "2026-04"
+
+pse:
+  status: unconfirmed
+  mark: diamond
+  how: "製品ページとプレスリリースに「PSEマーク 電気用品安全法「特定電気用品」に該当する技術基準に適合した製造…」の文はあるが、届出事業者名と登録検査機関名は書かれていない。取扱説明書(全6ページ、文字が画像の PDF をブラウザで開いて目で確認)の各部名称・使用方法・アフターサービス・仕様にも PSE の記載なし(p.2 の安全上の注意は細かい字で読み切れていない)。公式の製品画像17枚に、本体の銘板・刻印が読める物は無い"
+  date: 2026-11-24
+
+input: "AC 100V-240V 50/60Hz 1.2A"
+size: "40×43×48mm"
+weight_g: 87
+foldable_plug: true
+usb:
+  ports:
+    - {name: "USB-C", type: C, max_w: 35}
+    - {name: "USB-A", type: A, max_w: 30}
+  sharing:
+    - {use: "USB-C+A", out: "合計17W(5V 3.4A)"}
+  sharing_source: "公式製品ページの商品仕様「定格出力(2ポート使用時) USB-C+A：5V 3.4A（最大17W）」と、取扱説明書 p.6「仕様」・プレスリリースの仕様(同じ文言)"
+  pd: true
+  pps: true
+  gan: true
+colors: [ベージュ]
+warranty: "保証書付き(期間は公式ページ・取扱説明書に記載なし)"
+seller_jp: "ライフオンプロダクツ株式会社"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "LCAEA017"
+price: "3,300円(税込・プレスリリースの価格)"
+note: |
+  見た目: 丸みのある透明な PC の外殻が、ベージュの本体を包む形(公式写真)。材質は「本体：PC」(仕様)。プレスリリースの見出しは「コロンと丸いフォルムと透明感のあるデザイン」。同じシリーズの LCAEA018(67W・机に置く形)と同じ透明デザインで、こちらはコンセントに直接挿す形。
+  1ポートのとき: USB-C は 5V 3A, 9V 3A, 12V 2.5A, 15V 2.33A, 20V 1.75A(最大35W)。USB-A は 5V 3A, 9V 3A, 12V 2.5A, 20V 1.5A(最大30W)。
+  2ポート同時は「USB-C+A：5V 3.4A（最大17W）」だけが書かれていて、ポートごとの配り方は書かれていない。total_w は1ポート時と同時使用時で値が違うので書いていない。
+  出力ディスプレイ: 上面(ポート面)にあり、供給している電力が数字で出る。充電する機器が10W 以上になると稲妻のマークが付く(取説 p.3)。公式写真の注記に「出力ディスプレイ表示は参考値」「モバイルバッテリー機能はございません」。
+  PD・PPS・Quick Charge・GaN は製品ページの説明から。Quick Charge の版は公式に記載なし。スイングプラグ(折りたたみ式)は製品ページ。
+  USB ケーブルは付属しない。セット内容は本体と取扱説明書(保証書付)。補修用性能部品の保有期間は生産終了後3年(取説 p.5)。JAN 4944370064773(ベージュ)。
+  発売: Life on Products オフィシャルストアで2026年4月6日、全国の雑貨店・量販店・オンラインショップで4月27日から(PR TIMES https://prtimes.jp/main/html/rd/p/000000405.000073257.html )。
+  売り場: 楽天・Yahoo! は「ライフオンプロダクツ 公式店」、Amazon も「LCAEA017」の検索で一番上にこの製品(11/24 確認。Amazon の出品者名は確かめていない)。
+  リコール: 消費者庁リコール情報サイトで「LCAEA017」「ライフオンプロダクツ」を検索して0件(2026-11-24)。NITE は未確認。
+pitch:   # 製品ページの頭の「特徴」(2026-11-24)
+  lead: "丸みのある透明な PC の外殻が、ベージュの本体を包む形の35W 充電器です。ポート面には出力ディスプレイがあり、いま機器に供給している電力が数字で出ます。"
+  points:
+    - "USB-C は1ポートで最大35W、USB-A は最大30W。2つ同時だと合計17W(5V 3.4A)"
+    - "10W 以上で充電しているときは、ディスプレイに稲妻のマークが出る"
+    - "大きさ40×43×48mm・87gで、プラグは折りたためるスイングプラグ"

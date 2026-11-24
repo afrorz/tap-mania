@@ -1,0 +1,84 @@
+id: ugreen-pb512
+maker: UGREEN
+model: PB512
+name: "UGREEN コンセント付き モバイルバッテリー 充電器 10000mAh 65W"
+category: battery
+image: "https://image.rakuten.co.jp/ugreen-gear/cabinet/10470932/10541656/65820.jpg"
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/s-image-3/20260930162358_2_1.jpg", alt: "本体とケーブル(角度違い)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260930162301_8.jpg", alt: "モバイルバッテリー・AC充電器・巻き取り式ケーブルの3役(文字あり)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260930162301_10.jpg", alt: "コンセントでは最大65W・外では最大45W(文字あり)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260930162301_12.jpg", alt: "画面の表示(健康度・充電回数・セル温度・ポートごとの電力)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260930162301_13.jpg", alt: "コンセントに挿したまま本体とスマホを同時に充電(文字あり)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260930162301_11.jpg", alt: "外でスマホを充電する場面"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260930170446_17.jpg", alt: "オフィスと移動中の場面"}
+image_credit: "UGREEN公式楽天市場店"
+official_url: "https://item.rakuten.co.jp/ugreen-gear/65820/"   # ugreen.jp に製品ページが無い(11/24 時点の全133製品に無し)。メーカー直営の楽天店のページ
+manual_url: ""
+checked: 2026-11-24
+released: "2026-02"
+cable_note: "約18cm の巻き取り式 USB-C ケーブルを内蔵(出力のみ)。ストラップとして持ち運べる(公式の書き方)"
+
+pse:
+  status: image
+  mark: round
+  how: "UGREEN公式楽天市場店の公式画像(https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260224194648_16.jpg)で、本体の印字に丸形の PSE マークと「株式会社ユーグリーン・ジャパン」、ひし形の PSE マークと TÜV の検査機関マークと「株式会社ユーグリーン・ジャパン」の両方が読める(2026-11-24 に画像を開いて確認)。同じ印字に Model: PB512・P/N: 65820。楽天の説明にも「届出事業者名：株式会社ユーグリーン・ジャパン/登録検査機関名称：TUV」"
+  notifier: "株式会社ユーグリーン・ジャパン"
+  inspector: "TÜV(ひし形 PSE の横の検査機関マーク)"
+  date: 2026-11-24
+
+battery:
+  mah: 10000
+  wh: 36
+  rated_mah: "5500mAh(5V 3A・本体の印字)"
+  cell: "リチウムイオン電池(本体の印字は 5000mAh のセル2本の直列、2INR22/71)"
+  recharge_time: "約2.3時間(内蔵の AC プラグで)"
+  passthrough: true
+size: "L120 × W60 × H32mm(楽天の製品仕様)"
+weight_g: 313.5
+usb:
+  ports:
+    - {name: "USB-C ケーブル(OUT1)", type: C, max_w: 65}   # 充電器モード65W / モバイルバッテリーモード45W
+    - {name: "USB-C ポート(OUT2)", type: C, max_w: 65}     # 充電器モード65W / モバイルバッテリーモード45W
+    - {name: "USB-A ポート(OUT3)", type: A, max_w: 22.5}   # 本体の印字。楽天の説明は UFCS で33W
+  total_w: 65
+  sharing:   # 上の4行は AC 充電器モード(コンセントに挿したとき)、下の4行はモバイルバッテリーモード
+    - {use: "充電器: ケーブル+C ポート", out: "45W + 20W(どちらが45Wになるかは書かれていない)"}
+    - {use: "充電器: ケーブル+A", out: "45W + 18W"}
+    - {use: "充電器: C ポート+A", out: "合計15W"}
+    - {use: "充電器: 3ポート", out: "ケーブル45W + (C ポートと A で合計15W)"}
+    - {use: "バッテリー: ケーブル+C ポート", out: "30W + 18W(どちらが30Wになるかは書かれていない)"}
+    - {use: "バッテリー: ケーブル+A", out: "30W + 18W"}
+    - {use: "バッテリー: C ポート+A", out: "合計15W"}
+    - {use: "バッテリー: 3ポート", out: "ケーブル30W + (C ポートと A で合計15W)"}
+  sharing_source: "UGREEN公式楽天市場店の公式画像「AC充電器モード・出力一覧」「モバイルバッテリーモード・出力一覧」(main-image-3/20260930162301_15.jpg と 20260130111404_13.jpg、同じ表)。本体の印字(20260224194648_16.jpg)は充電器モードで「USB-C Cable+(USB-C+USB-A) Output: 45W Max…+15W Max(5V⎓3A)」"
+  pd: true
+  pps: true
+colors: [グレー]
+warranty: "24ヶ月"
+seller_jp: "株式会社ユーグリーン・ジャパン"
+
+stores: [rakuten, amazon]   # Amazon は「UGREEN コンセント付きモバイルバッテリー 10000mAh 65W」で PB512 の報道あり。Yahoo! は確かめていない
+q: "UGREEN PB512"
+price: "9,980円(税込・希望小売価格。UGREEN公式楽天市場店の通常価格も同じ)"
+note: |
+  ugreen.jp には製品ページが無い(11/24 の製品一覧 133件に入っていない)。数字は UGREEN公式楽天市場店(item.rakuten.co.jp/ugreen-gear/65820/)の製品仕様と、同店の公式画像(本体の印字・出力一覧の表)から取った。
+  型番は本体の印字で Model: PB512・P/N: 65820。楽天の「商品モデル番号：PB512 / 65820」とも一致。
+  入力は内蔵の AC プラグだけ: 100-240V~ 50/60Hz 1.8A Max。楽天の仕様は「USB-Cポート/USB-Cケーブルによる入力充電には対応していません」。ただし公式画像(画面の説明、20260930162301_12.jpg)では本体の USB-C ポートの横に「USB-C IN2/OUT」と印字が写っていて、入力ができないという説明と食い違う。
+  プラグは折りたたみ式。画面は TFT ディスプレイで、残量・電池の健康度と充電サイクル数・セル温度・ポートごとの電力・入出力の電力を表示(公式画像)。タッチ式のボタン。小電流モードあり。
+  出力(楽天の仕様): 充電器モードの USB-C は 65W Max(5V/3A、9V/3A、10V/2.25A、12V/3A、15V/3A、20V/3.25A、PPS 5-11V/4.5A、UFCS 5.5-11V/3A)、バッテリーモードの USB-C は 45W Max(20V/2.25A まで)。
+  USB-A の最大は、本体の印字「22.5W Max」と、楽天の仕様「33W Max(UFCS：5.5-11V/3A)」が食い違う。出力一覧の画像は「SCP 22.5W/UFCS 33W」と両方を書いている。
+  バッテリーモードの合計は、本体の印字「Total Output: 5V⎓3A/9V⎓3A/12V⎓2.5A/15V⎓2A/20V⎓1.5A」(最大30W)。
+  大きさは、楽天の製品仕様「L120ｘW60ｘH32mm」、公式画像「L119*W55.3*H41mm」、楽天の商品情報「11.99 x 3.2 x 5.99 cm」が食い違う。
+  重さは、楽天の製品仕様「約313.5g」と、同じページの商品情報「400 g」が食い違う(400g は箱込みの可能性があるが書かれていない)。
+  容量: 本体の印字は Total Cell Capacity 10000mAh、Rated Capacity 5500mAh(TYP 5V 3A)、Lithium-Ion Battery Rated Energy 36Wh 7.2V。楽天の仕様は「10000mAh(36Wh)」。セルは「高密度車載級セル」(楽天の説明)。
+  公式画像の「13重の保護機能」は安全の話なので書いていない。
+  発売: BCN の記事で 2026-02-03 発売、希望小売価格 9,980円(販売元ユーグリーン・ジャパン)。依頼メモの「Nexode 10000mAh 65W」という呼び名は報道のもので、楽天の商品名には Nexode が入っていない。
+  消費者庁リコール情報サイトは 2026-11-24 に 504 エラーで引けなかった。
+  出典: https://item.rakuten.co.jp/ugreen-gear/65820/ ・ https://www.bcnretail.com/news/detail/20260209_596491.html
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-24)
+  lead: "10000mAh のバッテリーに、折りたたみ式の AC プラグと約18cm の巻き取り式 USB-C ケーブルを内蔵した1台です。コンセントに挿せば最大65W の充電器、外ではモバイルバッテリーとして最大45W で使えます。"
+  points:
+    - "コンセントに挿したまま、本体とスマホを同時に充電できる(パススルー)"
+    - "画面に残量のほか、電池の健康度・充電回数・セル温度・ポートごとの電力が出る"
+    - "内蔵ケーブル・USB-C・USB-A の3ポートで最大3台を同時に充電"

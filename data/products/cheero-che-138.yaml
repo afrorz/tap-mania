@@ -1,0 +1,76 @@
+id: cheero-che-138
+maker: cheero
+model: CHE-138
+name: "cheero Solitta 10000mAh 準固体電池"
+category: battery
+released: "2026-07"   # cheero 公式ストアの掲載開始 2026-07-29
+image: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-wh_square.jpg?v=1785292950"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
+images:   # 製品ページの写真の列。1枚目は image
+  - {src: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-bk_square.jpg?v=1785292752", alt: "ブラック", color: "ブラック"}
+  - {src: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-bk_12.jpg?v=1785136540", alt: "ストラップ型の USB-C to C ケーブル"}
+  - {src: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-bk_6.jpg?v=1785136540", alt: "3台を同時に充電"}
+  - {src: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-bk_9.jpg?v=1785136540", alt: "本体を充電しながらスマホに給電(パススルー)"}
+  - {src: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-bk_8.jpg?v=1785136540", alt: "スマホと重ねて持った厚さ"}
+  - {src: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-bk_5.jpg?v=1785136540", alt: "机でスマホを充電"}
+  - {src: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-bk_15.jpg?v=1785136540", alt: "ホワイトとブラック"}
+  - {src: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-wh_15.jpg?v=1785139382", alt: "屋外に置いた2色"}
+image_credit: "cheero 公式ストア"
+official_url: "https://cheero.shop/products/che-138"
+checked: 2026-11-24
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "公式ストアの製品ページ・公式画像15枚のどれにも、PSE マーク・届出事業者名の表示なし。取扱説明書は公開されていない(楽天の販売ページ名の「PSE認証」は数えない)"
+  date: 2026-11-24
+
+battery:
+  mah: 10000
+  wh: 37
+  cell: "準固体リチウムイオンバッテリー(ゲル状電解質。公式の書き方)"
+  input_w: 18
+  recharge_time: "約3時間(別売 PD18W アダプタ使用時)"
+  passthrough: true
+  safety: "過充電(電圧/電流)時、過放電(電圧/電流)時、短絡(ショート)時、発熱時の自動停止機能(公式の書き方)"
+size: "約108 × 71 × 17mm(ストラップ型ケーブル 約20cm)"
+weight_g: 185   # ストラップ型ケーブル含む(公式)
+usb:
+  ports:
+    - {name: "USB-C", type: C, max_w: 22}   # PD 最大20W・PPS 最大22W。公式は2つの USB-C を区別して呼んでいない。入力は「USB-Cポート」
+    - {name: "USB-C", type: C, max_w: 22}
+    - {name: "USB-A", type: A, max_w: 22.5}
+  total_w: 15
+  sharing:
+    - {use: "3口を同時に使う", out: "合計15W(5V/3A)"}
+  sharing_source: "製品ページの仕様「3口合計出力 5V/3A(15W max.)」と本文「3ポート合計での最大出力は15Wです」。2口だけ使うときの値は書かれていない"
+  pd: true
+  pps: true
+colors: [ホワイト, ブラック]
+warranty: "1年"
+seller_jp: "cheero(公式ストア cheero.shop。楽天・Yahoo! は cheeromart の公式店)"
+recall_checked: 2026-11-24
+recall: none
+
+stores: [rakuten, amazon, yahoo]
+q: "CHE-138"
+price: "4,880円(税込・cheero 公式ストア)"
+note: |
+  出力の公式の書き方: USB-C は PD 5V/3A、9V/2.22A、12V/1.67A(PD 20W max.)、PPS 5V-5.9V/3A、5V-11V/2A(22W max.)。USB-A は 5V/3A、5V/4.5A、9V/2A、10V/2.25A、12V/1.5A(22.5W max.)。入力は USB-C の PD 5V/3A、9V/2A、12V/1.5A(PD 18W max.)。
+  本文の「最大22.5Wの急速充電」は USB-A の値。USB-C の最大は PD 20W・PPS 22W。
+  ストラップ型 USB-C to C ケーブル(約20cm)が付属し、ストラップホールに付けて持ち歩ける。公式画像 bk_12 には「PD60W対応ケーブル」とある。本文には「付属ケーブルで給電できない場合は機器付属のケーブルを」との注記がある。
+  電源ボタン2秒長押しで低電流モード(約2時間で通常モードに戻る)。残量は LED ランプ4つ(公式画像 bk_11)。公式画像 bk_7 に「iPhone15を約2回充電可能」。
+  公式の本文に、製造委託先の試験で約1,000回充放電後も初期容量の約90%を維持(試験は製造委託工場によるもの)、ドリルで穴を開ける試験で発火が見られないことを確認、との記載がある(安全・寿命の話なので pitch には入れず pitch_draft に置いた)。
+  リコールは消費者庁リコール情報サイトで「CHE-138」「Solitta」を検索して該当なし(2026-11-24)。cheero の過去の回収は「cheero Flat 10000mAh」(ティ・アール・エイ)で、型番が違う。NITE は未確認。
+  出典: 製品ページ https://cheero.shop/products/che-138 (2026-11-24 取得。Amazon B0H3N444XM・楽天 cheeromart/che-138・Yahoo! cheeromart/che-138 への公式リンクあり)
+pitch:   # 製品ページの頭の「特徴」(公式の事実だけ。安全・寿命の主張は pitch_draft)
+  lead: "付属のストラップが、そのまま USB-C to C ケーブルになる10000mAh のモバイルバッテリーです。電池はゲル状の電解質を使う準固体リチウムイオンで、重さは約185g(ケーブル込み)、厚さは約17mm です。"
+  points:
+    - "USB-C×2 と USB-A×1 で、スマホなど3台を同時に充電できる(3口合計は最大15W)"
+    - "1台だけなら USB-A は最大22.5W、USB-C は PD 最大20W・PPS 最大22W"
+    - "パススルー対応で、本体を充電しながらスマホに給電できる。本体の充電は PD 18W で約3時間"
+pitch_draft:   # 安全・寿命の主張を含むので、本人が見てから pitch: に戻すか決める(2026-11-24)
+  lead: "ゲル状電解質の準固体リチウムイオン電池を使った10000mAh のモバイルバッテリーです。メーカーによると、製造委託先の試験で約1,000回の充放電後も初期容量の約90%を保ち、ドリルで穴を開ける試験でも発火が見られなかったとしています。"
+  points:
+    - "メーカーは、従来のリチウムイオン電池に比べて発熱や膨張を抑えやすく、高温・低温でも性能が安定しやすいと記載している"
+    - "過充電・過放電・短絡・発熱時の自動停止機能を搭載(公式の書き方)"
+    - "付属のストラップがそのまま USB-C to C ケーブルになり、3台同時(合計15W)に充電できる"

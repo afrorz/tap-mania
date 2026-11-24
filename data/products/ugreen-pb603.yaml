@@ -1,0 +1,81 @@
+id: ugreen-pb603
+maker: UGREEN
+model: PB603
+name: "UGREEN Nexode Wavy 45w モバイルバッテリー (10000mAh)"
+category: battery
+image: "https://ugreen.jp/cdn/shop/files/ugreen-nexode-wavy-45w-power-bank-10000mah-silver-main.png"   # シルバー(95035)
+images:   # 製品ページの写真の列(2026-11-23 本人「複数画像・色違いも」)。1枚目は image
+  - {src: "https://ugreen.jp/cdn/shop/files/ugreen-nexode-wavy-45w-power-bank-10000mah-black-main.png", alt: "ブラック", color: "ブラック"}
+  - {src: "https://ugreen.jp/cdn/shop/files/ugreen-nexode-wavy-45w-power-bank-10000mah-banner.png", alt: "3台を並べたところ(文字あり)"}
+  - {src: "https://ugreen.jp/cdn/shop/files/ugreen-nexode-wavy-45w-power-bank-bms-monitoring.jpg", alt: "画面の表示(文字あり)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260626222404_5.jpg", alt: "画面に出る健康度・充電回数・セル温度・ポートごとの出力"}
+  - {src: "https://ugreen.jp/cdn/shop/files/ugreen-nexode-wavy-45w-power-bank-three-output-options.jpg", alt: "ストラップ型ケーブル・USB-C・USB-A の3通りの出力(文字あり)"}
+  - {src: "https://ugreen.jp/cdn/shop/files/ugreen-nexode-wavy-45w-power-bank-compact-size.jpg", alt: "iPhone 17 Pro Max と大きさ比べ(文字あり)"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20260626222404_7.jpg", alt: "カフェでスマホとイヤホンを同時に充電する場面"}
+  - {src: "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/main-image-3/20261028185231_15.jpg", alt: "画面を見ながらスマホを充電する場面(文字あり)"}
+image_credit: "UGREEN 公式サイト・UGREEN公式楽天市場店"
+official_url: "https://ugreen.jp/products/ugreen-nexode-wavy-45w-power-bank-10000mah"
+manual_url: ""
+checked: 2026-11-24
+released: "2026-08"
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "ugreen.jp の製品ページ・DymondCell の特集ページに PSE の記載なし。UGREEN公式楽天市場店の説明に「PSE認証(電気用品安全法適合)済み」と文字だけあるが、本体の表示(PSE マーク・届出事業者名)が写った公式画像は見つからない(楽天の画像15枚・ugreen.jp の画像13枚を見た)"
+  date: 2026-11-24
+
+battery:
+  mah: 10000
+  cell: "リチウムポリマー電池(ATL社製セル。UGREEN は独自開発のセル技術を DymondCell と呼んでいる)"
+  input_w: 36
+  recharge_time: "約2.5時間(製品ページの本文。ストラップ型 USB-C ケーブルで 0→100%)"
+  passthrough: true
+  safety: "毎秒100回の温度監視と14種類の保護機能。異常(電圧の急上昇・充放電中の温度異常など)を本体に記録し、ボタン5回で履歴を表示(公式の書き方)"
+size: "10.9 × 1.8 × 6.9 cm"
+weight_g: 211
+usb:
+  ports:
+    - {name: "USB-C ケーブル(ストラップ型・約22cm)", type: C, max_w: 45}   # 入力兼用
+    - {name: "USB-C ポート", type: C, max_w: 45}                        # 入力兼用
+    - {name: "USB-A ポート", type: A, max_w: 22.5}
+  total_w: 15
+  sharing:
+    - {use: "2ポート / 3ポート同時", out: "合計15W(5V/3A)"}
+  sharing_source: "ugreen.jp の製品仕様「多ポート合計出力 5V/3A、最大15W」。ポートごとの配り方は書かれていない(本文は「接続された端末を自動で識別し、電流量を自動分配」)"
+  pd: true
+  pps: true
+colors: [シルバー, ブラック]
+warranty: "24ヶ月(UGREEN の全製品)"
+seller_jp: "株式会社ユーグリーン・ジャパン"
+
+stores: [rakuten, amazon]   # ugreen.jp の購入ボタンは楽天(ugreen-gear/95035)と Amazon(B0G2Y9C184)。Yahoo! は確かめていない
+q: "UGREEN Nexode Wavy 10000mAh"
+price: "7,980円(税込・UGREEN 公式サイトの通常価格。11/24 時点で売り切れ)"
+note: |
+  製品型番 PB603、商品番号はシルバー 95035 / ブラック 95294(ugreen.jp の製品仕様)。バッテリー電圧 3.6V。Wh と定格容量は ugreen.jp に無い(楽天の説明に「10000mAh(約36Wh)」)。
+  USB-C 出力: 5V/3A、9V/3A、10V/2.25A、11V/3A、12V/3A、15V/3A、20V/2.25A、PPS 5～11V/3A(最大45W)。USB-A: 5V/3A、9V/2A、10V/2.25A、12V/1.5A(最大22.5W)。入力: USB-C 5V/3A、9V/3A、12V/3A(最大36W)、USB-C ポートとケーブルのどちらからでも。仕様欄の USB-C 出力はケーブルとポートを分けて書いていない。
+  パススルー中は入力・出力とも5Vに切り替わる。小電流モードは USB-A だけ(ボタン3秒長押し、約2〜4時間で自動停止)。
+  画面(BMS)に出るもの: 残量、出力・電圧、セルの温度、充電回数、健康状態(公式の書き方)。約800回の充放電後も容量80%以上(所定の試験条件)。
+  重さは、仕様欄の「約211 g」と公式画像(compact-size)の「200g」が食い違う。楽天の説明文は「212g」。
+  大きさは、仕様欄「10.9 × 1.8 × 6.9 cm」、本文「約108×69×18mm」、公式画像「6.9*1.8*10.8cm」で、長い辺の値が食い違う(10.9cm と 10.8cm)。
+  本体の充電時間は、製品ページの本文「約2.5時間」、公式画像「100%満充電まで2.3時間」、注意事項「概ね4時間以内」が食い違う。
+  DymondCell の試験(公式の書き方・実験室の結果): 4mm の釘で3回刺しても発火なし、25kN(2.5トン)の圧迫で爆発・発火なし、135℃で1時間加熱しても爆発・発火なし、満充電後1.3倍の電圧で7時間過充電しても爆発・発火なし、800サイクル後のリチウム析出試験で異常なし。楽天の公式画像では加熱が「140℃高温環境下」で、DymondCell ページの 135℃ と違う。安全の話なので pitch には入れず pitch_draft に置いた。
+  ATL製セルは 10000mAh モデルだけ(公式の注記)。
+  20000mAh 版: UGREEN Nexode Wavy 55w モバイルバッテリー(20000mAh)。製品型番 PB602・商品番号 85596・ブラックのみ・9,980円。USB-C 出力 最大55W(11V/5A・PPS 5～11V/5A)、入力 最大45W、USB-A 最大22.5W、多ポート合計 5V/3A 最大15W、リチウムイオン電池、7.1 × 11.65 × 3 cm、約375g、満充電まで約4時間。セルは同じページの中で「ATL社製」と「BYD製」の両方の書き方があり、DymondCell ページの注記は「ATL製セルは10000mAhモデルにのみ搭載」。https://ugreen.jp/products/ugreen-nexode-wavy-55w-power-bank-20000mah
+  Amazon の商品ページの URL には「95035-10000mAh-55W」とあり、公式の 45W と違うが、Amazon は出典にしない。
+  発売: 2026-08-17 発表(報道)。ugreen.jp の掲載は 2026-07-31。DymondCell 特集ページでは 10000mAh が 20%OFF の 6,380円(11/24)。
+  消費者庁リコール情報サイトは 2026-11-24 に 504 エラーで引けなかった。
+  出典: https://ugreen.jp/products/ugreen-nexode-wavy-45w-power-bank-10000mah ・ https://ugreen.jp/pages/mobile-battery-safety-dymondcell ・ https://item.rakuten.co.jp/ugreen-gear/95035/
+pitch:   # 製品ページの頭の「ここが面白い」(2026-11-24)。安全の話は抜いた
+  lead: "正面に画面を付けた10000mAh のバッテリーで、残量だけでなく、セルの温度・充電回数・電池の健康度まで表示します。電源ボタンを5回押すと、本体に残った異常の記録も見られます。"
+  points:
+    - "USB-C は最大45W、本体への入力は最大36W。厚さは1.8cm"
+    - "約22cm のストラップ型 USB-C ケーブルと、USB-C・USB-A ポートの3通りで最大3台を同時に充電"
+    - "約800回の充放電のあとも容量80%以上を保つ、とメーカーは書いている"
+pitch_draft:   # DymondCell の試験(釘刺し・圧迫・加熱)が中心の文。安全の話なので、本人が見てから pitch: に入れ替える(2026-11-24)
+  lead: "UGREEN が DymondCell と呼ぶ独自のセル技術で、ATL社製のセルを使った10000mAh のバッテリーです。メーカーの実験室の試験では、4mm の釘で3回刺しても、2.5トンで押しても、135℃で1時間加熱しても発火しなかったとしています。"
+  points:
+    - "釘刺し・耐圧・加熱・過充電・リチウム析出の5つの試験をクリア、とメーカーは書いている"
+    - "毎秒100回の温度監視と14種類の保護機能。画面でセルの温度と電池の健康度を見られる"
+    - "USB-C は最大45W、本体への入力は最大36W。厚さ1.8cm・約211g"
