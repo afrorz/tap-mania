@@ -1652,9 +1652,7 @@ def anatomy_block(products: list[dict]) -> str:
 <script src="/assets/home.js" defer></script>"""
 
 
-# ── 今年の注目(図鑑の棚。2026-11-25 本人 OK = mock/v8)。一言と基準は製品データの zukan: {why, hook}
-ZK_WHY = ["ギミック", "見える", "デザイン", "数字", "技術"]
-ZK_MON = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+# ── 図鑑の物の一言と発売月(「ほかの〜」のカードで使う。トップの棚は 2026-11-25 に本人「やだな」で外した)
 
 
 def zk_month(p: dict, year: int) -> int | None:
@@ -1671,57 +1669,19 @@ def zk_hook(p: dict) -> str:
     return z.get("hook") or (catch(art) if art else re.sub(r"[（(].*?[)）]", "", p["name"]).strip() or p["name"])
 
 
-def zk_card(p: dict, tag: bool = True) -> str:
-    why = (p.get("zukan") or {}).get("why") or "新製品"
-    return (f'<li class="zk-c" data-why="{e(why)}"><a href="{p["url"]}">'
-            f'<div class="zk-ph"><img src="{e(p.get("image") or "")}" alt="" loading="lazy" referrerpolicy="no-referrer">'
-            + (f'<span class="zk-why">{e(why)}</span>' if tag else "") + '</div>'
-            f'<p class="zk-hook">{e(zk_hook(p))}</p>'
-            f'<p class="zk-n">{e(p["maker"])} <span>{e(p["model"])}</span></p>{port_face(p)}</a></li>')
-
-
-def zukan_shelf(products: list[dict]) -> str:
-    """今年発売の物を発売月の目盛りの上に新しい順(左が新しい)。基準で絞れる"""
-    year = dt.date.today().year
-    groups: dict[int, list] = {}
-    for p in products:
-        m = zk_month(p, year)
-        if m:
-            groups.setdefault(m, []).append(p)
-    if not groups:
-        return ""
-    cols = [f'<li class="zk-m"><ul class="zk-row">{"".join(zk_card(p) for p in groups[m])}</ul>'
-            f'<div class="zk-tick"><b>{m:02d}</b><span>{ZK_MON[m - 1]} {year}</span><i>{len(groups[m])}</i></div></li>'
-            for m in sorted(groups, reverse=True)]
-    n = sum(len(v) for v in groups.values())
-    chips = '<button type="button" aria-pressed="true" data-f="">すべて</button>' + "".join(
-        f'<button type="button" aria-pressed="false" data-f="{w}">{w}</button>' for w in ZK_WHY)
-    return f"""<section class="band zk" id="zukan"><div class="wrap">
-  <div class="sec-head zk-head"><h2><small>ZUKAN {year}</small>今年出た、ひと癖ある充電まわり</h2><span class="zk-n-all"><b>{n}</b>機種</span></div>
-  <p class="zk-lead">今年日本で発売された物から、仕掛け・見える化・形・数字のどれかで尖った物だけ。右ほど古い。</p>
-  <div class="zk-chips" role="group" aria-label="基準で絞る">{chips}</div>
-</div>
-<div class="zk-vp"><ul class="zk-track">{"".join(cols)}</ul></div>
-</section>
-<script>
-document.querySelectorAll('.zk-chips button').forEach(b=>b.addEventListener('click',()=>{{
-  document.querySelectorAll('.zk-chips button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  const f=b.dataset.f;
-  document.querySelectorAll('.zk-c').forEach(c=>c.hidden=!!f&&c.dataset.why!==f);
-  document.querySelectorAll('.zk-m').forEach(m=>m.hidden=!m.querySelector('.zk-c:not([hidden])'));
-}}));
-</script>"""
-
-
 # ── 新製品の一覧は1ページ20件まで。2ページ目からは /new/2/ … (2026-11-25 本人)
 NEW_PER = 20
 
 
 def new_order(products: list[dict]) -> list[dict]:
-    """並び: 新製品記事のある物(新しい順) → 残りの製品"""
+    """並び: 新製品記事のある物(新しい順) → 残りの製品 → 図鑑の物(zukan のある物)を発売の新しい順。
+    図鑑の物は別の棚にせず、一覧の古い側に置く(2026-11-25 本人「新商品一覧の古いところに置いてあるとよかった」)"""
     with_post = [a["p"] for a in POSTS]
     ids = {x["id"] for x in with_post}
-    return with_post + [p for p in products if p["id"] not in ids]
+    rest = [p for p in products if p["id"] not in ids and not p.get("zukan")]
+    zk = sorted((p for p in products if p["id"] not in ids and p.get("zukan")),
+                key=lambda p: str(p.get("released") or "")[:10], reverse=True)
+    return with_post + rest + zk
 
 
 def new_url(n: int) -> str:
@@ -1777,7 +1737,6 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
     body = f"""<main>
 {pick_slides(products)}
 {anatomy_block(products)}
-{zukan_shelf(products)}
 {new_list_section(products, 1, more)}
 {feats}
 </main>"""
