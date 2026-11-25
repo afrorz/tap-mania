@@ -4,6 +4,7 @@ model: OWL-PBM10005J
 name: "準固体電池採用 Qi2認証取得 Qi2.2対応 スマホリング搭載 10000mAh 最大PD30W対応 マグネット式ワイヤレス充電対応 モバイルバッテリー"
 category: battery
 released: "2026-10"   # 公式プレスリリース 2026-10-07「発売いたしました」
+zukan: {why: "ギミック", hook: "360度回るリングがスタンドに"}   # トップ「今年の注目」の棚の基準と一言
 image: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j-wh_front01.jpg"   # 写真はホワイト。仕様は色で変わらない
 images:   # 製品ページの写真の列。1枚目は image。安全の仕組みの図(a02・a09)は入れない
   - {src: "https://www.owltech.co.jp/image/2026/09/owl-pbm10005j-bk_front01.jpg", alt: "ブラック", color: "ブラック"}

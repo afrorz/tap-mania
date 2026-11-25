@@ -18,6 +18,7 @@ official_url: "https://www.belkin.com/jp/p/slim-magnetic-power-bank-10k/BPD022fq
 manual_url: "https://www.belkin.com/on/demandware.static/-/Sites-master-product-catalog-blk/default/dw5931aed3/datasheets/regulatory/INS_BPD022_8850bt02268_RC-Web.pdf"
 checked: 2026-11-24
 released: ""   # 日本の発売年月を公式の資料・報道で確かめられなかった(依頼メモでは 2026-08)
+zukan: {why: "数字", hook: "厚さ 16mm のアルミの Qi2.2"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: image

@@ -17,6 +17,7 @@ image_credit: "エレコム 公式サイト"
 official_url: "https://www.elecom.co.jp/products/MPA-CCW10BK.html"
 checked: 2026-11-24
 released: "2026-01"
+zukan: {why: "見える", hook: "コネクタに今の W が出るケーブル"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: unconfirmed

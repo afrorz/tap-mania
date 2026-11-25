@@ -19,6 +19,7 @@ official_url: "https://www.elecom.co.jp/products/DE-C79-10000BK.html"
 manual_url: "https://www.elecom.co.jp/support/manual/cellphone/battery/de-c79-10000/de-c79-10000_v01.pdf"
 checked: 2026-11-24
 released: "2026-01"
+zukan: {why: "デザイン", hook: "旅行かばんの形をしたバッテリー"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: unconfirmed

@@ -17,6 +17,7 @@ official_url: "https://item.rakuten.co.jp/ugreen-gear/65820/"   # ugreen.jp に�
 manual_url: ""
 checked: 2026-11-24
 released: "2026-02"
+zukan: {why: "ギミック", hook: "コンセントに挿せば充電器になる"}   # トップ「今年の注目」の棚の基準と一言
 cable_note: "約18cm の巻き取り式 USB-C ケーブルを内蔵(出力のみ)。ストラップとして持ち運べる(公式の書き方)"
 
 pse:

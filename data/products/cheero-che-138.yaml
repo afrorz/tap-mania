@@ -4,6 +4,7 @@ model: CHE-138
 name: "cheero Solitta 10000mAh 準固体電池"
 category: battery
 released: "2026-07"   # cheero 公式ストアの掲載開始 2026-07-29
+zukan: {why: "ギミック", hook: "ストラップがそのままケーブル"}   # トップ「今年の注目」の棚の基準と一言
 image: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-wh_square.jpg?v=1785292950"   # 写真はホワイト(2026-11-23 本人「黒ばっかり、たまには白も」)。仕様は色で変わらない
 images:   # 製品ページの写真の列。1枚目は image
   - {src: "https://cdn.shopify.com/s/files/1/0519/7479/9553/files/che-138-bk_square.jpg?v=1785292752", alt: "ブラック", color: "ブラック"}

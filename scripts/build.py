@@ -1627,14 +1627,122 @@ def anatomy_block(products: list[dict]) -> str:
 <script src="/assets/home.js" defer></script>"""
 
 
-def build_index(products: list[dict], arts: list[dict]) -> str:
-    # 並び: 新製品記事のある物(新しい順) → 残りの製品
+# ── 今年の注目(図鑑の棚。2026-11-25 本人 OK = mock/v8)。一言と基準は製品データの zukan: {why, hook}
+ZK_WHY = ["ギミック", "見える", "デザイン", "数字", "技術"]
+ZK_MON = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+
+
+def zk_month(p: dict, year: int) -> int | None:
+    r = p.get("released")
+    if isinstance(r, (dt.date, dt.datetime)):
+        return r.month if r.year == year else None
+    r = str(r or "")
+    return int(r[5:7]) if re.match(str(year) + r"-\d{2}", r) else None
+
+
+def zk_hook(p: dict) -> str:
+    z = p.get("zukan") or {}
+    art = post_for(p)
+    return z.get("hook") or (catch(art) if art else re.sub(r"[（(].*?[)）]", "", p["name"]).strip() or p["name"])
+
+
+def zk_card(p: dict, tag: bool = True) -> str:
+    why = (p.get("zukan") or {}).get("why") or "新製品"
+    return (f'<li class="zk-c" data-why="{e(why)}"><a href="{p["url"]}">'
+            f'<div class="zk-ph"><img src="{e(p.get("image") or "")}" alt="" loading="lazy" referrerpolicy="no-referrer">'
+            + (f'<span class="zk-why">{e(why)}</span>' if tag else "") + '</div>'
+            f'<p class="zk-hook">{e(zk_hook(p))}</p>'
+            f'<p class="zk-n">{e(p["maker"])} <span>{e(p["model"])}</span></p>{port_face(p)}</a></li>')
+
+
+def zukan_shelf(products: list[dict]) -> str:
+    """今年発売の物を発売月の目盛りの上に新しい順(左が新しい)。基準で絞れる"""
+    year = dt.date.today().year
+    groups: dict[int, list] = {}
+    for p in products:
+        m = zk_month(p, year)
+        if m:
+            groups.setdefault(m, []).append(p)
+    if not groups:
+        return ""
+    cols = [f'<li class="zk-m"><ul class="zk-row">{"".join(zk_card(p) for p in groups[m])}</ul>'
+            f'<div class="zk-tick"><b>{m:02d}</b><span>{ZK_MON[m - 1]} {year}</span><i>{len(groups[m])}</i></div></li>'
+            for m in sorted(groups, reverse=True)]
+    n = sum(len(v) for v in groups.values())
+    chips = '<button type="button" aria-pressed="true" data-f="">すべて</button>' + "".join(
+        f'<button type="button" aria-pressed="false" data-f="{w}">{w}</button>' for w in ZK_WHY)
+    return f"""<section class="band zk" id="zukan"><div class="wrap">
+  <div class="sec-head zk-head"><h2><small>ZUKAN {year}</small>今年出た、ひと癖ある充電まわり</h2><span class="zk-n-all"><b>{n}</b>機種</span></div>
+  <p class="zk-lead">今年日本で発売された物から、仕掛け・見える化・形・数字のどれかで尖った物だけ。右ほど古い。</p>
+  <div class="zk-chips" role="group" aria-label="基準で絞る">{chips}</div>
+</div>
+<div class="zk-vp"><ul class="zk-track">{"".join(cols)}</ul></div>
+</section>
+<script>
+document.querySelectorAll('.zk-chips button').forEach(b=>b.addEventListener('click',()=>{{
+  document.querySelectorAll('.zk-chips button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  const f=b.dataset.f;
+  document.querySelectorAll('.zk-c').forEach(c=>c.hidden=!!f&&c.dataset.why!==f);
+  document.querySelectorAll('.zk-m').forEach(m=>m.hidden=!m.querySelector('.zk-c:not([hidden])'));
+}}));
+</script>"""
+
+
+# ── 新製品の一覧は1ページ20件まで。2ページ目からは /new/2/ … (2026-11-25 本人)
+NEW_PER = 20
+
+
+def new_order(products: list[dict]) -> list[dict]:
+    """並び: 新製品記事のある物(新しい順) → 残りの製品"""
     with_post = [a["p"] for a in POSTS]
     ids = {x["id"] for x in with_post}
-    order = with_post + [p for p in products if p["id"] not in ids]
-    legend = ('<div class="legend"><span class="pf-i pf-ac"><i></i></span>コンセント<span class="pf-i pf-c"><i></i></span>USB-C'
-              '<span class="pf-i pf-a"><i></i></span>USB-A<span class="pf-i pf-cable"><i></i></span>内蔵ケーブル'
-              '<span class="pf-i pf-wl"><i></i></span>ワイヤレス</div>')
+    return with_post + [p for p in products if p["id"] not in ids]
+
+
+def new_url(n: int) -> str:
+    return "/#list" if n == 1 else f"/new/{n}/"
+
+
+def pager(n: int, total: int) -> str:
+    if total <= 1:
+        return ""
+    prev = f'<a class="pg-step" href="{new_url(n - 1)}" rel="prev">← 前へ</a>' if n > 1 else '<span class="pg-step off">← 前へ</span>'
+    nxt = f'<a class="pg-step" href="{new_url(n + 1)}" rel="next">次へ →</a>' if n < total else '<span class="pg-step off">次へ →</span>'
+    nums = "".join(f'<span class="pg-n" aria-current="page">{i}</span>' if i == n else f'<a class="pg-n" href="{new_url(i)}">{i}</a>'
+                   for i in range(1, total + 1))
+    return f'<nav class="pager" aria-label="新製品のページ">{prev}<span class="pg-nums">{nums}</span>{nxt}</nav>'
+
+
+LEGEND = ('<div class="legend"><span class="pf-i pf-ac"><i></i></span>コンセント<span class="pf-i pf-c"><i></i></span>USB-C'
+          '<span class="pf-i pf-a"><i></i></span>USB-A<span class="pf-i pf-cable"><i></i></span>内蔵ケーブル'
+          '<span class="pf-i pf-wl"><i></i></span>ワイヤレス</div>')
+
+
+def new_list_section(products: list[dict], n: int, more: str = "") -> str:
+    order = new_order(products)
+    total = max(1, -(-len(order) // NEW_PER))
+    items = order[(n - 1) * NEW_PER:n * NEW_PER]
+    count = f'<span class="pg-count">{len(order)}件中 {(n - 1) * NEW_PER + 1}〜{(n - 1) * NEW_PER + len(items)}件目</span>' if total > 1 else ""
+    return f"""<section class="band hlist" id="list"><div class="wrap">
+  <div class="sec-head"><h2><small>NEW ARRIVALS</small>新製品{f'<span class="pg-of"> {n}ページ目</span>' if n > 1 else ''}</h2><a href="/compare/">全機種の比べ表 →</a></div>
+  {LEGEND}{count}
+  <div class="hgrid">{''.join(home_card(p) for p in items)}</div>
+  {pager(n, total)}
+  <p class="hlist-more"><a href="/usb-c/">USB-C の配り方の全機種表</a> ・ <a href="/tools/watt/">消費電力の計算機</a>{more}</p>
+</div></section>"""
+
+
+def build_new_page(products: list[dict], n: int, arts: list[dict]) -> str:
+    more = ' ・ <a href="/q/">疑問に答える</a>' if arts else ""
+    body = f"<main>\n{new_list_section(products, n, more)}\n</main>"
+    return page(title=f"新製品 {n}ページ目", desc=SITE["description"], path=f"/new/{n}/", body=body)
+
+
+def new_pages(products: list[dict]) -> int:
+    return max(1, -(-len(new_order(products)) // NEW_PER))
+
+
+def build_index(products: list[dict], arts: list[dict]) -> str:
     feats = ""
     if FEATURES:
         feats = (f'<section class="band"><div class="wrap"><div class="sec-head"><h2><small>FEATURES</small>特集</h2>'
@@ -1644,12 +1752,8 @@ def build_index(products: list[dict], arts: list[dict]) -> str:
     body = f"""<main>
 {pick_slides(products)}
 {anatomy_block(products)}
-<section class="band hlist" id="list"><div class="wrap">
-  <div class="sec-head"><h2><small>NEW ARRIVALS</small>新製品</h2><a href="/compare/">全機種の比べ表 →</a></div>
-  {legend}
-  <div class="hgrid">{''.join(home_card(p) for p in order)}</div>
-  <p class="hlist-more"><a href="/usb-c/">USB-C の配り方の全機種表</a> ・ <a href="/tools/watt/">消費電力の計算機</a>{more}</p>
-</div></section>
+{zukan_shelf(products)}
+{new_list_section(products, 1, more)}
 {feats}
 </main>"""
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": SITE["title"], "url": SITE["base_url"] + "/"}]
@@ -1695,6 +1799,9 @@ def main() -> None:
     shutil.copytree(ROOT / "assets", OUT / "assets")
     urls = ["/", "/q/", "/compare/", "/tools/watt/", "/about/", "/privacy/", "/fixes/"]
     write("index.html", build_index(products, arts))
+    for n in range(2, new_pages(products) + 1):
+        write(f"new/{n}/index.html", build_new_page(products, n, arts))
+        urls.append(f"/new/{n}/")
     write("p/index.html", build_post_index())
     urls.append("/p/")
     for a in POSTS:

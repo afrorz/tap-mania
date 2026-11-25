@@ -17,6 +17,7 @@ official_url: "https://ugreen.jp/products/nexode-air-65w-charger"
 manual_url: ""
 checked: 2026-11-24
 released: "2026-05"
+zukan: {why: "数字", hook: "33×31×40mm に収めた 65W"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: image

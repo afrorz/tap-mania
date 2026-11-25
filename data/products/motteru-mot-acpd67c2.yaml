@@ -17,6 +17,7 @@ official_url: "https://motteru.co.jp/product/charger/pd_usb_charger/mot-acpd67c2
 manual_url: "https://motteru.co.jp/wp/wp-content/uploads/2026/05/MOT-ACPD67C2_Instructions.pdf"
 checked: 2026-11-24
 released: "2026-08"
+zukan: {why: "ギミック", hook: "1m のリールを内蔵した 67W"}   # トップ「今年の注目」の棚の基準と一言
 cable_note: "巻き取り式(リール式)の USB-C ケーブル 約100cm を内蔵。ゆっくり引き出すとロックがかかって止まり、少し引っ張るとロックが外れて巻き取られる(取説「使用方法」)。先端はマグネットで本体に収納(公式ページ・プレスリリース)。内蔵ケーブルの単独出力は最大67W(5V3A / 9V3A / 15V3A / 20V3.35A、PPS 5-21V3.35A)"
 
 pse:

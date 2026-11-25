@@ -17,6 +17,7 @@ official_url: "https://www.buffalo.jp/product/detail/bsacpdw250c1bkx.html"
 manual_url: "https://manual.buffalo.jp/buf-doc/35023277-01.pdf"
 checked: 2026-11-24
 released: "2026-11"
+zukan: {why: "ギミック", hook: "コンセントに直に挿す Qi2 スタンド"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: image

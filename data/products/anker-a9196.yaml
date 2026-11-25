@@ -17,6 +17,7 @@ official_url: "https://www.ankerjapan.com/products/a9196"
 manual_url: "https://lp.ankerjapan.com/hubfs/aoos/manual/A9196Manual.pdf"
 checked: 2026-11-24
 released: "2026-07"
+zukan: {why: "ギミック", hook: "机の天板にはさんで留める電源タップ"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: unconfirmed

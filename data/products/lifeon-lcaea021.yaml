@@ -18,6 +18,7 @@ official_url: "https://lifeonproducts.co.jp/product/lcaea021/"
 manual_url: "https://lifeonproducts.co.jp/data/manual/lifeonproducts/lcaea021.pdf"
 checked: 2026-11-24
 released: "2026-04"
+zukan: {why: "ギミック", hook: "コードを好きな長さで止められる"}   # トップ「今年の注目」の棚の基準と一言
 cable_note: "本体一体型の USB-C コード(リールコード、最長約75cm)を内蔵。必要な長さで固定でき、巻き戻すときは少し引いて離すと自動で巻き戻る(製品ページ・取説 p.4)。公式写真 lcaea021_de_07.jpg の本体の表示では、コードの差し込み口側が「USB-C1」、本体のポートが「USB-C2」"
 
 pse:

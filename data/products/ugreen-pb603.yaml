@@ -18,6 +18,7 @@ official_url: "https://ugreen.jp/products/ugreen-nexode-wavy-45w-power-bank-1000
 manual_url: ""
 checked: 2026-11-24
 released: "2026-08"
+zukan: {why: "見える", hook: "電池の健康度と温度が画面に出る"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: unconfirmed

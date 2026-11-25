@@ -17,6 +17,7 @@ image_credit: "エレコム 公式サイト"
 official_url: "https://www.elecom.co.jp/products/ACDC-PD13667BK.html"
 checked: 2026-11-24
 released: "2026-11"
+zukan: {why: "ギミック", hook: "91cm のケーブルを巻き取って抱えた 67W"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: unconfirmed

@@ -4,6 +4,7 @@ model: CIO-MB20W2C-SS5K-EX04
 name: "SMARTCOBY Ex04 Wireless2.2 CABLE SS5K"
 category: battery
 released: "2026-03"   # ブラック 2026-03(3/27 予約開始・3/31 一般発売の報道)。ホワイトは 2026-06-19 発売(PR TIMES)
+zukan: {why: "技術", hook: "Qi2.2 を載せた 5000mAh"}   # トップ「今年の注目」の棚の基準と一言
 image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/03/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP01WH_Amazon.jpg"   # 写真はホワイト。仕様は色で変わらない
 images:   # 製品ページの写真の列。1枚目は image。「燃えにくい」の画像(LP03)と安全の仕組みの図(LP08〜LP13)は入れない
   - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/03/SC-Ex04-Wireless22-CABLE-SS5k_v4_LP01BK_Amazon-1.jpg", alt: "ブラック", color: "ブラック"}

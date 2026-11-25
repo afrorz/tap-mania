@@ -18,6 +18,7 @@ image_credit: "エレコム 公式サイト"
 official_url: "https://www.elecom.co.jp/products/MPA-AC13145BK.html"
 checked: 2026-11-24
 released: "2026-05"
+zukan: {why: "見える", hook: "いま流れている W が数字で出る 45W"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: unconfirmed

@@ -4,6 +4,7 @@ model: UCMD26SBK
 name: "PD対応見える充電マグネットケーブル"
 category: cable
 released: "2026-06"   # 公式の仕様欄「発売日 2026/6/22」
+zukan: {why: "ギミック", hook: "ケーブル自体が磁石でまとまる"}   # トップ「今年の注目」の棚の基準と一言
 image: "https://makeshop-multi-images.akamaized.net/thankothanko/shopimages/60/48/13_000000004860.jpg"   # サンコー公式通販の商品画像。色はブラックだけ
 images:   # 製品ページの写真の列。1枚目は image
   - {src: "https://www.data.thanko.jp/product/img-product/ucmd26sbk-pr4.jpg", alt: "コネクターの画面に出力ワット数"}

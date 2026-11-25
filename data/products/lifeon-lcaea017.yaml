@@ -18,6 +18,7 @@ official_url: "https://lifeonproducts.co.jp/product/lcaea017/"
 manual_url: "https://lifeonproducts.co.jp/data/manual/lifeonproducts/lcaea017.pdf"
 checked: 2026-11-24
 released: "2026-04"
+zukan: {why: "デザイン", hook: "雑貨みたいに丸く透けるベージュ"}   # トップ「今年の注目」の棚の基準と一言
 
 pse:
   status: unconfirmed
