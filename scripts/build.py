@@ -675,6 +675,31 @@ def pitch_html(p: dict) -> str:
             + (f'<ul class="pitch-pts">{pts}</ul>' if pts else "") + more + "</section>")
 
 
+def more_nums(p: dict, tag: str = "") -> str:
+    """「ほかの〜」のカードの上の数字。同じ名前の物でも見分けられるように2つまで"""
+    out = []
+    mah = (p.get("battery") or {}).get("mah")
+    if mah:
+        out.append(f"<b>{mah:,}</b>mAh")
+    ports = (p.get("usb") or {}).get("ports") or []
+    w = max([x.get("max_w") or 0 for x in ports] or [0])
+    if w:
+        out.append(f"<b>{w:g}</b>W")
+    elif (p.get("rating") or {}).get("watt_max"):
+        out.append(f'<b>{p["rating"]["watt_max"]:,}</b>W まで')
+    return '<span class="mc-num">' + "".join(f"<span>{x}</span>" for x in out) + tag + "</span>"
+
+
+def more_card(p: dict) -> str:
+    """製品ページ末尾「ほかの〜」の横長カード(2026-11-25 本人 OK = mock/v10。高さを揃える)"""
+    rel = zk_month(p, dt.date.today().year)
+    tag = f'<span class="mc-rel">{rel}月発売</span>' if rel else ""
+    return (f'<a class="mc" href="{p["url"]}"><span class="mc-ph"><img src="{e(p.get("image") or "")}" alt="" loading="lazy" referrerpolicy="no-referrer"></span>'
+            f'<span class="mc-b">{more_nums(p, tag)}<b class="mc-hook">{e(zk_hook(p))}</b>'
+            f'<span class="mc-n">{e(p["maker"])} <i>{e(p["model"])}</i></span>{port_face(p)}</span>'
+            f'<span class="mc-go" aria-hidden="true">→</span></a>')
+
+
 def product_checks(p: dict) -> str:
     """製品ページの「確かめたこと」: PSE・リコール・公式情報を見た日を3行で(2026-11-24 本人 OK = mock/v9)"""
     pse = p["pse"]
@@ -755,7 +780,7 @@ def build_product(p: dict, products: list[dict], arts: list[dict]) -> str:
     q_html = ((post_h2("この製品にかかわる疑問", "QUESTIONS") + "<ul>" + "".join(f'<li><a href="{a["url"]}">{e(a["title"])}</a></li>' for a in rel_arts) + "</ul>")
               if rel_arts else "")
     same = [x for x in products if x["id"] != p["id"] and GROUP.get(x["category"]) == GROUP.get(p["category"])][:4]
-    more = (f'<h2 class="more-h v7-more">ほかの{e(cat)}</h2><div class="hgrid v9-more">' + "".join(home_card(x) for x in same) + "</div>") if same else ""
+    more = (f'<h2 class="more-h v7-more">ほかの{e(cat)}</h2><div class="mcs">' + "".join(more_card(x) for x in same) + "</div>") if same else ""
     price = f'<p class="v7-price">{e(p["price"])}<small>掲載時点</small></p>' if p.get("price") else ""
     lcd = post_lcd(p)
     out_block = f'<div class="v7-block"><p class="v7-label">OUTPUT<span>何ワットになるか</span></p>{lcd}</div>' if lcd else ""
