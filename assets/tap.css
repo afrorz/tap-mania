@@ -938,3 +938,17 @@ a.bp-c.on:hover { background: #F9B57A; }
 .bp-c { align-items: center; justify-content: center; padding: 0; font: 700 15px/1 var(--font); letter-spacing: .02em; font-variant-numeric: tabular-nums; }
 .bp-cap b { font: 700 13px/1 var(--font); font-variant-numeric: tabular-nums; }
 @media (max-width: 560px) { .bp-c { font-size: 14px; padding: 0; } }
+
+/* ── 新製品を製品カテゴリで絞る(2026-11-25 本人)。リンクで別ページへ。今のカテゴリは黒地 */
+.segs { display: flex; flex-wrap: wrap; gap: 8px; margin: -8px 0 18px; }
+.sg { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--panel); color: var(--ink); text-decoration: none; font: 700 13.5px/1 var(--font); }
+.sg-k { font: 700 12px/1 var(--font); font-variant-numeric: tabular-nums; color: var(--sub); }
+a.sg:hover { border-color: var(--ink); }
+a.sg:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+.sg[aria-current] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.sg[aria-current] .sg-k { color: var(--orange); }
+.segs + .legend { margin-top: 0; }
+@media (max-width: 560px) {
+  .segs { gap: 6px; }
+  .sg { height: 36px; padding: 0 12px; gap: 6px; font-size: 13px; }
+}

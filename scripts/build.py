@@ -1684,15 +1684,32 @@ def new_order(products: list[dict]) -> list[dict]:
     return with_post + rest + zk
 
 
-def new_url(n: int) -> str:
-    return "/#list" if n == 1 else f"/new/{n}/"
+# 製品カテゴリで絞る(2026-11-25 本人「新商品を製品カテゴリごとにセグメントできるように」)。
+# 絞った一覧は /new/<slug>/・/new/<slug>/2/ … の別ページ(ページ送りもそのカテゴリの中で)
+SEGS = [("tap", "電源タップ"), ("charger", "USB 充電器"), ("battery", "モバイルバッテリー"), ("cable", "ケーブル")]
+SEG_NAME = dict(SEGS)
 
 
-def pager(n: int, total: int) -> str:
+def seg_items(products: list[dict], g: str = "") -> list[dict]:
+    order = new_order(products)
+    return [p for p in order if GROUP.get(p["category"]) == SEG_NAME[g]] if g else order
+
+
+def new_url(n: int, g: str = "") -> str:
+    if g:
+        return f"/new/{g}/#list" if n == 1 else f"/new/{g}/{n}/#list"
+    return "/#list" if n == 1 else f"/new/{n}/#list"
+
+
+def new_path(n: int, g: str = "") -> str:
+    return new_url(n, g).removesuffix("#list").replace("/#", "/") or "/"
+
+
+def pager(n: int, total: int, g: str = "") -> str:
     """電池の形のページ送り(2026-11-25 本人 OK = mock/v11)。目盛りがページで、今のページまでオレンジで満ちる"""
     if total <= 1:
         return ""
-    u = new_url
+    u = lambda i: new_url(i, g)  # noqa: E731
     prev = f'<a class="bp-step" href="{u(n - 1)}" rel="prev"><span aria-hidden="true">←</span>前へ</a>' if n > 1 else '<span class="bp-step off" aria-hidden="true"><span>←</span>前へ</span>'
     nxt = f'<a class="bp-step" href="{u(n + 1)}" rel="next">次へ<span aria-hidden="true">→</span></a>' if n < total else '<span class="bp-step off" aria-hidden="true">次へ<span>→</span></span>'
     cells = "".join(
@@ -1704,33 +1721,49 @@ def pager(n: int, total: int) -> str:
             f'{nxt}<p class="bp-cap"><b>{n}</b> / {total} ページ</p></nav>')
 
 
+def seg_nav(products: list[dict], g: str) -> str:
+    segs = [("", "すべて")] + SEGS
+    out = []
+    for s, name in segs:
+        k = len(seg_items(products, s))
+        if s and not k:
+            continue
+        inner = f'{e(name)}<span class="sg-k">{k}</span>'
+        out.append(f'<span class="sg" aria-current="page">{inner}</span>' if s == g else f'<a class="sg" href="{new_url(1, s)}">{inner}</a>')
+    return f'<nav class="segs" aria-label="製品カテゴリで絞る">{"".join(out)}</nav>'
+
+
 LEGEND = ('<div class="legend"><span class="pf-i pf-ac"><i></i></span>コンセント<span class="pf-i pf-c"><i></i></span>USB-C'
           '<span class="pf-i pf-a"><i></i></span>USB-A<span class="pf-i pf-cable"><i></i></span>内蔵ケーブル'
           '<span class="pf-i pf-wl"><i></i></span>ワイヤレス</div>')
 
 
-def new_list_section(products: list[dict], n: int, more: str = "") -> str:
-    order = new_order(products)
+def new_list_section(products: list[dict], n: int, more: str = "", g: str = "") -> str:
+    order = seg_items(products, g)
     total = max(1, -(-len(order) // NEW_PER))
     items = order[(n - 1) * NEW_PER:n * NEW_PER]
     count = f'<span class="pg-count">{len(order)}件中 {(n - 1) * NEW_PER + 1}〜{(n - 1) * NEW_PER + len(items)}件目</span>' if total > 1 else ""
+    h = (f'{e(SEG_NAME[g])}の新製品' if g else "新製品") + (f'<span class="pg-of"> {n}ページ目</span>' if n > 1 else "")
     return f"""<section class="band hlist" id="list"><div class="wrap">
-  <div class="sec-head"><h2><small>NEW ARRIVALS</small>新製品{f'<span class="pg-of"> {n}ページ目</span>' if n > 1 else ''}</h2><a href="/compare/">全機種の比べ表 →</a></div>
+  <div class="sec-head"><h2><small>NEW ARRIVALS</small>{h}</h2><a href="/compare/">全機種の比べ表 →</a></div>
+  {seg_nav(products, g)}
   {LEGEND}{count}
   <div class="hgrid">{''.join(home_card(p) for p in items)}</div>
-  {pager(n, total)}
+  {pager(n, total, g)}
   <p class="hlist-more"><a href="/usb-c/">USB-C の配り方の全機種表</a> ・ <a href="/tools/watt/">消費電力の計算機</a>{more}</p>
 </div></section>"""
 
 
-def build_new_page(products: list[dict], n: int, arts: list[dict]) -> str:
+def build_new_page(products: list[dict], n: int, arts: list[dict], g: str = "") -> str:
     more = ' ・ <a href="/q/">疑問に答える</a>' if arts else ""
-    body = f"<main>\n{new_list_section(products, n, more)}\n</main>"
-    return page(title=f"新製品 {n}ページ目", desc=SITE["description"], path=f"/new/{n}/", body=body)
+    body = f"<main>\n{new_list_section(products, n, more, g)}\n</main>"
+    name = f"{SEG_NAME[g]}の新製品" if g else "新製品"
+    title = name + (f" {n}ページ目" if n > 1 else "")
+    return page(title=title, desc=SITE["description"], path=new_path(n, g), body=body)
 
 
-def new_pages(products: list[dict]) -> int:
-    return max(1, -(-len(new_order(products)) // NEW_PER))
+def new_pages(products: list[dict], g: str = "") -> int:
+    return max(1, -(-len(seg_items(products, g)) // NEW_PER))
 
 
 def build_index(products: list[dict], arts: list[dict]) -> str:
@@ -1789,9 +1822,13 @@ def main() -> None:
     shutil.copytree(ROOT / "assets", OUT / "assets")
     urls = ["/", "/q/", "/compare/", "/tools/watt/", "/about/", "/privacy/", "/fixes/"]
     write("index.html", build_index(products, arts))
-    for n in range(2, new_pages(products) + 1):
-        write(f"new/{n}/index.html", build_new_page(products, n, arts))
-        urls.append(f"/new/{n}/")
+    for g in [""] + [s for s, _ in SEGS]:
+        if g and not seg_items(products, g):
+            continue
+        for n in range(1 if g else 2, new_pages(products, g) + 1):
+            path = new_path(n, g)
+            write(path.strip("/") + "/index.html", build_new_page(products, n, arts, g))
+            urls.append(path)
     write("p/index.html", build_post_index())
     urls.append("/p/")
     for a in POSTS:
