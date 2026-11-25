@@ -1689,13 +1689,19 @@ def new_url(n: int) -> str:
 
 
 def pager(n: int, total: int) -> str:
+    """電池の形のページ送り(2026-11-25 本人 OK = mock/v11)。目盛りがページで、今のページまでオレンジで満ちる"""
     if total <= 1:
         return ""
-    prev = f'<a class="pg-step" href="{new_url(n - 1)}" rel="prev">← 前へ</a>' if n > 1 else '<span class="pg-step off">← 前へ</span>'
-    nxt = f'<a class="pg-step" href="{new_url(n + 1)}" rel="next">次へ →</a>' if n < total else '<span class="pg-step off">次へ →</span>'
-    nums = "".join(f'<span class="pg-n" aria-current="page">{i}</span>' if i == n else f'<a class="pg-n" href="{new_url(i)}">{i}</a>'
-                   for i in range(1, total + 1))
-    return f'<nav class="pager" aria-label="新製品のページ">{prev}<span class="pg-nums">{nums}</span>{nxt}</nav>'
+    u = new_url
+    prev = f'<a class="bp-step" href="{u(n - 1)}" rel="prev"><span aria-hidden="true">←</span>前へ</a>' if n > 1 else '<span class="bp-step off" aria-hidden="true"><span>←</span>前へ</span>'
+    nxt = f'<a class="bp-step" href="{u(n + 1)}" rel="next">次へ<span aria-hidden="true">→</span></a>' if n < total else '<span class="bp-step off" aria-hidden="true">次へ<span>→</span></span>'
+    cells = "".join(
+        (f'<span class="bp-c on now" aria-current="page">{i:02d}</span>' if i == n else
+         f'<a class="bp-c{" on" if i < n else ""}" href="{u(i)}" aria-label="{i}ページ目">{i:02d}</a>')
+        for i in range(1, total + 1))
+    return (f'<nav class="bpager" aria-label="新製品のページ">{prev}'
+            f'<div class="bp-bat"><div class="bp-cells">{cells}</div><i class="bp-tip"></i></div>'
+            f'{nxt}<p class="bp-cap"><b>{n}</b> / {total} ページ</p></nav>')
 
 
 LEGEND = ('<div class="legend"><span class="pf-i pf-ac"><i></i></span>コンセント<span class="pf-i pf-c"><i></i></span>USB-C'
