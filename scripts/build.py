@@ -1009,9 +1009,19 @@ def appliance_table() -> str:
     rows = appliances()
     if not rows:
         return ""
-    trs = "".join(f'<tr><th>{e(a["name"])}</th><td>{e(a["label"])}</td><td><a href="{e(a["src"]["url"])}">{e(a["src"]["name"])}</a></td></tr>' for a in rows)
-    return ('<div class="tscroll"><table class="spec wtable"><thead><tr><th>家電</th><th>消費電力の目安</th><th>出典</th></tr></thead>'
-            f'<tbody>{trs}</tbody></table></div><p class="small">目安です。お使いの家電の本体の表示(銘板)か取扱説明書の消費電力を見てください。</p>')
+    link = lambda s: f'<a href="{e(s["url"])}">{e(s["name"])}</a>'
+    # 出典が全部の行で同じなら、列にせず表の下に1回だけ書く(2026-11-26 本人「1つにまとめて表示すればいい」)
+    one = len({a["source"] for a in rows}) == 1
+    if one:
+        trs = "".join(f'<tr><th>{e(a["name"])}</th><td>{e(a["label"])}</td></tr>' for a in rows)
+        head = "<th>家電</th><th>消費電力の目安</th>"
+        note = f'出典: {link(rows[0]["src"])}。'
+    else:
+        trs = "".join(f'<tr><th>{e(a["name"])}</th><td>{e(a["label"])}</td><td>{link(a["src"])}</td></tr>' for a in rows)
+        head = "<th>家電</th><th>消費電力の目安</th><th>出典</th>"
+        note = ""
+    return (f'<div class="tscroll"><table class="spec wtable"><thead><tr>{head}</tr></thead>'
+            f'<tbody>{trs}</tbody></table></div><p class="small">{note}目安です。お使いの家電の本体の表示(銘板)か取扱説明書の消費電力を見てください。</p>')
 
 
 def tool_card(name: str) -> str:
