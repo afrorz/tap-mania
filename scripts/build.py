@@ -1434,8 +1434,23 @@ def feature_item(i: int, it: dict) -> str:
 </article>"""
 
 
+def feature_thumb(it: dict) -> str:
+    return (f'<th><a class="fthumb" href="#{it["p"]["id"]}">'
+            f'{(chr(60) + "img src=" + chr(34) + e(it["p"]["image"]) + chr(34) + " alt=" + chr(34) + chr(34) + " loading=lazy referrerpolicy=no-referrer>") if it["p"].get("image") else "<i></i>"}'
+            f'<span>{e(it["p"]["maker"])} {e(it["p"]["model"])}</span></a></th>')
+
+
 def feature_table(f: dict) -> str:
-    """特集ごとの比べる項目。今はケーブル(items の cable: {kind, length, max_w})"""
+    """特集ごとの比べる項目。ケーブル(items の cable: {kind, length, max_w})か、
+    画面(screen: {where, shows}。2026-11-27 特集「画面付き」)"""
+    scr = [it for it in f["items"] if it.get("screen")]
+    if scr:
+        trs = "".join(
+            f'<tr>{feature_thumb(it)}<td>{e(CAT[it["p"]["category"]]["name"])}</td>'
+            f'<td>{e(it["screen"].get("where", ""))}</td><td>{e(it["screen"].get("shows", ""))}</td>'
+            f'<td class="num">{num(it["p"].get("weight_g"), "g")}</td></tr>' for it in scr)
+        return (f'<h2>ひと目で比べる</h2><div class="tscroll"><table class="ctable ftable"><thead><tr><th>機種</th><th>種類</th><th>画面の場所</th>'
+                f'<th>画面に出るもの</th><th>重さ</th></tr></thead><tbody>{trs}</tbody></table></div>')
     rows = [it for it in f["items"] if it.get("cable")]
     if not rows:
         return ""
