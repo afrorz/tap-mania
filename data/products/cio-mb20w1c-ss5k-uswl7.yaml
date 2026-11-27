@@ -1,0 +1,75 @@
+id: cio-mb20w1c-ss5k-uswl7   # 型番そのまま(英小文字)。メーカー名の CIO は型番の頭と重なるので足さない
+maker: CIO
+model: SMARTCOBY ULTRA SLIM SS5K   # 型番 CIO-MB20W1C-SS5K-USWL7 は長く、見出しで読めないので製品名にした(型番は name と q に)
+name: "SMARTCOBY ULTRA SLIM SS5K(CIO-MB20W1C-SS5K-USWL7)"
+category: battery
+released: "2026-11"   # 2026-11-27 に Amazon・楽天の CIO 公式ストアで予約販売を開始、一部の家電量販店・CIO STORE では販売開始(PR TIMES)。2026年9月に Makuake で先行販売
+image: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_02-SL.jpg"   # 写真はシルバー。仕様は色で変わらない
+images:   # 製品ページの写真の列。1枚目は image。「燃えにくい」の画像(No_04)は入れない
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_11-BK.jpg", alt: "ブラック", color: "ブラック"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_06.jpg", alt: "シルバーとブラック"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_03-BK.jpg", alt: "約112g"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_10-SL.jpg", alt: "部品ごとの厚さ"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_09.jpg", alt: "アプリで見る電池の状態"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_07-SL.jpg", alt: "スマホに付けてワイヤレス充電"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_08-SL.jpg", alt: "充電器につないでワイヤレス充電器として使う(パススルー)"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_12.jpg", alt: "4つの LED で残量を25%刻みに表示"}
+  - {src: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261106_SMARTCOBY-ULTRA-SLIM-SS5K_No_13_SL.jpg", alt: "スマホと並べた厚さ"}
+image_credit: "CIO 公式サイト"
+official_url: "https://connectinternationalone.co.jp/cioproduct/mobilebattery/smartcoby/cio-mb20w1c-ss5k-uswl7/"
+manual_url: "https://connectinternationalone.co.jp/wp/wp-content/uploads/2026/11/261022_SMARTCOBY-ULTRA-SLIM-SS5K_v7.pdf"
+checked: 2026-11-27
+
+pse:
+  status: unconfirmed
+  mark: round
+  how: "製品ページ・公式の製品画像12枚・取扱説明書の仕様の面(p.12)のどれにも、PSE マーク・届出事業者名の表示なし"
+  date: 2026-11-27
+
+battery:
+  mah: 5000
+  wh: 19.25
+  rated_mah: 2800   # 製品仕様・取扱説明書 p.12「定格容量: 2800mAh(5V⎓3A)」
+  cell: "半固体系バッテリーセル(CIO の定義に基づく呼び方)"
+  input_w: 15        # 5V⎓3A/9V⎓1.67A
+  recharge_time: "約120分"
+  passthrough: true
+  safety: "半固体系バッテリーセルと、電圧・電流・温度の監視・制御を組み合わせた設計(公式の書き方)。300サイクル相当で充電機能が止まる「NovaCore C3」"
+size: "約101.4 × 69.4 × 6.93mm"
+weight_g: 112
+usb:
+  ports:
+    - {name: "USB-C", type: C, max_w: 20}              # 5V⎓3A/9V⎓2.22A/PPS 5-11V⎓1.8A。入力兼用
+    - {name: "ワイヤレス", type: wireless, max_w: 7.5}  # 製品ページ「ワイヤレス出力は最大7.5W」。仕様欄の表記は 5W/7.5W/EPP15W
+  sharing:
+    - {use: "ワイヤレス+USB-C", out: "同時には使えない(有線が優先される)"}
+  sharing_source: "製品ページ「USB-C有線給電とワイヤレス給電による2台同時充電には対応していません」、取扱説明書 p.9「ワイヤレス充電と有線充電の同時充電には対応していません。同時に接続した場合は、有線充電を優先します」"
+  pd: true
+  pps: true
+colors: [シルバー, ブラック]
+warranty: "1年"
+seller_jp: "株式会社CIO"
+recall_checked: 2026-11-27
+recall: none
+
+stores: [rakuten, amazon]
+q: "CIO-MB20W1C-SS5K-USWL7"
+price: "7,980円(税込・メーカー希望小売価格)"
+note: |
+  容量の公式の書き方: 「5000mAh/3.85V/19.25Wh」、定格容量 2800mAh(5V⎓3A)。充電時間は約120分。取扱説明書 p.8 は20W以上の USB 充電器を勧めている。
+  ワイヤレス出力: 製品ページの本文は「最大7.5W」「Qi2の15W/25Wワイヤレス充電には対応していません」。仕様欄と取扱説明書 p.12 の表記は「5W/7.5W/EPP15W」で、EPP15W がどの機器で出るのかは書かれていない。公式画像 No_12 の仕様表は「最大7.5W」。
+  公式画像 No_10 に部品ごとの厚さ: ステンレス筐体 0.30mm・半固体系バッテリーセル 4.87mm・磁気コイル 0.8mm・ガラス繊維強化プラスチック 0.35mm(内部ケースの厚さは書かれていない)。前の型 SMARTCOBY ULTRA SLIM 3K は 3000mAh・4.98mm(公式画像 No_13)。
+  NovaCore C3: USB-C の対応スマホと有線でつなぎ、CIO 公式アプリで健康状態(100%から減る数値)・セル温度・サイクル数・出力を見られる。Lightning 端子の iPhone は非対応。アプリなしでも使える。アプリの画面にはワイヤレス出力の設定と低電流モードの設定もある(公式画像 No_09)。
+  300サイクル(容量100%分の充放電で1回。抜き差しの回数ではない)に達すると、充電機能が一時的にロックされる。取扱説明書の操作(ボタンをすばやく10回押す)かアプリで解除でき、解除後は20サイクルごとにお知らせが出る。CIO は300サイクル後の使用を勧めておらず、解除して使い続けた後の不具合は保証の対象外(取説 p.6・p.13・p.15)。
+  LED は5つ。右の4つで残量を25%刻みに出し、左端はワイヤレス充電中に紫、パススルー中に紫、150回からのサイクル数の知らせで赤に光る(取説 p.8・p.9・p.13)。
+  付属品: 製品ページの仕様欄は「取扱説明書(日本語/English)」だけだが、取扱説明書 p.12 と公式画像 No_12 は USB-C to USB-C ケーブルも付属と書いている。
+  iPhone 17 へワイヤレスで約0.75回・有線で約0.85回(PR TIMES・公式画像 No_06)。iPhone 17 Pro へは有線で約0.7回・ワイヤレスで約0.6回(製品ページの FAQ)。
+  Yahoo! ショッピングでは型番で見つからなかった(2026-11-27)。Amazon は B0H98MR6TB(製品ページのリンク)と B0H98HFB4N(PR TIMES のリンク)の2色、楽天は machinoomise の店。
+  CIO の過去の回収は SMARTCOBY Ex01 SLIM Qi2 & CABLE(2025-01-27)で、型番が違う。消費者庁リコール情報サイトで「SMARTCOBY」「SS5K」「MB20W1C」を検索し、この型番は該当なし(2026-11-27)。NITE は未確認。
+  出典: 製品ページ・取扱説明書(上の URL、2026-11-27 取得)、PR TIMES https://prtimes.jp/main/html/rd/p/000000723.000043212.html
+pitch:   # 製品ページの頭の「特徴」(公式の事実だけ。安全の話は入れない)
+  lead: "5000mAh の電池を、厚さ約6.93mm・約112g のステンレスの薄い箱に収めたマグネット式のバッテリーです。電池の健康度とサイクル数を、CIO のアプリで数字で見られます。"
+  points:
+    - "部品ごとの厚さを公式が出していて、セルが4.87mm、ステンレスの筐体が0.30mm"
+    - "スマホの背面に付けてワイヤレスで最大7.5W、USB-C の有線なら最大20W"
+    - "USB-C のスマホとつなぐと、アプリで健康度・サイクル数・セル温度・出力が見える"
